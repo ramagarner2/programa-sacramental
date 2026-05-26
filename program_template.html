@@ -394,6 +394,221 @@
       }
     }
 
+
+    /* ── FORCED MOBILE VIEW FALLBACK ── */
+    html.mobile-program,
+    html.mobile-program body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    html.mobile-program body {
+      background: white !important;
+      font-size: 16px !important;
+      line-height: 1.45 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    html.mobile-program .screen-note {
+      font-size: 12px !important;
+      padding: 10px 12px !important;
+      line-height: 1.35 !important;
+      width: 100% !important;
+    }
+
+    html.mobile-program .program-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    html.mobile-program .page {
+      display: contents !important;
+      height: auto !important;
+      min-height: 0 !important;
+      width: 100% !important;
+      border-bottom: none !important;
+      page-break-after: auto !important;
+    }
+
+    html.mobile-program .panel {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      padding: 24px 20px !important;
+      border-right: none !important;
+      border-bottom: 1px solid #d8d8d8 !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+
+    html.mobile-program .panel-front-cover { order: 1 !important; }
+    html.mobile-program .panel-service { order: 2 !important; }
+    html.mobile-program .panel-announcements { order: 3 !important; }
+    html.mobile-program .panel-back-cover { order: 4 !important; }
+
+    html.mobile-program h1 {
+      font-size: 28px !important;
+      line-height: 1.15 !important;
+    }
+
+    html.mobile-program h2 {
+      font-size: 24px !important;
+      line-height: 1.2 !important;
+    }
+
+    html.mobile-program h3 {
+      font-size: 16px !important;
+      line-height: 1.3 !important;
+    }
+
+    html.mobile-program .cover-image {
+      height: auto !important;
+      max-height: 420px !important;
+      width: 100% !important;
+      object-fit: contain !important;
+      margin: 16px 0 !important;
+    }
+
+    html.mobile-program .section-header {
+      font-size: 18px !important;
+      padding: 9px 12px !important;
+      margin: 18px 0 10px 0 !important;
+    }
+
+    html.mobile-program .visitor-block p,
+    html.mobile-program .weekly-ann,
+    html.mobile-program .announcement .ann-detail {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+    }
+
+    html.mobile-program .service-table {
+      height: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: fixed !important;
+      margin-top: 16px !important;
+    }
+
+    html.mobile-program .service-table tr {
+      display: grid !important;
+      grid-template-columns: 42% 58% !important;
+      align-items: center !important;
+      min-height: 44px !important;
+    }
+
+    html.mobile-program .service-table td {
+      display: block !important;
+      width: auto !important;
+      padding: 10px 4px !important;
+      font-size: 16px !important;
+      line-height: 1.35 !important;
+      vertical-align: middle !important;
+    }
+
+    html.mobile-program .service-table td[colspan="2"] {
+      grid-column: 1 / -1 !important;
+      min-height: 8px !important;
+      padding: 4px 0 !important;
+    }
+
+    html.mobile-program .service-table .label {
+      text-align: left !important;
+      padding-right: 10px !important;
+    }
+
+    html.mobile-program .service-table .value {
+      text-align: right !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    html.mobile-program .service-table .centered,
+    html.mobile-program .service-table .centered-bold {
+      grid-column: 1 / -1 !important;
+      text-align: center !important;
+    }
+
+    html.mobile-program .fast-sunday-block {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+      margin: 18px 0 !important;
+      padding: 0 4px !important;
+    }
+
+    html.mobile-program .qr-announcement {
+      display: grid !important;
+      grid-template-columns: 1fr 96px !important;
+      gap: 14px !important;
+      align-items: center !important;
+      padding: 12px !important;
+      margin: 14px 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    html.mobile-program .qr-announcement .qr-text,
+    html.mobile-program .qr-announcement .qr-text div {
+      min-width: 0 !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    html.mobile-program .qr-announcement .qr-code {
+      width: 90px !important;
+      height: 90px !important;
+      margin-left: 0 !important;
+      flex-shrink: 0 !important;
+    }
+
+    html.mobile-program hr.divider {
+      margin: 18px 0 !important;
+    }
+
+    html.mobile-program .church-footer {
+      font-size: 13px !important;
+      line-height: 1.35 !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      html.mobile-program .panel {
+        padding: 22px 16px !important;
+      }
+
+      html.mobile-program .service-table tr {
+        grid-template-columns: 40% 60% !important;
+      }
+
+      html.mobile-program .service-table td {
+        font-size: 15px !important;
+      }
+
+      html.mobile-program .qr-announcement {
+        grid-template-columns: 1fr 86px !important;
+        gap: 10px !important;
+      }
+
+      html.mobile-program .qr-announcement .qr-code {
+        width: 82px !important;
+        height: 82px !important;
+      }
+    }
+
+    @supports not (display: contents) {
+      html.mobile-program .page {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    }
+
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -589,6 +804,21 @@
   </div><!-- end page 2 -->
 
 </div><!-- end program-wrapper -->
+
+
+<script>
+(function () {
+  function setMobileProgramClass() {
+    var mobileWidth = window.matchMedia("(max-width: 900px)").matches;
+    var touchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    document.documentElement.classList.toggle("mobile-program", mobileWidth || touchDevice);
+  }
+
+  setMobileProgramClass();
+  window.addEventListener("resize", setMobileProgramClass);
+  window.addEventListener("orientationchange", setMobileProgramClass);
+})();
+</script>
 
 </body>
 </html>
