@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Agenda Sacramental — Rama Garner 2</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: letter portrait;
+      margin: 0.75in;
+    }
+
+    @media print {
+      body { background: white; }
+      .no-print { display: none; }
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 11pt;
+      color: #111;
+      background: #f0f0f0;
+      padding: 0.5in;
+    }
+
+    .page {
+      max-width: 7.5in;
+      margin: 0 auto;
+      background: white;
+      padding: 0.6in 0.7in;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    /* TITLE */
+    .doc-title {
+      text-align: center;
+      font-size: 16pt;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .doc-date {
+      text-align: center;
+      font-size: 13pt;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .welcome {
+      text-align: center;
+      font-style: italic;
+      font-size: 10.5pt;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1.5px solid #2E5FA3;
+      margin: 10px 0;
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      background: #1F3864;
+      color: white;
+      font-weight: bold;
+      font-size: 11pt;
+      padding: 7px 12px;
+      margin: 16px 0 8px 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* FIELD ROWS */
+    .field-row {
+      display: flex;
+      padding: 6px 8px;
+      font-size: 10.5pt;
+      line-height: 1.4;
+    }
+
+    .field-row.shaded { background: #EBF0FA; }
+
+    .field-label {
+      font-weight: bold;
+      min-width: 220px;
+      flex-shrink: 0;
+    }
+
+    .field-value { flex: 1; }
+
+    /* BODY TEXT */
+    .body-text {
+      font-size: 10.5pt;
+      padding: 4px 8px;
+      line-height: 1.5;
+    }
+
+    /* SUB HEADER */
+    .sub-header {
+      font-weight: bold;
+      font-size: 10.5pt;
+      padding: 8px 8px 2px 8px;
+    }
+
+    /* PRAYER TEXT */
+    .prayer {
+      font-size: 10pt;
+      font-style: italic;
+      color: #444;
+      padding: 4px 8px 4px 32px;
+      line-height: 1.6;
+    }
+
+    /* MARKER - tiny gray, print hidden */
+    .marker {
+      font-size: 7pt;
+      color: #bbb;
+      padding: 0 8px;
+      line-height: 1.2;
+    }
+
+    @media print {
+      .marker { display: none; }
+    }
+
+    /* BLANK SPACE */
+    .gap { height: 10px; }
+
+    /* HIDDEN BLOCKS */
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TITLE -->
+  <div class="doc-title">Rama Garner 2</div>
+  <div class="doc-date">Reunión de Ayuno y Testimonio</div>
+  <div class="doc-date">FECHA: 7 de junio de 2026</div>
+  <hr class="divider">
+  <div class="welcome">Damos la bienvenida a miembros, visitantes y visitantes especiales</div>
+  <hr class="divider">
+
+  <!-- INFORMACIÓN GENERAL -->
+  <div class="section-header">INFORMACIÓN GENERAL</div>
+  <div class="field-row"><span class="field-label">PRESIDE:</span><span class="field-value">Presidente Luis E Campos</span></div>
+  <div class="field-row shaded"><span class="field-label">DIRIGE:</span><span class="field-value">Luis Campos</span></div>
+  <div class="field-row"><span class="field-label">PIANISTA:</span><span class="field-value">Hermana Basilio</span></div>
+  <div class="field-row shaded"><span class="field-label">DIRIGE LA MÚSICA:</span><span class="field-value">Hermana Basilio</span></div>
+
+  <div id="bloque-estaca" class="hidden">
+    <div class="field-row"><span class="field-label">RECONOCEMOS LA PRESENCIA:</span><span class="field-value"></span></div>
+  </div>
+  <hr class="divider">
+
+  <!-- ANUNCIOS -->
+  <div id="bloque-anuncios">
+    <div class="section-header">ANUNCIOS</div>
+    <div class="body-text">Este domingo celebramos nuestra primera reunión como Rama Garner 2.</div>
+    <hr class="divider">
+  </div>
+
+  <!-- APERTURA -->
+  <div class="section-header">APERTURA</div>
+  <div class="field-row"><span class="field-label">HIMNO DE APERTURA:</span><span class="field-value">#49 Señor, te necesito</span></div>
+  <div class="field-row shaded"><span class="field-label">PRIMERA ORACIÓN:</span><span class="field-value">Por invitación</span></div>
+  <hr class="divider">
+
+  <!-- ASUNTOS DE RAMA -->
+  <div class="section-header">ASUNTOS DE RAMA</div>
+
+  <div id="bloque-relevos" class="hidden">
+    <div class="sub-header">Relevos</div>
+    <div class="body-text">Los siguientes individuos han sido relevados, y proponemos que se les dé un voto de agradecimiento por su servicio.</div>
+    <div class="gap"></div>
+    <div class="body-text"></div>
+    <div class="gap"></div>
+    <div class="body-text">Aquellos que deseen expresar su agradecimiento, pueden manifestarlo levantando la mano.</div>
+    <div class="gap"></div>
+  </div>
+
+  <div id="bloque-sostenimientos" class="hidden">
+    <div class="sub-header">Llamamientos</div>
+    <div class="body-text">Se propone que los siguientes individuos sean sostenidos en llamamientos de rama.</div>
+    <div class="body-text">Por favor, pónganse de pie al leer sus nombres.</div>
+    <div class="gap"></div>
+    <div class="body-text"></div>
+    <div class="gap"></div>
+    <div class="body-text">Todos los que estén a favor pueden manifestarlo levantando la mano. (Pausar por el voto).</div>
+    <div class="body-text">Aquellos en contra, si los hay, pueden manifestarlo de la misma manera.</div>
+    <div class="gap"></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ORDENACIONES -->
+  <div id="bloque-ordenacion" class="hidden">
+    <div class="section-header">ORDENACIONES</div>
+    <div class="body-text">También proponemos que el Hno. </div>
+    <div class="gap"></div>
+    <div class="body-text">Los que estén a favor, sírvanse indicarlo levantando la mano. [Breve pausa].</div>
+    <div class="gap"></div>
+    <div class="body-text">Opuestos, si los hay, también pueden manifestarlo. [Breve pausa].</div>
+    <hr class="divider">
+  </div>
+
+  <!-- CONFIRMACIÓN -->
+  <div id="bloque-confirmacion" class="hidden">
+    <div class="section-header">CONFIRMACIÓN</div>
+    <div class="body-text"> fue bautizado(a) recientemente y ahora será confirmado(a) miembro de La Iglesia de Jesucristo de los Santos de los Últimos Días y recibirá el Espíritu Santo. Invitamos a  a pasar al frente.</div>
+    <div class="gap"></div>
+    <div class="body-text">Después de la confirmación, invitaremos a la congregación a dar la bienvenida a  como nuevo(a) miembro de la rama levantando la mano.</div>
+    <hr class="divider">
+  </div>
+
+  <!-- ASUNTOS DE ESTACA -->
+  <div id="bloque-asuntos-estaca" class="hidden">
+    <div class="section-header">ASUNTOS DE ESTACA</div>
+    <div class="body-text"> tiene asuntos de Estaca.</div>
+    <div class="body-text">Después de los asuntos prepararemos para la Santa Cena, cantando el himno sacramental.</div>
+    <hr class="divider">
+  </div>
+
+  <!-- SANTA CENA -->
+  <div class="section-header">SANTA CENA</div>
+  <div class="field-row"><span class="field-label">HIMNO SACRAMENTAL:</span><span class="field-value">#110 En memoria de Tu muerte</span></div>
+  <div class="gap"></div>
+  <div class="sub-header">Bendición del Pan:</div>
+  <div class="prayer">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques este pan para las almas de todos los que participen de él, para que lo coman en memoria del cuerpo de tu Hijo, y testifiquen ante ti, oh Dios, Padre Eterno, que están dispuestos a tomar sobre sí el nombre de tu Hijo, y a recordarle siempre, y a guardar sus mandamientos que él les ha dado, para que siempre puedan tener su Espíritu consigo. Amén.</div>
+  <div class="gap"></div>
+  <div class="sub-header">Bendición del Agua:</div>
+  <div class="prayer">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques esta agua para las almas de todos los que la beban, para que lo hagan en memoria de la sangre de tu Hijo, que por ellos se derramó; para que testifiquen ante ti, oh Dios, Padre Eterno, que siempre se acuerdan de él, para que puedan tener su Espíritu consigo. Amén.</div>
+  <hr class="divider">
+
+
+  <!-- AYUNO Y TESTIMONIO -->
+  <div id="bloque-ayuno-agenda">
+    <div class="section-header">AYUNO Y TESTIMONIO</div>
+    <div class="body-text">Después de la administración de la Santa Cena, los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio.</div>
+    <div class="gap"></div>
+    <div class="body-text">No hay discursos asignados durante la reunión de ayuno y testimonio.</div>
+    <hr class="divider">
+  </div>
+
+  <!-- DISCURSANTES -->
+  <div id="bloque-discursantes" class="hidden">
+    <div class="section-header">DISCURSANTES</div>
+    <div class="field-row"><span class="field-label">PRIMER DISCURSANTE:</span><span class="field-value"></span></div>
+    <div class="field-row shaded"><span class="field-label">SEGUNDO DISCURSANTE:</span><span class="field-value"></span></div>
+    <div id="bloque-numero-musical" class="hidden">
+      <div class="field-row"><span class="field-label">HIMNO INTERMEDIO:</span><span class="field-value"></span></div>
+    </div>
+    <div class="field-row"><span class="field-label">ÚLTIMO DISCURSANTE:</span><span class="field-value"></span></div>
+    <hr class="divider">
+  </div>
+
+  <!-- CIERRE -->
+  <div class="section-header">CIERRE</div>
+  <div class="field-row"><span class="field-label">HIMNO DE CIERRE:</span><span class="field-value">#41 ¡Grande eres Tú!</span></div>
+  <div class="field-row shaded"><span class="field-label">ÚLTIMA ORACIÓN:</span><span class="field-value">Por invitación</span></div>
+
+</div>
+</body>
+</html>
