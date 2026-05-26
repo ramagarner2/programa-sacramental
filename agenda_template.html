@@ -93,6 +93,13 @@
 
     .field-value { flex: 1; }
 
+    .write-in-line {
+      display: block;
+      min-height: 18px;
+      border-bottom: 1px solid #111;
+      width: 100%;
+    }
+
     /* BODY TEXT */
     .body-text {
       font-size: 10.5pt;
@@ -153,8 +160,9 @@
   <div class="field-row"><span class="field-label">PIANISTA:</span><span class="field-value">{{pianista}}</span></div>
   <div class="field-row shaded"><span class="field-label">DIRIGE LA MÚSICA:</span><span class="field-value">{{conductora_musica}}</span></div>
 
-  <div id="bloque-estaca" class="hidden">
-    <div class="field-row"><span class="field-label">RECONOCEMOS LA PRESENCIA:</span><span class="field-value">{{estaca_presencia}}</span></div>
+  <div class="field-row">
+    <span class="field-label">RECONOCEMOS LA PRESENCIA DE:</span>
+    <span class="field-value"><span class="write-in-line">&nbsp;</span></span>
   </div>
   <hr class="divider">
 
