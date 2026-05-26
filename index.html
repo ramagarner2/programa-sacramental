@@ -205,6 +205,410 @@
       margin: 10px 0;
     }
 
+
+    /* ── MOBILE VIEW: same file, phone-friendly layout ── */
+    @media screen and (max-width: 768px) {
+      body {
+        background: white;
+        font-size: 16px;
+        line-height: 1.45;
+        overflow-x: hidden;
+      }
+
+      .screen-note {
+        font-size: 12px;
+        padding: 10px 12px;
+        line-height: 1.35;
+      }
+
+      .program-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .page {
+        display: contents;
+        height: auto;
+        border-bottom: none;
+        page-break-after: auto;
+      }
+
+      .panel {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 24px 20px;
+        border-right: none;
+        border-bottom: 1px solid #d8d8d8;
+        overflow: visible;
+      }
+
+      .panel-front-cover { order: 1; }
+      .panel-service { order: 2; }
+      .panel-announcements { order: 3; }
+      .panel-back-cover { order: 4; }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.15;
+      }
+
+      h2 {
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      h3 {
+        font-size: 16px;
+        line-height: 1.3;
+      }
+
+      .cover-image {
+        height: auto;
+        max-height: 420px;
+        width: 100%;
+        object-fit: contain;
+        margin: 16px 0;
+      }
+
+      .section-header {
+        font-size: 18px;
+        padding: 9px 12px;
+        margin: 18px 0 10px 0;
+      }
+
+      .visitor-block p,
+      .weekly-ann,
+      .announcement .ann-detail {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .service-table {
+        height: auto !important;
+        width: 100% !important;
+        table-layout: fixed;
+        margin-top: 16px;
+      }
+
+      .service-table tr {
+        display: grid;
+        grid-template-columns: 42% 58%;
+        align-items: center;
+        min-height: 44px;
+      }
+
+      .service-table td {
+        display: block;
+        width: auto !important;
+        padding: 10px 4px;
+        font-size: 16px;
+        line-height: 1.35;
+      }
+
+      .service-table td[colspan="2"] {
+        grid-column: 1 / -1;
+        min-height: 8px;
+        padding: 4px 0 !important;
+      }
+
+      .service-table .label {
+        text-align: left;
+        padding-right: 10px;
+      }
+
+      .service-table .value {
+        text-align: right;
+        overflow-wrap: anywhere;
+      }
+
+      .service-table .centered,
+      .service-table .centered-bold {
+        grid-column: 1 / -1;
+        text-align: center;
+      }
+
+      .fast-sunday-block {
+        font-size: 16px;
+        line-height: 1.55;
+        margin: 18px 0;
+        padding: 0 4px;
+      }
+
+      .qr-announcement {
+        display: grid !important;
+        grid-template-columns: 1fr 96px;
+        gap: 14px;
+        align-items: center !important;
+        padding: 12px !important;
+        margin: 14px 0 !important;
+      }
+
+      .qr-announcement .qr-text,
+      .qr-announcement .qr-text div {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .qr-announcement .qr-code {
+        width: 90px !important;
+        height: 90px !important;
+        margin-left: 0 !important;
+      }
+
+      hr.divider {
+        margin: 18px 0;
+      }
+
+      .church-footer {
+        font-size: 13px;
+        line-height: 1.35;
+      }
+    }
+
+    @media screen and (max-width: 420px) {
+      .panel {
+        padding: 22px 16px;
+      }
+
+      .service-table tr {
+        grid-template-columns: 40% 60%;
+      }
+
+      .service-table td {
+        font-size: 15px;
+      }
+
+      .qr-announcement {
+        grid-template-columns: 1fr 86px;
+        gap: 10px;
+      }
+
+      .qr-announcement .qr-code {
+        width: 82px !important;
+        height: 82px !important;
+      }
+    }
+
+
+    /* ── FORCED MOBILE VIEW FALLBACK ── */
+    html.mobile-program,
+    html.mobile-program body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    html.mobile-program body {
+      background: white !important;
+      font-size: 16px !important;
+      line-height: 1.45 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    html.mobile-program .screen-note {
+      font-size: 12px !important;
+      padding: 10px 12px !important;
+      line-height: 1.35 !important;
+      width: 100% !important;
+    }
+
+    html.mobile-program .program-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    html.mobile-program .page {
+      display: contents !important;
+      height: auto !important;
+      min-height: 0 !important;
+      width: 100% !important;
+      border-bottom: none !important;
+      page-break-after: auto !important;
+    }
+
+    html.mobile-program .panel {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      padding: 24px 20px !important;
+      border-right: none !important;
+      border-bottom: 1px solid #d8d8d8 !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+
+    html.mobile-program .panel-front-cover { order: 1 !important; }
+    html.mobile-program .panel-service { order: 2 !important; }
+    html.mobile-program .panel-announcements { order: 3 !important; }
+    html.mobile-program .panel-back-cover { order: 4 !important; }
+
+    html.mobile-program h1 {
+      font-size: 28px !important;
+      line-height: 1.15 !important;
+    }
+
+    html.mobile-program h2 {
+      font-size: 24px !important;
+      line-height: 1.2 !important;
+    }
+
+    html.mobile-program h3 {
+      font-size: 16px !important;
+      line-height: 1.3 !important;
+    }
+
+    html.mobile-program .cover-image {
+      height: auto !important;
+      max-height: 420px !important;
+      width: 100% !important;
+      object-fit: contain !important;
+      margin: 16px 0 !important;
+    }
+
+    html.mobile-program .section-header {
+      font-size: 18px !important;
+      padding: 9px 12px !important;
+      margin: 18px 0 10px 0 !important;
+    }
+
+    html.mobile-program .visitor-block p,
+    html.mobile-program .weekly-ann,
+    html.mobile-program .announcement .ann-detail {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+    }
+
+    html.mobile-program .service-table {
+      height: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: fixed !important;
+      margin-top: 16px !important;
+    }
+
+    html.mobile-program .service-table tr {
+      display: grid !important;
+      grid-template-columns: 42% 58% !important;
+      align-items: center !important;
+      min-height: 44px !important;
+    }
+
+    html.mobile-program .service-table td {
+      display: block !important;
+      width: auto !important;
+      padding: 10px 4px !important;
+      font-size: 16px !important;
+      line-height: 1.35 !important;
+      vertical-align: middle !important;
+    }
+
+    html.mobile-program .service-table td[colspan="2"] {
+      grid-column: 1 / -1 !important;
+      min-height: 8px !important;
+      padding: 4px 0 !important;
+    }
+
+    html.mobile-program .service-table .label {
+      text-align: left !important;
+      padding-right: 10px !important;
+    }
+
+    html.mobile-program .service-table .value {
+      text-align: right !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    html.mobile-program .service-table .centered,
+    html.mobile-program .service-table .centered-bold {
+      grid-column: 1 / -1 !important;
+      text-align: center !important;
+    }
+
+    html.mobile-program .fast-sunday-block {
+      font-size: 16px !important;
+      line-height: 1.55 !important;
+      margin: 18px 0 !important;
+      padding: 0 4px !important;
+    }
+
+    html.mobile-program .qr-announcement {
+      display: grid !important;
+      grid-template-columns: 1fr 96px !important;
+      gap: 14px !important;
+      align-items: center !important;
+      padding: 12px !important;
+      margin: 14px 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    html.mobile-program .qr-announcement .qr-text,
+    html.mobile-program .qr-announcement .qr-text div {
+      min-width: 0 !important;
+      overflow-wrap: anywhere !important;
+    }
+
+    html.mobile-program .qr-announcement .qr-code {
+      width: 90px !important;
+      height: 90px !important;
+      margin-left: 0 !important;
+      flex-shrink: 0 !important;
+    }
+
+    html.mobile-program hr.divider {
+      margin: 18px 0 !important;
+    }
+
+    html.mobile-program .church-footer {
+      font-size: 13px !important;
+      line-height: 1.35 !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      html.mobile-program .panel {
+        padding: 22px 16px !important;
+      }
+
+      html.mobile-program .service-table tr {
+        grid-template-columns: 40% 60% !important;
+      }
+
+      html.mobile-program .service-table td {
+        font-size: 15px !important;
+      }
+
+      html.mobile-program .qr-announcement {
+        grid-template-columns: 1fr 86px !important;
+        gap: 10px !important;
+      }
+
+      html.mobile-program .qr-announcement .qr-code {
+        width: 82px !important;
+        height: 82px !important;
+      }
+    }
+
+    @supports not (display: contents) {
+      html.mobile-program .page {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    }
+
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -224,7 +628,7 @@
   <div class="page">
 
     <!-- BACK COVER — Visitor info -->
-    <div class="panel">
+    <div class="panel panel-back-cover">
       <div class="section-header">¿Es su primera vez?</div>
       <h3 style="text-align:center; margin-bottom:10px;">INFORMACIÓN PARA SU VISITA</h3>
 
@@ -249,7 +653,7 @@
     </div>
 
     <!-- FRONT COVER -->
-    <div class="panel" style="text-align:center;">
+    <div class="panel panel-front-cover" style="text-align:center;">
       <h1 id="branch-name">Rama Garner 2</h1>
       <h2 id="fecha-display" style="font-weight:normal; font-size:13pt; margin-bottom:8px;">7 de junio de 2026</h2>
 
@@ -276,7 +680,7 @@
   <div class="page">
 
     <!-- INSIDE LEFT — Announcements -->
-    <div class="panel">
+    <div class="panel panel-announcements">
       <div class="section-header">ANUNCIOS</div>
 
       <!-- Weekly announcements — hidden if blank -->
@@ -285,8 +689,8 @@
       </div>
 
       <!-- EnglishConnect -->
-      <div style="display:flex; align-items:center; justify-content:space-between; margin: 10px 0; padding: 8px; border-left: 3px solid #1F3864;">
-        <div style="flex:1;">
+      <div class="qr-announcement" style="display:flex; align-items:center; justify-content:space-between; margin: 10px 0; padding: 8px; border-left: 3px solid #1F3864;">
+        <div class="qr-text" style="flex:1;">
           <div style="font-weight:bold; font-size:11pt;">Clases gratuitas de inglés</div>
           <div style="font-weight:bold; font-size:10pt; margin-top:4px;">EnglishConnect</div>
           <div style="font-size:10pt; color:#444; margin-top:2px;">
@@ -294,26 +698,26 @@
             1433 Aversboro Road, Garner, NC
           </div>
         </div>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2AQAAAADNaUdlAAACYklEQVR4nO2ZQYrcQAxFX3UZeilDDpCjyDcb+mbVR5kbyMtAmZ+FamZCID1DEjIuiPDCWAt/q6SvL7mIR3ZcHrrhv//P/CgAqhrQxzOvymPx/tn4PuB3SUBVW0w1vOp2rFRJcQp87/pL2di3Y0XPW+fecfaNvSwnwfdB//6E3TCVUrq1f//+3/Ivr3fa1+NLHIv3L8Hz9o/e/zf8UgMwXeN+1a3Gvaxg6ifB99AG/4T/dAEz8A9KCxSucKx1U8fz8QT4wxn871JTeAcsGXUO/FWSVMMxJXKFd1O38+O/wP0opZQC9L3UQGplZQH27Qz4HpvUMm0y5lkIney/56/fC7DsW1k5VuAOvnC/qh1lK+s58D00hYMr6NZqeIc8hUnyHwWYsDY+RK2GYw3oE/D/BWvsW9+3xZpi6IkagGPtBPjeMWW3NUmtBh3v1jCBM0X+qGHqOKYqYW00MrUZ8v/C/gT3BRQcKwpyfinrLPyvlJodr1LN+oWaHeGz8X0k//sYGxvWqlQDUpHOoX9IzVmDMbabFFkCM+BXGylkAn/7ijn4f6idlEA1vFvruIacniH+4d1aRj4lRJIneJ2jfnPU9RfZ04CZ8j8ca0k+3ZpSNmdHmyD/L0AN+r4B4KWUBWrcr7rNsH/L+n2hHWt64X9ghvi/7R9qeO5ShgTKEeCz8X10/yOlYKvBDyugGeIfPnLGVKXk/zyLSeLvSfU5PCb/A8zDP8PsVtW+fb0d5UnBqOIT4XvHf6x+rNTn7RqUrxor9PPg+4WN/H9bgb4sD6fR//A6sI8p5nUKOD/+8v//6af6vwMRn/v//PjPWAAAAABJRU5ErkJggg==" alt="QR EnglishConnect" style="width:90px; height:90px; margin-left:16px; flex-shrink:0;">
+        <img class="qr-code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2AQAAAADNaUdlAAACYklEQVR4nO2ZQYrcQAxFX3UZeilDDpCjyDcb+mbVR5kbyMtAmZ+FamZCID1DEjIuiPDCWAt/q6SvL7mIR3ZcHrrhv//P/CgAqhrQxzOvymPx/tn4PuB3SUBVW0w1vOp2rFRJcQp87/pL2di3Y0XPW+fecfaNvSwnwfdB//6E3TCVUrq1f//+3/Ivr3fa1+NLHIv3L8Hz9o/e/zf8UgMwXeN+1a3Gvaxg6ifB99AG/4T/dAEz8A9KCxSucKx1U8fz8QT4wxn871JTeAcsGXUO/FWSVMMxJXKFd1O38+O/wP0opZQC9L3UQGplZQH27Qz4HpvUMm0y5lkIney/56/fC7DsW1k5VuAOvnC/qh1lK+s58D00hYMr6NZqeIc8hUnyHwWYsDY+RK2GYw3oE/D/BWvsW9+3xZpi6IkagGPtBPjeMWW3NUmtBh3v1jCBM0X+qGHqOKYqYW00MrUZ8v/C/gT3BRQcKwpyfinrLPyvlJodr1LN+oWaHeGz8X0k//sYGxvWqlQDUpHOoX9IzVmDMbabFFkCM+BXGylkAn/7ijn4f6idlEA1vFvruIacniH+4d1aRj4lRJIneJ2jfnPU9RfZ04CZ8j8ca0k+3ZpSNmdHmyD/L0AN+r4B4KWUBWrcr7rNsH/L+n2hHWt64X9ghvi/7R9qeO5ShgTKEeCz8X10/yOlYKvBDyugGeIfPnLGVKXk/zyLSeLvSfU5PCb/A8zDP8PsVtW+fb0d5UnBqOIT4XvHf6x+rNTn7RqUrxor9PPg+4WN/H9bgb4sD6fR//A6sI8p5nUKOD/+8v//6af6vwMRn/v//PjPWAAAAABJRU5ErkJggg==" alt="QR EnglishConnect" style="width:90px; height:90px; margin-left:16px; flex-shrink:0;">
       </div>
 
       <hr class="divider">
 
       <!-- Comidas para los misioneros -->
-      <div style="display:flex; align-items:center; justify-content:space-between; margin: 10px 0; padding: 8px; border-left: 3px solid #1F3864;">
-        <div style="flex:1;">
+      <div class="qr-announcement" style="display:flex; align-items:center; justify-content:space-between; margin: 10px 0; padding: 8px; border-left: 3px solid #1F3864;">
+        <div class="qr-text" style="flex:1;">
           <div style="font-weight:bold; font-size:11pt;">Comidas para los misioneros</div>
           <div style="font-size:10pt; color:#444; margin-top:4px;">
             Escanee el código QR<br>para inscribirse:
           </div>
           <div style="font-size:9pt; color:#666; margin-top:4px;">comidas-garner2.github.io</div>
         </div>
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGAQAAAACh4MLwAAABl0lEQVR4nO2YPW4cMQxGH1cCXGpukKNwbpAjGXszzVF8A6k0wMGXQrsbIIldpPCyMCsCbB6oj38y8W87Lx8E4DsCaACUQbRO6xoOgEcKNpdUJA2P1n/7z2e7AGY7c6/tWgZ17kyrX0zweaRdwU/b42kEn0T8fQO8tv4sgr+sAoI6N71ZGVuZP2liZmC7wGFm4BUHB04z2zKwoYcNJK2ylZSiTudewbbj/NFP28+Nc6POPUHeLkBAzNc6X8sAqPC+ZXjTW3970ZV2rQCUN3sZGdiW3rqGl7FqwZfwEuiNRVLUo/UyXMNpSWYWUpd6QBkU9cBpijSzHihS4NE6sLKXgk2SeuD3pPXA0+jNpf7woymT3rQWy2gKHKApzW4JrT+caL2o58kbeLQlOUmdRHoDnCapl+Frt4yWg+2+hMQN1TUoKd70wjQzq3iRAipUPL6U4EO731l9SS7w1UlS5G3dWQCUARy2HcwM+9uaWV6kshovmfS2bBrtyjSN43ZzPZ/tj7tea/XN1N8o4z7lhy/gBGz2/cf1X5FfDfM/wkMPeVQAAAAASUVORK5CYII=" alt="QR Comidas" style="width:90px; height:90px; margin-left:16px; flex-shrink:0;">
+        <img class="qr-code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGAQAAAACh4MLwAAABl0lEQVR4nO2YPW4cMQxGH1cCXGpukKNwbpAjGXszzVF8A6k0wMGXQrsbIIldpPCyMCsCbB6oj38y8W87Lx8E4DsCaACUQbRO6xoOgEcKNpdUJA2P1n/7z2e7AGY7c6/tWgZ17kyrX0zweaRdwU/b42kEn0T8fQO8tv4sgr+sAoI6N71ZGVuZP2liZmC7wGFm4BUHB04z2zKwoYcNJK2ylZSiTudewbbj/NFP28+Nc6POPUHeLkBAzNc6X8sAqPC+ZXjTW3970ZV2rQCUN3sZGdiW3rqGl7FqwZfwEuiNRVLUo/UyXMNpSWYWUpd6QBkU9cBpijSzHihS4NE6sLKXgk2SeuD3pPXA0+jNpf7woymT3rQWy2gKHKApzW4JrT+caL2o58kbeLQlOUmdRHoDnCapl+Frt4yWg+2+hMQN1TUoKd70wjQzq3iRAipUPL6U4EO731l9SS7w1UlS5G3dWQCUARy2HcwM+9uaWV6kshovmfS2bBrtyjSN43ZzPZ/tj7tea/XN1N8o4z7lhy/gBGz2/cf1X5FfDfM/wkMPeVQAAAAASUVORK5CYII=" alt="QR Comidas" style="width:90px; height:90px; margin-left:16px; flex-shrink:0;">
       </div>
     </div>
 
     <!-- INSIDE RIGHT — Order of Service -->
-    <div class="panel">
+    <div class="panel panel-service">
       <h2 style="margin-bottom:4px;">Reunión de Ayuno y Testimonio</h2>
       <p style="text-align:center; font-size:10.5pt; margin-bottom:10px;" id="fecha-inner">7 de junio de 2026</p>
 
@@ -400,6 +804,21 @@
   </div><!-- end page 2 -->
 
 </div><!-- end program-wrapper -->
+
+
+<script>
+(function () {
+  function setMobileProgramClass() {
+    var mobileWidth = window.matchMedia("(max-width: 900px)").matches;
+    var touchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    document.documentElement.classList.toggle("mobile-program", mobileWidth || touchDevice);
+  }
+
+  setMobileProgramClass();
+  window.addEventListener("resize", setMobileProgramClass);
+  window.addEventListener("orientationchange", setMobileProgramClass);
+})();
+</script>
 
 </body>
 </html>
