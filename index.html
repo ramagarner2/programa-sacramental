@@ -1528,6 +1528,85 @@
       }
     }
 
+
+    /* ── SACRAMENT SCRIPTURE REVERENCE POLISH ── */
+    .sacrament-scripture-card {
+      margin: 10px 0 12px 0;
+      padding: 10px 12px;
+      background: #f5f7fb;
+      border-top: 1px solid #d8deea;
+      border-bottom: 1px solid #d8deea;
+      text-align: center;
+    }
+
+    .sacrament-scripture-card .scripture-quote {
+      font-style: italic;
+      font-size: 10.8pt;
+      line-height: 1.45;
+      color: #222222;
+    }
+
+    .sacrament-scripture-card .scripture-ref {
+      margin-top: 4px;
+      font-size: 9.5pt;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #1F3864;
+      letter-spacing: 0.02em;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sacrament-scripture-card {
+        margin: 14px 0 16px 0 !important;
+        padding: 16px 18px !important;
+        background: #f5f7fb !important;
+        border-top: 1px solid #d8deea !important;
+        border-bottom: 1px solid #d8deea !important;
+        text-align: center !important;
+      }
+
+      .sacrament-scripture-card .scripture-quote {
+        font-size: 18px !important;
+        line-height: 1.45 !important;
+        font-style: italic !important;
+        color: #222222 !important;
+      }
+
+      .sacrament-scripture-card .scripture-ref {
+        margin-top: 8px !important;
+        font-size: 15px !important;
+        line-height: 1.3 !important;
+        font-weight: 800 !important;
+        color: #1F3864 !important;
+        letter-spacing: 0.03em !important;
+      }
+    }
+
+    html.mobile-program .sacrament-scripture-card {
+      margin: 14px 0 16px 0 !important;
+      padding: 16px 18px !important;
+      background: #f5f7fb !important;
+      border-top: 1px solid #d8deea !important;
+      border-bottom: 1px solid #d8deea !important;
+      text-align: center !important;
+    }
+
+    html.mobile-program .sacrament-scripture-card .scripture-quote {
+      font-size: 18px !important;
+      line-height: 1.45 !important;
+      font-style: italic !important;
+      color: #222222 !important;
+    }
+
+    html.mobile-program .sacrament-scripture-card .scripture-ref {
+      margin-top: 8px !important;
+      font-size: 15px !important;
+      line-height: 1.3 !important;
+      font-weight: 800 !important;
+      color: #1F3864 !important;
+      letter-spacing: 0.03em !important;
+    }
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1562,8 +1641,11 @@
       <div class="section-header">La Santa Cena</div>
 
       <div class="visitor-block">
-        <p class="scripture">"Haced esto en memoria de mí." 1 Corintios 11:24</p>
-        <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. Se reparte pan y agua a la congregación. Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
+        <div class="sacrament-scripture-card">
+          <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
+          <div class="scripture-ref">1 Corintios 11:24</div>
+        </div>
+        <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación. Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
       </div>
 
       <hr class="divider">
