@@ -1171,6 +1171,84 @@
       }
     }
 
+
+    /* ── MOBILE ADDRESS MOVED TO MISSIONARY CONTACT CARD ── */
+    .missionary-map-row {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .service-church-footer {
+        display: none !important;
+      }
+
+      .missionary-map-row {
+        display: block !important;
+        margin-top: 12px !important;
+        padding-top: 14px !important;
+        border-top: 1px solid #dce3ef !important;
+      }
+
+      .missionary-map-label {
+        display: block !important;
+        color: #1F3864 !important;
+        font-weight: 800 !important;
+        font-size: 16px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .missionary-map-link {
+        display: inline-block !important;
+        color: #1F3864 !important;
+        font-weight: 800 !important;
+        font-size: 17px !important;
+        line-height: 1.3 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 3px !important;
+      }
+    }
+
+    html.mobile-program .service-church-footer {
+      display: none !important;
+    }
+
+    html.mobile-program .missionary-map-row {
+      display: block !important;
+      margin-top: 12px !important;
+      padding-top: 14px !important;
+      border-top: 1px solid #dce3ef !important;
+    }
+
+    html.mobile-program .missionary-map-label {
+      display: block !important;
+      color: #1F3864 !important;
+      font-weight: 800 !important;
+      font-size: 16px !important;
+      line-height: 1.25 !important;
+      margin-bottom: 4px !important;
+    }
+
+    html.mobile-program .missionary-map-link {
+      display: inline-block !important;
+      color: #1F3864 !important;
+      font-weight: 800 !important;
+      font-size: 17px !important;
+      line-height: 1.3 !important;
+      text-decoration: underline !important;
+      text-underline-offset: 3px !important;
+    }
+
+    @media print {
+      .missionary-map-row {
+        display: none !important;
+      }
+
+      .service-church-footer {
+        display: block !important;
+      }
+    }
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1214,6 +1292,10 @@
         <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
         <div class="missionary-contact-title">Teléfono de los misioneros</div>
         <div class="missionary-contact-list"><div class="missionary-contact-item"><div class="missionary-contact-name">Hermanas Boyer y Rounds</div><a class="missionary-contact-phone" href="tel:+19193949688">(919) 394-9688</a></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Freeman y Wilcox</div><a class="missionary-contact-phone" href="tel:+19192888464">(919) 288-8464</a></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Ferguson y Peterson</div><a class="missionary-contact-phone" href="tel:+19843261050">(984) 326-1050</a></div></div>
+        <div class="missionary-map-row">
+          <span class="missionary-map-label">Dirección</span>
+          <a class="missionary-map-link" href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC</a>
+        </div>
       </div>
     </div>
 
