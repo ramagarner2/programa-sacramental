@@ -148,11 +148,15 @@
     /* ── WEEKLY ANNOUNCEMENTS ── */
     .weekly-ann {
       font-size: 10.5pt;
-      margin: 8px 0 12px 0;
-      line-height: 1.5;
-      padding: 6px 8px;
-      border: 1px solid #ddd;
-      background: #fafafa;
+      margin: 10px 0 14px 0;
+      line-height: 1.45;
+      padding: 10px 12px;
+      border-left: 3px solid #1F3864;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      background: #f5f7fb;
+      color: #111111;
     }
 
     /* ── COVER IMAGE ── */
@@ -1249,6 +1253,75 @@
       }
     }
 
+
+    /* ── MOBILE ANNOUNCEMENT + SERVICE GAP POLISH ── */
+    @media screen and (max-width: 768px) {
+      .weekly-ann {
+        margin: 10px 0 16px 0 !important;
+        padding: 14px 16px !important;
+        border-left: 4px solid #1F3864 !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        background: #f5f7fb !important;
+        font-size: 17px !important;
+        line-height: 1.5 !important;
+      }
+
+      .panel-service {
+        border-bottom: none !important;
+        padding-bottom: 10px !important;
+      }
+
+      .panel-announcements {
+        padding-top: 18px !important;
+      }
+
+      .mobile-service-list > .mobile-service-item:last-child {
+        border-bottom: none !important;
+      }
+
+      .mobile-service-list {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    html.mobile-program .weekly-ann {
+      margin: 10px 0 16px 0 !important;
+      padding: 14px 16px !important;
+      border-left: 4px solid #1F3864 !important;
+      border-top: none !important;
+      border-right: none !important;
+      border-bottom: none !important;
+      background: #f5f7fb !important;
+      font-size: 17px !important;
+      line-height: 1.5 !important;
+    }
+
+    html.mobile-program .panel-service {
+      border-bottom: none !important;
+      padding-bottom: 10px !important;
+    }
+
+    html.mobile-program .panel-announcements {
+      padding-top: 18px !important;
+    }
+
+    html.mobile-program .mobile-service-list > .mobile-service-item:last-child {
+      border-bottom: none !important;
+    }
+
+    html.mobile-program .mobile-service-list {
+      margin-bottom: 0 !important;
+    }
+
+    @media print {
+      .weekly-ann {
+        font-size: 10.5pt !important;
+        line-height: 1.45 !important;
+      }
+    }
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1330,9 +1403,9 @@
     <div class="panel panel-announcements">
       <div class="section-header">ANUNCIOS</div>
 
-      <!-- Weekly announcements — hidden if blank -->
-      <div id="bloque-anuncios" class="">
-        <div class="weekly-ann" id="anuncios-semanales">Este domingo celebramos nuestra primera reunión como Rama Garner 2.</div>
+      <!-- Weekly announcements — hidden if blank. No default weekly text. -->
+      <div id="bloque-anuncios" class="hidden">
+        <div class="weekly-ann" id="anuncios-semanales"></div>
       </div>
 
       <!-- EnglishConnect -->
