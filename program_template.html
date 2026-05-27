@@ -720,7 +720,7 @@
     /* ── MISSIONARY CONTACT CARD ── */
     .missionary-contact-card {
       margin-top: 10px;
-      padding: 8px 10px;
+      padding: 10px 12px;
       background: #f5f7fb;
       border-left: 3px solid #1F3864;
       font-size: 10pt;
@@ -728,7 +728,7 @@
     }
 
     .missionary-help-line {
-      margin: 0 0 6px 0;
+      margin: 0 0 8px 0;
       font-style: italic;
       font-size: 10.5pt;
       line-height: 1.3;
@@ -739,18 +739,38 @@
       font-weight: 800;
       font-size: 10.5pt;
       line-height: 1.25;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .missionary-contact-list {
       margin-top: 2px;
     }
 
-    .missionary-contact-line {
-      margin: 3px 0;
+    .missionary-contact-item {
+      padding: 6px 0;
+      border-top: 1px solid #dce3ef;
+    }
+
+    .missionary-contact-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .missionary-contact-name {
       color: #111111;
+      font-weight: 700;
       font-size: 10.5pt;
-      line-height: 1.35;
+      line-height: 1.25;
+    }
+
+    .missionary-contact-phone {
+      display: block;
+      color: #1F3864;
+      font-weight: 700;
+      font-size: 10.5pt;
+      line-height: 1.25;
+      text-decoration: none;
+      margin-top: 2px;
     }
 
     .missionary-contact-line.muted {
@@ -761,7 +781,7 @@
     @media screen and (max-width: 768px) {
       .missionary-contact-card {
         margin-top: 18px !important;
-        padding: 15px 16px !important;
+        padding: 16px 18px !important;
         border-left: 4px solid #1F3864 !important;
         background: #f5f7fb !important;
       }
@@ -769,25 +789,44 @@
       .missionary-help-line {
         font-size: 17px !important;
         line-height: 1.45 !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 14px !important;
       }
 
       .missionary-contact-title {
-        font-size: 17px !important;
+        font-size: 18px !important;
         line-height: 1.3 !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 10px !important;
       }
 
-      .missionary-contact-line {
-        font-size: 17px !important;
-        line-height: 1.45 !important;
-        margin: 7px 0 !important;
+      .missionary-contact-item {
+        padding: 12px 0 !important;
+        border-top: 1px solid #dce3ef !important;
+      }
+
+      .missionary-contact-name {
+        display: block !important;
+        font-size: 18px !important;
+        line-height: 1.28 !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+        margin-bottom: 5px !important;
+      }
+
+      .missionary-contact-phone {
+        display: inline-block !important;
+        font-size: 18px !important;
+        line-height: 1.2 !important;
+        font-weight: 800 !important;
+        color: #1F3864 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 3px !important;
+        margin-top: 0 !important;
       }
     }
 
     html.mobile-program .missionary-contact-card {
       margin-top: 18px !important;
-      padding: 15px 16px !important;
+      padding: 16px 18px !important;
       border-left: 4px solid #1F3864 !important;
       background: #f5f7fb !important;
     }
@@ -795,19 +834,38 @@
     html.mobile-program .missionary-help-line {
       font-size: 17px !important;
       line-height: 1.45 !important;
-      margin-bottom: 10px !important;
+      margin-bottom: 14px !important;
     }
 
     html.mobile-program .missionary-contact-title {
-      font-size: 17px !important;
+      font-size: 18px !important;
       line-height: 1.3 !important;
-      margin-bottom: 8px !important;
+      margin-bottom: 10px !important;
     }
 
-    html.mobile-program .missionary-contact-line {
-      font-size: 17px !important;
-      line-height: 1.45 !important;
-      margin: 7px 0 !important;
+    html.mobile-program .missionary-contact-item {
+      padding: 12px 0 !important;
+      border-top: 1px solid #dce3ef !important;
+    }
+
+    html.mobile-program .missionary-contact-name {
+      display: block !important;
+      font-size: 18px !important;
+      line-height: 1.28 !important;
+      font-weight: 800 !important;
+      color: #111111 !important;
+      margin-bottom: 5px !important;
+    }
+
+    html.mobile-program .missionary-contact-phone {
+      display: inline-block !important;
+      font-size: 18px !important;
+      line-height: 1.2 !important;
+      font-weight: 800 !important;
+      color: #1F3864 !important;
+      text-decoration: underline !important;
+      text-underline-offset: 3px !important;
+      margin-top: 0 !important;
     }
 
     /* ── MOBILE-FIRST SERVICE LAYOUT ── */
@@ -1169,7 +1227,7 @@
               <div class="fast-sunday-block">
                 <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br><br>
                 El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
-                Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos himnos favoritos.<br><br>
+                Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
                 Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
               </div>
             </td>
@@ -1241,7 +1299,7 @@
         <div class="mobile-fast-sunday-card {{ayuno_hidden_class}}">
           <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong>
           El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
-          Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos himnos favoritos.<br><br>
+          Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
           Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
         </div>
 
