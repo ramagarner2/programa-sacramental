@@ -1388,6 +1388,146 @@
       padding-top: 22px !important;
     }
 
+
+
+    /* ── MOBILE FINAL CONTACT CARD AT BOTTOM ── */
+    .mobile-final-contact-card {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .panel-back-cover .missionary-contact-card {
+        display: none !important;
+      }
+
+      .mobile-final-address-card {
+        display: none !important;
+      }
+
+      .mobile-final-contact-card {
+        display: block !important;
+        margin: 24px 0 0 0 !important;
+        padding: 18px 18px !important;
+        background: #f5f7fb !important;
+        border-left: 4px solid #1F3864 !important;
+      }
+
+      .mobile-final-contact-card .missionary-help-line {
+        font-size: 17px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 14px !important;
+      }
+
+      .mobile-final-contact-card .missionary-contact-title,
+      .mobile-final-address-title {
+        color: #1F3864 !important;
+        font-weight: 800 !important;
+        font-size: 18px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 10px !important;
+      }
+
+      .mobile-final-contact-card .missionary-contact-item {
+        padding: 12px 0 !important;
+        border-top: 1px solid #dce3ef !important;
+      }
+
+      .mobile-final-contact-card .missionary-contact-name {
+        display: block !important;
+        font-size: 18px !important;
+        line-height: 1.28 !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+        margin-bottom: 5px !important;
+      }
+
+      .mobile-final-contact-card .missionary-contact-phone,
+      .mobile-final-address-link {
+        display: inline-block !important;
+        color: #1F3864 !important;
+        font-weight: 800 !important;
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+        text-decoration: underline !important;
+        text-underline-offset: 3px !important;
+      }
+
+      .mobile-final-address-row {
+        margin-top: 14px !important;
+        padding-top: 14px !important;
+        border-top: 1px solid #dce3ef !important;
+      }
+    }
+
+    html.mobile-program .panel-back-cover .missionary-contact-card {
+      display: none !important;
+    }
+
+    html.mobile-program .mobile-final-address-card {
+      display: none !important;
+    }
+
+    html.mobile-program .mobile-final-contact-card {
+      display: block !important;
+      margin: 24px 0 0 0 !important;
+      padding: 18px 18px !important;
+      background: #f5f7fb !important;
+      border-left: 4px solid #1F3864 !important;
+    }
+
+    html.mobile-program .mobile-final-contact-card .missionary-help-line {
+      font-size: 17px !important;
+      line-height: 1.45 !important;
+      margin-bottom: 14px !important;
+    }
+
+    html.mobile-program .mobile-final-contact-card .missionary-contact-title,
+    html.mobile-program .mobile-final-address-title {
+      color: #1F3864 !important;
+      font-weight: 800 !important;
+      font-size: 18px !important;
+      line-height: 1.25 !important;
+      margin-bottom: 10px !important;
+    }
+
+    html.mobile-program .mobile-final-contact-card .missionary-contact-item {
+      padding: 12px 0 !important;
+      border-top: 1px solid #dce3ef !important;
+    }
+
+    html.mobile-program .mobile-final-contact-card .missionary-contact-name {
+      display: block !important;
+      font-size: 18px !important;
+      line-height: 1.28 !important;
+      font-weight: 800 !important;
+      color: #111111 !important;
+      margin-bottom: 5px !important;
+    }
+
+    html.mobile-program .mobile-final-contact-card .missionary-contact-phone,
+    html.mobile-program .mobile-final-address-link {
+      display: inline-block !important;
+      color: #1F3864 !important;
+      font-weight: 800 !important;
+      font-size: 18px !important;
+      line-height: 1.3 !important;
+      text-decoration: underline !important;
+      text-underline-offset: 3px !important;
+    }
+
+    html.mobile-program .mobile-final-address-row {
+      margin-top: 14px !important;
+      padding-top: 14px !important;
+      border-top: 1px solid #dce3ef !important;
+    }
+
+    @media print {
+      .mobile-final-contact-card,
+      .mobile-final-address-card {
+        display: none !important;
+      }
+    }
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1431,10 +1571,6 @@
         <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
         <div class="missionary-contact-title">Teléfono de los misioneros</div>
         <div class="missionary-contact-list">[Missionary phone number]</div>
-        <div class="missionary-map-row">
-          <span class="missionary-map-label">Dirección</span>
-          <a class="missionary-map-link" href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC</a>
-        </div>
       </div>
     </div>
 
@@ -1503,6 +1639,19 @@
           <a class="mobile-action-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha para alimentar a los misioneros</a>
         </div>
         <img class="qr-code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGAQAAAACh4MLwAAABl0lEQVR4nO2YPW4cMQxGH1cCXGpukKNwbpAjGXszzVF8A6k0wMGXQrsbIIldpPCyMCsCbB6oj38y8W87Lx8E4DsCaACUQbRO6xoOgEcKNpdUJA2P1n/7z2e7AGY7c6/tWgZ17kyrX0zweaRdwU/b42kEn0T8fQO8tv4sgr+sAoI6N71ZGVuZP2liZmC7wGFm4BUHB04z2zKwoYcNJK2ylZSiTudewbbj/NFP28+Nc6POPUHeLkBAzNc6X8sAqPC+ZXjTW3970ZV2rQCUN3sZGdiW3rqGl7FqwZfwEuiNRVLUo/UyXMNpSWYWUpd6QBkU9cBpijSzHihS4NE6sLKXgk2SeuD3pPXA0+jNpf7woymT3rQWy2gKHKApzW4JrT+caL2o58kbeLQlOUmdRHoDnCapl+Frt4yWg+2+hMQN1TUoKd70wjQzq3iRAipUPL6U4EO731l9SS7w1UlS5G3dWQCUARy2HcwM+9uaWV6kshovmfS2bBrtyjSN43ZzPZ/tj7tea/XN1N8o4z7lhy/gBGz2/cf1X5FfDfM/wkMPeVQAAAAASUVORK5CYII=" alt="QR Comidas" style="width:90px; height:90px; margin-left:16px; flex-shrink:0;">
+      </div>
+
+      <!-- MOBILE FINAL CONTACT CARD — last item on mobile program -->
+      <div class="mobile-final-contact-card">
+        <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
+
+        <div class="missionary-contact-title">Teléfono de los misioneros</div>
+        <div class="missionary-contact-list">[Missionary phone number]</div>
+
+        <div class="mobile-final-address-row">
+          <div class="mobile-final-address-title">Dirección</div>
+          <a class="mobile-final-address-link" href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC</a>
+        </div>
       </div>
     </div>
 
