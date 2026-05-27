@@ -253,8 +253,8 @@
 
       .panel-front-cover { order: 1; }
       .panel-service { order: 2; }
-      .panel-announcements { order: 3; }
-      .panel-back-cover { order: 4; }
+      .panel-back-cover { order: 3; }
+      .panel-announcements { order: 4; }
 
       h1 {
         font-size: 28px;
@@ -1358,6 +1358,34 @@
 
     html.mobile-program .missionary-meal-print-instruction {
       display: none !important;
+    }
+
+
+    /* ── MOBILE ORDER POLISH: VISITOR INFO AFTER SERVICE ── */
+    @media screen and (max-width: 768px) {
+      .panel-back-cover {
+        padding-top: 18px !important;
+      }
+
+      .panel-back-cover .section-header:first-child {
+        margin-top: 0 !important;
+      }
+
+      .panel-announcements {
+        padding-top: 22px !important;
+      }
+    }
+
+    html.mobile-program .panel-back-cover {
+      padding-top: 18px !important;
+    }
+
+    html.mobile-program .panel-back-cover .section-header:first-child {
+      margin-top: 0 !important;
+    }
+
+    html.mobile-program .panel-announcements {
+      padding-top: 22px !important;
     }
 
     /* ── HIDDEN BLOCKS ── */
