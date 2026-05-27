@@ -715,6 +715,193 @@
     }
 
 
+
+    /* ── MOBILE-FIRST SERVICE LAYOUT ── */
+    .mobile-service-list {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .panel-service .service-table {
+        display: none !important;
+      }
+
+      .mobile-service-list {
+        display: block !important;
+        margin-top: 18px;
+      }
+
+      .mobile-service-item {
+        padding: 13px 0;
+        border-bottom: 1px solid #e4e8ef;
+      }
+
+      .mobile-service-label {
+        color: #53627a;
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+
+      .mobile-service-value {
+        color: #111111;
+        font-size: 18px !important;
+        line-height: 1.35 !important;
+        font-weight: 500;
+      }
+
+      .mobile-sacrament-line {
+        margin: 18px 0 8px 0;
+        padding: 14px 12px;
+        background: #f5f7fb;
+        border-top: 1px solid #d8deea;
+        border-bottom: 1px solid #d8deea;
+        text-align: center;
+        font-size: 18px !important;
+        line-height: 1.35 !important;
+        font-style: italic;
+      }
+
+      .mobile-fast-sunday-card {
+        margin: 18px 0;
+        padding: 16px 16px;
+        background: #f5f7fb;
+        border-left: 4px solid #1F3864;
+        font-size: 17px !important;
+        line-height: 1.55 !important;
+      }
+
+      .mobile-fast-sunday-card strong {
+        display: block;
+        color: #1F3864;
+        font-size: 18px !important;
+        line-height: 1.35 !important;
+        margin-bottom: 10px;
+      }
+
+      .panel-service h2 {
+        font-size: 24px !important;
+        line-height: 1.18 !important;
+        margin-bottom: 6px !important;
+      }
+
+      .panel-service #fecha-inner {
+        font-size: 16px !important;
+        margin-bottom: 4px !important;
+      }
+
+      .panel-service .church-footer {
+        margin-top: 18px !important;
+        font-size: 13px !important;
+        line-height: 1.35 !important;
+      }
+
+      .visitor-block p,
+      .weekly-ann,
+      .announcement .ann-detail,
+      .panel p {
+        font-size: 17px !important;
+        line-height: 1.5 !important;
+      }
+
+      .mobile-action-button {
+        display: block !important;
+        width: fit-content !important;
+        min-width: min(280px, 88%) !important;
+        max-width: 100% !important;
+        margin: 10px auto 0 auto !important;
+        padding: 12px 18px !important;
+        border-radius: 999px !important;
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.24) !important;
+        font-weight: 800 !important;
+        font-size: 16px !important;
+        line-height: 1.25 !important;
+      }
+    }
+
+    html.mobile-program .panel-service .service-table {
+      display: none !important;
+    }
+
+    html.mobile-program .mobile-service-list {
+      display: block !important;
+      margin-top: 18px !important;
+    }
+
+    html.mobile-program .mobile-service-item {
+      padding: 13px 0 !important;
+      border-bottom: 1px solid #e4e8ef !important;
+    }
+
+    html.mobile-program .mobile-service-label {
+      color: #53627a !important;
+      font-size: 13px !important;
+      line-height: 1.2 !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.06em !important;
+      text-transform: uppercase !important;
+      margin-bottom: 5px !important;
+    }
+
+    html.mobile-program .mobile-service-value {
+      color: #111111 !important;
+      font-size: 18px !important;
+      line-height: 1.35 !important;
+      font-weight: 500 !important;
+    }
+
+    html.mobile-program .mobile-sacrament-line {
+      margin: 18px 0 8px 0 !important;
+      padding: 14px 12px !important;
+      background: #f5f7fb !important;
+      border-top: 1px solid #d8deea !important;
+      border-bottom: 1px solid #d8deea !important;
+      text-align: center !important;
+      font-size: 18px !important;
+      line-height: 1.35 !important;
+      font-style: italic !important;
+    }
+
+    html.mobile-program .mobile-fast-sunday-card {
+      margin: 18px 0 !important;
+      padding: 16px 16px !important;
+      background: #f5f7fb !important;
+      border-left: 4px solid #1F3864 !important;
+      font-size: 17px !important;
+      line-height: 1.55 !important;
+    }
+
+    html.mobile-program .mobile-fast-sunday-card strong {
+      display: block !important;
+      color: #1F3864 !important;
+      font-size: 18px !important;
+      line-height: 1.35 !important;
+      margin-bottom: 10px !important;
+    }
+
+    html.mobile-program .mobile-action-button {
+      display: block !important;
+      width: fit-content !important;
+      min-width: min(280px, 88%) !important;
+      max-width: 100% !important;
+      margin: 10px auto 0 auto !important;
+      padding: 12px 18px !important;
+      border-radius: 999px !important;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.24) !important;
+      font-weight: 800 !important;
+      font-size: 16px !important;
+      line-height: 1.25 !important;
+    }
+
+    @media print {
+      .mobile-service-list {
+        display: none !important;
+      }
+    }
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -902,6 +1089,76 @@
           <td class="value" id="oracion-cierre">Por invitación</td>
         </tr>
       </table>
+
+      <!-- MOBILE SERVICE VIEW — phone-friendly digital layout -->
+      <div class="mobile-service-list" aria-label="Orden de la reunión">
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Preside</div>
+          <div class="mobile-service-value">Presidente Campos</div>
+        </div>
+
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Dirige</div>
+          <div class="mobile-service-value">Luis Campos</div>
+        </div>
+
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Himno de Apertura</div>
+          <div class="mobile-service-value">#49 Señor, te necesito</div>
+        </div>
+
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Oración de Apertura</div>
+          <div class="mobile-service-value">Por invitación</div>
+        </div>
+
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Himno Sacramental</div>
+          <div class="mobile-service-value">#110 En memoria de Tu muerte</div>
+        </div>
+
+        <div class="mobile-sacrament-line">Administración de la Santa Cena</div>
+
+        <div class="hidden">
+          <div class="mobile-service-item">
+            <div class="mobile-service-label">Discurso</div>
+            <div class="mobile-service-value"></div>
+          </div>
+
+          <div class="mobile-service-item">
+            <div class="mobile-service-label">Discurso</div>
+            <div class="mobile-service-value"></div>
+          </div>
+
+          <div class="mobile-service-item hidden">
+            <div class="mobile-service-label">Himno Intermedio/Número Musical</div>
+            <div class="mobile-service-value"></div>
+          </div>
+
+          <div class="mobile-service-item">
+            <div class="mobile-service-label">Discurso</div>
+            <div class="mobile-service-value"></div>
+          </div>
+        </div>
+
+        <div class="mobile-fast-sunday-card ">
+          <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong>
+          El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
+          Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio.<br><br>
+          Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
+        </div>
+
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Himno de Cierre</div>
+          <div class="mobile-service-value">#41 ¡Grande eres Tú!</div>
+        </div>
+
+        <div class="mobile-service-item">
+          <div class="mobile-service-label">Oración de Cierre</div>
+          <div class="mobile-service-value">Por invitación</div>
+        </div>
+      </div>
+
 
       <div class="church-footer" style="margin-top:16px; border-top: 1px solid #ccc; padding-top:8px;">
         La Iglesia de Jesucristo de los Santos de los Últimos Días<br>
