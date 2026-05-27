@@ -1142,6 +1142,35 @@
       }
     }
 
+
+    .maps-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .church-footer .maps-link {
+        color: #1F3864 !important;
+        font-weight: 600 !important;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
+
+    html.mobile-program .church-footer .maps-link {
+      color: #1F3864 !important;
+      font-weight: 600 !important;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media print {
+      .maps-link {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1405,7 +1434,7 @@
 
       <div class="church-footer service-church-footer" style="margin-top:16px; border-top: 1px solid #ccc; padding-top:8px;">
         <span class="church-name">La Iglesia de Jesucristo<br>de los Santos de los Últimos Días</span>
-        <span class="church-address">1433 Aversboro Rd, Garner, NC</span>
+        <a class="church-address maps-link" href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC</a>
       </div>
     </div>
 
