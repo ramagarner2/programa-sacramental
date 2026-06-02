@@ -752,6 +752,218 @@
   }
 }
 
+  
+/* V7 PRINT ANNOUNCEMENTS CLEANUP */
+.panel-announcements {
+  gap: 0;
+}
+
+.print-announcement-card,
+.print-qr-card {
+  margin: 8px 0;
+  padding: 7px 9px;
+  background: #f2f2f2;
+  border-left: 3px solid #222222;
+  color: #111111;
+}
+
+.print-announcement-card:first-of-type {
+  margin-top: 7px;
+}
+
+.print-announcement-title {
+  font-weight: 800;
+  font-size: 9.8pt;
+  line-height: 1.15;
+  margin-bottom: 3px;
+}
+
+.print-announcement-body,
+.print-qr-copy {
+  font-size: 9pt;
+  line-height: 1.24;
+}
+
+.print-qr-card {
+  display: grid;
+  grid-template-columns: 1fr 78px;
+  gap: 12px;
+  align-items: center;
+  min-height: 82px;
+}
+
+.print-qr-card + .print-announcement-card {
+  margin-top: 11px;
+}
+
+.qr-image {
+  display: block;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  border: 1px solid #666666;
+  padding: 3px;
+  background: #ffffff;
+}
+
+.panel-announcements .weekly-ann {
+  font-size: 9.2pt;
+  line-height: 1.25;
+}
+
+.panel-announcements .church-footer,
+.panel-announcements .announcements-footer {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+  font-size: 8.4pt !important;
+  text-align: center !important;
+  color: #333333 !important;
+  line-height: 1.25 !important;
+  border-top: 1px solid #dddddd !important;
+}
+
+@media print {
+  .print-announcement-card,
+  .print-qr-card {
+    margin: 7px 0 !important;
+    padding: 6px 8px !important;
+  }
+
+  .print-announcement-title {
+    font-size: 9.2pt !important;
+  }
+
+  .print-announcement-body,
+  .print-qr-copy {
+    font-size: 8.5pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-qr-card {
+    grid-template-columns: 1fr 72px !important;
+    min-height: 76px !important;
+    gap: 10px !important;
+  }
+
+  .qr-image {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .panel-announcements .church-footer,
+  .panel-announcements .announcements-footer {
+    font-size: 8pt !important;
+    padding-top: 7px !important;
+  }
+}
+
+  
+/* V8 PRINT ANNOUNCEMENTS FINAL:
+   EnglishConnect and missionary meals are each one whole card.
+   All action titles match. */
+.print-announcement-card,
+.print-action-card {
+  margin: 8px 0;
+  padding: 8px 9px;
+  background: #f2f2f2;
+  border-left: 3px solid #222222;
+  color: #111111;
+}
+
+.print-action-card {
+  display: grid;
+  grid-template-columns: 1fr 78px;
+  gap: 12px;
+  align-items: center;
+  min-height: 88px;
+}
+
+.print-action-title,
+.print-announcement-title {
+  font-weight: 800 !important;
+  font-size: 9.8pt !important;
+  line-height: 1.15 !important;
+  margin: 0 0 4px 0 !important;
+  color: #111111 !important;
+}
+
+.print-action-body,
+.print-announcement-body,
+.print-qr-copy {
+  font-size: 9pt !important;
+  line-height: 1.24 !important;
+  color: #111111 !important;
+}
+
+.print-action-body span {
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.qr-image {
+  display: block;
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  border: 1px solid #666666;
+  padding: 3px;
+  background: #ffffff;
+}
+
+.print-qr-card {
+  display: none !important;
+}
+
+.panel-announcements .church-footer,
+.panel-announcements .announcements-footer {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+  font-size: 8.4pt !important;
+  text-align: center !important;
+  color: #333333 !important;
+  line-height: 1.25 !important;
+  border-top: 1px solid #dddddd !important;
+}
+
+@media print {
+  .print-announcement-card,
+  .print-action-card {
+    margin: 7px 0 !important;
+    padding: 7px 8px !important;
+  }
+
+  .print-action-card {
+    grid-template-columns: 1fr 72px !important;
+    gap: 10px !important;
+    min-height: 78px !important;
+  }
+
+  .print-action-title,
+  .print-announcement-title {
+    font-size: 9.1pt !important;
+    line-height: 1.12 !important;
+    margin-bottom: 3px !important;
+  }
+
+  .print-action-body,
+  .print-announcement-body,
+  .print-qr-copy {
+    font-size: 8.4pt !important;
+    line-height: 1.18 !important;
+  }
+
+  .qr-image {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .panel-announcements .church-footer,
+  .panel-announcements .announcements-footer {
+    font-size: 8pt !important;
+    padding-top: 7px !important;
+  }
+}
+
   </style>
 </head>
 
@@ -827,37 +1039,30 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="weekly-ann {{anuncios_hidden_class}}">
+      <div class="print-announcement-card weekly-ann {{anuncios_hidden_class}}">
         {{anuncios_semanales}}
       </div>
 
-      <div class="announcement shaded">
-        <div class="ann-title">Clases gratuitas de inglés</div>
-        <div class="ann-detail">
-          <strong>EnglishConnect</strong><br>
-          Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>
-          1433 Aversboro Road, Garner, NC
-        </div>
-      </div>
-
-      <div class="qr-row">
-        <div class="qr-label">
-          <strong>EnglishConnect</strong><br>
-          Escanee el código QR para inscribirse en las clases gratuitas de inglés.
+      <div class="print-action-card">
+        <div class="print-action-copy">
+          <div class="print-action-title">Clases gratuitas de inglés</div>
+          <div class="print-action-body">
+            <strong>EnglishConnect</strong><br>
+            Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>
+            1433 Aversboro Road, Garner, NC<br>
+            <span>Escanee el código QR para inscribirse en las clases gratuitas de inglés.</span>
+          </div>
         </div>
         <img class="qr-image" src="assets/qr-englishconnect.png" alt="QR EnglishConnect">
       </div>
 
-      <div class="announcement">
-        <div class="ann-title">¿Le gustaría ayudar a alimentar a los misioneros?</div>
-        <div class="ann-detail">
-          Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.
-        </div>
-      </div>
-
-      <div class="qr-row">
-        <div class="qr-label">
-          Escanee el código QR para escoger una fecha para alimentar a los misioneros.
+      <div class="print-action-card">
+        <div class="print-action-copy">
+          <div class="print-action-title">¿Le gustaría ayudar a alimentar a los misioneros?</div>
+          <div class="print-action-body">
+            Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.<br>
+            <span>Escanee el código QR para escoger una fecha.</span>
+          </div>
         </div>
         <img class="qr-image" src="assets/qr-missionary-meals.png" alt="QR para alimentar a los misioneros">
       </div>
@@ -867,7 +1072,7 @@
         de los Santos de los Últimos Días<br>
         1433 Aversboro Rd, Garner, NC
       </div>
-</section>
+    </section>
 
     <!-- ORDER OF SERVICE -->
     <section class="panel panel-service">
