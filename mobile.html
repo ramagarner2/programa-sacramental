@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programa Sacramental — Mobile</title>
-  <style>
-V9 MOBILE DESIGN CSS
-   ══════════════════════════════════════════════════════ */
 
+  <style>
     :root {
       --navy: #06182d;
-      --navy-2: #0b2746;
+      --navy-2: #071f3a;
       --gold: #d4a24d;
       --cream: #f4f2ee;
       --paper: #ffffff;
@@ -28,61 +26,81 @@ V9 MOBILE DESIGN CSS
     body {
       margin: 0;
       padding: 0;
-      background: var(--cream);
+      background: var(--navy);
       color: var(--text);
       font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
     }
 
     a {
       color: inherit;
     }
 
-    /* =========================================================
-       MOBILE PROGRAM, CLEAN LOCKED BUILD
-       Repo image assets only, no embedded images
-       ========================================================= */
-
     .mobile-program {
+      width: 100%;
       max-width: 480px;
       margin: 0 auto;
       min-height: 100vh;
-      background: var(--cream);
+      background: var(--navy);
     }
 
     .mobile-hero {
       position: relative;
-      min-height: 330px;
+      min-height: 300px;
       overflow: hidden;
       background-image:
         linear-gradient(
           90deg,
           #06182d 0%,
-          #071f3a 33%,
-          rgba(7, 31, 58, 0.90) 45%,
-          rgba(7, 31, 58, 0.58) 58%,
-          rgba(7, 31, 58, 0.20) 73%,
-          rgba(7, 31, 58, 0) 100%
+          rgba(6, 24, 45, 0.98) 24%,
+          rgba(6, 24, 45, 0.82) 40%,
+          rgba(6, 24, 45, 0.45) 58%,
+          rgba(6, 24, 45, 0.12) 76%,
+          rgba(6, 24, 45, 0) 100%
         ),
-        var(--hero-image, url("assets/headers/christ-standard.png"));
+        var(--hero-image);
       background-size: cover;
-      background-position: center right;
+      background-position: 70% center;
       background-repeat: no-repeat;
       background-color: var(--navy);
+    }
+
+    .mobile-hero.hero-standard {
+      --hero-image: url("assets/headers/christ-standard.png");
+    }
+
+    .mobile-hero.hero-christmas {
+      --hero-image: url("assets/headers/christ-christmas.png");
+      background-size: 182% auto;
+      background-position: 22% center;
+    }
+
+    .mobile-hero.hero-easter {
+      --hero-image: url("assets/headers/christ-easter.png");
+      background-position: 57% center;
     }
 
     .mobile-hero-content {
       position: relative;
       z-index: 2;
-      width: 58%;
-      padding: 42px 22px 34px 22px;
+      width: 55%;
+      padding: 34px 18px 28px;
+    }
+
+    .mobile-hero.hero-christmas .mobile-hero-content {
+      width: 45%;
+      padding-right: 4px;
     }
 
     .mobile-hero h1 {
-      margin: 0 0 24px 0;
+      margin: 0 0 16px;
       color: #ffffff;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(31px, 8.5vw, 44px);
-      line-height: 1.06;
+      font-size: clamp(24px, 7.1vw, 32px);
+      line-height: 1.08;
       font-weight: 400;
       letter-spacing: 0.01em;
     }
@@ -90,42 +108,52 @@ V9 MOBILE DESIGN CSS
     .mobile-hero-date {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin: 0 0 16px 0;
+      gap: 6px;
+      margin: 0 0 10px;
       color: var(--gold);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(19px, 5.2vw, 25px);
+      font-size: clamp(14px, 3.9vw, 17px);
       line-height: 1.2;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .mobile-hero-date svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 18px;
+      width: 15px;
+      height: 15px;
+      flex: 0 0 15px;
       stroke: currentColor;
       fill: none;
       stroke-width: 2;
     }
 
     .mobile-hero-church {
+      display: block;
+      max-width: 165px;
       margin: 0;
       color: #ffffff;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(14px, 4vw, 18px);
-      line-height: 1.32;
+      font-size: clamp(10.5px, 2.95vw, 12.5px);
+      line-height: 1.24;
       font-weight: 400;
     }
 
-    .mobile-body {
-      padding: 18px 14px 28px;
+    .mobile-hero-church span {
+      display: block;
+      white-space: nowrap;
     }
 
-    .card {
+    .mobile-body {
+      background: var(--navy);
+      padding: 16px 14px 28px;
+    }
+
+    .card,
+    .accordion {
       background: var(--paper);
       border-radius: 16px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-      margin: 0 0 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+      margin: 0 0 14px;
       overflow: hidden;
     }
 
@@ -140,7 +168,7 @@ V9 MOBILE DESIGN CSS
       margin: 0 0 14px;
       color: var(--navy);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 23px;
+      font-size: 21.5px;
       line-height: 1.18;
       font-weight: 700;
       letter-spacing: 0.01em;
@@ -170,8 +198,8 @@ V9 MOBILE DESIGN CSS
 
     .agenda-row {
       display: grid;
-      grid-template-columns: 43% 57%;
-      gap: 10px;
+      grid-template-columns: 41% 59%;
+      gap: 8px;
       align-items: start;
       padding: 12px 0;
       border-bottom: 1px solid var(--line);
@@ -183,30 +211,53 @@ V9 MOBILE DESIGN CSS
 
     .agenda-label {
       color: var(--navy);
-      font-size: 15.5px;
-      line-height: 1.24;
+      font-size: 14.5px;
+      line-height: 1.25;
       font-weight: 800;
     }
 
     .agenda-value {
       color: var(--text);
-      font-size: 15.5px;
-      line-height: 1.3;
+      font-size: 14.5px;
+      line-height: 1.25;
       font-weight: 500;
       text-align: right;
-      overflow-wrap: anywhere;
+    }
+
+    .person-name,
+    .person-title {
+      display: block;
+      text-align: right;
+    }
+
+    .person-title {
+      margin-top: 3px;
+      color: #333333;
+      font-size: 12.25px;
+      line-height: 1.2;
+      font-style: italic;
     }
 
     .sacrament-admin {
-      margin: 16px 0 0;
-      padding: 13px 14px;
-      background: #f7f4ef;
-      border-left: 4px solid var(--navy);
-      color: var(--navy);
-      font-size: 16px;
-      line-height: 1.25;
-      font-weight: 800;
+      margin: 14px 0 0;
+      padding: 0;
       text-align: center;
+    }
+
+    .sacrament-admin-text {
+      display: inline-block;
+      max-width: 100%;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #fffaf1;
+      border: 1px solid #eadcc4;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14.5px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.035);
     }
 
     .sacrament-card {
@@ -273,39 +324,11 @@ V9 MOBILE DESIGN CSS
       text-transform: uppercase;
     }
 
-    .fast-card {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
-      padding: 18px 16px;
-      margin: 0 0 16px;
-      color: #333333;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .fast-card strong {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--navy);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 22px;
-      line-height: 1.25;
-    }
-
-    .accordion {
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-      margin: 0 0 12px;
-      overflow: hidden;
-    }
-
     .accordion summary {
       list-style: none;
       cursor: pointer;
       display: grid;
-      grid-template-columns: 38px 1fr 20px;
+      grid-template-columns: 38px minmax(0, 1fr) 18px;
       gap: 11px;
       align-items: center;
       padding: 15px;
@@ -329,8 +352,8 @@ V9 MOBILE DESIGN CSS
     .accordion-title {
       display: block;
       color: var(--navy);
-      font-size: 16.5px;
-      line-height: 1.22;
+      font-size: 15.75px;
+      line-height: 1.18;
       font-weight: 850;
       letter-spacing: 0.01em;
     }
@@ -339,8 +362,8 @@ V9 MOBILE DESIGN CSS
       display: block;
       margin-top: 3px;
       color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.3;
+      font-size: 13.5px;
+      line-height: 1.25;
     }
 
     .accordion-body {
@@ -381,16 +404,18 @@ V9 MOBILE DESIGN CSS
     .footer {
       margin-top: 16px;
       padding: 18px 17px;
-      border-radius: 16px 16px 0 0;
-      background: var(--navy);
+      border-radius: 16px;
+      background: var(--navy-2);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.20);
       color: #ffffff;
     }
 
     .footer-title {
       margin: 0 0 12px;
       color: var(--gold);
-      font-size: 15.5px;
-      line-height: 1.25;
+      font-size: 14px;
+      line-height: 1.22;
       font-weight: 850;
       letter-spacing: 0.03em;
       text-transform: uppercase;
@@ -414,721 +439,16 @@ V9 MOBILE DESIGN CSS
       display: none !important;
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (min-width: 901px) {
       .mobile-program {
-        max-width: none;
-      }
-
-      .mobile-hero {
-        min-height: 305px;
-        background-position: 68% center;
-      }
-
-      .mobile-hero-content {
-        width: 58%;
-        padding: 36px 20px 30px;
-      }
-
-      .mobile-hero h1 {
-        font-size: clamp(29px, 8.4vw, 38px);
-        margin-bottom: 20px;
-      }
-
-      .mobile-hero-date {
-        font-size: clamp(17px, 4.8vw, 22px);
-        margin-bottom: 11px;
-      }
-
-      .mobile-hero-church {
-        font-size: clamp(13px, 3.6vw, 16px);
-      }
-
-      .agenda-row {
-        grid-template-columns: 44% 56%;
-      }
-
-      .agenda-label,
-      .agenda-value {
-        font-size: 15px;
+        max-width: 480px;
       }
     }
-
-    /* =========================================================
-       PRINT SAFETY
-       This clean file is mobile-first. If you still keep a separate
-       print template, print from that separate template.
-       ========================================================= */
-
-    
-  
-    /* =========================================================
-       HEADER IMAGE ASSETS, CLEAN REPO PATHS ONLY
-       This prevents old images/ folder paths from being pulled into mobile.
-       ========================================================= */
-
-    .mobile-hero.hero-standard {
-      --hero-image: url("assets/headers/christ-standard.png");
-    }
-
-    .mobile-hero.hero-christmas {
-      --hero-image: url("assets/headers/christ-christmas.png");
-    }
-
-    .mobile-hero.hero-easter {
-      --hero-image: url("assets/headers/christ-easter.png");
-    }
-
-    .mobile-hero {
-      background-image:
-        linear-gradient(
-          90deg,
-          #06182d 0%,
-          #06182d 26%,
-          rgba(6, 24, 45, 0.96) 38%,
-          rgba(6, 24, 45, 0.76) 50%,
-          rgba(6, 24, 45, 0.42) 63%,
-          rgba(6, 24, 45, 0.12) 78%,
-          rgba(6, 24, 45, 0) 100%
-        ),
-        var(--hero-image) !important;
-      background-size: cover !important;
-      background-position: 66% center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .mobile-hero-content {
-      width: 54% !important;
-    }
-
-    /* Leadership formatting, name first, title smaller underneath */
-    .agenda-value.person-value {
-      text-align: right !important;
-    }
-
-    .person-name {
-      display: block;
-      color: #111111;
-      font-size: 15.5px;
-      line-height: 1.25;
-      font-weight: 500;
-    }
-
-    .person-title {
-      display: block;
-      margin-top: 3px;
-      color: #333333;
-      font-size: 13px;
-      line-height: 1.18;
-      font-style: italic;
-    }
-
-    @media screen and (max-width: 420px) {
-      .mobile-hero {
-        min-height: 315px !important;
-        background-position: 70% center !important;
-      }
-
-      .mobile-hero-content {
-        width: 56% !important;
-      }
-
-      .person-name {
-        font-size: 15px;
-      }
-
-      .person-title {
-        font-size: 12.5px;
-      }
-    }
-
-  
-    /* =========================================================
-       V3 VISUAL FIXES
-       cleaner sacrament divider + seasonal hero control
-       ========================================================= */
-
-    .mobile-hero.hero-standard {
-      --hero-image: url("assets/headers/christ-standard.png");
-    }
-
-    .mobile-hero.hero-christmas {
-      --hero-image: url("assets/headers/christ-christmas.png");
-    }
-
-    .mobile-hero.hero-easter {
-      --hero-image: url("assets/headers/christ-easter.png");
-    }
-
-    .mobile-hero {
-      min-height: 320px !important;
-      background-image:
-        linear-gradient(
-          90deg,
-          #06182d 0%,
-          rgba(6, 24, 45, 0.98) 26%,
-          rgba(6, 24, 45, 0.82) 42%,
-          rgba(6, 24, 45, 0.45) 58%,
-          rgba(6, 24, 45, 0.14) 76%,
-          rgba(6, 24, 45, 0) 100%
-        ),
-        var(--hero-image) !important;
-      background-size: cover !important;
-      background-position: 68% center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .mobile-hero.hero-christmas {
-      min-height: 315px !important;
-      background-image:
-        linear-gradient(
-          90deg,
-          #06182d 0%,
-          rgba(6, 24, 45, 0.95) 22%,
-          rgba(6, 24, 45, 0.72) 38%,
-          rgba(6, 24, 45, 0.34) 55%,
-          rgba(6, 24, 45, 0.08) 72%,
-          rgba(6, 24, 45, 0) 100%
-        ),
-        var(--hero-image) !important;
-      background-position: 56% center !important;
-    }
-
-    .mobile-hero.hero-easter {
-      min-height: 315px !important;
-      background-image:
-        linear-gradient(
-          90deg,
-          #06182d 0%,
-          rgba(6, 24, 45, 0.96) 24%,
-          rgba(6, 24, 45, 0.76) 40%,
-          rgba(6, 24, 45, 0.34) 58%,
-          rgba(6, 24, 45, 0.08) 76%,
-          rgba(6, 24, 45, 0) 100%
-        ),
-        var(--hero-image) !important;
-      background-position: 60% center !important;
-    }
-
-    .mobile-hero-content {
-      width: 53% !important;
-      padding-top: 38px !important;
-    }
-
-    .mobile-hero h1 {
-      font-size: clamp(27px, 7.2vw, 38px) !important;
-      line-height: 1.08 !important;
-      margin-bottom: 18px !important;
-    }
-
-    .mobile-hero-date {
-      font-size: clamp(16px, 4.4vw, 21px) !important;
-      margin-bottom: 12px !important;
-    }
-
-    .mobile-hero-church {
-      font-size: clamp(12.5px, 3.3vw, 15.5px) !important;
-      line-height: 1.32 !important;
-    }
-
-    .sacrament-admin {
-      margin: 14px 0 0 !important;
-      padding: 0 !important;
-      background: transparent !important;
-      border: 0 !important;
-      text-align: center !important;
-    }
-
-    .sacrament-admin-text {
-      display: inline-block !important;
-      padding: 10px 15px !important;
-      max-width: 100% !important;
-      border-radius: 999px !important;
-      background: #fffaf1 !important;
-      border: 1px solid #eadcc4 !important;
-      color: #102b4a !important;
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 15.5px !important;
-      line-height: 1.2 !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.01em !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.035) !important;
-    }
-
-    @media screen and (max-width: 420px) {
-      .mobile-hero {
-        min-height: 300px !important;
-        background-position: 70% center !important;
-      }
-
-      .mobile-hero.hero-christmas {
-        background-position: 54% center !important;
-      }
-
-      .mobile-hero.hero-easter {
-        background-position: 57% center !important;
-      }
-
-      .mobile-hero-content {
-        width: 54% !important;
-        padding: 34px 18px 28px 18px !important;
-      }
-
-      .mobile-hero h1 {
-        font-size: clamp(24px, 7.1vw, 32px) !important;
-        line-height: 1.08 !important;
-        margin-bottom: 16px !important;
-      }
-
-      .mobile-hero-date {
-        font-size: clamp(15px, 4.2vw, 18px) !important;
-        margin-bottom: 10px !important;
-      }
-
-      .mobile-hero-church {
-        font-size: clamp(11.5px, 3.2vw, 14px) !important;
-      }
-
-      .sacrament-admin-text {
-        font-size: 14.5px !important;
-        padding: 9px 13px !important;
-      }
-    }
-
-  
-    /* V4: Fasting/Testimony explanation moved to compact accordion above agenda */
-    .accordion-title {
-      overflow-wrap: anywhere;
-    }
-
-    .accordion:first-of-type {
-      margin-top: 0;
-    }
-
-    @media screen and (max-width: 420px) {
-      .accordion-title {
-        font-size: 16px !important;
-      }
-
-      .accordion-subtitle {
-        font-size: 14px !important;
-      }
-    }
-
-  
-    /* V5: compact header date */
-    .mobile-hero-date {
-      white-space: nowrap !important;
-      gap: 6px !important;
-    }
-
-    .mobile-hero-date span {
-      white-space: nowrap !important;
-    }
-
-    @media screen and (max-width: 420px) {
-      .mobile-hero-date {
-        font-size: clamp(14.5px, 4vw, 17px) !important;
-      }
-
-      .mobile-hero-date svg {
-        width: 15px !important;
-        height: 15px !important;
-        flex-basis: 15px !important;
-      }
-    }
-
-  
-    /* V6: intentional mobile text wrapping, no sloppy label breaks */
-    .section-title,
-    .accordion-title,
-    .footer-title {
-      text-wrap: balance;
-    }
-
-    .accordion-title {
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-      hyphens: none !important;
-    }
-
-    .accordion-subtitle {
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-      hyphens: none !important;
-    }
-
-    .agenda-label {
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-      hyphens: none !important;
-    }
-
-    .agenda-value {
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-      hyphens: none !important;
-    }
-
-    .person-name,
-    .person-title {
-      display: block !important;
-      text-align: right !important;
-    }
-
-    .person-name {
-      white-space: normal !important;
-      text-wrap: balance;
-    }
-
-    .person-title {
-      font-size: 12.75px !important;
-      line-height: 1.2 !important;
-      font-style: italic !important;
-      color: #333333 !important;
-      margin-top: 3px !important;
-      text-wrap: balance;
-    }
-
-    .accordion summary {
-      grid-template-columns: 38px minmax(0, 1fr) 18px !important;
-    }
-
-    .accordion-title {
-      font-size: 16.25px !important;
-      line-height: 1.18 !important;
-      white-space: normal !important;
-    }
-
-    .accordion-subtitle {
-      font-size: 13.8px !important;
-      line-height: 1.25 !important;
-    }
-
-    .footer-title {
-      font-size: 14.5px !important;
-      line-height: 1.22 !important;
-      white-space: normal !important;
-    }
-
-    .footer-line {
-      overflow-wrap: normal !important;
-      word-break: normal !important;
-      hyphens: none !important;
-    }
-
-    @media screen and (max-width: 420px) {
-      .section-title {
-        font-size: 21.5px !important;
-      }
-
-      .accordion-title {
-        font-size: 15.75px !important;
-      }
-
-      .accordion-subtitle {
-        font-size: 13.5px !important;
-      }
-
-      .agenda-row {
-        grid-template-columns: 41% 59% !important;
-        gap: 8px !important;
-      }
-
-      .agenda-label,
-      .agenda-value {
-        font-size: 14.5px !important;
-        line-height: 1.25 !important;
-      }
-
-      .person-title {
-        font-size: 12.25px !important;
-      }
-
-      .footer-title {
-        font-size: 14px !important;
-      }
-    }
-
-  
-    /* V7: cohesive blue page background like approved mockup */
-    html,
-    body {
-      background:
-        linear-gradient(
-          180deg,
-          #06182d 0%,
-          #071f3a 210px,
-          #0b2746 360px,
-          #eef0f3 680px,
-          #eef0f3 100%
-        ) !important;
-    }
-
-    .mobile-program {
-      background:
-        linear-gradient(
-          180deg,
-          #06182d 0%,
-          #071f3a 315px,
-          #0b2746 420px,
-          #eef0f3 680px,
-          #eef0f3 100%
-        ) !important;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
-    }
-
-    .mobile-body {
-      background: transparent !important;
-      padding-top: 16px !important;
-    }
-
-    .mobile-hero {
-      box-shadow: none !important;
-    }
-
-    .card,
-    .accordion,
-    .fast-card {
-      box-shadow: 0 6px 20px rgba(4, 17, 32, 0.13) !important;
-    }
-
-    .card:first-of-type {
-      margin-top: 0 !important;
-    }
-
-    .footer {
-      box-shadow: 0 -2px 14px rgba(4, 17, 32, 0.18) !important;
-      border: 1px solid rgba(255,255,255,0.08) !important;
-    }
-
-    @media screen and (max-width: 420px) {
-      html,
-      body {
-        background:
-          linear-gradient(
-            180deg,
-            #06182d 0%,
-            #071f3a 210px,
-            #0b2746 345px,
-            #eef0f3 620px,
-            #eef0f3 100%
-          ) !important;
-      }
-
-      .mobile-program {
-        background:
-          linear-gradient(
-            180deg,
-            #06182d 0%,
-            #071f3a 300px,
-            #0b2746 400px,
-            #eef0f3 610px,
-            #eef0f3 100%
-          ) !important;
-      }
-    }
-
-  
-    /* V8: solid navy page background, gradient only in header */
-    html,
-    body {
-      background: #06182d !important;
-    }
-
-    .mobile-program {
-      background: #06182d !important;
-      box-shadow: none !important;
-    }
-
-    .mobile-body {
-      background: #06182d !important;
-      padding: 16px 14px 28px !important;
-    }
-
-    .mobile-hero {
-      margin: 0 !important;
-      background-color: #06182d !important;
-    }
-
-    .card,
-    .accordion,
-    .fast-card {
-      box-shadow: 0 8px 22px rgba(0,0,0,0.20) !important;
-    }
-
-    .sacrament-card {
-      background: #fffaf1 !important;
-    }
-
-    .footer {
-      background: #071f3a !important;
-      border: 1px solid rgba(255,255,255,0.10) !important;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.20) !important;
-      border-radius: 16px !important;
-      margin-top: 16px !important;
-    }
-
-    @media screen and (max-width: 420px) {
-      html,
-      body,
-      .mobile-program,
-      .mobile-body {
-        background: #06182d !important;
-      }
-    }
-
-  
-    /* V9: Christmas crop + clean church-name wrapping */
-    .mobile-hero-church {
-      display: block !important;
-      max-width: 185px !important;
-      font-size: clamp(11.5px, 3vw, 14px) !important;
-      line-height: 1.24 !important;
-    }
-
-    .mobile-hero-church span {
-      display: block !important;
-      white-space: nowrap !important;
-    }
-
-    /* Christmas artwork is centered in the file, so enlarge and shift it right for mobile header framing. */
-    .mobile-hero.hero-christmas {
-      background-size: 132% auto !important;
-      background-position: 74% center !important;
-    }
-
-    .mobile-hero.hero-christmas .mobile-hero-content {
-      width: 48% !important;
-    }
-
-    .mobile-hero.hero-christmas h1 {
-      font-size: clamp(25px, 6.8vw, 36px) !important;
-      line-height: 1.07 !important;
-    }
-
-    .mobile-hero.hero-christmas .mobile-hero-date {
-      font-size: clamp(14.5px, 4vw, 18px) !important;
-    }
-
-    .mobile-hero.hero-christmas .mobile-hero-church {
-      max-width: 170px !important;
-      font-size: clamp(10.75px, 2.9vw, 13px) !important;
-    }
-
-    @media screen and (max-width: 420px) {
-      .mobile-hero-church {
-        max-width: 165px !important;
-        font-size: clamp(10.5px, 2.95vw, 12.5px) !important;
-      }
-
-      .mobile-hero.hero-christmas {
-        background-size: 145% auto !important;
-        background-position: 76% center !important;
-      }
-
-      .mobile-hero.hero-christmas .mobile-hero-content {
-        width: 47% !important;
-        padding-left: 18px !important;
-        padding-right: 8px !important;
-      }
-
-      .mobile-hero.hero-christmas h1 {
-        font-size: clamp(23px, 6.7vw, 30px) !important;
-        margin-bottom: 14px !important;
-      }
-
-      .mobile-hero.hero-christmas .mobile-hero-date {
-        font-size: clamp(14px, 3.9vw, 17px) !important;
-      }
-
-      .mobile-hero.hero-christmas .mobile-hero-church {
-        max-width: 150px !important;
-        font-size: clamp(10px, 2.8vw, 11.75px) !important;
-        line-height: 1.22 !important;
-      }
-    }
-
-  
-
-/* V10: force Christmas header to crop like a header image, not show the whole image.
-   Lower background-position moves the artwork visually to the right and crops behind Joseph. */
-@media screen and (max-width: 900px) {
-  .mobile-hero.hero-christmas,
-  .mobile-hero.hero-christmas {
-    background-size: 168% auto !important;
-    background-position: 24% center !important;
-  }
-
-  .mobile-hero.hero-christmas .mobile-hero-content,
-  .mobile-hero.hero-christmas .mobile-hero-content {
-    width: 46% !important;
-    padding-right: 6px !important;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .mobile-hero.hero-christmas,
-  .mobile-hero.hero-christmas {
-    background-size: 182% auto !important;
-    background-position: 22% center !important;
-  }
-
-  .mobile-hero.hero-christmas .mobile-hero-content,
-  .mobile-hero.hero-christmas .mobile-hero-content {
-    width: 45% !important;
-    padding-left: 18px !important;
-    padding-right: 4px !important;
-  }
-}
-
-
-
-
-/* MOBILE-ONLY CLEANUP
-   This file is intentionally mobile only.
-   It uses repo assets and has no printable four-panel layout. */
-
-html,
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: #06182d !important;
-}
-
-.mobile-program-shell {
-  display: block !important;
-  background: #06182d !important;
-  min-height: 100vh !important;
-}
-
-.mobile-program {
-  background: #06182d !important;
-  min-height: 100vh !important;
-}
-
-/* Do not allow old print/desktop wrappers to appear in this file */
-.program-wrapper,
-.screen-note,
-.locked-mobile-program {
-  display: none !important;
-}
-
-@media screen and (min-width: 901px) {
-  body {
-    background: #06182d !important;
-  }
-
-  .mobile-program {
-    max-width: 480px !important;
-    margin: 0 auto !important;
-  }
-}
-
   </style>
 </head>
+
 <body>
-  <div class="mobile-program-shell">
-<div class="mobile-program">
+  <div class="mobile-program">
 
     <header class="mobile-hero hero-standard" data-season="standard">
       <div class="mobile-hero-content">
@@ -1152,7 +472,6 @@ body {
     </header>
 
     <main class="mobile-body">
-
 
       <details class="accordion {{ayuno_hidden_class}}">
         <summary>
@@ -1245,28 +564,27 @@ body {
           </div>
         </div>
       </section>
-<section class="{{discursantes_hidden_class}}">
-        <div class="card">
-          <div class="card-inner">
-            <div class="agenda-row">
-              <div class="agenda-label">Discurso</div>
-              <div class="agenda-value">{{primer_discursante}}</div>
-            </div>
 
-            <div class="agenda-row">
-              <div class="agenda-label">Discurso</div>
-              <div class="agenda-value">{{segundo_discursante}}</div>
-            </div>
+      <section class="card {{discursantes_hidden_class}}">
+        <div class="card-inner">
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">{{primer_discursante}}</div>
+          </div>
 
-            <div class="agenda-row {{numero_musical_hidden_class}}">
-              <div class="agenda-label">Himno Intermedio / Número Musical</div>
-              <div class="agenda-value">{{numero_musical}}</div>
-            </div>
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">{{segundo_discursante}}</div>
+          </div>
 
-            <div class="agenda-row">
-              <div class="agenda-label">Discurso</div>
-              <div class="agenda-value">{{ultimo_discursante}}</div>
-            </div>
+          <div class="agenda-row {{numero_musical_hidden_class}}">
+            <div class="agenda-label">Himno Intermedio / Número Musical</div>
+            <div class="agenda-value">{{numero_musical}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">{{ultimo_discursante}}</div>
           </div>
         </div>
       </section>
@@ -1417,8 +735,7 @@ body {
     </main>
   </div>
 
-<script>
-
+  <script>
     (function () {
       function escapeHtml(value) {
         return String(value)
@@ -1432,10 +749,8 @@ body {
       document.querySelectorAll("[data-split-person]").forEach(function (el) {
         var raw = (el.textContent || "").trim();
         if (!raw) return;
-
         var parts = raw.split(",");
         if (parts.length < 2) return;
-
         var name = parts.shift().trim();
         var title = parts.join(",").trim();
 
@@ -1444,19 +759,6 @@ body {
           '<span class="person-title">' + escapeHtml(title) + '</span>';
       });
 
-      var params = new URLSearchParams(window.location.search);
-      var season = (params.get("season") || "").toLowerCase();
-      var hero = document.querySelector(".mobile-hero");
-
-      if (hero && ["standard", "christmas", "easter"].includes(season)) {
-        hero.classList.remove("hero-standard", "hero-christmas", "hero-easter");
-        hero.classList.add("hero-" + season);
-        hero.setAttribute("data-season", season);
-      }
-    })();
-  
-
-    (function () {
       function abbreviateHeaderDate() {
         var dateEl = document.querySelector(".mobile-hero-date span");
         if (!dateEl) return;
@@ -1469,23 +771,20 @@ body {
           "mayo": "may", "junio": "jun", "julio": "jul", "agosto": "ago",
           "septiembre": "sep", "setiembre": "sep", "octubre": "oct",
           "noviembre": "nov", "diciembre": "dic",
-
           "january": "Jan", "february": "Feb", "march": "Mar", "april": "Apr",
           "may": "May", "june": "Jun", "july": "Jul", "august": "Aug",
           "september": "Sep", "october": "Oct", "november": "Nov", "december": "Dec"
         };
 
         var lower = raw.toLowerCase();
-
-        // Spanish format: 7 de junio de 2026 -> 7 jun 2026
         var spanishMatch = lower.match(/^(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})$/i);
+
         if (spanishMatch) {
           var month = monthMap[spanishMatch[2]] || spanishMatch[2].slice(0, 3);
           dateEl.textContent = spanishMatch[1] + " " + month + " " + spanishMatch[3];
           return;
         }
 
-        // English format: June 7, 2026 -> Jun 7, 2026
         Object.keys(monthMap).forEach(function (monthName) {
           var re = new RegExp("\\b" + monthName + "\\b", "i");
           if (re.test(dateEl.textContent)) {
@@ -1495,38 +794,18 @@ body {
       }
 
       abbreviateHeaderDate();
-
-      // Some browser translation tools mutate text after load. Run once more shortly after.
       window.setTimeout(abbreviateHeaderDate, 500);
+
+      var params = new URLSearchParams(window.location.search);
+      var season = (params.get("season") || "").toLowerCase();
+      var hero = document.querySelector(".mobile-hero");
+
+      if (hero && ["standard", "christmas", "easter"].includes(season)) {
+        hero.classList.remove("hero-standard", "hero-christmas", "hero-easter");
+        hero.classList.add("hero-" + season);
+        hero.setAttribute("data-season", season);
+      }
     })();
-  
-
-  (function () {
-    function splitPersonValue(id) {
-      var el = document.getElementById(id);
-      if (!el) return;
-
-      var raw = (el.textContent || "").trim();
-      if (!raw || raw.indexOf(",") === -1) return;
-
-      var parts = raw.split(",");
-      var name = parts.shift().trim();
-      var title = parts.join(",").trim();
-
-      if (!name || !title) return;
-
-      el.innerHTML =
-        '<span class="service-person-name"></span>' +
-        '<span class="service-person-title"></span>';
-
-      el.querySelector(".service-person-name").textContent = name;
-      el.querySelector(".service-person-title").textContent = title;
-    }
-
-    splitPersonValue("preside");
-    splitPersonValue("conduce");
-  })();
-
-</script>
+  </script>
 </body>
 </html>
