@@ -1608,7 +1608,7 @@
     }
 
 
-    /* ── PRINT/DESKTOP ORDER OF SERVICE ROW POLISH ── */
+    /* ── PRINT/DESKTOP ORDER OF SERVICE: SUBTLE LINES + LONG NAME POLISH ── */
     .service-table {
       table-layout: fixed;
     }
@@ -1622,48 +1622,85 @@
     }
 
     .service-table td {
-      line-height: 1.28;
+      line-height: 1.26;
     }
 
     .service-table .label {
-      width: 42%;
+      width: 38%;
       padding-right: 10px;
       color: #111111;
       white-space: nowrap;
     }
 
     .service-table .value {
-      width: 58%;
+      width: 62%;
       text-align: right;
       white-space: normal;
       overflow-wrap: break-word;
       word-break: normal;
+      line-height: 1.22;
     }
 
-    .service-table .long-value {
-      font-size: 10.4pt;
-      line-height: 1.22;
+    .service-person-name {
+      display: block;
+      font-size: 10.6pt;
+      line-height: 1.18;
+      font-weight: 500;
+    }
+
+    .service-person-title {
+      display: block;
+      margin-top: 2px;
+      font-size: 9.2pt;
+      line-height: 1.16;
+      color: #444444;
+      font-style: italic;
     }
 
     @media print {
       .service-table td {
         padding: 8px 8px;
-        font-size: 10.5pt;
-        line-height: 1.24;
+        font-size: 10.4pt;
+        line-height: 1.22;
       }
 
-      .service-table .long-value {
-        font-size: 10.1pt;
-        line-height: 1.2;
+      .service-person-name {
+        font-size: 10.3pt;
+        line-height: 1.16;
       }
 
-      .service-table .label {
-        width: 42%;
+      .service-person-title {
+        font-size: 8.9pt;
+        line-height: 1.12;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .service-person-name,
+      .service-person-title {
+        display: inline !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+        font-style: normal !important;
+        color: inherit !important;
       }
 
-      .service-table .value {
-        width: 58%;
+      .service-person-title::before {
+        content: ", ";
       }
+    }
+
+    html.mobile-program .service-person-name,
+    html.mobile-program .service-person-title {
+      display: inline !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
+      font-style: normal !important;
+      color: inherit !important;
+    }
+
+    html.mobile-program .service-person-title::before {
+      content: ", ";
     }
 
 
@@ -1803,25 +1840,25 @@
       <p style="text-align:center; font-size:10.5pt; margin-bottom:10px;" id="fecha-inner">{{fecha_display}}</p>
 
       <table class="service-table" style="height:100%; width:100%;">
-        <tr>
+        <tr class="service-row">
           <td class="label">Preside</td>
           <td class="value" id="preside">{{preside}}</td>
         </tr>
-        <tr>
+        <tr class="service-row">
           <td class="label">Dirige</td>
           <td class="value" id="conduce">{{conduce}}</td>
         </tr>
         <tr><td colspan="2" style="padding:8px;"></td></tr>
-        <tr>
+        <tr class="service-row">
           <td class="label">Himno de Apertura</td>
           <td class="value" id="himno-apertura">{{himno_apertura}}</td>
         </tr>
-        <tr>
+        <tr class="service-row">
           <td class="label">Oración de Apertura</td>
           <td class="value" id="oracion-apertura">{{oracion_apertura}}</td>
         </tr>
         <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr>
+        <tr class="service-row">
           <td class="label">Himno Sacramental</td>
           <td class="value" id="himno-sacramental">{{himno_sacramental}}</td>
         </tr>
@@ -1832,20 +1869,20 @@
 
         <!-- REGULAR MEETING speakers -->
         <tbody id="bloque-discursantes" class="{{discursantes_hidden_class}}">
-          <tr>
+          <tr class="service-row">
             <td class="label">Discurso</td>
             <td class="value" id="primer-discursante">{{primer_discursante}}</td>
           </tr>
-          <tr>
+          <tr class="service-row">
             <td class="label">Discurso</td>
             <td class="value" id="segundo-discursante">{{segundo_discursante}}</td>
           </tr>
           <!-- Musical number / Himno Intermedio -->
-          <tr id="bloque-numero-musical" class="{{numero_musical_hidden_class}}">
+          <tr id="bloque-numero-musical" class="service-row {{numero_musical_hidden_class}}">
             <td class="label">Himno Intermedio/Número Musical</td>
             <td class="value" id="numero-musical">{{numero_musical}}</td>
           </tr>
-          <tr>
+          <tr class="service-row">
             <td class="label">Discurso</td>
             <td class="value" id="ultimo-discursante">{{ultimo_discursante}}</td>
           </tr>
@@ -1866,11 +1903,11 @@
         </tbody>
 
         <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr>
+        <tr class="service-row">
           <td class="label">Himno de Cierre</td>
           <td class="value" id="himno-cierre">{{himno_cierre}}</td>
         </tr>
-        <tr>
+        <tr class="service-row">
           <td class="label">Oración de Cierre</td>
           <td class="value" id="oracion-cierre">{{oracion_cierre}}</td>
         </tr>
@@ -1969,6 +2006,35 @@
   window.addEventListener("resize", setMobileProgramClass);
   window.addEventListener("orientationchange", setMobileProgramClass);
 })();
+</script>
+
+
+<script>
+  (function () {
+    function splitPersonValue(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+
+      var raw = (el.textContent || "").trim();
+      if (!raw || raw.indexOf(",") === -1) return;
+
+      var parts = raw.split(",");
+      var name = parts.shift().trim();
+      var title = parts.join(",").trim();
+
+      if (!name || !title) return;
+
+      el.innerHTML =
+        '<span class="service-person-name"></span>' +
+        '<span class="service-person-title"></span>';
+
+      el.querySelector(".service-person-name").textContent = name;
+      el.querySelector(".service-person-title").textContent = title;
+    }
+
+    splitPersonValue("preside");
+    splitPersonValue("conduce");
+  })();
 </script>
 
 </body>
