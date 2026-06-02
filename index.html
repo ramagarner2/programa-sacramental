@@ -93,64 +93,21 @@
     .service-table {
       width: 100%;
       border-collapse: collapse;
-      table-layout: fixed;
       margin: 6px 0;
     }
 
     .service-table tr { height: auto; }
 
     .service-table td {
-      padding: 8px 7px;
-      font-size: 10.8pt;
-      line-height: 1.24;
-      vertical-align: top;
+      padding: 10px 8px;
+      font-size: 11pt;
+      vertical-align: middle;
     }
 
-    .service-table .label {
-      font-weight: normal;
-      width: 32%;
-      white-space: nowrap;
-      padding-right: 8px;
-    }
-
-    .service-table .value {
-      text-align: right;
-      width: 68%;
-      white-space: normal;
-      overflow-wrap: break-word;
-      word-break: normal;
-      hyphens: auto;
-    }
-
+    .service-table .label { font-weight: normal; width: 48%; }
+    .service-table .value { text-align: right; width: 52%; }
     .service-table .centered { text-align: center; font-style: italic; }
     .service-table .centered-bold { text-align: center; font-weight: bold; }
-
-    @media print {
-      .service-table {
-        table-layout: fixed !important;
-      }
-
-      .service-table td {
-        padding: 7px 7px !important;
-        font-size: 10.5pt !important;
-        line-height: 1.22 !important;
-        vertical-align: top !important;
-      }
-
-      .service-table .label {
-        width: 30% !important;
-        white-space: nowrap !important;
-      }
-
-      .service-table .value {
-        width: 70% !important;
-        text-align: right !important;
-        white-space: normal !important;
-        overflow-wrap: break-word !important;
-        word-break: normal !important;
-        hyphens: auto !important;
-      }
-    }
 
     /* ── VISITOR INFO ── */
     .visitor-block p {
@@ -950,9 +907,6 @@
         font-size: 18px !important;
         line-height: 1.35 !important;
         font-weight: 500;
-        overflow-wrap: anywhere;
-        word-break: normal;
-        hyphens: auto;
       }
 
       .mobile-sacrament-line {
@@ -1053,9 +1007,6 @@
       font-size: 18px !important;
       line-height: 1.35 !important;
       font-weight: 500 !important;
-      overflow-wrap: anywhere !important;
-      word-break: normal !important;
-      hyphens: auto !important;
     }
 
     html.mobile-program .mobile-sacrament-line {
@@ -1656,6 +1607,78 @@
       letter-spacing: 0.03em !important;
     }
 
+
+    /* ── PRINT/DESKTOP ORDER OF SERVICE DOT LEADERS ── */
+    .service-lines {
+      width: 100%;
+      margin: 10px 0 4px 0;
+    }
+
+    .service-line {
+      display: grid;
+      grid-template-columns: max-content 1fr minmax(165px, 52%);
+      column-gap: 8px;
+      align-items: baseline;
+      padding: 7px 0;
+      font-size: 10.7pt;
+      line-height: 1.25;
+    }
+
+    .service-line .service-label {
+      white-space: nowrap;
+      color: #111111;
+    }
+
+    .service-line .service-dots {
+      border-bottom: 1px dotted #6f7785;
+      transform: translateY(-3px);
+      min-width: 18px;
+    }
+
+    .service-line .service-value {
+      text-align: right;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    .service-spacer {
+      height: 10px;
+    }
+
+    .service-centered-line {
+      margin: 8px 0 10px 0;
+      text-align: center;
+      font-style: italic;
+      font-size: 10.5pt;
+      line-height: 1.25;
+    }
+
+    @media print {
+      .service-line {
+        grid-template-columns: max-content 1fr minmax(160px, 52%);
+        column-gap: 7px;
+        padding: 6px 0;
+        font-size: 10.4pt;
+        line-height: 1.22;
+      }
+
+      .service-centered-line {
+        font-size: 10.3pt;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .panel-service .service-lines {
+        display: none !important;
+      }
+    }
+
+    html.mobile-program .panel-service .service-lines {
+      display: none !important;
+    }
+
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1791,79 +1814,97 @@
       <h2 style="margin-bottom:4px;">Reunión de Ayuno y Testimonio</h2>
       <p style="text-align:center; font-size:10.5pt; margin-bottom:10px;" id="fecha-inner">7 de junio de 2026</p>
 
-      <table class="service-table" style="height:100%; width:100%;">
-        <tr>
-          <td class="label">Preside</td>
-          <td class="value" id="preside">Matt Hafen, Primer Consejero de Estaca</td>
-        </tr>
-        <tr>
-          <td class="label">Dirige</td>
-          <td class="value" id="conduce">Luis E Campos Presidente de Rama</td>
-        </tr>
-        <tr><td colspan="2" style="padding:8px;"></td></tr>
-        <tr>
-          <td class="label">Himno de Apertura</td>
-          <td class="value" id="himno-apertura">#11 Dios manda a profetas</td>
-        </tr>
-        <tr>
-          <td class="label">Oración de Apertura</td>
-          <td class="value" id="oracion-apertura">Euli Chaves</td>
-        </tr>
-        <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr>
-          <td class="label">Himno Sacramental</td>
-          <td class="value" id="himno-sacramental">#2 El Espíritu de Dios</td>
-        </tr>
-        <tr>
-          <td class="centered" colspan="2">Administración de la Santa Cena</td>
-        </tr>
-        <tr><td colspan="2" style="padding:10px;"></td></tr>
+      <div class="service-lines" aria-label="Orden de la reunión">
+        <div class="service-line">
+          <span class="service-label">Preside</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="preside">Matt Hafen, Primer Consejero de Estaca</span>
+        </div>
+
+        <div class="service-line">
+          <span class="service-label">Dirige</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="conduce">Luis E Campos Presidente de Rama</span>
+        </div>
+
+        <div class="service-spacer" aria-hidden="true"></div>
+
+        <div class="service-line">
+          <span class="service-label">Himno de Apertura</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="himno-apertura">#11 Dios manda a profetas</span>
+        </div>
+
+        <div class="service-line">
+          <span class="service-label">Oración de Apertura</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="oracion-apertura">Euli Chaves</span>
+        </div>
+
+        <div class="service-spacer" aria-hidden="true"></div>
+
+        <div class="service-line">
+          <span class="service-label">Himno Sacramental</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="himno-sacramental">#2 El Espíritu de Dios</span>
+        </div>
+
+        <div class="service-centered-line">Administración de la Santa Cena</div>
 
         <!-- REGULAR MEETING speakers -->
-        <tbody id="bloque-discursantes" class="hidden">
-          <tr>
-            <td class="label">Discurso</td>
-            <td class="value" id="primer-discursante"></td>
-          </tr>
-          <tr>
-            <td class="label">Discurso</td>
-            <td class="value" id="segundo-discursante"></td>
-          </tr>
-          <!-- Musical number / Himno Intermedio -->
-          <tr id="bloque-numero-musical" class="">
-            <td class="label">Himno Intermedio/Número Musical</td>
-            <td class="value" id="numero-musical">#18 Oh Sión, santuario de libertad</td>
-          </tr>
-          <tr>
-            <td class="label">Discurso</td>
-            <td class="value" id="ultimo-discursante"></td>
-          </tr>
-        </tbody>
+        <div id="bloque-discursantes" class="hidden">
+          <div class="service-spacer" aria-hidden="true"></div>
+
+          <div class="service-line">
+            <span class="service-label">Discurso</span>
+            <span class="service-dots" aria-hidden="true"></span>
+            <span class="service-value" id="primer-discursante"></span>
+          </div>
+
+          <div class="service-line">
+            <span class="service-label">Discurso</span>
+            <span class="service-dots" aria-hidden="true"></span>
+            <span class="service-value" id="segundo-discursante"></span>
+          </div>
+
+          <div class="service-line " id="bloque-numero-musical">
+            <span class="service-label">Himno Intermedio/Número Musical</span>
+            <span class="service-dots" aria-hidden="true"></span>
+            <span class="service-value" id="numero-musical">#18 Oh Sión, santuario de libertad</span>
+          </div>
+
+          <div class="service-line">
+            <span class="service-label">Discurso</span>
+            <span class="service-dots" aria-hidden="true"></span>
+            <span class="service-value" id="ultimo-discursante"></span>
+          </div>
+        </div>
 
         <!-- FAST SUNDAY block -->
-        <tbody id="bloque-ayuno" class="">
-          <tr>
-            <td colspan="2" style="padding: 8px;">
-              <div class="fast-sunday-block">
-                <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br><br>
-                El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
-                Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
-                Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
-              </div>
-            </td>
-          </tr>
-        </tbody>
+        <div id="bloque-ayuno" class="">
+          <div class="service-spacer" aria-hidden="true"></div>
+          <div class="fast-sunday-block">
+            <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br><br>
+            El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
+            Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
+            Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
+          </div>
+        </div>
 
-        <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr>
-          <td class="label">Himno de Cierre</td>
-          <td class="value" id="himno-cierre">#9 Un ángel del Señor</td>
-        </tr>
-        <tr>
-          <td class="label">Oración de Cierre</td>
-          <td class="value" id="oracion-cierre">Juan Manuel Ramos Flores</td>
-        </tr>
-      </table>
+        <div class="service-spacer" aria-hidden="true"></div>
+
+        <div class="service-line">
+          <span class="service-label">Himno de Cierre</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="himno-cierre">#9 Un ángel del Señor</span>
+        </div>
+
+        <div class="service-line">
+          <span class="service-label">Oración de Cierre</span>
+          <span class="service-dots" aria-hidden="true"></span>
+          <span class="service-value" id="oracion-cierre">Juan Manuel Ramos Flores</span>
+        </div>
+      </div>
 
       <!-- MOBILE SERVICE VIEW — phone-friendly digital layout -->
       <div class="mobile-service-list" aria-label="Orden de la reunión">
