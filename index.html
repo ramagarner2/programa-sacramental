@@ -1520,6 +1520,131 @@
     }
 
   
+
+/* V10: force Christmas header to crop like a header image, not show the whole image.
+   Lower background-position moves the artwork visually to the right and crops behind Joseph. */
+@media screen and (max-width: 900px) {
+  .mobile-only-program .mobile-hero.hero-christmas,
+  .mobile-hero.hero-christmas {
+    background-size: 168% auto !important;
+    background-position: 24% center !important;
+  }
+
+  .mobile-only-program .mobile-hero.hero-christmas .mobile-hero-content,
+  .mobile-hero.hero-christmas .mobile-hero-content {
+    width: 46% !important;
+    padding-right: 6px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .mobile-only-program .mobile-hero.hero-christmas,
+  .mobile-hero.hero-christmas {
+    background-size: 182% auto !important;
+    background-position: 22% center !important;
+  }
+
+  .mobile-only-program .mobile-hero.hero-christmas .mobile-hero-content,
+  .mobile-hero.hero-christmas .mobile-hero-content {
+    width: 45% !important;
+    padding-left: 18px !important;
+    padding-right: 4px !important;
+  }
+}
+
+
+/* V11 PRINT CLEANUP: preserve printable cover image, remove bleed, no duplicate contacts */
+@media print {
+  .mobile-only-program,
+  .locked-mobile-program {
+    display: none !important;
+  }
+
+  .program-wrapper {
+    display: block !important;
+  }
+
+  .panel-back-cover {
+    padding: 0.18in 0.22in !important;
+    overflow: hidden !important;
+  }
+
+  .panel-back-cover .section-header {
+    font-size: 8.4pt !important;
+    line-height: 1.1 !important;
+    padding: 3px 7px !important;
+    margin: 5px 0 3px 0 !important;
+  }
+
+  .panel-back-cover h3 {
+    font-size: 7.8pt !important;
+    line-height: 1.1 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .panel-back-cover .visitor-block p {
+    font-size: 7.8pt !important;
+    line-height: 1.18 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .panel-back-cover hr.divider {
+    margin: 5px 0 !important;
+  }
+
+  .panel-back-cover .sacrament-scripture-card {
+    margin: 4px 0 5px 0 !important;
+    padding: 4px 7px !important;
+  }
+
+  .panel-back-cover .sacrament-scripture-card .scripture-quote {
+    font-size: 8pt !important;
+    line-height: 1.15 !important;
+  }
+
+  .panel-back-cover .sacrament-scripture-card .scripture-ref {
+    font-size: 7.2pt !important;
+    line-height: 1.1 !important;
+    margin-top: 1px !important;
+  }
+
+  .panel-back-cover .missionary-contact-card {
+    margin-top: 4px !important;
+    padding: 5px 7px !important;
+    font-size: 7.7pt !important;
+    line-height: 1.1 !important;
+  }
+
+  .panel-back-cover .missionary-help-line {
+    font-size: 7.7pt !important;
+    line-height: 1.1 !important;
+    margin: 0 0 3px 0 !important;
+  }
+
+  .panel-back-cover .missionary-contact-title {
+    font-size: 8pt !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .panel-back-cover .missionary-contact-item {
+    padding: 2px 0 !important;
+  }
+
+  .panel-back-cover .missionary-contact-name,
+  .panel-back-cover .missionary-contact-phone {
+    font-size: 7.8pt !important;
+    line-height: 1.08 !important;
+    margin-top: 0 !important;
+  }
+
+  .panel-announcements .missionary-contact-card,
+  .panel-announcements .missionary-contact-title,
+  .panel-announcements .missionary-contact-list {
+    display: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
