@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa Sacramental — Mobile</title>
+
+  <style>
+    :root {
+      --navy: #06182d;
+      --navy-2: #071f3a;
+      --gold: #d4a24d;
+      --cream: #f4f2ee;
+      --paper: #ffffff;
+      --soft-card: #fffaf1;
+      --line: #e5e7eb;
+      --text: #111111;
+      --muted: #555555;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--navy);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .mobile-program {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--navy);
+    }
+
+    .mobile-hero {
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+      background-image:
+        linear-gradient(
+          90deg,
+          #06182d 0%,
+          rgba(6, 24, 45, 0.98) 24%,
+          rgba(6, 24, 45, 0.82) 40%,
+          rgba(6, 24, 45, 0.45) 58%,
+          rgba(6, 24, 45, 0.12) 76%,
+          rgba(6, 24, 45, 0) 100%
+        ),
+        var(--hero-image);
+      background-size: cover;
+      background-position: 70% center;
+      background-repeat: no-repeat;
+      background-color: var(--navy);
+    }
+
+    .mobile-hero.hero-standard {
+      --hero-image: url("assets/headers/christ-standard.png");
+    }
+
+    .mobile-hero.hero-christmas {
+      --hero-image: url("assets/headers/christ-christmas.png");
+      background-size: 182% auto;
+      background-position: 22% center;
+    }
+
+    .mobile-hero.hero-easter {
+      --hero-image: url("assets/headers/christ-easter.png");
+      background-position: 57% center;
+    }
+
+    .mobile-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 55%;
+      padding: 34px 18px 28px;
+    }
+
+    .mobile-hero.hero-christmas .mobile-hero-content {
+      width: 45%;
+      padding-right: 4px;
+    }
+
+    .mobile-hero h1 {
+      margin: 0 0 16px;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 7.1vw, 32px);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .mobile-hero-date {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(14px, 3.9vw, 17px);
+      line-height: 1.2;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .mobile-hero-date svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .mobile-hero-church {
+      display: block;
+      max-width: 165px;
+      margin: 0;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(10.5px, 2.95vw, 12.5px);
+      line-height: 1.24;
+      font-weight: 400;
+    }
+
+    .mobile-hero-church span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .mobile-body {
+      background: var(--navy);
+      padding: 16px 14px 28px;
+    }
+
+    .card,
+    .accordion {
+      background: var(--paper);
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+      margin: 0 0 14px;
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 18px 16px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21.5px;
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .round-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .round-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .agenda-row {
+      display: grid;
+      grid-template-columns: 41% 59%;
+      gap: 8px;
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .agenda-row:last-child {
+      border-bottom: 0;
+    }
+
+    .agenda-label {
+      color: var(--navy);
+      font-size: 14.5px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .agenda-value {
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.25;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .person-name,
+    .person-title {
+      display: block;
+      text-align: right;
+    }
+
+    .person-title {
+      margin-top: 3px;
+      color: #333333;
+      font-size: 12.25px;
+      line-height: 1.2;
+      font-style: italic;
+    }
+
+    .sacrament-admin {
+      margin: 14px 0 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .sacrament-admin-text {
+      display: inline-block;
+      max-width: 100%;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #fffaf1;
+      border: 1px solid #eadcc4;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14.5px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.035);
+    }
+
+    .sacrament-card {
+      background: var(--soft-card);
+      border: 1px solid #eadcc4;
+    }
+
+    .sacrament-image-wrap {
+      margin: 0 0 16px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff7eb;
+      border: 1px solid #eadcc4;
+    }
+
+    .sacrament-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 205px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .sacrament-title {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .sacrament-text {
+      margin: 0 0 12px;
+      color: #333333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .scripture-card {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e6dfd3;
+      text-align: center;
+    }
+
+    .scripture-quote {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    .scripture-ref {
+      margin-top: 8px;
+      color: #9a7435;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .accordion summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) 18px;
+      gap: 11px;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-chevron {
+      color: #9a7435;
+      font-size: 24px;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+
+    .accordion[open] .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .accordion-title {
+      display: block;
+      color: var(--navy);
+      font-size: 15.75px;
+      line-height: 1.18;
+      font-weight: 850;
+      letter-spacing: 0.01em;
+    }
+
+    .accordion-subtitle {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+
+    .accordion-body {
+      padding: 0 16px 17px 64px;
+      color: #333333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .accordion-body p {
+      margin: 0 0 10px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .lesson-note {
+      margin: -4px 0 12px;
+      text-align: center;
+      color: #555555;
+      font-size: 14.5px;
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    .footer {
+      margin-top: 16px;
+      padding: 18px 17px;
+      border-radius: 16px;
+      background: var(--navy-2);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.20);
+      color: #ffffff;
+    }
+
+    .footer-title {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1.22;
+      font-weight: 850;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .footer-line {
+      margin: 8px 0;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 800;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media screen and (min-width: 901px) {
+      .mobile-program {
+        max-width: 480px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mobile-program">
+
+    <header class="mobile-hero hero-standard" data-season="standard">
+      <div class="mobile-hero-content">
+        <h1>{{tipo_reunion_display}}</h1>
+
+        <div class="mobile-hero-date">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+            <path d="M16 2v4"></path>
+            <path d="M8 2v4"></path>
+            <path d="M3 10h18"></path>
+          </svg>
+          <span>{{fecha_display}}</span>
+        </div>
+
+        <p class="mobile-hero-church">
+          <span>La Iglesia de Jesucristo</span>
+          <span>de los Santos de los Últimos Días</span>
+        </p>
+      </div>
+    </header>
+
+    <main class="mobile-body">
+
+      <details class="accordion {{ayuno_hidden_class}}">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2v20"></path>
+              <path d="M5 7h14"></path>
+              <path d="M7 12h10"></path>
+              <path d="M9 17h6"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Ayuno y Testimonio</span>
+            <span class="accordion-subtitle">¿En qué consiste esta reunión?</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.</p>
+          <p>Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.</p>
+        </div>
+      </details>
+
+      <section class="card">
+        <div class="card-inner">
+          <h2 class="section-title">
+            <span class="round-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 6h12"></path>
+                <path d="M8 12h12"></path>
+                <path d="M8 18h12"></path>
+                <path d="M4 6h.01"></path>
+                <path d="M4 12h.01"></path>
+                <path d="M4 18h.01"></path>
+              </svg>
+            </span>
+            <span>Orden de la reunión</span>
+          </h2>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Preside</div>
+            <div class="agenda-value person-value" data-split-person>{{preside}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Dirige</div>
+            <div class="agenda-value person-value" data-split-person>{{conduce}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Himno de Apertura</div>
+            <div class="agenda-value">{{himno_apertura}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Oración de Apertura</div>
+            <div class="agenda-value">{{oracion_apertura}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Himno Sacramental</div>
+            <div class="agenda-value">{{himno_sacramental}}</div>
+          </div>
+
+          <div class="sacrament-admin">
+            <span class="sacrament-admin-text">Administración de la Santa Cena</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card sacrament-card">
+        <div class="card-inner">
+          <div class="sacrament-image-wrap">
+            <img class="sacrament-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
+          </div>
+
+          <h2 class="sacrament-title">La Santa Cena</h2>
+
+          <p class="sacrament-text">
+            Participamos de la Santa Cena en memoria de Jesucristo. El pan representa Su cuerpo y el agua representa Su sangre.
+          </p>
+
+          <p class="sacrament-text">
+            Al participar, renovamos nuestros convenios y recordamos Su sacrificio.
+          </p>
+
+          <div class="scripture-card">
+            <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
+            <div class="scripture-ref">1 Corintios 11:24</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card {{discursantes_hidden_class}}">
+        <div class="card-inner">
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">{{primer_discursante}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">{{segundo_discursante}}</div>
+          </div>
+
+          <div class="agenda-row {{numero_musical_hidden_class}}">
+            <div class="agenda-label">Himno Intermedio / Número Musical</div>
+            <div class="agenda-value">{{numero_musical}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">{{ultimo_discursante}}</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-inner">
+          <div class="agenda-row">
+            <div class="agenda-label">Himno de Cierre</div>
+            <div class="agenda-value">{{himno_cierre}}</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Oración de Cierre</div>
+            <div class="agenda-value">{{oracion_cierre}}</div>
+          </div>
+        </div>
+      </section>
+
+      <details class="accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">¿Es su primera vez?</span>
+            <span class="accordion-subtitle">Información para visitantes</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
+          <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
+          <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Clases después de la reunión</span>
+            <span class="accordion-subtitle">Lecciones y enlaces</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.</p>
+
+          <a class="button" href="{{come_follow_me_url}}" target="_blank" rel="noopener">Ven, sígueme</a>
+          <div class="lesson-note">{{come_follow_me_title}}</div>
+
+          <a class="button" href="{{relief_society_url}}" target="_blank" rel="noopener">Sociedad de Socorro</a>
+          <div class="lesson-note">{{relief_society_lesson}}</div>
+
+          <a class="button" href="{{elders_quorum_url}}" target="_blank" rel="noopener">Cuórum de Élderes</a>
+          <div class="lesson-note">{{elders_quorum_lesson}}</div>
+
+          <p class="{{second_hour_notes_hidden_class}}">{{second_hour_notes}}</p>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 11v2a4 4 0 0 0 4 4h1l4 4v-4h5a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v4z"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Anuncios</span>
+            <span class="accordion-subtitle">Avisos de la rama</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <div class="{{anuncios_hidden_class}}">{{anuncios_semanales}}</div>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M2 12h20"></path>
+              <path d="M12 2a15 15 0 0 1 0 20"></path>
+              <path d="M12 2a15 15 0 0 0 0 20"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">EnglishConnect</span>
+            <span class="accordion-subtitle">Clases gratuitas de inglés</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Clases gratuitas de inglés para adultos. Todos son bienvenidos.</p>
+          <p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Road, Garner, NC</p>
+          <a class="button" href="https://quickreg.churchofjesuschrist.org/groups/c91e5dbd-d6ed-f011-8544-6045bda960b1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 3v8"></path>
+              <path d="M8 3v8"></path>
+              <path d="M4 7h4"></path>
+              <path d="M6 11v10"></path>
+              <path d="M16 3c2 2 3 4 3 7s-1 5-3 7v4"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Alimentar a los misioneros</span>
+            <span class="accordion-subtitle">Escoger una fecha</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.</p>
+          <a class="button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha para alimentar a los misioneros</a>
+        </div>
+      </details>
+
+      <footer class="footer">
+        <div class="footer-title">Teléfonos y dirección</div>
+        <div class="footer-line">Hermanas Boyer y Rounds<br><a href="tel:19198021411">(919) 802-1411</a></div>
+        <div class="footer-line">Élderes Freeman y Wilcox<br><a href="tel:19843261050">(984) 326-1050</a></div>
+        <div class="footer-line">Élderes Ferguson y Peterson<br><a href="tel:19193949688">(919) 394-9688</a></div>
+        <div class="footer-line">
+          <a href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">
+            1433 Aversboro Rd, Garner, NC
+          </a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      document.querySelectorAll("[data-split-person]").forEach(function (el) {
+        var raw = (el.textContent || "").trim();
+        if (!raw) return;
+        var parts = raw.split(",");
+        if (parts.length < 2) return;
+        var name = parts.shift().trim();
+        var title = parts.join(",").trim();
+
+        el.innerHTML =
+          '<span class="person-name">' + escapeHtml(name) + '</span>' +
+          '<span class="person-title">' + escapeHtml(title) + '</span>';
+      });
+
+      function abbreviateHeaderDate() {
+        var dateEl = document.querySelector(".mobile-hero-date span");
+        if (!dateEl) return;
+
+        var raw = (dateEl.textContent || "").trim();
+        if (!raw) return;
+
+        var monthMap = {
+          "enero": "ene", "febrero": "feb", "marzo": "mar", "abril": "abr",
+          "mayo": "may", "junio": "jun", "julio": "jul", "agosto": "ago",
+          "septiembre": "sep", "setiembre": "sep", "octubre": "oct",
+          "noviembre": "nov", "diciembre": "dic",
+          "january": "Jan", "february": "Feb", "march": "Mar", "april": "Apr",
+          "may": "May", "june": "Jun", "july": "Jul", "august": "Aug",
+          "september": "Sep", "october": "Oct", "november": "Nov", "december": "Dec"
+        };
+
+        var lower = raw.toLowerCase();
+        var spanishMatch = lower.match(/^(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})$/i);
+
+        if (spanishMatch) {
+          var month = monthMap[spanishMatch[2]] || spanishMatch[2].slice(0, 3);
+          dateEl.textContent = spanishMatch[1] + " " + month + " " + spanishMatch[3];
+          return;
+        }
+
+        Object.keys(monthMap).forEach(function (monthName) {
+          var re = new RegExp("\\b" + monthName + "\\b", "i");
+          if (re.test(dateEl.textContent)) {
+            dateEl.textContent = dateEl.textContent.replace(re, monthMap[monthName]);
+          }
+        });
+      }
+
+      abbreviateHeaderDate();
+      window.setTimeout(abbreviateHeaderDate, 500);
+
+      var params = new URLSearchParams(window.location.search);
+      var season = (params.get("season") || "").toLowerCase();
+      var hero = document.querySelector(".mobile-hero");
+
+      if (hero && ["standard", "christmas", "easter"].includes(season)) {
+        hero.classList.remove("hero-standard", "hero-christmas", "hero-easter");
+        hero.classList.add("hero-" + season);
+        hero.setAttribute("data-season", season);
+      }
+    })();
+  </script>
+</body>
+</html>
