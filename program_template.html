@@ -1608,74 +1608,62 @@
     }
 
 
-    /* ── PRINT/DESKTOP ORDER OF SERVICE DOT LEADERS ── */
-    .service-lines {
-      width: 100%;
-      margin: 10px 0 4px 0;
+    /* ── PRINT/DESKTOP ORDER OF SERVICE ROW POLISH ── */
+    .service-table {
+      table-layout: fixed;
     }
 
-    .service-line {
-      display: grid;
-      grid-template-columns: max-content 1fr minmax(165px, 52%);
-      column-gap: 8px;
-      align-items: baseline;
-      padding: 7px 0;
-      font-size: 10.7pt;
-      line-height: 1.25;
+    .service-table tr.service-row td {
+      border-bottom: 1px solid #e4e8ef;
     }
 
-    .service-line .service-label {
-      white-space: nowrap;
+    .service-table tr.service-row:last-child td {
+      border-bottom: none;
+    }
+
+    .service-table td {
+      line-height: 1.28;
+    }
+
+    .service-table .label {
+      width: 42%;
+      padding-right: 10px;
       color: #111111;
+      white-space: nowrap;
     }
 
-    .service-line .service-dots {
-      border-bottom: 1px dotted #6f7785;
-      transform: translateY(-3px);
-      min-width: 18px;
-    }
-
-    .service-line .service-value {
+    .service-table .value {
+      width: 58%;
       text-align: right;
       white-space: normal;
       overflow-wrap: break-word;
       word-break: normal;
     }
 
-    .service-spacer {
-      height: 10px;
-    }
-
-    .service-centered-line {
-      margin: 8px 0 10px 0;
-      text-align: center;
-      font-style: italic;
-      font-size: 10.5pt;
-      line-height: 1.25;
+    .service-table .long-value {
+      font-size: 10.4pt;
+      line-height: 1.22;
     }
 
     @media print {
-      .service-line {
-        grid-template-columns: max-content 1fr minmax(160px, 52%);
-        column-gap: 7px;
-        padding: 6px 0;
-        font-size: 10.4pt;
-        line-height: 1.22;
+      .service-table td {
+        padding: 8px 8px;
+        font-size: 10.5pt;
+        line-height: 1.24;
       }
 
-      .service-centered-line {
-        font-size: 10.3pt;
+      .service-table .long-value {
+        font-size: 10.1pt;
+        line-height: 1.2;
       }
-    }
 
-    @media screen and (max-width: 768px) {
-      .panel-service .service-lines {
-        display: none !important;
+      .service-table .label {
+        width: 42%;
       }
-    }
 
-    html.mobile-program .panel-service .service-lines {
-      display: none !important;
+      .service-table .value {
+        width: 58%;
+      }
     }
 
 
@@ -1814,97 +1802,79 @@
       <h2 style="margin-bottom:4px;">{{tipo_reunion_display}}</h2>
       <p style="text-align:center; font-size:10.5pt; margin-bottom:10px;" id="fecha-inner">{{fecha_display}}</p>
 
-      <div class="service-lines" aria-label="Orden de la reunión">
-        <div class="service-line">
-          <span class="service-label">Preside</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="preside">{{preside}}</span>
-        </div>
-
-        <div class="service-line">
-          <span class="service-label">Dirige</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="conduce">{{conduce}}</span>
-        </div>
-
-        <div class="service-spacer" aria-hidden="true"></div>
-
-        <div class="service-line">
-          <span class="service-label">Himno de Apertura</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="himno-apertura">{{himno_apertura}}</span>
-        </div>
-
-        <div class="service-line">
-          <span class="service-label">Oración de Apertura</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="oracion-apertura">{{oracion_apertura}}</span>
-        </div>
-
-        <div class="service-spacer" aria-hidden="true"></div>
-
-        <div class="service-line">
-          <span class="service-label">Himno Sacramental</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="himno-sacramental">{{himno_sacramental}}</span>
-        </div>
-
-        <div class="service-centered-line">Administración de la Santa Cena</div>
+      <table class="service-table" style="height:100%; width:100%;">
+        <tr>
+          <td class="label">Preside</td>
+          <td class="value" id="preside">{{preside}}</td>
+        </tr>
+        <tr>
+          <td class="label">Dirige</td>
+          <td class="value" id="conduce">{{conduce}}</td>
+        </tr>
+        <tr><td colspan="2" style="padding:8px;"></td></tr>
+        <tr>
+          <td class="label">Himno de Apertura</td>
+          <td class="value" id="himno-apertura">{{himno_apertura}}</td>
+        </tr>
+        <tr>
+          <td class="label">Oración de Apertura</td>
+          <td class="value" id="oracion-apertura">{{oracion_apertura}}</td>
+        </tr>
+        <tr><td colspan="2" style="padding:10px;"></td></tr>
+        <tr>
+          <td class="label">Himno Sacramental</td>
+          <td class="value" id="himno-sacramental">{{himno_sacramental}}</td>
+        </tr>
+        <tr>
+          <td class="centered" colspan="2">Administración de la Santa Cena</td>
+        </tr>
+        <tr><td colspan="2" style="padding:10px;"></td></tr>
 
         <!-- REGULAR MEETING speakers -->
-        <div id="bloque-discursantes" class="{{discursantes_hidden_class}}">
-          <div class="service-spacer" aria-hidden="true"></div>
-
-          <div class="service-line">
-            <span class="service-label">Discurso</span>
-            <span class="service-dots" aria-hidden="true"></span>
-            <span class="service-value" id="primer-discursante">{{primer_discursante}}</span>
-          </div>
-
-          <div class="service-line">
-            <span class="service-label">Discurso</span>
-            <span class="service-dots" aria-hidden="true"></span>
-            <span class="service-value" id="segundo-discursante">{{segundo_discursante}}</span>
-          </div>
-
-          <div class="service-line {{numero_musical_hidden_class}}" id="bloque-numero-musical">
-            <span class="service-label">Himno Intermedio/Número Musical</span>
-            <span class="service-dots" aria-hidden="true"></span>
-            <span class="service-value" id="numero-musical">{{numero_musical}}</span>
-          </div>
-
-          <div class="service-line">
-            <span class="service-label">Discurso</span>
-            <span class="service-dots" aria-hidden="true"></span>
-            <span class="service-value" id="ultimo-discursante">{{ultimo_discursante}}</span>
-          </div>
-        </div>
+        <tbody id="bloque-discursantes" class="{{discursantes_hidden_class}}">
+          <tr>
+            <td class="label">Discurso</td>
+            <td class="value" id="primer-discursante">{{primer_discursante}}</td>
+          </tr>
+          <tr>
+            <td class="label">Discurso</td>
+            <td class="value" id="segundo-discursante">{{segundo_discursante}}</td>
+          </tr>
+          <!-- Musical number / Himno Intermedio -->
+          <tr id="bloque-numero-musical" class="{{numero_musical_hidden_class}}">
+            <td class="label">Himno Intermedio/Número Musical</td>
+            <td class="value" id="numero-musical">{{numero_musical}}</td>
+          </tr>
+          <tr>
+            <td class="label">Discurso</td>
+            <td class="value" id="ultimo-discursante">{{ultimo_discursante}}</td>
+          </tr>
+        </tbody>
 
         <!-- FAST SUNDAY block -->
-        <div id="bloque-ayuno" class="{{ayuno_hidden_class}}">
-          <div class="service-spacer" aria-hidden="true"></div>
-          <div class="fast-sunday-block">
-            <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br><br>
-            El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
-            Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
-            Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
-          </div>
-        </div>
+        <tbody id="bloque-ayuno" class="{{ayuno_hidden_class}}">
+          <tr>
+            <td colspan="2" style="padding: 8px;">
+              <div class="fast-sunday-block">
+                <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br><br>
+                El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
+                Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
+                Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
+              </div>
+            </td>
+          </tr>
+        </tbody>
 
-        <div class="service-spacer" aria-hidden="true"></div>
-
-        <div class="service-line">
-          <span class="service-label">Himno de Cierre</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="himno-cierre">{{himno_cierre}}</span>
-        </div>
-
-        <div class="service-line">
-          <span class="service-label">Oración de Cierre</span>
-          <span class="service-dots" aria-hidden="true"></span>
-          <span class="service-value" id="oracion-cierre">{{oracion_cierre}}</span>
-        </div>
-      </div>
+        <tr><td colspan="2" style="padding:10px;"></td></tr>
+        <tr>
+          <td class="label">Himno de Cierre</td>
+          <td class="value" id="himno-cierre">{{himno_cierre}}</td>
+        </tr>
+        <tr>
+          <td class="label">Oración de Cierre</td>
+          <td class="value" id="oracion-cierre">{{oracion_cierre}}</td>
+        </tr>
+      </table>
 
       <!-- MOBILE SERVICE VIEW — phone-friendly digital layout -->
       <div class="mobile-service-list" aria-label="Orden de la reunión">
