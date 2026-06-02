@@ -1704,6 +1704,69 @@
     }
 
 
+
+    /* ── SECOND HOUR LESSON LINKS ── */
+    .second-hour-card {
+      margin: 16px 0 0 0;
+      padding: 14px 16px;
+      background: #f5f7fb;
+      border-left: 4px solid #1F3864;
+    }
+
+    .second-hour-title {
+      color: #1F3864;
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .second-hour-intro {
+      color: #444444;
+      font-size: 16px;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .second-hour-button {
+      display: block;
+      color: #ffffff !important;
+      background: #1F3864;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.25;
+      padding: 11px 14px;
+      border-radius: 999px;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .second-hour-lesson {
+      color: #444444;
+      font-size: 14px;
+      line-height: 1.35;
+      margin: -4px 0 8px 0;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .second-hour-notes {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #dce3ef;
+      color: #444444;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    @media print {
+      .second-hour-card {
+        display: none !important;
+      }
+    }
+
+
     /* ── HIDDEN BLOCKS ── */
     .hidden { display: none !important; }
   </style>
@@ -1789,6 +1852,34 @@
         <div class="weekly-ann" id="anuncios-semanales">Text area, this is gonna be slick!</div>
       </div>
 
+
+      <div class="second-hour-card">
+        <div class="second-hour-title">Clases después de la reunión</div>
+        <div class="second-hour-intro">
+          Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.
+        </div>
+
+        <a class="second-hour-button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/23?lang=spa" target="_blank" rel="noopener">
+          Ven, sígueme
+        </a>
+        <div class="second-hour-lesson">Ven, sígueme, semana del 1 de junio al 7 de junio</div>
+
+        <a class="second-hour-button" href="#" target="_blank" rel="noopener">
+          Sociedad de Socorro
+        </a>
+        <div class="second-hour-lesson">Lección pendiente</div>
+
+        <a class="second-hour-button" href="#" target="_blank" rel="noopener">
+          Cuórum de Élderes
+        </a>
+        <div class="second-hour-lesson">Lección pendiente</div>
+
+        <div class="second-hour-notes hidden">
+          
+        </div>
+      </div>
+
+
       <!-- EnglishConnect -->
       <div class="qr-announcement" style="display:flex; align-items:center; justify-content:space-between; margin: 10px 0; padding: 8px; border-left: 3px solid #1F3864;">
         <div class="qr-text" style="flex:1;">
@@ -1840,25 +1931,25 @@
       <p style="text-align:center; font-size:10.5pt; margin-bottom:10px;" id="fecha-inner">7 de junio de 2026</p>
 
       <table class="service-table" style="height:100%; width:100%;">
-        <tr class="service-row">
+        <tr>
           <td class="label">Preside</td>
           <td class="value" id="preside">Matt Hafen, Primer Consejero de Estaca</td>
         </tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Dirige</td>
           <td class="value" id="conduce">Luis E Campos, Presidente de Rama</td>
         </tr>
         <tr><td colspan="2" style="padding:8px;"></td></tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Himno de Apertura</td>
           <td class="value" id="himno-apertura">#11 Dios manda a profetas</td>
         </tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Oración de Apertura</td>
           <td class="value" id="oracion-apertura">Euli Chaves</td>
         </tr>
         <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Himno Sacramental</td>
           <td class="value" id="himno-sacramental">#2 El Espíritu de Dios</td>
         </tr>
@@ -1869,20 +1960,20 @@
 
         <!-- REGULAR MEETING speakers -->
         <tbody id="bloque-discursantes" class="hidden">
-          <tr class="service-row">
+          <tr>
             <td class="label">Discurso</td>
             <td class="value" id="primer-discursante"></td>
           </tr>
-          <tr class="service-row">
+          <tr>
             <td class="label">Discurso</td>
             <td class="value" id="segundo-discursante"></td>
           </tr>
           <!-- Musical number / Himno Intermedio -->
-          <tr id="bloque-numero-musical" class="service-row ">
+          <tr id="bloque-numero-musical" class="">
             <td class="label">Himno Intermedio/Número Musical</td>
             <td class="value" id="numero-musical">#18 Oh Sión, santuario de libertad</td>
           </tr>
-          <tr class="service-row">
+          <tr>
             <td class="label">Discurso</td>
             <td class="value" id="ultimo-discursante"></td>
           </tr>
@@ -1903,11 +1994,11 @@
         </tbody>
 
         <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Himno de Cierre</td>
           <td class="value" id="himno-cierre">#9 Un ángel del Señor</td>
         </tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Oración de Cierre</td>
           <td class="value" id="oracion-cierre">Juan Manuel Ramos Flores</td>
         </tr>
