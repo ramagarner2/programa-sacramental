@@ -93,21 +93,64 @@
     .service-table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed;
       margin: 6px 0;
     }
 
     .service-table tr { height: auto; }
 
     .service-table td {
-      padding: 10px 8px;
-      font-size: 11pt;
-      vertical-align: middle;
+      padding: 8px 7px;
+      font-size: 10.8pt;
+      line-height: 1.24;
+      vertical-align: top;
     }
 
-    .service-table .label { font-weight: normal; width: 48%; }
-    .service-table .value { text-align: right; width: 52%; }
+    .service-table .label {
+      font-weight: normal;
+      width: 32%;
+      white-space: nowrap;
+      padding-right: 8px;
+    }
+
+    .service-table .value {
+      text-align: right;
+      width: 68%;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: auto;
+    }
+
     .service-table .centered { text-align: center; font-style: italic; }
     .service-table .centered-bold { text-align: center; font-weight: bold; }
+
+    @media print {
+      .service-table {
+        table-layout: fixed !important;
+      }
+
+      .service-table td {
+        padding: 7px 7px !important;
+        font-size: 10.5pt !important;
+        line-height: 1.22 !important;
+        vertical-align: top !important;
+      }
+
+      .service-table .label {
+        width: 30% !important;
+        white-space: nowrap !important;
+      }
+
+      .service-table .value {
+        width: 70% !important;
+        text-align: right !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        hyphens: auto !important;
+      }
+    }
 
     /* ── VISITOR INFO ── */
     .visitor-block p {
@@ -907,6 +950,9 @@
         font-size: 18px !important;
         line-height: 1.35 !important;
         font-weight: 500;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        hyphens: auto;
       }
 
       .mobile-sacrament-line {
@@ -1007,6 +1053,9 @@
       font-size: 18px !important;
       line-height: 1.35 !important;
       font-weight: 500 !important;
+      overflow-wrap: anywhere !important;
+      word-break: normal !important;
+      hyphens: auto !important;
     }
 
     html.mobile-program .mobile-sacrament-line {
