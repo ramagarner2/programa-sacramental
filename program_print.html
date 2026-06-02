@@ -567,6 +567,122 @@
   }
 }
 
+  
+/* V4 PRINT POLISH: compact Santa Cena two-column layout */
+.sacrament-print-image-wrap {
+  display: none !important;
+}
+
+.sacrament-print-layout {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  gap: 10px;
+  align-items: start;
+  margin: 6px 0 8px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.sacrament-print-left {
+  background: #f2f2f2;
+  border-left: 3px solid #222222;
+  padding: 5px 5px 6px;
+}
+
+.sacrament-print-copy {
+  padding: 2px 0 0 0;
+  background: transparent;
+  border: 0;
+}
+
+.sacrament-print-copy p {
+  font-size: 10.2pt;
+  line-height: 1.28;
+  margin: 0 0 6px 0;
+  color: #111111;
+}
+
+.sacrament-print-image {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 1.15in !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 auto 5px auto !important;
+  filter: grayscale(100%) contrast(1.05) !important;
+  border: 0 !important;
+}
+
+.sacrament-scripture-card {
+  margin: 0 !important;
+  padding: 5px 5px !important;
+  background: #f2f2f2 !important;
+  border: 0 !important;
+  text-align: center !important;
+}
+
+.scripture-quote {
+  font-size: 9.6pt !important;
+  line-height: 1.18 !important;
+}
+
+.scripture-ref {
+  font-size: 7.8pt !important;
+  line-height: 1.1 !important;
+  margin-top: 2px !important;
+}
+
+.missionary-contact-card {
+  border-left: 3px solid #222222 !important;
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  background: #f2f2f2 !important;
+}
+
+.weekly-ann,
+.announcement,
+.announcement.shaded {
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+}
+
+@media print {
+  .sacrament-print-layout {
+    grid-template-columns: 44% 56% !important;
+    gap: 9px !important;
+    margin: 5px 0 7px !important;
+  }
+
+  .sacrament-print-left {
+    padding: 5px !important;
+  }
+
+  .sacrament-print-image {
+    max-height: 1.02in !important;
+    margin-bottom: 4px !important;
+  }
+
+  .sacrament-print-copy p {
+    font-size: 8.9pt !important;
+    line-height: 1.22 !important;
+    margin-bottom: 5px !important;
+  }
+
+  .scripture-quote {
+    font-size: 8.1pt !important;
+    line-height: 1.12 !important;
+  }
+
+  .scripture-ref {
+    font-size: 7pt !important;
+  }
+}
+
   </style>
 </head>
 
@@ -597,16 +713,19 @@
 
       <div class="section-header">La Santa Cena</div>
 
-      <div class="sacrament-print-image-wrap">
-        <img class="sacrament-print-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
-      </div>
-
-      <div class="visitor-block">
-        <div class="sacrament-scripture-card">
-          <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
-          <div class="scripture-ref">1 Corintios 11:24</div>
+      <div class="sacrament-print-layout">
+        <div class="sacrament-print-left">
+          <img class="sacrament-print-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
+          <div class="sacrament-scripture-card">
+            <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
+            <div class="scripture-ref">1 Corintios 11:24</div>
+          </div>
         </div>
-        <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación. Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
+
+        <div class="sacrament-print-copy">
+          <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación.</p>
+          <p>Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
+        </div>
       </div>
 
       <hr class="divider">
