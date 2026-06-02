@@ -683,6 +683,41 @@
   }
 }
 
+  
+/* V5 PRINT FOOTER CLEANUP: consistent footer logic */
+.panel-announcements .church-footer {
+  display: none !important;
+}
+
+.panel-front-cover .church-footer {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+  font-size: 8.8pt !important;
+  text-align: center !important;
+  color: #333333 !important;
+  line-height: 1.25 !important;
+}
+
+.panel-service .church-footer {
+  margin-top: auto !important;
+  padding-top: 8px !important;
+  font-size: 8.4pt !important;
+  text-align: center !important;
+  color: #333333 !important;
+  line-height: 1.25 !important;
+  border-top: 1px solid #dddddd !important;
+}
+
+@media print {
+  .panel-front-cover .church-footer {
+    font-size: 8.4pt !important;
+  }
+
+  .panel-service .church-footer {
+    font-size: 8pt !important;
+  }
+}
+
   </style>
 </head>
 
@@ -793,10 +828,7 @@
         <img class="qr-image" src="assets/qr-missionary-meals.png" alt="QR para alimentar a los misioneros">
       </div>
 
-      <div class="church-footer">
-        1433 Aversboro Rd, Garner, NC
-      </div>
-    </section>
+</section>
 
     <!-- ORDER OF SERVICE -->
     <section class="panel panel-service">
