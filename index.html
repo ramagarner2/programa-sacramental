@@ -717,6 +717,269 @@
       }
     }
 
+  
+    /* V5: compact header date */
+    .mobile-hero-date {
+      white-space: nowrap !important;
+      gap: 6px !important;
+    }
+
+    .mobile-hero-date span {
+      white-space: nowrap !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      .mobile-hero-date {
+        font-size: clamp(14.5px, 4vw, 17px) !important;
+      }
+
+      .mobile-hero-date svg {
+        width: 15px !important;
+        height: 15px !important;
+        flex-basis: 15px !important;
+      }
+    }
+
+  
+    /* V6: intentional mobile text wrapping, no sloppy label breaks */
+    .section-title,
+    .accordion-title,
+    .footer-title {
+      text-wrap: balance;
+    }
+
+    .accordion-title {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .agenda-label {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .agenda-value {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .person-name,
+    .person-title {
+      display: block !important;
+      text-align: right !important;
+    }
+
+    .person-name {
+      white-space: normal !important;
+      text-wrap: balance;
+    }
+
+    .person-title {
+      font-size: 12.75px !important;
+      line-height: 1.2 !important;
+      font-style: italic !important;
+      color: #333333 !important;
+      margin-top: 3px !important;
+      text-wrap: balance;
+    }
+
+    .accordion summary {
+      grid-template-columns: 38px minmax(0, 1fr) 18px !important;
+    }
+
+    .accordion-title {
+      font-size: 16.25px !important;
+      line-height: 1.18 !important;
+      white-space: normal !important;
+    }
+
+    .accordion-subtitle {
+      font-size: 13.8px !important;
+      line-height: 1.25 !important;
+    }
+
+    .footer-title {
+      font-size: 14.5px !important;
+      line-height: 1.22 !important;
+      white-space: normal !important;
+    }
+
+    .footer-line {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      .section-title {
+        font-size: 21.5px !important;
+      }
+
+      .accordion-title {
+        font-size: 15.75px !important;
+      }
+
+      .accordion-subtitle {
+        font-size: 13.5px !important;
+      }
+
+      .agenda-row {
+        grid-template-columns: 41% 59% !important;
+        gap: 8px !important;
+      }
+
+      .agenda-label,
+      .agenda-value {
+        font-size: 14.5px !important;
+        line-height: 1.25 !important;
+      }
+
+      .person-title {
+        font-size: 12.25px !important;
+      }
+
+      .footer-title {
+        font-size: 14px !important;
+      }
+    }
+
+  
+    /* V7: cohesive blue page background like approved mockup */
+    html,
+    body {
+      background:
+        linear-gradient(
+          180deg,
+          #06182d 0%,
+          #071f3a 210px,
+          #0b2746 360px,
+          #eef0f3 680px,
+          #eef0f3 100%
+        ) !important;
+    }
+
+    .mobile-program {
+      background:
+        linear-gradient(
+          180deg,
+          #06182d 0%,
+          #071f3a 315px,
+          #0b2746 420px,
+          #eef0f3 680px,
+          #eef0f3 100%
+        ) !important;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .mobile-body {
+      background: transparent !important;
+      padding-top: 16px !important;
+    }
+
+    .mobile-hero {
+      box-shadow: none !important;
+    }
+
+    .card,
+    .accordion,
+    .fast-card {
+      box-shadow: 0 6px 20px rgba(4, 17, 32, 0.13) !important;
+    }
+
+    .card:first-of-type {
+      margin-top: 0 !important;
+    }
+
+    .footer {
+      box-shadow: 0 -2px 14px rgba(4, 17, 32, 0.18) !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      html,
+      body {
+        background:
+          linear-gradient(
+            180deg,
+            #06182d 0%,
+            #071f3a 210px,
+            #0b2746 345px,
+            #eef0f3 620px,
+            #eef0f3 100%
+          ) !important;
+      }
+
+      .mobile-program {
+        background:
+          linear-gradient(
+            180deg,
+            #06182d 0%,
+            #071f3a 300px,
+            #0b2746 400px,
+            #eef0f3 610px,
+            #eef0f3 100%
+          ) !important;
+      }
+    }
+
+  
+    /* V8: solid navy page background, gradient only in header */
+    html,
+    body {
+      background: #06182d !important;
+    }
+
+    .mobile-program {
+      background: #06182d !important;
+      box-shadow: none !important;
+    }
+
+    .mobile-body {
+      background: #06182d !important;
+      padding: 16px 14px 28px !important;
+    }
+
+    .mobile-hero {
+      margin: 0 !important;
+      background-color: #06182d !important;
+    }
+
+    .card,
+    .accordion,
+    .fast-card {
+      box-shadow: 0 8px 22px rgba(0,0,0,0.20) !important;
+    }
+
+    .sacrament-card {
+      background: #fffaf1 !important;
+    }
+
+    .footer {
+      background: #071f3a !important;
+      border: 1px solid rgba(255,255,255,0.10) !important;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.20) !important;
+      border-radius: 16px !important;
+      margin-top: 16px !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      html,
+      body,
+      .mobile-program,
+      .mobile-body {
+        background: #06182d !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -758,8 +1021,8 @@
             </svg>
           </span>
           <span>
-            <span class="accordion-title">¿Qué es la Reunión de Ayuno y Testimonio?</span>
-            <span class="accordion-subtitle">Una breve explicación</span>
+            <span class="accordion-title">Ayuno y Testimonio</span>
+            <span class="accordion-subtitle">¿En qué consiste esta reunión?</span>
           </span>
           <span class="accordion-chevron">›</span>
         </summary>
@@ -996,7 +1259,7 @@
       </details>
 
       <footer class="footer">
-        <div class="footer-title">Teléfono de los misioneros / Dirección</div>
+        <div class="footer-title">Teléfonos y dirección</div>
         <div class="footer-line">Hermanas Boyer y Rounds<br><a href="tel:19198021411">(919) 802-1411</a></div>
         <div class="footer-line">Élderes Freeman y Wilcox<br><a href="tel:19843261050">(984) 326-1050</a></div>
         <div class="footer-line">Élderes Ferguson y Peterson<br><a href="tel:19193949688">(919) 394-9688</a></div>
@@ -1045,6 +1308,53 @@
         hero.classList.add("hero-" + season);
         hero.setAttribute("data-season", season);
       }
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      function abbreviateHeaderDate() {
+        var dateEl = document.querySelector(".mobile-hero-date span");
+        if (!dateEl) return;
+
+        var raw = (dateEl.textContent || "").trim();
+        if (!raw) return;
+
+        var monthMap = {
+          "enero": "ene", "febrero": "feb", "marzo": "mar", "abril": "abr",
+          "mayo": "may", "junio": "jun", "julio": "jul", "agosto": "ago",
+          "septiembre": "sep", "setiembre": "sep", "octubre": "oct",
+          "noviembre": "nov", "diciembre": "dic",
+
+          "january": "Jan", "february": "Feb", "march": "Mar", "april": "Apr",
+          "may": "May", "june": "Jun", "july": "Jul", "august": "Aug",
+          "september": "Sep", "october": "Oct", "november": "Nov", "december": "Dec"
+        };
+
+        var lower = raw.toLowerCase();
+
+        // Spanish format: 7 de junio de 2026 -> 7 jun 2026
+        var spanishMatch = lower.match(/^(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})$/i);
+        if (spanishMatch) {
+          var month = monthMap[spanishMatch[2]] || spanishMatch[2].slice(0, 3);
+          dateEl.textContent = spanishMatch[1] + " " + month + " " + spanishMatch[3];
+          return;
+        }
+
+        // English format: June 7, 2026 -> Jun 7, 2026
+        Object.keys(monthMap).forEach(function (monthName) {
+          var re = new RegExp("\\b" + monthName + "\\b", "i");
+          if (re.test(dateEl.textContent)) {
+            dateEl.textContent = dateEl.textContent.replace(re, monthMap[monthName]);
+          }
+        });
+      }
+
+      abbreviateHeaderDate();
+
+      // Some browser translation tools mutate text after load. Run once more shortly after.
+      window.setTimeout(abbreviateHeaderDate, 500);
     })();
   </script>
 
