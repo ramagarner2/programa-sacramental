@@ -544,6 +544,179 @@
       }
     }
 
+  
+    /* =========================================================
+       V3 VISUAL FIXES
+       cleaner sacrament divider + seasonal hero control
+       ========================================================= */
+
+    .mobile-hero.hero-standard {
+      --hero-image: url("assets/headers/christ-standard.png");
+    }
+
+    .mobile-hero.hero-christmas {
+      --hero-image: url("assets/headers/christ-christmas.png");
+    }
+
+    .mobile-hero.hero-easter {
+      --hero-image: url("assets/headers/christ-easter.png");
+    }
+
+    .mobile-hero {
+      min-height: 320px !important;
+      background-image:
+        linear-gradient(
+          90deg,
+          #06182d 0%,
+          rgba(6, 24, 45, 0.98) 26%,
+          rgba(6, 24, 45, 0.82) 42%,
+          rgba(6, 24, 45, 0.45) 58%,
+          rgba(6, 24, 45, 0.14) 76%,
+          rgba(6, 24, 45, 0) 100%
+        ),
+        var(--hero-image) !important;
+      background-size: cover !important;
+      background-position: 68% center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .mobile-hero.hero-christmas {
+      min-height: 315px !important;
+      background-image:
+        linear-gradient(
+          90deg,
+          #06182d 0%,
+          rgba(6, 24, 45, 0.95) 22%,
+          rgba(6, 24, 45, 0.72) 38%,
+          rgba(6, 24, 45, 0.34) 55%,
+          rgba(6, 24, 45, 0.08) 72%,
+          rgba(6, 24, 45, 0) 100%
+        ),
+        var(--hero-image) !important;
+      background-position: 56% center !important;
+    }
+
+    .mobile-hero.hero-easter {
+      min-height: 315px !important;
+      background-image:
+        linear-gradient(
+          90deg,
+          #06182d 0%,
+          rgba(6, 24, 45, 0.96) 24%,
+          rgba(6, 24, 45, 0.76) 40%,
+          rgba(6, 24, 45, 0.34) 58%,
+          rgba(6, 24, 45, 0.08) 76%,
+          rgba(6, 24, 45, 0) 100%
+        ),
+        var(--hero-image) !important;
+      background-position: 60% center !important;
+    }
+
+    .mobile-hero-content {
+      width: 53% !important;
+      padding-top: 38px !important;
+    }
+
+    .mobile-hero h1 {
+      font-size: clamp(27px, 7.2vw, 38px) !important;
+      line-height: 1.08 !important;
+      margin-bottom: 18px !important;
+    }
+
+    .mobile-hero-date {
+      font-size: clamp(16px, 4.4vw, 21px) !important;
+      margin-bottom: 12px !important;
+    }
+
+    .mobile-hero-church {
+      font-size: clamp(12.5px, 3.3vw, 15.5px) !important;
+      line-height: 1.32 !important;
+    }
+
+    .sacrament-admin {
+      margin: 14px 0 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      text-align: center !important;
+    }
+
+    .sacrament-admin-text {
+      display: inline-block !important;
+      padding: 10px 15px !important;
+      max-width: 100% !important;
+      border-radius: 999px !important;
+      background: #fffaf1 !important;
+      border: 1px solid #eadcc4 !important;
+      color: #102b4a !important;
+      font-family: Georgia, "Times New Roman", serif !important;
+      font-size: 15.5px !important;
+      line-height: 1.2 !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.01em !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.035) !important;
+    }
+
+    @media screen and (max-width: 420px) {
+      .mobile-hero {
+        min-height: 300px !important;
+        background-position: 70% center !important;
+      }
+
+      .mobile-hero.hero-christmas {
+        background-position: 54% center !important;
+      }
+
+      .mobile-hero.hero-easter {
+        background-position: 57% center !important;
+      }
+
+      .mobile-hero-content {
+        width: 54% !important;
+        padding: 34px 18px 28px 18px !important;
+      }
+
+      .mobile-hero h1 {
+        font-size: clamp(24px, 7.1vw, 32px) !important;
+        line-height: 1.08 !important;
+        margin-bottom: 16px !important;
+      }
+
+      .mobile-hero-date {
+        font-size: clamp(15px, 4.2vw, 18px) !important;
+        margin-bottom: 10px !important;
+      }
+
+      .mobile-hero-church {
+        font-size: clamp(11.5px, 3.2vw, 14px) !important;
+      }
+
+      .sacrament-admin-text {
+        font-size: 14.5px !important;
+        padding: 9px 13px !important;
+      }
+    }
+
+  
+    /* V4: Fasting/Testimony explanation moved to compact accordion above agenda */
+    .accordion-title {
+      overflow-wrap: anywhere;
+    }
+
+    .accordion:first-of-type {
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: 420px) {
+      .accordion-title {
+        font-size: 16px !important;
+      }
+
+      .accordion-subtitle {
+        font-size: 14px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -572,6 +745,29 @@
     </header>
 
     <main class="mobile-body">
+
+
+      <details class="accordion ">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2v20"></path>
+              <path d="M5 7h14"></path>
+              <path d="M7 12h10"></path>
+              <path d="M9 17h6"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">¿Qué es la Reunión de Ayuno y Testimonio?</span>
+            <span class="accordion-subtitle">Una breve explicación</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.</p>
+          <p>Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.</p>
+        </div>
+      </details>
 
       <section class="card">
         <div class="card-inner">
@@ -614,7 +810,9 @@
             <div class="agenda-value">#2 El Espíritu de Dios</div>
           </div>
 
-          <div class="sacrament-admin">Administración de la Santa Cena</div>
+          <div class="sacrament-admin">
+            <span class="sacrament-admin-text">Administración de la Santa Cena</span>
+          </div>
         </div>
       </section>
 
@@ -640,15 +838,7 @@
           </div>
         </div>
       </section>
-
-      <section class="fast-card ">
-        <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong>
-        El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.
-        <br><br>
-        Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.
-      </section>
-
-      <section class="hidden">
+<section class="hidden">
         <div class="card">
           <div class="card-inner">
             <div class="agenda-row">
