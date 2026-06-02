@@ -528,6 +528,45 @@
   }
 }
 
+  
+/* V3 PRINT FIX: show full Santa Cena image, do not banner-crop it */
+.sacrament-print-image-wrap {
+  margin: 6px 0 8px !important;
+  padding: 6px !important;
+  border: 1px solid #cccccc !important;
+  background: #f2f2f2 !important;
+  text-align: center !important;
+  overflow: visible !important;
+}
+
+.sacrament-print-image {
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 1.55in !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 auto !important;
+  filter: grayscale(100%) contrast(1.05) !important;
+  border: 0 !important;
+}
+
+@media print {
+  .sacrament-print-image-wrap {
+    margin: 5px 0 6px !important;
+    padding: 5px !important;
+  }
+
+  .sacrament-print-image {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 1.35in !important;
+    object-fit: contain !important;
+  }
+}
+
   </style>
 </head>
 
