@@ -1705,7 +1705,7 @@
 
 
 
-    /* ── SECOND HOUR LESSON LINKS, MOBILE FLOW ── */
+    /* ── SECOND HOUR LESSON LINKS ── */
     .second-hour-card {
       margin: 16px 0 0 0;
       padding: 14px 16px;
@@ -1767,476 +1767,416 @@
     }
 
 
+    /* ── HIDDEN BLOCKS ── */
+    .hidden { display: none !important; }
+  
+    /* ─────────────────────────────────────────────
+       LOCKED MOBILE PROGRAM
+       Christ header + one-column readable accordion flow
+       Desktop/print layout remains the existing four-panel program.
+       ───────────────────────────────────────────── */
 
-    /* ── MOBILE FLOW POLISH ── */
-    @media screen and (max-width: 768px) {
-      .panel-front-cover { order: 1 !important; }
-      .panel-service { order: 2 !important; }
-      .panel-back-cover { order: 3 !important; }
-      .panel-announcements { order: 4 !important; }
-
-      .panel-service {
-        border-bottom: 1px solid #d8d8d8 !important;
-      }
-
-      .panel-back-cover {
-        padding-top: 18px !important;
-      }
-
-      .panel-back-cover .missionary-contact-card {
-        display: none !important;
-      }
-
-      .second-hour-mobile-divider {
-        display: block !important;
-        margin: 20px 0 16px 0 !important;
-      }
-
-      .second-hour-card {
-        margin: 14px 0 0 0 !important;
-      }
-
-      .panel-announcements .section-header {
-        margin-top: 0 !important;
-      }
-    }
-
-    html.mobile-program .panel-front-cover { order: 1 !important; }
-    html.mobile-program .panel-service { order: 2 !important; }
-    html.mobile-program .panel-back-cover { order: 3 !important; }
-    html.mobile-program .panel-announcements { order: 4 !important; }
-
-    html.mobile-program .panel-service {
-      border-bottom: 1px solid #d8d8d8 !important;
-    }
-
-    html.mobile-program .panel-back-cover {
-      padding-top: 18px !important;
-    }
-
-    html.mobile-program .panel-back-cover .missionary-contact-card {
-      display: none !important;
-    }
-
-    html.mobile-program .second-hour-mobile-divider {
-      display: block !important;
-      margin: 20px 0 16px 0 !important;
-    }
-
-    html.mobile-program .second-hour-card {
-      margin: 14px 0 0 0 !important;
-    }
-
-    html.mobile-program .panel-announcements .section-header {
-      margin-top: 0 !important;
-    }
-
-
-
-    /* ── MOBILE SACRAMENT CARD + CONTACT COMPRESSION ── */
-    .mobile-sacrament-info-card {
+    .locked-mobile-program {
       display: none;
     }
 
     @media screen and (max-width: 768px) {
-      .mobile-sacrament-info-card {
-        display: block !important;
-        margin: 14px 0 18px 0 !important;
-        padding: 16px 16px !important;
-        background: #f5f7fb !important;
-        border-left: 4px solid #1F3864 !important;
+      body {
+        background: #f4f2ee !important;
+        font-family: Arial, sans-serif !important;
       }
 
-      .mobile-sacrament-info-title {
-        color: #1F3864 !important;
-        font-weight: 800 !important;
-        font-size: 18px !important;
-        line-height: 1.25 !important;
-        margin-bottom: 10px !important;
-      }
-
-      .mobile-sacrament-info-card p {
-        font-size: 15.5px !important;
-        line-height: 1.45 !important;
-        color: #333333 !important;
-        margin: 10px 0 0 0 !important;
-      }
-
-      .desktop-sacrament-info {
+      .screen-note,
+      .program-wrapper {
         display: none !important;
       }
 
-      .mobile-fast-sunday-card {
-        margin-top: 16px !important;
-        font-size: 15.5px !important;
-        line-height: 1.45 !important;
+      .locked-mobile-program {
+        display: block !important;
+        background: #f4f2ee !important;
+        color: #111111 !important;
+        min-height: 100vh !important;
       }
 
-      .mobile-fast-sunday-card strong {
+      .locked-hero {
+        position: relative !important;
+        overflow: hidden !important;
+        min-height: 345px !important;
+        padding: 44px 22px 28px 22px !important;
+        background:
+          radial-gradient(circle at 84% 34%, rgba(255,255,255,0.12), transparent 34%),
+          linear-gradient(135deg, #06182d 0%, #0d2945 100%) !important;
+      }
+
+      .locked-hero-image {
+        position: absolute !important;
+        right: -28px !important;
+        bottom: 0 !important;
+        width: 58% !important;
+        height: 94% !important;
+        object-fit: cover !important;
+        object-position: center bottom !important;
+        opacity: 0.88 !important;
+        -webkit-mask-image: linear-gradient(to left, black 58%, transparent 100%);
+        mask-image: linear-gradient(to left, black 58%, transparent 100%);
+      }
+
+      .locked-hero::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(90deg, rgba(6,24,45,0.97) 0%, rgba(6,24,45,0.90) 42%, rgba(6,24,45,0.34) 76%, rgba(6,24,45,0.10) 100%) !important;
+        pointer-events: none !important;
+      }
+
+      .locked-hero-text {
+        position: relative !important;
+        z-index: 2 !important;
+        max-width: 68% !important;
+        text-align: left !important;
+      }
+
+      .locked-hero-title {
+        color: #ffffff !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: clamp(33px, 9vw, 46px) !important;
+        line-height: 1.06 !important;
+        letter-spacing: 0.01em !important;
+        font-weight: 400 !important;
+        margin: 0 0 24px 0 !important;
+      }
+
+      .locked-hero-date {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 7px !important;
+        color: #d4a24d !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: clamp(20px, 5.4vw, 25px) !important;
+        line-height: 1.2 !important;
+        font-weight: 700 !important;
+        margin: 0 0 18px 0 !important;
+      }
+
+      .locked-hero-date svg {
+        width: 18px !important;
+        height: 18px !important;
+        flex: 0 0 18px !important;
+        stroke: currentColor !important;
+        fill: none !important;
+        stroke-width: 2 !important;
+      }
+
+      .locked-hero-church {
+        color: #ffffff !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: clamp(16px, 4.2vw, 20px) !important;
+        line-height: 1.35 !important;
+        font-weight: 400 !important;
+        margin: 0 !important;
+      }
+
+      .locked-mobile-body {
+        padding: 18px 16px 28px 16px !important;
+      }
+
+      .locked-card {
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.07) !important;
+        margin: 0 0 16px 0 !important;
+        overflow: hidden !important;
+      }
+
+      .locked-card-inner {
+        padding: 18px !important;
+      }
+
+      .locked-section-title {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        color: #102b4a !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+        font-weight: 700 !important;
+        margin: 0 0 16px 0 !important;
+      }
+
+      .locked-icon {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 34px !important;
+        height: 34px !important;
+        flex: 0 0 34px !important;
+        border-radius: 999px !important;
+        background: #102b4a !important;
+        color: #ffffff !important;
+      }
+
+      .locked-icon svg {
+        width: 18px !important;
+        height: 18px !important;
+        stroke: currentColor !important;
+        fill: none !important;
+        stroke-width: 2 !important;
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+      }
+
+      .locked-service-row {
+        display: grid !important;
+        grid-template-columns: 42% 58% !important;
+        gap: 12px !important;
+        align-items: start !important;
+        padding: 14px 0 !important;
+        border-bottom: 1px solid #e4e7ec !important;
+      }
+
+      .locked-service-row:last-child {
+        border-bottom: none !important;
+      }
+
+      .locked-service-label {
+        color: #102b4a !important;
+        font-size: 16.5px !important;
+        line-height: 1.28 !important;
+        font-weight: 800 !important;
+      }
+
+      .locked-service-value {
+        color: #111111 !important;
+        font-size: 16.5px !important;
+        line-height: 1.34 !important;
+        text-align: right !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      .locked-sacrament-admin {
+        margin: 18px 0 0 0 !important;
+        padding: 15px 16px !important;
+        background: #f5f7fb !important;
+        border-left: 4px solid #102b4a !important;
+        color: #102b4a !important;
         font-size: 17px !important;
+        line-height: 1.32 !important;
+        font-weight: 800 !important;
+        text-align: center !important;
       }
 
-      .mobile-final-contact-card {
+      .locked-sacrament-card {
+        background: #fffaf1 !important;
+        border: 1px solid #eadcc4 !important;
+      }
+
+      .locked-sacrament-layout {
+        display: block !important;
+      }
+
+      .locked-sacrament-visual {
+        margin: 2px 0 16px 0 !important;
+        padding: 18px !important;
+        border-radius: 14px !important;
+        background: linear-gradient(135deg, #f9efe0 0%, #fff8ee 100%) !important;
+        border: 1px solid #eadcc4 !important;
+      }
+
+      .locked-sacrament-svg {
+        width: 100% !important;
+        max-width: 285px !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
+
+      .locked-sacrament-title {
+        color: #102b4a !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: 26px !important;
+        line-height: 1.18 !important;
+        font-weight: 700 !important;
+        margin: 0 0 12px 0 !important;
+      }
+
+      .locked-sacrament-text {
+        color: #333333 !important;
+        font-size: 16.5px !important;
+        line-height: 1.52 !important;
+        margin: 0 0 12px 0 !important;
+      }
+
+      .locked-scripture {
+        margin-top: 14px !important;
         padding: 14px 16px !important;
-        margin-top: 18px !important;
+        border-radius: 12px !important;
+        background: #ffffff !important;
+        border: 1px solid #e6dfd3 !important;
+        text-align: center !important;
       }
 
-      .mobile-final-contact-card .missionary-help-line {
+      .locked-scripture-quote {
+        color: #102b4a !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: 18px !important;
+        line-height: 1.35 !important;
+        font-style: italic !important;
+      }
+
+      .locked-scripture-ref {
+        margin-top: 8px !important;
+        color: #9a7435 !important;
+        font-size: 12.5px !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+      }
+
+      .locked-fast-card {
+        background: #ffffff !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.07) !important;
+        padding: 18px !important;
+        margin: 0 0 16px 0 !important;
+        color: #333333 !important;
+        font-size: 16.5px !important;
+        line-height: 1.52 !important;
+      }
+
+      .locked-fast-card strong {
+        display: block !important;
+        color: #102b4a !important;
+        font-family: Georgia, 'Times New Roman', serif !important;
+        font-size: 22px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .locked-accordion {
+        background: #ffffff !important;
+        border-radius: 14px !important;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.06) !important;
+        margin: 0 0 12px 0 !important;
+        overflow: hidden !important;
+      }
+
+      .locked-accordion summary {
+        list-style: none !important;
+        cursor: pointer !important;
+        display: grid !important;
+        grid-template-columns: 40px 1fr 22px !important;
+        gap: 12px !important;
+        align-items: center !important;
+        padding: 16px !important;
+      }
+
+      .locked-accordion summary::-webkit-details-marker {
+        display: none !important;
+      }
+
+      .locked-accordion-chevron {
+        color: #9a7435 !important;
+        font-size: 24px !important;
+        line-height: 1 !important;
+        transform: rotate(0deg) !important;
+        transition: transform 0.18s ease !important;
+      }
+
+      .locked-accordion[open] .locked-accordion-chevron {
+        transform: rotate(90deg) !important;
+      }
+
+      .locked-accordion-title {
+        color: #102b4a !important;
+        font-size: 17px !important;
+        line-height: 1.25 !important;
+        font-weight: 850 !important;
+        letter-spacing: 0.01em !important;
+      }
+
+      .locked-accordion-subtitle {
+        color: #555555 !important;
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+        margin-top: 3px !important;
+      }
+
+      .locked-accordion-body {
+        padding: 0 16px 17px 68px !important;
+        color: #333333 !important;
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+      }
+
+      .locked-accordion-body p {
+        margin: 0 0 10px 0 !important;
+      }
+
+      .locked-button {
+        display: block !important;
+        width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 12px 16px !important;
+        border-radius: 999px !important;
+        background: #102b4a !important;
+        color: #ffffff !important;
+        text-align: center !important;
+        font-size: 16px !important;
+        line-height: 1.25 !important;
+        font-weight: 800 !important;
+        text-decoration: none !important;
+      }
+
+      .locked-lesson-note {
+        text-align: center !important;
+        color: #555555 !important;
         font-size: 14.5px !important;
         line-height: 1.35 !important;
-        margin-bottom: 10px !important;
+        margin: -4px 0 12px 0 !important;
+        font-style: italic !important;
       }
 
-      .mobile-final-contact-card .missionary-contact-title,
-      .mobile-final-address-title {
+      .locked-footer {
+        margin-top: 18px !important;
+        padding: 19px 18px !important;
+        border-radius: 16px 16px 0 0 !important;
+        background: #102b4a !important;
+        color: #ffffff !important;
+      }
+
+      .locked-footer-title {
+        color: #d4a24d !important;
         font-size: 15.5px !important;
         line-height: 1.25 !important;
-        margin-bottom: 6px !important;
+        font-weight: 850 !important;
+        letter-spacing: 0.03em !important;
+        text-transform: uppercase !important;
+        margin-bottom: 12px !important;
       }
 
-      .mobile-final-contact-card .missionary-contact-item {
-        padding: 8px 0 !important;
+      .locked-footer-line {
+        color: #ffffff !important;
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+        margin: 8px 0 !important;
       }
 
-      .mobile-final-contact-card .missionary-contact-name {
-        font-size: 15.5px !important;
-        line-height: 1.2 !important;
-        margin-bottom: 3px !important;
+      .locked-footer a {
+        color: #ffffff !important;
+        text-decoration: underline !important;
+        text-underline-offset: 3px !important;
+        font-weight: 800 !important;
       }
-
-      .mobile-final-contact-card .missionary-contact-phone,
-      .mobile-final-address-link {
-        font-size: 15.5px !important;
-        line-height: 1.25 !important;
-      }
-
-      .mobile-final-address-row {
-        margin-top: 10px !important;
-        padding-top: 10px !important;
-      }
-    }
-
-    html.mobile-program .mobile-sacrament-info-card {
-      display: block !important;
-      margin: 14px 0 18px 0 !important;
-      padding: 16px 16px !important;
-      background: #f5f7fb !important;
-      border-left: 4px solid #1F3864 !important;
-    }
-
-    html.mobile-program .mobile-sacrament-info-title {
-      color: #1F3864 !important;
-      font-weight: 800 !important;
-      font-size: 18px !important;
-      line-height: 1.25 !important;
-      margin-bottom: 10px !important;
-    }
-
-    html.mobile-program .mobile-sacrament-info-card p {
-      font-size: 15.5px !important;
-      line-height: 1.45 !important;
-      color: #333333 !important;
-      margin: 10px 0 0 0 !important;
-    }
-
-    html.mobile-program .desktop-sacrament-info {
-      display: none !important;
-    }
-
-    html.mobile-program .mobile-fast-sunday-card {
-      margin-top: 16px !important;
-      font-size: 15.5px !important;
-      line-height: 1.45 !important;
-    }
-
-    html.mobile-program .mobile-fast-sunday-card strong {
-      font-size: 17px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card {
-      padding: 14px 16px !important;
-      margin-top: 18px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-help-line {
-      font-size: 14.5px !important;
-      line-height: 1.35 !important;
-      margin-bottom: 10px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-title,
-    html.mobile-program .mobile-final-address-title {
-      font-size: 15.5px !important;
-      line-height: 1.25 !important;
-      margin-bottom: 6px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-item {
-      padding: 8px 0 !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-name {
-      font-size: 15.5px !important;
-      line-height: 1.2 !important;
-      margin-bottom: 3px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-phone,
-    html.mobile-program .mobile-final-address-link {
-      font-size: 15.5px !important;
-      line-height: 1.25 !important;
-    }
-
-    html.mobile-program .mobile-final-address-row {
-      margin-top: 10px !important;
-      padding-top: 10px !important;
     }
 
     @media print {
-      .mobile-sacrament-info-card {
+      .locked-mobile-program {
         display: none !important;
       }
-
-      .desktop-sacrament-info {
-        display: block !important;
-      }
     }
 
 
-
-    /* ── MOBILE MISSIONARY SECTION COMPACT FONT ── */
-    @media screen and (max-width: 768px) {
-      .missionary-meal-announcement {
-        padding: 12px 14px !important;
-        margin: 12px 0 !important;
-      }
-
-      .missionary-meal-announcement .missionary-meal-title {
-        font-size: 15.5px !important;
-        line-height: 1.22 !important;
-        margin-bottom: 5px !important;
-      }
-
-      .missionary-meal-announcement .missionary-meal-text {
-        font-size: 14.5px !important;
-        line-height: 1.35 !important;
-        margin-top: 4px !important;
-      }
-
-      .missionary-meal-announcement .mobile-action-button {
-        font-size: 14.5px !important;
-        line-height: 1.2 !important;
-        padding: 10px 14px !important;
-        min-width: min(250px, 86%) !important;
-        margin-top: 10px !important;
-      }
-
-      .mobile-final-contact-card {
-        padding: 13px 15px !important;
-        margin-top: 16px !important;
-      }
-
-      .mobile-final-contact-card .missionary-help-line {
-        font-size: 14px !important;
-        line-height: 1.35 !important;
-        margin-bottom: 9px !important;
-      }
-
-      .mobile-final-contact-card .missionary-contact-title,
-      .mobile-final-address-title {
-        font-size: 15px !important;
-        line-height: 1.22 !important;
-        margin-bottom: 6px !important;
-      }
-
-      .mobile-final-contact-card .missionary-contact-item {
-        padding: 7px 0 !important;
-      }
-
-      .mobile-final-contact-card .missionary-contact-name {
-        font-size: 15px !important;
-        line-height: 1.2 !important;
-        margin-bottom: 2px !important;
-      }
-
-      .mobile-final-contact-card .missionary-contact-phone,
-      .mobile-final-address-link {
-        font-size: 15px !important;
-        line-height: 1.22 !important;
-      }
-
-      .mobile-final-address-row {
-        margin-top: 9px !important;
-        padding-top: 9px !important;
-      }
-    }
-
-    html.mobile-program .missionary-meal-announcement {
-      padding: 12px 14px !important;
-      margin: 12px 0 !important;
-    }
-
-    html.mobile-program .missionary-meal-announcement .missionary-meal-title {
-      font-size: 15.5px !important;
-      line-height: 1.22 !important;
-      margin-bottom: 5px !important;
-    }
-
-    html.mobile-program .missionary-meal-announcement .missionary-meal-text {
-      font-size: 14.5px !important;
-      line-height: 1.35 !important;
-      margin-top: 4px !important;
-    }
-
-    html.mobile-program .missionary-meal-announcement .mobile-action-button {
-      font-size: 14.5px !important;
-      line-height: 1.2 !important;
-      padding: 10px 14px !important;
-      min-width: min(250px, 86%) !important;
-      margin-top: 10px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card {
-      padding: 13px 15px !important;
-      margin-top: 16px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-help-line {
-      font-size: 14px !important;
-      line-height: 1.35 !important;
-      margin-bottom: 9px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-title,
-    html.mobile-program .mobile-final-address-title {
-      font-size: 15px !important;
-      line-height: 1.22 !important;
-      margin-bottom: 6px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-item {
-      padding: 7px 0 !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-name {
-      font-size: 15px !important;
-      line-height: 1.2 !important;
-      margin-bottom: 2px !important;
-    }
-
-    html.mobile-program .mobile-final-contact-card .missionary-contact-phone,
-    html.mobile-program .mobile-final-address-link {
-      font-size: 15px !important;
-      line-height: 1.22 !important;
-    }
-
-    html.mobile-program .mobile-final-address-row {
-      margin-top: 9px !important;
-      padding-top: 9px !important;
-    }
-
-
-
-    /* ── MOBILE COVER DE-DUPLICATION ── */
-    @media screen and (max-width: 768px) {
-      .panel-front-cover {
-        padding-bottom: 10px !important;
-        border-bottom: 1px solid #d8d8d8 !important;
-      }
-
-      .panel-front-cover #tipo-reunion,
-      .panel-front-cover #bloque-subtitulo,
-      .panel-front-cover .cover-church-footer {
-        display: none !important;
-      }
-
-      .panel-front-cover #branch-name {
-        font-size: 22px !important;
-        line-height: 1.15 !important;
-        margin-bottom: 4px !important;
-      }
-
-      .panel-front-cover #fecha-display {
-        font-size: 15px !important;
-        line-height: 1.25 !important;
-        margin-bottom: 8px !important;
-      }
-
-      .panel-front-cover .cover-image {
-        max-height: 300px !important;
-        margin: 10px 0 4px 0 !important;
-      }
-
-      .panel-service {
-        padding-top: 20px !important;
-      }
-    }
-
-    html.mobile-program .panel-front-cover {
-      padding-bottom: 10px !important;
-      border-bottom: 1px solid #d8d8d8 !important;
-    }
-
-    html.mobile-program .panel-front-cover #tipo-reunion,
-    html.mobile-program .panel-front-cover #bloque-subtitulo,
-    html.mobile-program .panel-front-cover .cover-church-footer {
-      display: none !important;
-    }
-
-    html.mobile-program .panel-front-cover #branch-name {
-      font-size: 22px !important;
-      line-height: 1.15 !important;
-      margin-bottom: 4px !important;
-    }
-
-    html.mobile-program .panel-front-cover #fecha-display {
-      font-size: 15px !important;
-      line-height: 1.25 !important;
-      margin-bottom: 8px !important;
-    }
-
-    html.mobile-program .panel-front-cover .cover-image {
-      max-height: 300px !important;
-      margin: 10px 0 4px 0 !important;
-    }
-
-    html.mobile-program .panel-service {
-      padding-top: 20px !important;
-    }
-
-    /* ── MOBILE FAST SUNDAY CARD, CORRECT ORDER + COMPACT ── */
-    @media screen and (max-width: 768px) {
-      .mobile-fast-sunday-card {
-        margin: 14px 0 16px 0 !important;
-        padding: 14px 15px !important;
-        font-size: 15px !important;
-        line-height: 1.42 !important;
-      }
-
-      .mobile-fast-sunday-card strong {
-        font-size: 16px !important;
-        line-height: 1.28 !important;
-        margin-bottom: 8px !important;
-      }
-    }
-
-    html.mobile-program .mobile-fast-sunday-card {
-      margin: 14px 0 16px 0 !important;
-      padding: 14px 15px !important;
-      font-size: 15px !important;
-      line-height: 1.42 !important;
-    }
-
-    html.mobile-program .mobile-fast-sunday-card strong {
-      font-size: 16px !important;
-      line-height: 1.28 !important;
-      margin-bottom: 8px !important;
-    }
-
-
-    /* ── HIDDEN BLOCKS ── */
-    .hidden { display: none !important; }
-  </style>
+</style>
 </head>
 <body>
 
@@ -2264,45 +2204,15 @@
         <p>Después del servicio de adoración tenemos clases para adultos, jóvenes y niños. Nos encantaría que se quedara y aprendiera con nosotros.</p>
       </div>
 
-      <div class="desktop-sacrament-info">
-        <hr class="divider">
-        <div class="section-header">La Santa Cena</div>
+      <hr class="divider">
+      <div class="section-header">La Santa Cena</div>
 
-        <div class="visitor-block">
-          <div class="sacrament-scripture-card">
-            <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
-            <div class="scripture-ref">1 Corintios 11:24</div>
-          </div>
-          <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación. Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
+      <div class="visitor-block">
+        <div class="sacrament-scripture-card">
+          <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
+          <div class="scripture-ref">1 Corintios 11:24</div>
         </div>
-      </div>
-
-
-      <hr class="divider second-hour-mobile-divider">
-      <div class="second-hour-card">
-        <div class="second-hour-title">Clases después de la reunión</div>
-        <div class="second-hour-intro">
-          Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.
-        </div>
-
-        <a class="second-hour-button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/23?lang=spa" target="_blank" rel="noopener">
-          Ven, sígueme
-        </a>
-        <div class="second-hour-lesson">Ven, sígueme, semana del 1 de junio al 7 de junio</div>
-
-        <a class="second-hour-button" href="#" target="_blank" rel="noopener">
-          Sociedad de Socorro
-        </a>
-        <div class="second-hour-lesson">Lección pendiente</div>
-
-        <a class="second-hour-button" href="#" target="_blank" rel="noopener">
-          Cuórum de Élderes
-        </a>
-        <div class="second-hour-lesson">Lección pendiente</div>
-
-        <div class="second-hour-notes hidden">
-          
-        </div>
+        <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación. Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
       </div>
 
       <hr class="divider">
@@ -2348,6 +2258,34 @@
       <div id="bloque-anuncios" class="">
         <div class="weekly-ann" id="anuncios-semanales">Text area, this is gonna be slick!</div>
       </div>
+
+
+      <div class="second-hour-card">
+        <div class="second-hour-title">Clases después de la reunión</div>
+        <div class="second-hour-intro">
+          Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.
+        </div>
+
+        <a class="second-hour-button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/23?lang=spa" target="_blank" rel="noopener">
+          Ven, sígueme
+        </a>
+        <div class="second-hour-lesson">Ven, sígueme, semana del 1 de junio al 7 de junio</div>
+
+        <a class="second-hour-button" href="#" target="_blank" rel="noopener">
+          Sociedad de Socorro
+        </a>
+        <div class="second-hour-lesson">Lección pendiente</div>
+
+        <a class="second-hour-button" href="#" target="_blank" rel="noopener">
+          Cuórum de Élderes
+        </a>
+        <div class="second-hour-lesson">Lección pendiente</div>
+
+        <div class="second-hour-notes hidden">
+          
+        </div>
+      </div>
+
 
       <!-- EnglishConnect -->
       <div class="qr-announcement" style="display:flex; align-items:center; justify-content:space-between; margin: 10px 0; padding: 8px; border-left: 3px solid #1F3864;">
@@ -2400,25 +2338,25 @@
       <p style="text-align:center; font-size:10.5pt; margin-bottom:10px;" id="fecha-inner">7 de junio de 2026</p>
 
       <table class="service-table" style="height:100%; width:100%;">
-        <tr class="service-row">
+        <tr>
           <td class="label">Preside</td>
           <td class="value" id="preside">Matt Hafen, Primer Consejero de Estaca</td>
         </tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Dirige</td>
           <td class="value" id="conduce">Luis E Campos, Presidente de Rama</td>
         </tr>
         <tr><td colspan="2" style="padding:8px;"></td></tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Himno de Apertura</td>
           <td class="value" id="himno-apertura">#11 Dios manda a profetas</td>
         </tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Oración de Apertura</td>
           <td class="value" id="oracion-apertura">Euli Chaves</td>
         </tr>
         <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Himno Sacramental</td>
           <td class="value" id="himno-sacramental">#2 El Espíritu de Dios</td>
         </tr>
@@ -2429,20 +2367,20 @@
 
         <!-- REGULAR MEETING speakers -->
         <tbody id="bloque-discursantes" class="hidden">
-          <tr class="service-row">
+          <tr>
             <td class="label">Discurso</td>
             <td class="value" id="primer-discursante"></td>
           </tr>
-          <tr class="service-row">
+          <tr>
             <td class="label">Discurso</td>
             <td class="value" id="segundo-discursante"></td>
           </tr>
           <!-- Musical number / Himno Intermedio -->
-          <tr id="bloque-numero-musical" class="service-row ">
+          <tr id="bloque-numero-musical" class="">
             <td class="label">Himno Intermedio/Número Musical</td>
             <td class="value" id="numero-musical">#18 Oh Sión, santuario de libertad</td>
           </tr>
-          <tr class="service-row">
+          <tr>
             <td class="label">Discurso</td>
             <td class="value" id="ultimo-discursante"></td>
           </tr>
@@ -2463,11 +2401,11 @@
         </tbody>
 
         <tr><td colspan="2" style="padding:10px;"></td></tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Himno de Cierre</td>
           <td class="value" id="himno-cierre">#9 Un ángel del Señor</td>
         </tr>
-        <tr class="service-row">
+        <tr>
           <td class="label">Oración de Cierre</td>
           <td class="value" id="oracion-cierre">Juan Manuel Ramos Flores</td>
         </tr>
@@ -2502,22 +2440,6 @@
 
         <div class="mobile-sacrament-line">Administración de la Santa Cena</div>
 
-        <div class="mobile-sacrament-info-card">
-          <div class="mobile-sacrament-info-title">La Santa Cena</div>
-          <div class="sacrament-scripture-card">
-            <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
-            <div class="scripture-ref">1 Corintios 11:24</div>
-          </div>
-          <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación. Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
-        </div>
-
-        <div class="mobile-fast-sunday-card ">
-          <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong>
-          El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
-          Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
-          Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
-        </div>
-
         <div class="hidden">
           <div class="mobile-service-item">
             <div class="mobile-service-label">Discurso</div>
@@ -2540,6 +2462,12 @@
           </div>
         </div>
 
+        <div class="mobile-fast-sunday-card ">
+          <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong>
+          El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
+          Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.<br><br>
+          Si está visitando, no tiene que participar. Puede escuchar con reverencia y sentirse bienvenido.
+        </div>
 
         <div class="mobile-service-item">
           <div class="mobile-service-label">Himno de Cierre</div>
@@ -2550,7 +2478,7 @@
           <div class="mobile-service-label">Oración de Cierre</div>
           <div class="mobile-service-value">Juan Manuel Ramos Flores</div>
         </div>
-</div>
+      </div>
 
 
       <div class="church-footer service-church-footer" style="margin-top:16px; border-top: 1px solid #ccc; padding-top:8px;">
@@ -2562,6 +2490,251 @@
   </div><!-- end page 2 -->
 
 </div><!-- end program-wrapper -->
+
+
+<div class="locked-mobile-program" aria-label="Programa sacramental móvil">
+  <header class="locked-hero">
+    <img class="locked-hero-image" src="images/christ-06.png?v=2026-06" alt="Jesucristo">
+    <div class="locked-hero-text">
+      <div class="locked-hero-title">Reunión de Ayuno y Testimonio</div>
+      <div class="locked-hero-date">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M16 2v4"></path><path d="M8 2v4"></path><path d="M3 10h18"></path></svg>
+        <span>7 de junio de 2026</span>
+      </div>
+      <div class="locked-hero-church">La Iglesia de Jesucristo<br>de los Santos de los Últimos Días</div>
+    </div>
+  </header>
+
+  <main class="locked-mobile-body">
+    <section class="locked-card">
+      <div class="locked-card-inner">
+        <h2 class="locked-section-title">
+          <span class="locked-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 6h12"></path><path d="M8 12h12"></path><path d="M8 18h12"></path><path d="M4 6h.01"></path><path d="M4 12h.01"></path><path d="M4 18h.01"></path></svg>
+          </span>
+          <span>Orden de la reunión</span>
+        </h2>
+
+        <div class="locked-service-row">
+          <div class="locked-service-label">Preside</div>
+          <div class="locked-service-value">Matt Hafen, Primer Consejero de Estaca</div>
+        </div>
+        <div class="locked-service-row">
+          <div class="locked-service-label">Dirige</div>
+          <div class="locked-service-value">Luis E Campos, Presidente de Rama</div>
+        </div>
+        <div class="locked-service-row">
+          <div class="locked-service-label">Himno de Apertura</div>
+          <div class="locked-service-value">#11 Dios manda a profetas</div>
+        </div>
+        <div class="locked-service-row">
+          <div class="locked-service-label">Oración de Apertura</div>
+          <div class="locked-service-value">Euli Chaves</div>
+        </div>
+        <div class="locked-service-row">
+          <div class="locked-service-label">Himno Sacramental</div>
+          <div class="locked-service-value">#2 El Espíritu de Dios</div>
+        </div>
+
+        <div class="locked-sacrament-admin">Administración de la Santa Cena</div>
+      </div>
+    </section>
+
+    <section class="locked-card locked-sacrament-card">
+      <div class="locked-card-inner locked-sacrament-layout">
+        <div class="locked-sacrament-visual" aria-hidden="true">
+          <svg class="locked-sacrament-svg" viewBox="0 0 360 180" role="img">
+            <defs>
+              <linearGradient id="trayGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#d7dde8"/>
+                <stop offset="1" stop-color="#f7f8fb"/>
+              </linearGradient>
+              <linearGradient id="breadGrad" x1="0" x2="1">
+                <stop offset="0" stop-color="#d9a45d"/>
+                <stop offset="1" stop-color="#f4d9a8"/>
+              </linearGradient>
+              <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#6c4a1f" flood-opacity="0.18"/>
+              </filter>
+            </defs>
+            <rect x="20" y="44" width="320" height="94" rx="22" fill="#ffffff" filter="url(#softShadow)"/>
+            <ellipse cx="180" cy="96" rx="124" ry="36" fill="url(#trayGrad)" stroke="#c6cfdb" stroke-width="2"/>
+            <g fill="#ffffff" stroke="#c6cfdb" stroke-width="1.5">
+              <circle cx="104" cy="88" r="13"/><circle cx="143" cy="81" r="13"/><circle cx="183" cy="78" r="13"/>
+              <circle cx="223" cy="82" r="13"/><circle cx="260" cy="90" r="13"/>
+              <circle cx="130" cy="112" r="13"/><circle cx="176" cy="116" r="13"/><circle cx="223" cy="112" r="13"/>
+            </g>
+            <g fill="#dce8f5" opacity="0.8">
+              <circle cx="104" cy="88" r="8"/><circle cx="143" cy="81" r="8"/><circle cx="183" cy="78" r="8"/>
+              <circle cx="223" cy="82" r="8"/><circle cx="260" cy="90" r="8"/>
+              <circle cx="130" cy="112" r="8"/><circle cx="176" cy="116" r="8"/><circle cx="223" cy="112" r="8"/>
+            </g>
+            <path d="M61 120c18-22 44-34 75-31 10 1 17 8 15 17-3 17-26 29-53 31-18 2-31-4-37-17z" fill="url(#breadGrad)" stroke="#b57934" stroke-width="2"/>
+            <path d="M82 111c13 5 28 3 45-5" fill="none" stroke="#b57934" stroke-width="2" opacity=".65"/>
+            <path d="M88 128c12-5 25-5 39 0" fill="none" stroke="#b57934" stroke-width="2" opacity=".45"/>
+          </svg>
+        </div>
+
+        <h2 class="locked-sacrament-title">La Santa Cena</h2>
+        <p class="locked-sacrament-text">Participamos de la Santa Cena en memoria de Jesucristo. El pan representa Su cuerpo y el agua representa Su sangre.</p>
+        <p class="locked-sacrament-text">Al participar, renovamos nuestros convenios y recordamos Su sacrificio.</p>
+
+        <div class="locked-scripture">
+          <div class="locked-scripture-quote">“Haced esto en memoria de mí.”</div>
+          <div class="locked-scripture-ref">1 Corintios 11:24</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="locked-fast-card ">
+      <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong>
+      El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
+      Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.
+    </section>
+
+    <section class="hidden">
+      <div class="locked-card">
+        <div class="locked-card-inner">
+          <div class="locked-service-row">
+            <div class="locked-service-label">Discurso</div>
+            <div class="locked-service-value"></div>
+          </div>
+          <div class="locked-service-row">
+            <div class="locked-service-label">Discurso</div>
+            <div class="locked-service-value"></div>
+          </div>
+          <div class="locked-service-row ">
+            <div class="locked-service-label">Himno Intermedio / Número Musical</div>
+            <div class="locked-service-value">#18 Oh Sión, santuario de libertad</div>
+          </div>
+          <div class="locked-service-row">
+            <div class="locked-service-label">Discurso</div>
+            <div class="locked-service-value"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="locked-card">
+      <div class="locked-card-inner">
+        <div class="locked-service-row">
+          <div class="locked-service-label">Himno de Cierre</div>
+          <div class="locked-service-value">#9 Un ángel del Señor</div>
+        </div>
+        <div class="locked-service-row">
+          <div class="locked-service-label">Oración de Cierre</div>
+          <div class="locked-service-value">Juan Manuel Ramos Flores</div>
+        </div>
+      </div>
+    </section>
+
+    <details class="locked-accordion">
+      <summary>
+        <span class="locked-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </span>
+        <span>
+          <span class="locked-accordion-title">¿Es su primera vez?</span>
+          <span class="locked-accordion-subtitle">Información para visitantes</span>
+        </span>
+        <span class="locked-accordion-chevron">›</span>
+      </summary>
+      <div class="locked-accordion-body">
+        <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
+        <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
+        <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
+      </div>
+    </details>
+
+    <details class="locked-accordion">
+      <summary>
+        <span class="locked-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path></svg>
+        </span>
+        <span>
+          <span class="locked-accordion-title">Clases después de la reunión</span>
+          <span class="locked-accordion-subtitle">Lecciones y enlaces</span>
+        </span>
+        <span class="locked-accordion-chevron">›</span>
+      </summary>
+      <div class="locked-accordion-body">
+        <p>Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.</p>
+
+        <a class="locked-button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/23?lang=spa" target="_blank" rel="noopener">Ven, sígueme</a>
+        <div class="locked-lesson-note">Ven, sígueme, semana del 1 de junio al 7 de junio</div>
+
+        <a class="locked-button" href="#" target="_blank" rel="noopener">Sociedad de Socorro</a>
+        <div class="locked-lesson-note">Lección pendiente</div>
+
+        <a class="locked-button" href="#" target="_blank" rel="noopener">Cuórum de Élderes</a>
+        <div class="locked-lesson-note">Lección pendiente</div>
+
+        <p class="hidden"></p>
+      </div>
+    </details>
+
+    <details class="locked-accordion">
+      <summary>
+        <span class="locked-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 11v2a4 4 0 0 0 4 4h1l4 4v-4h5a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v4z"></path></svg>
+        </span>
+        <span>
+          <span class="locked-accordion-title">Anuncios</span>
+          <span class="locked-accordion-subtitle">Avisos de la rama</span>
+        </span>
+        <span class="locked-accordion-chevron">›</span>
+      </summary>
+      <div class="locked-accordion-body">
+        <div id="locked-anuncios" class="">Text area, this is gonna be slick!</div>
+        <p class="">Revise los anuncios de esta semana y cualquier información importante para la rama.</p>
+      </div>
+    </details>
+
+    <details class="locked-accordion">
+      <summary>
+        <span class="locked-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20"></path><path d="M12 2a15 15 0 0 0 0 20"></path></svg>
+        </span>
+        <span>
+          <span class="locked-accordion-title">EnglishConnect</span>
+          <span class="locked-accordion-subtitle">Clases gratuitas de inglés</span>
+        </span>
+        <span class="locked-accordion-chevron">›</span>
+      </summary>
+      <div class="locked-accordion-body">
+        <p>Clases gratuitas de inglés para adultos. Todos son bienvenidos.</p>
+        <p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Road, Garner, NC</p>
+        <a class="locked-button" href="https://quickreg.churchofjesuschrist.org/groups/c91e5dbd-d6ed-f011-8544-6045bda960b1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
+      </div>
+    </details>
+
+    <details class="locked-accordion">
+      <summary>
+        <span class="locked-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 3v8"></path><path d="M8 3v8"></path><path d="M4 7h4"></path><path d="M6 11v10"></path><path d="M16 3c2 2 3 4 3 7s-1 5-3 7v4"></path></svg>
+        </span>
+        <span>
+          <span class="locked-accordion-title">Alimentar a los misioneros</span>
+          <span class="locked-accordion-subtitle">Escoger una fecha</span>
+        </span>
+        <span class="locked-accordion-chevron">›</span>
+      </summary>
+      <div class="locked-accordion-body">
+        <p>Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.</p>
+        <a class="locked-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha para alimentar a los misioneros</a>
+      </div>
+    </details>
+
+    <footer class="locked-footer">
+      <div class="locked-footer-title">Teléfono de los misioneros / Dirección</div>
+      <div class="locked-footer-line"><div class="missionary-contact-item"><div class="missionary-contact-name">Hermanas Boyer y Rounds</div><a class="missionary-contact-phone" href="tel:+19198021411">(919) 802-1411</a></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Freeman y Wilcox</div><a class="missionary-contact-phone" href="tel:+19843261050">(984) 326-1050</a></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Ferguson y Peterson</div><a class="missionary-contact-phone" href="tel:+19193949688">(919) 394-9688</a></div></div>
+      <div class="locked-footer-line">
+        <a href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC</a>
+      </div>
+    </footer>
+  </main>
+</div>
+
 
 
 <script>
