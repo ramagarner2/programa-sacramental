@@ -2176,6 +2176,125 @@
     }
 
 
+
+    /* ── PRINT FIX: keep visitor/contact block from bleeding into next page ── */
+    @media print {
+      .panel-back-cover {
+        padding: 0.24in 0.24in !important;
+        overflow: hidden !important;
+      }
+
+      .panel-back-cover .section-header {
+        font-size: 9.2pt !important;
+        line-height: 1.15 !important;
+        padding: 4px 8px !important;
+        margin: 7px 0 4px 0 !important;
+        letter-spacing: 0.25px !important;
+      }
+
+      .panel-back-cover h3 {
+        font-size: 8.2pt !important;
+        line-height: 1.15 !important;
+        margin-bottom: 5px !important;
+      }
+
+      .panel-back-cover .visitor-block p {
+        font-size: 8.4pt !important;
+        line-height: 1.28 !important;
+        margin-bottom: 5px !important;
+      }
+
+      .panel-back-cover hr.divider {
+        margin: 6px 0 !important;
+      }
+
+      .panel-back-cover .sacrament-scripture-card {
+        margin: 5px 0 6px 0 !important;
+        padding: 5px 8px !important;
+      }
+
+      .panel-back-cover .sacrament-scripture-card .scripture-quote {
+        font-size: 8.6pt !important;
+        line-height: 1.22 !important;
+      }
+
+      .panel-back-cover .sacrament-scripture-card .scripture-ref {
+        font-size: 7.8pt !important;
+        line-height: 1.15 !important;
+        margin-top: 2px !important;
+      }
+
+      .panel-back-cover .missionary-contact-card {
+        margin-top: 5px !important;
+        padding: 6px 8px !important;
+        font-size: 8.2pt !important;
+        line-height: 1.16 !important;
+      }
+
+      .panel-back-cover .missionary-help-line {
+        font-size: 8.2pt !important;
+        line-height: 1.16 !important;
+        margin: 0 0 4px 0 !important;
+      }
+
+      .panel-back-cover .missionary-contact-title {
+        font-size: 8.6pt !important;
+        line-height: 1.15 !important;
+        margin-bottom: 3px !important;
+      }
+
+      .panel-back-cover .missionary-contact-item {
+        padding: 3px 0 !important;
+      }
+
+      .panel-back-cover .missionary-contact-name,
+      .panel-back-cover .missionary-contact-phone {
+        font-size: 8.4pt !important;
+        line-height: 1.12 !important;
+        margin-top: 1px !important;
+      }
+    }
+
+
+
+    /* ── CRITICAL FIX: prevent old mobile layout + locked mobile layout from both showing ── */
+    html.mobile-program .screen-note,
+    html.mobile-program .program-wrapper {
+      display: none !important;
+    }
+
+    html.mobile-program .locked-mobile-program {
+      display: block !important;
+      background: #f4f2ee !important;
+      color: #111111 !important;
+      min-height: 100vh !important;
+    }
+
+    @media screen and (max-width: 900px) {
+      .screen-note,
+      .program-wrapper {
+        display: none !important;
+      }
+
+      .locked-mobile-program {
+        display: block !important;
+        background: #f4f2ee !important;
+        color: #111111 !important;
+        min-height: 100vh !important;
+      }
+    }
+
+    @media print {
+      .program-wrapper {
+        display: block !important;
+      }
+
+      .locked-mobile-program {
+        display: none !important;
+      }
+    }
+
+
 </style>
 </head>
 <body>
