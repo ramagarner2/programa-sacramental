@@ -463,13 +463,94 @@
         box-shadow: none;
       }
     }
+  
+    /* =========================================================
+       HEADER IMAGE ASSETS, CLEAN REPO PATHS ONLY
+       This prevents old images/ folder paths from being pulled into mobile.
+       ========================================================= */
+
+    .mobile-hero.hero-standard {
+      --hero-image: url("assets/headers/christ-standard.png");
+    }
+
+    .mobile-hero.hero-christmas {
+      --hero-image: url("assets/headers/christ-christmas.png");
+    }
+
+    .mobile-hero.hero-easter {
+      --hero-image: url("assets/headers/christ-easter.png");
+    }
+
+    .mobile-hero {
+      background-image:
+        linear-gradient(
+          90deg,
+          #06182d 0%,
+          #06182d 26%,
+          rgba(6, 24, 45, 0.96) 38%,
+          rgba(6, 24, 45, 0.76) 50%,
+          rgba(6, 24, 45, 0.42) 63%,
+          rgba(6, 24, 45, 0.12) 78%,
+          rgba(6, 24, 45, 0) 100%
+        ),
+        var(--hero-image) !important;
+      background-size: cover !important;
+      background-position: 66% center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .mobile-hero-content {
+      width: 54% !important;
+    }
+
+    /* Leadership formatting, name first, title smaller underneath */
+    .agenda-value.person-value {
+      text-align: right !important;
+    }
+
+    .person-name {
+      display: block;
+      color: #111111;
+      font-size: 15.5px;
+      line-height: 1.25;
+      font-weight: 500;
+    }
+
+    .person-title {
+      display: block;
+      margin-top: 3px;
+      color: #333333;
+      font-size: 13px;
+      line-height: 1.18;
+      font-style: italic;
+    }
+
+    @media screen and (max-width: 420px) {
+      .mobile-hero {
+        min-height: 315px !important;
+        background-position: 70% center !important;
+      }
+
+      .mobile-hero-content {
+        width: 56% !important;
+      }
+
+      .person-name {
+        font-size: 15px;
+      }
+
+      .person-title {
+        font-size: 12.5px;
+      }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="mobile-program">
 
-    <header class="mobile-hero" style="--hero-image: url('{{cover_image_src}}');">
+    <header class="mobile-hero hero-standard" data-season="standard">
       <div class="mobile-hero-content">
         <h1>{{tipo_reunion_display}}</h1>
 
@@ -510,12 +591,12 @@
 
           <div class="agenda-row">
             <div class="agenda-label">Preside</div>
-            <div class="agenda-value">{{preside}}</div>
+            <div class="agenda-value person-value" data-split-person>{{preside}}</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Dirige</div>
-            <div class="agenda-value">{{conduce}}</div>
+            <div class="agenda-value person-value" data-split-person>{{conduce}}</div>
           </div>
 
           <div class="agenda-row">
@@ -738,5 +819,44 @@
 
     </main>
   </div>
+
+  <script>
+    (function () {
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      document.querySelectorAll("[data-split-person]").forEach(function (el) {
+        var raw = (el.textContent || "").trim();
+        if (!raw) return;
+
+        var parts = raw.split(",");
+        if (parts.length < 2) return;
+
+        var name = parts.shift().trim();
+        var title = parts.join(",").trim();
+
+        el.innerHTML =
+          '<span class="person-name">' + escapeHtml(name) + '</span>' +
+          '<span class="person-title">' + escapeHtml(title) + '</span>';
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var season = (params.get("season") || "").toLowerCase();
+      var hero = document.querySelector(".mobile-hero");
+
+      if (hero && ["standard", "christmas", "easter"].includes(season)) {
+        hero.classList.remove("hero-standard", "hero-christmas", "hero-easter");
+        hero.classList.add("hero-" + season);
+        hero.setAttribute("data-season", season);
+      }
+    })();
+  </script>
+
 </body>
 </html>
