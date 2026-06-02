@@ -718,6 +718,40 @@
   }
 }
 
+  
+/* V6 PRINT FOOTER MOVE:
+   Full Church name/address footer belongs on announcements panel.
+   Service panel has no footer to preserve room for long programs. */
+.panel-announcements .church-footer,
+.panel-announcements .announcements-footer {
+  display: block !important;
+  margin-top: auto !important;
+  padding-top: 8px !important;
+  font-size: 8.4pt !important;
+  text-align: center !important;
+  color: #333333 !important;
+  line-height: 1.25 !important;
+  border-top: 1px solid #dddddd !important;
+}
+
+.panel-service .church-footer {
+  display: none !important;
+}
+
+@media print {
+  .panel-announcements .church-footer,
+  .panel-announcements .announcements-footer {
+    display: block !important;
+    font-size: 8pt !important;
+    margin-top: auto !important;
+    padding-top: 7px !important;
+  }
+
+  .panel-service .church-footer {
+    display: none !important;
+  }
+}
+
   </style>
 </head>
 
@@ -828,6 +862,11 @@
         <img class="qr-image" src="assets/qr-missionary-meals.png" alt="QR para alimentar a los misioneros">
       </div>
 
+      <div class="church-footer announcements-footer">
+        La Iglesia de Jesucristo<br>
+        de los Santos de los Últimos Días<br>
+        1433 Aversboro Rd, Garner, NC
+      </div>
 </section>
 
     <!-- ORDER OF SERVICE -->
@@ -897,11 +936,7 @@
         </tr>
       </table>
 
-      <div class="church-footer">
-        La Iglesia de Jesucristo<br>
-        de los Santos de los Últimos Días<br>
-        1433 Aversboro Rd, Garner, NC
-      </div>
+      
     </section>
   </div>
 </div>
