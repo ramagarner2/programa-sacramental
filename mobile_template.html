@@ -743,6 +743,231 @@
       }
     }
 
+  
+    /* FINAL V5 CLASS ACCORDION FIX:
+       The class section needs different alignment than normal text accordions.
+       Center the whole body and buttons against the card, not against the indented text column. */
+    .class-section-accordion .accordion-body {
+      padding: 0 22px 20px 22px !important;
+      text-align: center !important;
+    }
+
+    .class-section-accordion .accordion-body p {
+      max-width: 330px !important;
+      margin: 0 auto 14px auto !important;
+      text-align: center !important;
+      line-height: 1.42 !important;
+    }
+
+    .class-section-accordion .button {
+      display: block !important;
+      width: 240px !important;
+      max-width: 82% !important;
+      margin: 12px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+    }
+
+    .class-section-accordion .lesson-note {
+      display: none !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .class-section-accordion .accordion-body {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+
+      .class-section-accordion .button {
+        width: 225px !important;
+        max-width: 84% !important;
+        font-size: 14.5px !important;
+      }
+
+      .class-section-accordion .accordion-body p {
+        max-width: 300px !important;
+      }
+    }
+
+  
+    /* FINAL V6 GLOBAL ACCORDION BODY FIX:
+       Remove old left-column indentation from every expanded accordion.
+       Center buttons against the full card, not an indented text column. */
+    .accordion .accordion-body {
+      padding: 0 24px 20px 24px !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body p {
+      max-width: 340px !important;
+      margin: 0 auto 13px auto !important;
+      line-height: 1.42 !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body .button {
+      display: block !important;
+      width: 240px !important;
+      max-width: 82% !important;
+      min-width: 0 !important;
+      margin: 13px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+    }
+
+    .accordion .lesson-note {
+      display: none !important;
+    }
+
+    /* Keep collapsed rows neat and consistent. */
+    .accordion summary {
+      display: grid !important;
+      grid-template-columns: 34px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding: 14px 15px !important;
+    }
+
+    .accordion summary .round-icon {
+      width: 31px !important;
+      height: 31px !important;
+      flex: 0 0 31px !important;
+      align-self: center !important;
+    }
+
+    .accordion summary > span:nth-child(2) {
+      min-width: 0 !important;
+      display: block !important;
+    }
+
+    .accordion-title {
+      display: block !important;
+      font-size: 15.6px !important;
+      line-height: 1.16 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 13.1px !important;
+      line-height: 1.18 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+      font-size: 20px !important;
+    }
+
+    /* Sections with buttons should visually center their bodies. */
+    .class-section-accordion .accordion-body,
+    .accordion .accordion-body:has(.button) {
+      text-align: center !important;
+    }
+
+    .class-section-accordion .accordion-body p,
+    .accordion .accordion-body:has(.button) p {
+      text-align: center !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion .accordion-body {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      .accordion .accordion-body p {
+        max-width: 305px !important;
+      }
+
+      .accordion .accordion-body .button {
+        width: 225px !important;
+        max-width: 84% !important;
+        font-size: 14.5px !important;
+      }
+    }
+
+  
+    /* FINAL V7 MOBILE ACCORDION TEXT FIX:
+       Text should not be centered globally. Only buttons are centered. */
+    .accordion .accordion-body {
+      padding: 0 24px 20px 24px !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body p {
+      max-width: none !important;
+      margin: 0 0 13px 0 !important;
+      line-height: 1.42 !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body .button {
+      display: block !important;
+      width: 240px !important;
+      max-width: 82% !important;
+      min-width: 0 !important;
+      margin: 13px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+    }
+
+    .accordion .lesson-note {
+      display: none !important;
+    }
+
+    .class-section-accordion .accordion-body {
+      padding: 0 24px 20px 24px !important;
+      text-align: left !important;
+    }
+
+    .class-section-accordion .accordion-body p {
+      text-align: left !important;
+      margin: 0 0 13px 0 !important;
+      max-width: none !important;
+    }
+
+    .class-section-accordion .button {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion .accordion-body,
+      .class-section-accordion .accordion-body {
+        padding-left: 22px !important;
+        padding-right: 22px !important;
+      }
+
+      .accordion .accordion-body .button {
+        width: 225px !important;
+        max-width: 84% !important;
+        font-size: 14.5px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -902,7 +1127,7 @@
         </div>
       </section>
 
-      <details class="accordion">
+      <details class="accordion" class-section-accordion">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -947,8 +1172,6 @@
           <a class="button" href="{{relief_society_url}}" target="_blank" rel="noopener">Sociedad de Socorro</a>
 
           <a class="button" href="{{elders_quorum_url}}" target="_blank" rel="noopener">Cuórum de Élderes</a>
-
-          <p class="{{second_hour_notes_hidden_class}}">{{second_hour_notes}}</p>
         </div>
       </details>
 
@@ -987,7 +1210,7 @@
           <span class="accordion-chevron">›</span>
         </summary>
         <div class="accordion-body">
-          <p>Clases gratuitas de inglés para adultos. Todos son bienvenidos.</p>
+          <p>Clases gratuitas de inglés para adultos.<br>Todos son bienvenidos.</p>
           <p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Road, Garner, NC</p>
           <a class="button" href="https://quickreg.churchofjesuschrist.org/groups/c91e5dbd-d6ed-f011-8544-6045bda960b1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
         </div>
@@ -1189,3 +1412,9 @@
 <!-- final mobile polish v2 -->
 
 <!-- final mobile button polish v4 -->
+
+<!-- final mobile class accordion polish v5 -->
+
+<!-- final mobile global accordion polish v6 -->
+
+<!-- final mobile accordion text polish v7 -->
