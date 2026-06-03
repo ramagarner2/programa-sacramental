@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -444,6 +445,102 @@
         max-width: 480px;
       }
     }
+  
+
+    /* FINAL POLISH: clean leadership split, centered class buttons, tidy accordions */
+    .person-value {
+      text-align: right !important;
+    }
+
+    .person-name {
+      display: block !important;
+      font-size: 14.5px !important;
+      line-height: 1.22 !important;
+      font-weight: 500 !important;
+      color: var(--text) !important;
+      text-align: right !important;
+    }
+
+    .person-title {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 12.15px !important;
+      line-height: 1.18 !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+      color: #333333 !important;
+      text-align: right !important;
+    }
+
+    .accordion summary {
+      min-height: 58px;
+      grid-template-columns: 38px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+    }
+
+    .accordion-title,
+    .accordion-subtitle {
+      display: block !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-title {
+      line-height: 1.16 !important;
+    }
+
+    .accordion-subtitle {
+      line-height: 1.18 !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+    }
+
+    .accordion-body {
+      padding-left: 64px !important;
+      padding-right: 16px !important;
+    }
+
+    .accordion-body .button {
+      width: 86% !important;
+      max-width: 320px !important;
+      margin: 12px auto 8px !important;
+      padding: 11px 15px !important;
+      text-align: center !important;
+    }
+
+    .accordion-body .lesson-note.redundant-note,
+    .accordion-body .lesson-note:empty {
+      display: none !important;
+    }
+
+    .accordion-body p {
+      text-align: left;
+    }
+
+    @media screen and (max-width: 420px) {
+      .person-name {
+        font-size: 14.25px !important;
+      }
+
+      .person-title {
+        font-size: 12px !important;
+      }
+
+      .accordion summary {
+        min-height: 58px;
+        padding: 14px 15px !important;
+      }
+
+      .accordion-body .button {
+        width: 88% !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -513,27 +610,27 @@
 
           <div class="agenda-row">
             <div class="agenda-label">Preside</div>
-            <div class="agenda-value person-value" data-split-person>Presidente Luis E Campos</div>
+            <div class="agenda-value person-value" data-split-person>Matt Hafen, Primer Consejero de Estaca</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Dirige</div>
-            <div class="agenda-value person-value" data-split-person>Luis Campos</div>
+            <div class="agenda-value person-value" data-split-person>Luis E Campos, Presidente de Rama</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Himno de Apertura</div>
-            <div class="agenda-value">#49 Señor, te necesito</div>
+            <div class="agenda-value">#11 Dios manda a profetas</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Oración de Apertura</div>
-            <div class="agenda-value">Por invitación</div>
+            <div class="agenda-value">Euli Chaves</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Himno Sacramental</div>
-            <div class="agenda-value">#110 En memoria de Tu muerte</div>
+            <div class="agenda-value">#2 El Espíritu de Dios</div>
           </div>
 
           <div class="sacrament-admin">
@@ -577,9 +674,9 @@
             <div class="agenda-value"></div>
           </div>
 
-          <div class="agenda-row hidden">
+          <div class="agenda-row ">
             <div class="agenda-label">Himno Intermedio / Número Musical</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">#18 Oh Sión, santuario de libertad</div>
           </div>
 
           <div class="agenda-row">
@@ -593,12 +690,12 @@
         <div class="card-inner">
           <div class="agenda-row">
             <div class="agenda-label">Himno de Cierre</div>
-            <div class="agenda-value">#41 ¡Grande eres Tú!</div>
+            <div class="agenda-value">#9 Un ángel del Señor</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Oración de Cierre</div>
-            <div class="agenda-value">Por invitación</div>
+            <div class="agenda-value">Juan Manuel Ramos Flores</div>
           </div>
         </div>
       </section>
@@ -643,8 +740,8 @@
         <div class="accordion-body">
           <p>Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.</p>
 
-          <a class="button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026?lang=spa" target="_blank" rel="noopener">Ven, sígueme</a>
-          <div class="lesson-note">Ven, sígueme</div>
+          <a class="button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/23?lang=spa" target="_blank" rel="noopener">Ven, sígueme</a>
+          <div class="lesson-note">Ven, sígueme, semana del 1 de junio al 7 de junio</div>
 
           <a class="button" href="#" target="_blank" rel="noopener">Sociedad de Socorro</a>
           <div class="lesson-note">Lección pendiente</div>
@@ -670,7 +767,7 @@
           <span class="accordion-chevron">›</span>
         </summary>
         <div class="accordion-body">
-          <div class="hidden"></div>
+          <div class="">Text area, this is gonna be slick!</div>
         </div>
       </details>
 
@@ -807,5 +904,86 @@
       }
     })();
   </script>
+
+
+  <script>
+    (function () {
+      function escapeHtmlFinal(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function normalizeText(value) {
+        return String(value || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function splitLeader(raw) {
+        raw = String(raw || "").trim();
+        if (!raw) return null;
+
+        if (raw.indexOf(",") > -1) {
+          var parts = raw.split(",");
+          var name = parts.shift().trim();
+          var title = parts.join(",").trim();
+          if (name && title) return { name: name, title: title };
+        }
+
+        var known = {
+          "presidente luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "presidente luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "mat hafen": { name: "Mat Hafen", title: "Primer Consejero de Estaca" },
+          "matt hafen": { name: "Matt Hafen", title: "Primer Consejero de Estaca" },
+          "robert joaquin foster": { name: "Robert Joaquin Foster", title: "Presidente de Estaca" },
+          "eric cottle": { name: "Eric Cottle", title: "Segundo Consejero de Estaca" }
+        };
+
+        var key = normalizeText(raw);
+        if (known[key]) return known[key];
+
+        var prefixes = [
+          { re: /^presidente\s+(.+)$/i, title: "Presidente de Rama" },
+          { re: /^primer\s+consejero\s+(.+)$/i, title: "Primer Consejero" },
+          { re: /^segundo\s+consejero\s+(.+)$/i, title: "Segundo Consejero" }
+        ];
+
+        for (var i = 0; i < prefixes.length; i++) {
+          var match = raw.match(prefixes[i].re);
+          if (match && match[1]) return { name: match[1].trim(), title: prefixes[i].title };
+        }
+
+        return null;
+      }
+
+      document.querySelectorAll("[data-split-person]").forEach(function (el) {
+        var parsed = splitLeader(el.textContent || "");
+        if (!parsed) return;
+        el.innerHTML =
+          '<span class="person-name">' + escapeHtmlFinal(parsed.name) + '</span>' +
+          '<span class="person-title">' + escapeHtmlFinal(parsed.title) + '</span>';
+      });
+
+      document.querySelectorAll(".accordion-body .button").forEach(function (button) {
+        var note = button.nextElementSibling;
+        if (!note || !note.classList || !note.classList.contains("lesson-note")) return;
+        var buttonText = normalizeText(button.textContent);
+        var noteText = normalizeText(note.textContent);
+        if (!noteText || noteText === buttonText || noteText === "ven sigueme") {
+          note.classList.add("redundant-note");
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
