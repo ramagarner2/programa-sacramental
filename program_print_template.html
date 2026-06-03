@@ -964,6 +964,114 @@
   }
 }
 
+  
+
+/* FINAL PRINT POLISH: QR reliability, missionary readability, leadership split */
+.service-table .value.leader-value,
+.service-table .value[data-print-split-person] {
+  text-align: right !important;
+}
+
+.service-person-name {
+  display: block !important;
+  font-size: 10pt !important;
+  line-height: 1.15 !important;
+  font-weight: 600 !important;
+  color: #111111 !important;
+}
+
+.service-person-title {
+  display: block !important;
+  margin-top: 2px !important;
+  font-size: 8.4pt !important;
+  line-height: 1.1 !important;
+  color: #333333 !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+.missionary-contact-card {
+  padding: 8px 9px !important;
+  font-size: 9pt !important;
+  line-height: 1.28 !important;
+}
+
+.missionary-help-line {
+  font-size: 8.9pt !important;
+  line-height: 1.25 !important;
+  margin-bottom: 5px !important;
+}
+
+.missionary-contact-title {
+  font-size: 9pt !important;
+  line-height: 1.2 !important;
+  margin-bottom: 5px !important;
+}
+
+.missionary-contact-item {
+  padding: 5px 0 !important;
+  border-top: 1px solid #d4d4d4 !important;
+}
+
+.missionary-contact-name {
+  font-size: 8.9pt !important;
+  line-height: 1.18 !important;
+  font-weight: 700 !important;
+}
+
+.missionary-contact-phone,
+.missionary-contact-phone-plain {
+  display: block !important;
+  margin-top: 2px !important;
+  color: #111111 !important;
+  font-size: 8.9pt !important;
+  line-height: 1.18 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+.print-action-card {
+  grid-template-columns: 1fr 86px !important;
+  gap: 12px !important;
+}
+
+.qr-image {
+  width: 82px !important;
+  height: 82px !important;
+  object-fit: contain !important;
+  border: 1px solid #666666 !important;
+  padding: 3px !important;
+  background: #ffffff !important;
+}
+
+@media print {
+  .missionary-contact-card {
+    padding: 7px 8px !important;
+    font-size: 8.6pt !important;
+    line-height: 1.22 !important;
+  }
+
+  .missionary-contact-item {
+    padding: 4px 0 !important;
+  }
+
+  .missionary-contact-name,
+  .missionary-contact-phone,
+  .missionary-contact-phone-plain {
+    font-size: 8.4pt !important;
+    line-height: 1.14 !important;
+  }
+
+  .print-action-card {
+    grid-template-columns: 1fr 76px !important;
+  }
+
+  .qr-image {
+    width: 72px !important;
+    height: 72px !important;
+  }
+}
+
   </style>
 </head>
 
@@ -1082,11 +1190,11 @@
       <table class="service-table">
         <tr>
           <td class="label">Preside</td>
-          <td class="value">{{preside}}</td>
+          <td class="value leader-value" data-print-split-person>{{preside}}</td>
         </tr>
         <tr>
           <td class="label">Dirige</td>
-          <td class="value">{{conduce}}</td>
+          <td class="value leader-value" data-print-split-person>{{conduce}}</td>
         </tr>
         <tr>
           <td class="label">Himno de Apertura</td>
@@ -1172,6 +1280,79 @@
       el.innerHTML =
         '<span class="service-person-name">' + escapeHtml(name) + '</span>' +
         '<span class="service-person-title">' + escapeHtml(title) + '</span>';
+    });
+  })();
+</script>
+
+
+
+<script>
+  (function () {
+    function escapeHtmlFinal(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function normalizeText(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function splitLeader(raw) {
+      raw = String(raw || "").trim();
+      if (!raw) return null;
+
+      if (raw.indexOf(",") > -1) {
+        var parts = raw.split(",");
+        var name = parts.shift().trim();
+        var title = parts.join(",").trim();
+        if (name && title) return { name: name, title: title };
+      }
+
+      var known = {
+        "presidente luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "presidente luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "mat hafen": { name: "Mat Hafen", title: "Primer Consejero de Estaca" },
+        "matt hafen": { name: "Matt Hafen", title: "Primer Consejero de Estaca" },
+        "robert joaquin foster": { name: "Robert Joaquin Foster", title: "Presidente de Estaca" },
+        "eric cottle": { name: "Eric Cottle", title: "Segundo Consejero de Estaca" }
+      };
+
+      var key = normalizeText(raw);
+      if (known[key]) return known[key];
+
+      var match = raw.match(/^presidente\s+(.+)$/i);
+      if (match && match[1]) return { name: match[1].trim(), title: "Presidente de Rama" };
+
+      return null;
+    }
+
+    document.querySelectorAll("[data-print-split-person]").forEach(function (el) {
+      var parsed = splitLeader(el.textContent || "");
+      if (!parsed) return;
+      el.innerHTML =
+        '<span class="service-person-name">' + escapeHtmlFinal(parsed.name) + '</span>' +
+        '<span class="service-person-title">' + escapeHtmlFinal(parsed.title) + '</span>';
+    });
+
+    // If an older script generated linked missionary phone numbers, flatten them for print.
+    document.querySelectorAll(".missionary-contact-phone").forEach(function (el) {
+      if (el.tagName && el.tagName.toLowerCase() === "a") {
+        var span = document.createElement("span");
+        span.className = "missionary-contact-phone-plain";
+        span.textContent = el.textContent;
+        el.parentNode.replaceChild(span, el);
+      }
     });
   })();
 </script>
