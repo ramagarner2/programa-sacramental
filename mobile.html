@@ -541,6 +541,117 @@
       }
     }
 
+  
+    /* FINAL V2 MOBILE POLISH:
+       cleaner accordion rows, centered narrower class buttons, no redundant notes */
+    .accordion summary {
+      grid-template-columns: 34px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding: 14px 15px !important;
+    }
+
+    .accordion summary .round-icon {
+      width: 31px !important;
+      height: 31px !important;
+      flex-basis: 31px !important;
+      align-self: center !important;
+    }
+
+    .accordion summary > span:nth-child(2) {
+      min-width: 0 !important;
+      display: block !important;
+    }
+
+    .accordion-title {
+      display: block !important;
+      font-size: 15.6px !important;
+      line-height: 1.16 !important;
+      white-space: normal !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 13.1px !important;
+      line-height: 1.18 !important;
+      white-space: normal !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+      font-size: 20px !important;
+    }
+
+    .accordion-body {
+      padding: 0 20px 18px 54px !important;
+    }
+
+    .accordion-body .button {
+      width: auto !important;
+      max-width: 285px !important;
+      min-width: 215px !important;
+      margin: 12px auto !important;
+      padding: 11px 18px !important;
+      text-align: center !important;
+    }
+
+    .lesson-note {
+      display: none !important;
+    }
+
+    .person-name,
+    .person-title {
+      display: block !important;
+      text-align: right !important;
+    }
+
+    .person-title {
+      font-size: 12.1px !important;
+      line-height: 1.18 !important;
+      margin-top: 3px !important;
+      font-style: italic !important;
+    }
+
+    .agenda-row {
+      grid-template-columns: 40% 60% !important;
+      gap: 8px !important;
+    }
+
+    .agenda-value {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion-title {
+        font-size: 15px !important;
+      }
+
+      .accordion-subtitle {
+        font-size: 12.7px !important;
+      }
+
+      .accordion-body {
+        padding-left: 50px !important;
+        padding-right: 17px !important;
+      }
+
+      .accordion-body .button {
+        max-width: 260px !important;
+        min-width: 205px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -741,13 +852,10 @@
           <p>Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.</p>
 
           <a class="button" href="https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/23?lang=spa" target="_blank" rel="noopener">Ven, sígueme</a>
-          <div class="lesson-note">Ven, sígueme, semana del 1 de junio al 7 de junio</div>
 
           <a class="button" href="#" target="_blank" rel="noopener">Sociedad de Socorro</a>
-          <div class="lesson-note">Lección pendiente</div>
 
           <a class="button" href="#" target="_blank" rel="noopener">Cuórum de Élderes</a>
-          <div class="lesson-note">Lección pendiente</div>
 
           <p class="hidden"></p>
         </div>
@@ -790,7 +898,7 @@
         <div class="accordion-body">
           <p>Clases gratuitas de inglés para adultos. Todos son bienvenidos.</p>
           <p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Road, Garner, NC</p>
-          <a class="button" href="https://quickreg.churchofjesuschrist.org/groups/c91e5dbd-d6ed-f011-8544-6045bda960b1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
+          <a class="button" href="https://www.englishconnect.org/es" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
         </div>
       </details>
 
@@ -987,3 +1095,4 @@
 
 </body>
 </html>
+<!-- final mobile polish v2 -->
