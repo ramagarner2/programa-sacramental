@@ -964,6 +964,114 @@
   }
 }
 
+  
+
+/* FINAL PRINT POLISH: QR reliability, missionary readability, leadership split */
+.service-table .value.leader-value,
+.service-table .value[data-print-split-person] {
+  text-align: right !important;
+}
+
+.service-person-name {
+  display: block !important;
+  font-size: 10pt !important;
+  line-height: 1.15 !important;
+  font-weight: 600 !important;
+  color: #111111 !important;
+}
+
+.service-person-title {
+  display: block !important;
+  margin-top: 2px !important;
+  font-size: 8.4pt !important;
+  line-height: 1.1 !important;
+  color: #333333 !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+.missionary-contact-card {
+  padding: 8px 9px !important;
+  font-size: 9pt !important;
+  line-height: 1.28 !important;
+}
+
+.missionary-help-line {
+  font-size: 8.9pt !important;
+  line-height: 1.25 !important;
+  margin-bottom: 5px !important;
+}
+
+.missionary-contact-title {
+  font-size: 9pt !important;
+  line-height: 1.2 !important;
+  margin-bottom: 5px !important;
+}
+
+.missionary-contact-item {
+  padding: 5px 0 !important;
+  border-top: 1px solid #d4d4d4 !important;
+}
+
+.missionary-contact-name {
+  font-size: 8.9pt !important;
+  line-height: 1.18 !important;
+  font-weight: 700 !important;
+}
+
+.missionary-contact-phone,
+.missionary-contact-phone-plain {
+  display: block !important;
+  margin-top: 2px !important;
+  color: #111111 !important;
+  font-size: 8.9pt !important;
+  line-height: 1.18 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+.print-action-card {
+  grid-template-columns: 1fr 86px !important;
+  gap: 12px !important;
+}
+
+.qr-image {
+  width: 82px !important;
+  height: 82px !important;
+  object-fit: contain !important;
+  border: 1px solid #666666 !important;
+  padding: 3px !important;
+  background: #ffffff !important;
+}
+
+@media print {
+  .missionary-contact-card {
+    padding: 7px 8px !important;
+    font-size: 8.6pt !important;
+    line-height: 1.22 !important;
+  }
+
+  .missionary-contact-item {
+    padding: 4px 0 !important;
+  }
+
+  .missionary-contact-name,
+  .missionary-contact-phone,
+  .missionary-contact-phone-plain {
+    font-size: 8.4pt !important;
+    line-height: 1.14 !important;
+  }
+
+  .print-action-card {
+    grid-template-columns: 1fr 76px !important;
+  }
+
+  .qr-image {
+    width: 72px !important;
+    height: 72px !important;
+  }
+}
+
   </style>
 </head>
 
@@ -1014,7 +1122,7 @@
       <div class="missionary-contact-card">
         <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
         <div class="missionary-contact-title">Teléfono de los misioneros</div>
-        <div class="missionary-contact-list"><div class="missionary-contact-item"><div class="missionary-contact-name">Hermanas Boyer y Rounds</div><a class="missionary-contact-phone" href="tel:+19198021411">(919) 802-1411</a></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Freeman y Wilcox</div><a class="missionary-contact-phone" href="tel:+19843261050">(984) 326-1050</a></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Ferguson y Peterson</div><a class="missionary-contact-phone" href="tel:+19193949688">(919) 394-9688</a></div></div>
+        <div class="missionary-contact-list"><div class="missionary-contact-item"><div class="missionary-contact-name">Hermanas Boyer y Rounds</div><span class="missionary-contact-phone-plain">(919) 802-1411</span></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Freeman y Wilcox</div><span class="missionary-contact-phone-plain">(984) 326-1050</span></div><div class="missionary-contact-item"><div class="missionary-contact-name">Élderes Ferguson y Peterson</div><span class="missionary-contact-phone-plain">(919) 394-9688</span></div></div>
       </div>
     </section>
 
@@ -1039,8 +1147,8 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="print-announcement-card weekly-ann hidden">
-        
+      <div class="print-announcement-card weekly-ann ">
+        Text area, this is gonna be slick!
       </div>
 
       <div class="print-action-card">
@@ -1082,23 +1190,23 @@
       <table class="service-table">
         <tr>
           <td class="label">Preside</td>
-          <td class="value">Presidente Luis E Campos</td>
+          <td class="value leader-value" data-print-split-person>Matt Hafen, Primer Consejero de Estaca</td>
         </tr>
         <tr>
           <td class="label">Dirige</td>
-          <td class="value">Luis Campos</td>
+          <td class="value leader-value" data-print-split-person>Luis E Campos, Presidente de Rama</td>
         </tr>
         <tr>
           <td class="label">Himno de Apertura</td>
-          <td class="value">#49 Señor, te necesito</td>
+          <td class="value">#11 Dios manda a profetas</td>
         </tr>
         <tr>
           <td class="label">Oración de Apertura</td>
-          <td class="value">Por invitación</td>
+          <td class="value">Euli Chaves</td>
         </tr>
         <tr>
           <td class="label">Himno Sacramental</td>
-          <td class="value">#110 En memoria de Tu muerte</td>
+          <td class="value">#2 El Espíritu de Dios</td>
         </tr>
         <tr>
           <td colspan="2" class="centered-bold">Administración de la Santa Cena</td>
@@ -1120,9 +1228,9 @@
           <td class="label">Discurso</td>
           <td class="value"></td>
         </tr>
-        <tr class="hidden">
+        <tr class="">
           <td class="label">Himno Intermedio / Número Musical</td>
-          <td class="value"></td>
+          <td class="value">#18 Oh Sión, santuario de libertad</td>
         </tr>
         <tr>
           <td class="label">Discurso</td>
@@ -1133,11 +1241,11 @@
       <table class="service-table">
         <tr>
           <td class="label">Himno de Cierre</td>
-          <td class="value">#41 ¡Grande eres Tú!</td>
+          <td class="value">#9 Un ángel del Señor</td>
         </tr>
         <tr>
           <td class="label">Oración de Cierre</td>
-          <td class="value">Por invitación</td>
+          <td class="value">Juan Manuel Ramos Flores</td>
         </tr>
       </table>
 
@@ -1172,6 +1280,79 @@
       el.innerHTML =
         '<span class="service-person-name">' + escapeHtml(name) + '</span>' +
         '<span class="service-person-title">' + escapeHtml(title) + '</span>';
+    });
+  })();
+</script>
+
+
+
+<script>
+  (function () {
+    function escapeHtmlFinal(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function normalizeText(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function splitLeader(raw) {
+      raw = String(raw || "").trim();
+      if (!raw) return null;
+
+      if (raw.indexOf(",") > -1) {
+        var parts = raw.split(",");
+        var name = parts.shift().trim();
+        var title = parts.join(",").trim();
+        if (name && title) return { name: name, title: title };
+      }
+
+      var known = {
+        "presidente luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "presidente luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+        "mat hafen": { name: "Mat Hafen", title: "Primer Consejero de Estaca" },
+        "matt hafen": { name: "Matt Hafen", title: "Primer Consejero de Estaca" },
+        "robert joaquin foster": { name: "Robert Joaquin Foster", title: "Presidente de Estaca" },
+        "eric cottle": { name: "Eric Cottle", title: "Segundo Consejero de Estaca" }
+      };
+
+      var key = normalizeText(raw);
+      if (known[key]) return known[key];
+
+      var match = raw.match(/^presidente\s+(.+)$/i);
+      if (match && match[1]) return { name: match[1].trim(), title: "Presidente de Rama" };
+
+      return null;
+    }
+
+    document.querySelectorAll("[data-print-split-person]").forEach(function (el) {
+      var parsed = splitLeader(el.textContent || "");
+      if (!parsed) return;
+      el.innerHTML =
+        '<span class="service-person-name">' + escapeHtmlFinal(parsed.name) + '</span>' +
+        '<span class="service-person-title">' + escapeHtmlFinal(parsed.title) + '</span>';
+    });
+
+    // If an older script generated linked missionary phone numbers, flatten them for print.
+    document.querySelectorAll(".missionary-contact-phone").forEach(function (el) {
+      if (el.tagName && el.tagName.toLowerCase() === "a") {
+        var span = document.createElement("span");
+        span.className = "missionary-contact-phone-plain";
+        span.textContent = el.textContent;
+        el.parentNode.replaceChild(span, el);
+      }
     });
   })();
 </script>
