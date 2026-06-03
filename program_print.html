@@ -1188,6 +1188,195 @@
   }
 }
 
+  
+/* FINAL V3 PRINT READABILITY:
+   9pt is too small. Use 11pt as the normal readable print size. */
+@media screen, print {
+  body {
+    font-size: 11pt !important;
+    line-height: 1.32 !important;
+  }
+
+  .panel {
+    padding: 0.26in 0.25in !important;
+  }
+
+  .section-header {
+    font-size: 11pt !important;
+    line-height: 1.18 !important;
+    padding: 5px 8px !important;
+    margin: 9px 0 7px 0 !important;
+  }
+
+  .visitor-block p {
+    font-size: 11pt !important;
+    line-height: 1.35 !important;
+    margin-bottom: 7px !important;
+  }
+
+  .sacrament-print-copy p {
+    font-size: 11pt !important;
+    line-height: 1.34 !important;
+    margin-bottom: 7px !important;
+  }
+
+  .missionary-help-line {
+    font-size: 10.5pt !important;
+    line-height: 1.25 !important;
+    margin-bottom: 5px !important;
+  }
+
+  .missionary-contact-title {
+    font-size: 10.8pt !important;
+    line-height: 1.2 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .missionary-contact-name,
+  .missionary-contact-phone {
+    font-size: 10.5pt !important;
+    line-height: 1.22 !important;
+  }
+
+  .missionary-contact-phone {
+    font-weight: 400 !important;
+    text-decoration: none !important;
+  }
+
+  .missionary-contact-item {
+    padding: 5px 0 !important;
+  }
+
+  .print-announcement-title,
+  .print-action-title {
+    font-size: 11pt !important;
+    line-height: 1.18 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .print-announcement-body,
+  .print-action-body,
+  .print-qr-copy,
+  .weekly-ann {
+    font-size: 10.6pt !important;
+    line-height: 1.28 !important;
+  }
+
+  .service-table td {
+    font-size: 11pt !important;
+    line-height: 1.22 !important;
+    padding: 7px 6px !important;
+  }
+
+  .service-table .label {
+    font-size: 10.8pt !important;
+    font-weight: 800 !important;
+  }
+
+  .service-person-name {
+    font-size: 10.8pt !important;
+    line-height: 1.15 !important;
+    font-weight: 700 !important;
+  }
+
+  .service-person-title {
+    font-size: 9.8pt !important;
+    line-height: 1.12 !important;
+    margin-top: 2px !important;
+    font-style: italic !important;
+  }
+
+  .fast-sunday-block {
+    font-size: 10.4pt !important;
+    line-height: 1.27 !important;
+    padding: 8px 9px !important;
+  }
+
+  .church-footer,
+  .announcements-footer {
+    font-size: 9.6pt !important;
+    line-height: 1.22 !important;
+  }
+
+  .scripture-quote {
+    font-size: 10.2pt !important;
+    line-height: 1.18 !important;
+  }
+
+  .scripture-ref {
+    font-size: 8.8pt !important;
+    line-height: 1.12 !important;
+  }
+
+  .sacrament-print-image {
+    height: 1.2in !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .qr-image {
+    width: 78px !important;
+    height: 78px !important;
+  }
+}
+
+@media print {
+  .page {
+    height: 8in !important;
+  }
+
+  .panel {
+    padding: 0.22in 0.22in !important;
+  }
+
+  .visitor-block p,
+  .sacrament-print-copy p {
+    font-size: 10.6pt !important;
+    line-height: 1.28 !important;
+  }
+
+  .print-announcement-body,
+  .print-action-body,
+  .weekly-ann {
+    font-size: 10.2pt !important;
+    line-height: 1.23 !important;
+  }
+
+  .service-table td {
+    font-size: 10.5pt !important;
+    line-height: 1.18 !important;
+    padding: 6px 5px !important;
+  }
+
+  .service-table .label {
+    font-size: 10.3pt !important;
+  }
+
+  .service-person-name {
+    font-size: 10.3pt !important;
+  }
+
+  .service-person-title {
+    font-size: 9.4pt !important;
+  }
+
+  .fast-sunday-block {
+    font-size: 9.8pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .missionary-contact-name,
+  .missionary-contact-phone,
+  .missionary-help-line {
+    font-size: 10pt !important;
+  }
+
+  .church-footer,
+  .announcements-footer {
+    font-size: 9.2pt !important;
+  }
+}
+
   </style>
 </head>
 
@@ -1263,8 +1452,8 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="print-announcement-card weekly-ann ">
-        Text area, this is gonna be slick!
+      <div class="print-announcement-card weekly-ann hidden">
+        
       </div>
 
       <div class="print-action-card">
@@ -1274,7 +1463,7 @@
             <strong>EnglishConnect</strong><br>
             Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>
             1433 Aversboro Road, Garner, NC<br>
-            <span>Escanee el código QR para obtener información sobre EnglishConnect.</span>
+            <span>Escanee el código QR para inscribirse en las clases gratuitas de inglés.</span>
           </div>
         </div>
         <img class="qr-image" src="assets/qr-englishconnect.png" alt="QR EnglishConnect">
@@ -1476,3 +1665,5 @@
 </body>
 </html>
 <!-- final print polish v2 -->
+
+<!-- final print readability v3 -->
