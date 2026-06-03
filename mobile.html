@@ -968,6 +968,110 @@
       }
     }
 
+  
+    /* FINAL V8 TARGETED MOBILE FIX:
+       Lesson links subtitle + wider missionary meal button only. */
+    .missionary-meal-button {
+      width: 300px !important;
+      max-width: 94% !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .missionary-meal-button {
+        width: 285px !important;
+        max-width: 94% !important;
+      }
+    }
+
+  
+    /* FINAL V9 FORCE MISSIONARY BUTTON:
+       Only the missionary meal button should be wider. */
+    .missionary-meal-button,
+    a.button[data-missionary-meal-button="true"] {
+      width: 335px !important;
+      max-width: 96% !important;
+      min-width: 0 !important;
+      padding-left: 22px !important;
+      padding-right: 22px !important;
+      white-space: normal !important;
+      line-height: 1.18 !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .missionary-meal-button,
+      a.button[data-missionary-meal-button="true"] {
+        width: 318px !important;
+        max-width: 96% !important;
+      }
+    }
+
+  
+    /* FINAL V10 WIDE MISSIONARY BUTTON:
+       Make this one button wide enough for two clean lines. */
+    a.button.missionary-meal-button,
+    a.button[data-missionary-meal-button="true"],
+    a.button[href*="comidas-garner2.github.io"] {
+      width: 390px !important;
+      max-width: calc(100% - 16px) !important;
+      min-width: 0 !important;
+      padding: 11px 22px !important;
+      line-height: 1.16 !important;
+      white-space: normal !important;
+      text-align: center !important;
+    }
+
+    @media screen and (max-width: 430px) {
+      a.button.missionary-meal-button,
+      a.button[data-missionary-meal-button="true"],
+      a.button[href*="comidas-garner2.github.io"] {
+        width: 370px !important;
+        max-width: calc(100% - 12px) !important;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      a.button.missionary-meal-button,
+      a.button[data-missionary-meal-button="true"],
+      a.button[href*="comidas-garner2.github.io"] {
+        width: 340px !important;
+        max-width: calc(100% - 8px) !important;
+      }
+    }
+
+  
+    /* FINAL V11 NUCLEAR MISSIONARY BUTTON FIX:
+       This button should be WIDE, nearly full-card width, and exactly two lines. */
+    .missionary-meal-accordion .accordion-body .button,
+    .missionary-meal-accordion a.button,
+    .missionary-meal-button,
+    a[data-missionary-meal-button="true"],
+    a[href*="comidas-garner2.github.io"] {
+      display: block !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding: 12px 18px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      line-height: 1.16 !important;
+      white-space: normal !important;
+    }
+
+    .missionary-meal-accordion .accordion-body {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    /* Keep the button a little inset from the card edges but much wider than other buttons. */
+    .missionary-meal-accordion .accordion-body .button {
+      width: calc(100% - 12px) !important;
+    }
+
   </style>
 </head>
 
@@ -1160,7 +1264,7 @@
           </span>
           <span>
             <span class="accordion-title">Clases después de la reunión</span>
-            <span class="accordion-subtitle">Lecciones y enlaces</span>
+            <span class="accordion-subtitle">Lesson links</span>
           </span>
           <span class="accordion-chevron">›</span>
         </summary>
@@ -1216,7 +1320,7 @@
         </div>
       </details>
 
-      <details class="accordion">
+      <details class="accordion missionary-meal-accordion">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -1235,7 +1339,7 @@
         </summary>
         <div class="accordion-body">
           <p>Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.</p>
-          <a class="button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha para alimentar a los misioneros</a>
+          <a class="button missionary-meal-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener" data-missionary-meal-button="true" class="button missionary-meal-button" data-missionary-meal-button="true">Escoger una fecha para<br>alimentar a los misioneros</a>
         </div>
       </details>
 
@@ -1407,6 +1511,48 @@
     })();
   </script>
 
+
+  <script>
+    (function () {
+      document.querySelectorAll("a.button").forEach(function (button) {
+        var text = (button.textContent || "").toLowerCase().replace(/\s+/g, " ").trim();
+
+        if (
+          text.includes("alimentar a los misioneros") ||
+          text.includes("feed the missionaries")
+        ) {
+          button.classList.add("missionary-meal-button");
+          button.setAttribute("data-missionary-meal-button", "true");
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      function fixMissionaryButton() {
+        document.querySelectorAll("a.button").forEach(function (button) {
+          var text = (button.textContent || "").toLowerCase().replace(/\s+/g, " ").trim();
+          var href = button.getAttribute("href") || "";
+
+          if (text.includes("alimentar a los misioneros") || href.includes("comidas-garner2.github.io")) {
+            button.classList.add("missionary-meal-button");
+            button.setAttribute("data-missionary-meal-button", "true");
+            button.innerHTML = "Escoger una fecha para<br>alimentar a los misioneros";
+            button.style.setProperty("width", "calc(100% - 12px)", "important");
+            button.style.setProperty("max-width", "none", "important");
+            button.style.setProperty("display", "block", "important");
+            button.style.setProperty("box-sizing", "border-box", "important");
+          }
+        });
+      }
+
+      fixMissionaryButton();
+      window.setTimeout(fixMissionaryButton, 300);
+    })();
+  </script>
+
 </body>
 </html>
 <!-- final mobile polish v2 -->
@@ -1418,3 +1564,11 @@
 <!-- final mobile global accordion polish v6 -->
 
 <!-- final mobile accordion text polish v7 -->
+
+<!-- final mobile lesson-links and missionary-button polish v8 -->
+
+<!-- final mobile missionary button force v9 -->
+
+<!-- final wide missionary meal button v10 -->
+
+<!-- final WIDE missionary meal button v11 -->
