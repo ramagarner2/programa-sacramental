@@ -652,6 +652,97 @@
       }
     }
 
+  
+    /* FINAL V4 MOBILE BUTTON FIX:
+       Buttons should be centered, narrower, and not dominate the card. */
+    .accordion-body {
+      padding: 0 20px 18px 54px !important;
+    }
+
+    .accordion-body .button {
+      display: block !important;
+      width: clamp(185px, 68%, 245px) !important;
+      max-width: 245px !important;
+      min-width: 0 !important;
+      margin: 12px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+    }
+
+    .accordion-body .button + .lesson-note {
+      display: none !important;
+    }
+
+    .lesson-note {
+      display: none !important;
+    }
+
+    /* Keep accordion rows visually aligned and prevent sloppy collapsed rows. */
+    .accordion summary {
+      display: grid !important;
+      grid-template-columns: 34px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding: 14px 15px !important;
+    }
+
+    .accordion summary .round-icon {
+      width: 31px !important;
+      height: 31px !important;
+      flex: 0 0 31px !important;
+      align-self: center !important;
+    }
+
+    .accordion summary > span:nth-child(2) {
+      min-width: 0 !important;
+      display: block !important;
+    }
+
+    .accordion-title {
+      display: block !important;
+      font-size: 15.6px !important;
+      line-height: 1.16 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 13.1px !important;
+      line-height: 1.18 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+      font-size: 20px !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion-body {
+        padding-left: 50px !important;
+        padding-right: 17px !important;
+      }
+
+      .accordion-body .button {
+        width: clamp(175px, 66%, 225px) !important;
+        max-width: 225px !important;
+        font-size: 14.5px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -898,7 +989,7 @@
         <div class="accordion-body">
           <p>Clases gratuitas de inglés para adultos. Todos son bienvenidos.</p>
           <p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Road, Garner, NC</p>
-          <a class="button" href="https://www.englishconnect.org/es" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
+          <a class="button" href="https://quickreg.churchofjesuschrist.org/groups/c91e5dbd-d6ed-f011-8544-6045bda960b1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
         </div>
       </details>
 
@@ -1096,3 +1187,5 @@
 </body>
 </html>
 <!-- final mobile polish v2 -->
+
+<!-- final mobile button polish v4 -->
