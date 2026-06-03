@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1072,6 +1073,121 @@
   }
 }
 
+  
+/* FINAL V2 PRINT POLISH:
+   Bigger Santa Cena image, no gray padding behind the image, plain missionary phones */
+.sacrament-print-layout {
+  grid-template-columns: 48% 52% !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+}
+
+.sacrament-print-left {
+  background: transparent !important;
+  border-left: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.sacrament-print-image {
+  display: block !important;
+  width: 100% !important;
+  height: 1.18in !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  border: 1px solid #cccccc !important;
+  filter: grayscale(100%) contrast(1.08) !important;
+}
+
+.sacrament-scripture-card {
+  margin: 5px 0 0 0 !important;
+  padding: 5px 5px !important;
+  background: #f2f2f2 !important;
+  border: 0 !important;
+}
+
+.missionary-contact-card {
+  padding: 8px 9px !important;
+  font-size: 9pt !important;
+  line-height: 1.28 !important;
+}
+
+.missionary-contact-title {
+  font-size: 9.2pt !important;
+  margin-bottom: 6px !important;
+}
+
+.missionary-contact-item {
+  padding: 5px 0 !important;
+}
+
+.missionary-contact-name {
+  font-size: 8.8pt !important;
+  line-height: 1.18 !important;
+  font-weight: 700 !important;
+}
+
+.missionary-contact-phone {
+  display: block !important;
+  margin-top: 2px !important;
+  color: #111111 !important;
+  font-size: 8.8pt !important;
+  line-height: 1.18 !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+.service-table .value[data-print-split-person],
+.service-table .value {
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.service-person-name {
+  display: block !important;
+  font-size: 9.6pt !important;
+  line-height: 1.12 !important;
+  font-weight: 600 !important;
+}
+
+.service-person-title {
+  display: block !important;
+  margin-top: 2px !important;
+  font-size: 8.2pt !important;
+  line-height: 1.1 !important;
+  color: #333333 !important;
+  font-style: italic !important;
+}
+
+@media print {
+  .sacrament-print-layout {
+    grid-template-columns: 48% 52% !important;
+    gap: 9px !important;
+  }
+
+  .sacrament-print-image {
+    height: 1.08in !important;
+  }
+
+  .missionary-contact-card {
+    padding: 7px 8px !important;
+    font-size: 8.7pt !important;
+    line-height: 1.24 !important;
+  }
+
+  .missionary-contact-item {
+    padding: 4px 0 !important;
+  }
+
+  .missionary-contact-name,
+  .missionary-contact-phone {
+    font-size: 8.5pt !important;
+    line-height: 1.15 !important;
+  }
+}
+
   </style>
 </head>
 
@@ -1158,7 +1274,7 @@
             <strong>EnglishConnect</strong><br>
             Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>
             1433 Aversboro Road, Garner, NC<br>
-            <span>Escanee el código QR para inscribirse en las clases gratuitas de inglés.</span>
+            <span>Escanee el código QR para obtener información sobre EnglishConnect.</span>
           </div>
         </div>
         <img class="qr-image" src="assets/qr-englishconnect.png" alt="QR EnglishConnect">
@@ -1359,3 +1475,4 @@
 
 </body>
 </html>
+<!-- final print polish v2 -->
