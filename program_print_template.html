@@ -137,7 +137,9 @@
       display: block;
       margin: 10px 0;
       filter: grayscale(100%) contrast(1.08);
-      border: 1px solid #dddddd;
+      border: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
     }
 
     .visitor-block p {
@@ -1374,6 +1376,148 @@
   .church-footer,
   .announcements-footer {
     font-size: 9.2pt !important;
+  }
+}
+
+  
+/* =========================================================
+   FINAL PRINT LAYOUT LOCK — 2026-06
+   Purpose:
+   - Force the public printable program to print as TWO landscape letter pages.
+   - Keep each page as a two-panel bifold, not one long website flow.
+   - Remove front cover picture border.
+   - Remove print divider lines.
+   - Use fixed print dimensions so browser preview does not reflow panels.
+   ========================================================= */
+
+@media print {
+  @page {
+    size: Letter landscape;
+    margin: 0.25in;
+  }
+
+  html,
+  body {
+    width: 10.5in !important;
+    min-width: 10.5in !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .screen-note {
+    display: none !important;
+  }
+
+  .program-wrapper {
+    width: 10.5in !important;
+    min-width: 10.5in !important;
+    max-width: 10.5in !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+
+  .page {
+    width: 10.5in !important;
+    min-width: 10.5in !important;
+    height: 8in !important;
+    min-height: 8in !important;
+    max-height: 8in !important;
+    display: grid !important;
+    grid-template-columns: 5.25in 5.25in !important;
+    grid-template-rows: 8in !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-bottom: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    background: #ffffff !important;
+  }
+
+  .page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .panel {
+    width: 5.25in !important;
+    height: 8in !important;
+    max-height: 8in !important;
+    overflow: hidden !important;
+    padding: 0.21in 0.22in !important;
+    border-right: 0 !important;
+    background: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .cover-image {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    height: 5.0in !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    margin: 0.08in 0 0.12in 0 !important;
+  }
+
+  .panel-front-cover {
+    justify-content: flex-start !important;
+    text-align: center !important;
+  }
+
+  .panel-front-cover h1 {
+    font-size: 20pt !important;
+    line-height: 1.05 !important;
+    margin-bottom: 5px !important;
+  }
+
+  .panel-front-cover h2 {
+    margin-bottom: 7px !important;
+  }
+
+  .panel-front-cover .church-footer {
+    margin-top: auto !important;
+  }
+
+  .service-table td {
+    padding: 5px 5px !important;
+  }
+
+  .fast-sunday-block {
+    margin: 6px 0 !important;
+    padding: 7px 8px !important;
+  }
+}
+
+/* Screen preview should also show two separate landscape pages clearly. */
+@media screen {
+  .program-wrapper {
+    width: 11in;
+    max-width: 11in;
+  }
+
+  .page {
+    width: 11in;
+    height: 8.5in;
+    margin: 0 auto 18px;
+    border-bottom: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  .cover-image {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
   }
 }
 
