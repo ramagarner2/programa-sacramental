@@ -140,6 +140,93 @@
 
     /* HIDDEN BLOCKS */
     .hidden { display: none !important; }
+  
+/* =========================================================
+   FINAL INTERNAL AGENDA PRINT LOCK — 2026-06
+   Purpose:
+   - Let @page control the actual print margin.
+   - Remove screen padding/shadow from print.
+   - Prevent the agenda from printing like a web page with doubled margins.
+   ========================================================= */
+
+@media print {
+  @page {
+    size: Letter portrait;
+    margin: 0.5in;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.32 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .page {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .section-header {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    margin-top: 12px !important;
+  }
+
+  .field-row,
+  .body-text,
+  .sub-header,
+  .prayer {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #bloque-relevos,
+  #bloque-sostenimientos,
+  #bloque-ordenacion,
+  #bloque-confirmacion,
+  #bloque-bendicion-bebe,
+  #bloque-asuntos-estaca {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .divider {
+    margin: 8px 0 !important;
+  }
+
+  .field-row {
+    padding: 5px 7px !important;
+  }
+
+  .body-text {
+    padding: 3px 7px !important;
+  }
+
+  .prayer {
+    font-size: 9.4pt !important;
+    line-height: 1.45 !important;
+    padding-left: 24px !important;
+  }
+}
+
+@media screen {
+  .page {
+    max-width: 7.5in;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -238,8 +325,9 @@
   <!-- ASUNTOS DE ESTACA -->
   <div id="bloque-asuntos-estaca" class="hidden">
     <div class="section-header">ASUNTOS DE ESTACA</div>
-    <div class="body-text">{{asuntos_estaca_persona}} tiene asuntos de Estaca.</div>
-    <div class="body-text">Después de los asuntos prepararemos para la Santa Cena, cantando el himno sacramental.</div>
+    <div class="body-text"><strong>Presenta:</strong> {{asuntos_estaca_persona}}</div>
+    <div class="body-text"><strong>Ahora cedemos el tiempo a {{asuntos_estaca_persona}} para tratar algunos asuntos de la estaca.</strong></div>
+    <div class="body-text">Después de los asuntos de la estaca, nos prepararemos para participar de la Santa Cena cantando el himno sacramental.</div>
     <hr class="divider">
   </div>
 
