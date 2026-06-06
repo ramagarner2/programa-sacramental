@@ -5,125 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
   <title>Agenda Sacramental — Rama Garner 2</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    @page {
-      size: letter portrait;
-      margin: 0.75in;
+  <!-- PRINT-SAFE FULL TEMPLATE: cleaned CSS, no stacked print overrides, compact agenda flow -->
+    <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    @media print {
-      body { background: white; }
-      .no-print { display: none; }
+    :root {
+      --blue: #1F3864;
+      --line: #2E5FA3;
+      --shade: #EBF0FA;
+      --text: #111111;
+      --muted: #555555;
+      --paper: #ffffff;
+      --screen-bg: #f0f0f0;
+    }
+
+    @page {
+      size: Letter portrait;
+      margin: 0.35in;
     }
 
     body {
       font-family: Arial, sans-serif;
-      font-size: 11pt;
-      color: #111;
-      background: #f0f0f0;
-      padding: 0.5in;
+      font-size: 10.3pt;
+      line-height: 1.25;
+      color: var(--text);
+      background: var(--screen-bg);
+      padding: 0.35in;
     }
 
     .page {
       max-width: 7.5in;
       margin: 0 auto;
-      background: white;
-      padding: 0.6in 0.7in;
+      background: var(--paper);
+      padding: 0.42in 0.48in;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
 
-    /* TITLE */
     .doc-title {
       text-align: center;
-      font-size: 16pt;
+      font-size: 15pt;
       font-weight: bold;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .doc-date {
       text-align: center;
-      font-size: 13pt;
+      font-size: 11.4pt;
       font-weight: bold;
-      margin-bottom: 16px;
+      margin-bottom: 7px;
     }
 
     .welcome {
       text-align: center;
       font-style: italic;
-      font-size: 10.5pt;
-      color: #555;
-      margin-bottom: 6px;
+      font-size: 9.3pt;
+      color: var(--muted);
+      margin-bottom: 4px;
     }
 
-    /* DIVIDER */
     .divider {
       border: none;
-      border-top: 1.5px solid #2E5FA3;
-      margin: 10px 0;
+      border-top: 1px solid var(--line);
+      margin: 6px 0;
     }
 
-    /* SECTION HEADER */
     .section-header {
-      background: #1F3864;
+      background: var(--blue);
       color: white;
       font-weight: bold;
-      font-size: 11pt;
-      padding: 7px 12px;
-      margin: 16px 0 8px 0;
-      letter-spacing: 0.5px;
+      font-size: 9.8pt;
+      padding: 4px 8px;
+      margin: 8px 0 4px 0;
+      letter-spacing: 0.35px;
+      break-after: avoid;
+      page-break-after: avoid;
     }
 
-    /* FIELD ROWS */
     .field-row {
       display: flex;
-      padding: 6px 8px;
-      font-size: 10.5pt;
-      line-height: 1.4;
+      padding: 3px 6px;
+      font-size: 9.45pt;
+      line-height: 1.22;
     }
 
-    .field-row.shaded { background: #EBF0FA; }
+    .field-row.shaded {
+      background: var(--shade);
+    }
 
     .field-label {
       font-weight: bold;
-      min-width: 220px;
+      min-width: 168px;
       flex-shrink: 0;
     }
 
-    .field-value { flex: 1; }
+    .field-value {
+      flex: 1;
+    }
 
     .write-in-line {
       display: block;
-      min-height: 18px;
+      min-height: 14px;
       border-bottom: 1px solid #111;
       width: 100%;
     }
 
-    /* BODY TEXT */
     .body-text {
-      font-size: 10.5pt;
-      padding: 4px 8px;
-      line-height: 1.5;
+      font-size: 9.35pt;
+      padding: 2px 6px;
+      line-height: 1.24;
     }
 
-    /* SUB HEADER */
     .sub-header {
       font-weight: bold;
-      font-size: 10.5pt;
-      padding: 8px 8px 2px 8px;
+      font-size: 9.45pt;
+      padding: 4px 6px 1px 6px;
     }
 
-    /* PRAYER TEXT */
     .prayer {
-      font-size: 10pt;
+      font-size: 8.25pt;
       font-style: italic;
       color: #444;
-      padding: 4px 8px 4px 32px;
-      line-height: 1.6;
+      padding: 2px 6px 2px 18px;
+      line-height: 1.25;
     }
 
-    /* MARKER - tiny gray, print hidden */
     .marker {
       font-size: 7pt;
       color: #bbb;
@@ -131,102 +140,123 @@
       line-height: 1.2;
     }
 
-    @media print {
-      .marker { display: none; }
+    .gap {
+      height: 4px;
     }
 
-    /* BLANK SPACE */
-    .gap { height: 10px; }
+    .hidden {
+      display: none !important;
+    }
 
-    /* HIDDEN BLOCKS */
-    .hidden { display: none !important; }
-  
-/* =========================================================
-   FINAL INTERNAL AGENDA PRINT LOCK — 2026-06
-   Purpose:
-   - Let @page control the actual print margin.
-   - Remove screen padding/shadow from print.
-   - Prevent the agenda from printing like a web page with doubled margins.
-   ========================================================= */
+    @media print {
+      @page {
+        size: Letter portrait;
+        margin: 0.35in;
+      }
 
-@media print {
-  @page {
-    size: Letter portrait;
-    margin: 0.5in;
-  }
+      html,
+      body {
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-size: 9.6pt !important;
+        line-height: 1.2 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
 
-  html,
-  body {
-    width: auto !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    color: #111111 !important;
-    font-size: 10.5pt !important;
-    line-height: 1.32 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
+      .page {
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
 
-  .page {
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #ffffff !important;
-    box-shadow: none !important;
-  }
+      .no-print,
+      .marker {
+        display: none !important;
+      }
 
-  .section-header {
-    break-after: avoid !important;
-    page-break-after: avoid !important;
-    margin-top: 12px !important;
-  }
+      .doc-title {
+        font-size: 14pt !important;
+        margin-bottom: 1px !important;
+      }
 
-  .field-row,
-  .body-text,
-  .sub-header,
-  .prayer {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
+      .doc-date {
+        font-size: 10.6pt !important;
+        margin-bottom: 5px !important;
+      }
 
-  #bloque-relevos,
-  #bloque-sostenimientos,
-  #bloque-ordenacion,
-  #bloque-confirmacion,
-  #bloque-bendicion-bebe,
-  #bloque-asuntos-estaca {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
+      .welcome {
+        font-size: 8.8pt !important;
+        margin-bottom: 3px !important;
+      }
 
-  .divider {
-    margin: 8px 0 !important;
-  }
+      .divider {
+        margin: 4px 0 !important;
+        border-top: 1px solid #2E5FA3 !important;
+      }
 
-  .field-row {
-    padding: 5px 7px !important;
-  }
+      .section-header {
+        font-size: 9.2pt !important;
+        padding: 3px 7px !important;
+        margin: 6px 0 3px 0 !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
 
-  .body-text {
-    padding: 3px 7px !important;
-  }
+      .field-row {
+        padding: 2px 5px !important;
+        font-size: 8.95pt !important;
+        line-height: 1.16 !important;
+      }
 
-  .prayer {
-    font-size: 9.4pt !important;
-    line-height: 1.45 !important;
-    padding-left: 24px !important;
-  }
-}
+      .field-label {
+        min-width: 152px !important;
+      }
 
-@media screen {
-  .page {
-    max-width: 7.5in;
-  }
-}
+      .body-text {
+        font-size: 8.9pt !important;
+        padding: 1px 5px !important;
+        line-height: 1.18 !important;
+      }
 
+      .sub-header {
+        font-size: 8.95pt !important;
+        padding: 3px 5px 1px 5px !important;
+      }
+
+      .prayer {
+        font-size: 7.65pt !important;
+        line-height: 1.18 !important;
+        padding: 1px 5px 1px 14px !important;
+      }
+
+      .gap {
+        height: 2px !important;
+      }
+
+      /* Do not force whole business blocks to stay together.
+         That was the cause of the large blank hole before Santa Cena. */
+      #bloque-relevos,
+      #bloque-sostenimientos,
+      #bloque-ordenacion,
+      #bloque-confirmacion,
+      #bloque-bendicion-bebe,
+      #bloque-asuntos-estaca,
+      .field-row,
+      .body-text,
+      .sub-header,
+      .prayer {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
