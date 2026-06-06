@@ -3,402 +3,854 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex,nofollow">
-  <title>Agenda Sacramental — Rama Garner 2</title>
-  <!-- PRINT-SAFE FULL TEMPLATE: cleaned CSS, no stacked print overrides, compact agenda flow -->
-    <style>
+  <title>Programa Sacramental — Rama Garner 2 — Print</title>
+
+  <style>
+    /* ============================================================
+       RESET
+    ============================================================ */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    :root {
-      --blue: #1F3864;
-      --line: #2E5FA3;
-      --shade: #EBF0FA;
-      --text: #111111;
-      --muted: #555555;
-      --paper: #ffffff;
-      --screen-bg: #f0f0f0;
-    }
-
+    /* ============================================================
+       PAGE SETUP
+    ============================================================ */
     @page {
-      size: Letter portrait;
-      margin: 0.35in;
+      size: letter landscape;
+      margin: 0.25in;
     }
 
+    /* ============================================================
+       BASE
+    ============================================================ */
     body {
       font-family: Arial, sans-serif;
-      font-size: 10.3pt;
-      line-height: 1.25;
-      color: var(--text);
-      background: var(--screen-bg);
-      padding: 0.35in;
+      font-size: 11pt;
+      line-height: 1.32;
+      background: #eeeeee;
+      color: #111111;
     }
 
-    .page {
-      max-width: 7.5in;
+    .screen-note {
+      text-align: center;
+      padding: 10px 12px;
+      background: #222222;
+      color: #ffffff;
+      font-size: 9pt;
+      letter-spacing: 0.3px;
+    }
+
+    /* ============================================================
+       WRAPPER & PAGES
+    ============================================================ */
+    .program-wrapper {
+      max-width: 11in;
       margin: 0 auto;
-      background: var(--paper);
-      padding: 0.42in 0.48in;
+      background: #ffffff;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
 
-    .doc-title {
-      text-align: center;
-      font-size: 15pt;
-      font-weight: bold;
-      margin-bottom: 2px;
+    .page {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 11in;
+      height: 8.5in;
+      background: #ffffff;
+      margin: 0 auto 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
 
-    .doc-date {
-      text-align: center;
-      font-size: 11.4pt;
-      font-weight: bold;
-      margin-bottom: 7px;
-    }
-
-    .welcome {
-      text-align: center;
-      font-style: italic;
-      font-size: 9.3pt;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 6px 0;
-    }
-
-    .section-header {
-      background: var(--blue);
-      color: white;
-      font-weight: bold;
-      font-size: 9.8pt;
-      padding: 4px 8px;
-      margin: 8px 0 4px 0;
-      letter-spacing: 0.35px;
-      break-after: avoid;
-      page-break-after: avoid;
-    }
-
-    .field-row {
+    /* ============================================================
+       PANELS
+    ============================================================ */
+    .panel {
+      padding: 0.28in 0.26in;
+      border-right: 1px solid #cccccc;
+      overflow: hidden;
       display: flex;
-      padding: 3px 6px;
-      font-size: 9.45pt;
-      line-height: 1.22;
+      flex-direction: column;
+      background: #ffffff;
     }
 
-    .field-row.shaded {
-      background: var(--shade);
+    .panel:last-child {
+      border-right: none;
     }
 
-    .field-label {
-      font-weight: bold;
-      min-width: 168px;
-      flex-shrink: 0;
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    h1 {
+      font-size: 22pt;
+      line-height: 1.05;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #111111;
     }
 
-    .field-value {
-      flex: 1;
+    h2 {
+      font-size: 14pt;
+      line-height: 1.15;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 5px;
+      color: #111111;
     }
 
-    .write-in-line {
-      display: block;
-      min-height: 14px;
-      border-bottom: 1px solid #111;
-      width: 100%;
+    h3 {
+      font-size: 10pt;
+      line-height: 1.15;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+      color: #111111;
     }
 
-    .body-text {
-      font-size: 9.35pt;
-      padding: 2px 6px;
-      line-height: 1.24;
-    }
-
-    .sub-header {
-      font-weight: bold;
-      font-size: 9.45pt;
-      padding: 4px 6px 1px 6px;
-    }
-
-    .prayer {
-      font-size: 8.25pt;
+    .subtitle {
+      font-size: 11pt;
+      text-align: center;
+      color: #333333;
       font-style: italic;
-      color: #444;
-      padding: 2px 6px 2px 18px;
+      margin-bottom: 8px;
+    }
+
+    /* ============================================================
+       SECTION HEADER (dark bar)
+    ============================================================ */
+    .section-header {
+      background: #222222;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 11pt;
+      line-height: 1.15;
+      padding: 5px 8px;
+      margin: 10px 0 7px 0;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .section-header:first-child {
+      margin-top: 0;
+    }
+
+    /* ============================================================
+       FRONT COVER
+    ============================================================ */
+    .panel-front-cover {
+      text-align: center;
+      justify-content: flex-start;
+    }
+
+    .cover-image {
+      width: 100%;
+      height: 5.0in;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin: 10px 0;
+      filter: grayscale(100%) contrast(1.08);
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    .church-footer {
+      margin-top: auto;
+      padding-top: 8px;
+      font-size: 9.5pt;
+      text-align: center;
+      color: #333333;
+      line-height: 1.28;
+    }
+
+    /* ============================================================
+       VISITOR INFO (inside left — page 2)
+    ============================================================ */
+    .visitor-block p {
+      font-size: 11pt;
+      line-height: 1.38;
+      margin-bottom: 8px;
+      color: #111111;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid #cccccc;
+      margin: 9px 0;
+    }
+
+    /* ============================================================
+       SANTA CENA LAYOUT
+    ============================================================ */
+    .sacrament-print-layout {
+      display: grid;
+      grid-template-columns: 46% 54%;
+      gap: 10px;
+      align-items: stretch;
+      margin: 7px 0 9px;
+    }
+
+    .sacrament-print-left {
+      overflow: hidden;
+    }
+
+    .sacrament-print-image {
+      display: block;
+      width: 100%;
+      height: 1.2in;
+      object-fit: cover;
+      object-position: center center;
+      border: 1px solid #cccccc;
+      filter: grayscale(100%) contrast(1.08);
+    }
+
+    .sacrament-scripture-card {
+      margin: 5px 0 0 0;
+      padding: 5px 6px;
+      background: #f2f2f2;
+      text-align: center;
+    }
+
+    .scripture-quote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: 10pt;
+      line-height: 1.22;
+      color: #111111;
+    }
+
+    .scripture-ref {
+      margin-top: 3px;
+      font-size: 8.5pt;
+      line-height: 1.1;
+      font-weight: 800;
+      color: #111111;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .sacrament-print-copy p {
+      font-size: 11pt;
+      line-height: 1.35;
+      margin: 0 0 7px 0;
+      color: #111111;
+    }
+
+    /* ============================================================
+       MISSIONARY CARD
+    ============================================================ */
+    .missionary-contact-card {
+      margin-top: 6px;
+      padding: 8px 10px;
+      background: #f2f2f2;
+      border-left: 3px solid #222222;
+      font-size: 10.5pt;
+      line-height: 1.28;
+      color: #111111;
+    }
+
+    .missionary-help-line {
+      margin: 0 0 5px 0;
+      font-style: italic;
+      font-size: 10.5pt;
       line-height: 1.25;
     }
 
-    .marker {
-      font-size: 7pt;
-      color: #bbb;
-      padding: 0 8px;
+    .missionary-contact-title {
+      font-weight: 800;
+      font-size: 10.8pt;
       line-height: 1.2;
+      margin-bottom: 5px;
+      color: #111111;
     }
 
-    .gap {
-      height: 4px;
+    .missionary-contact-list {
+      margin-top: 2px;
     }
 
+    .missionary-contact-item {
+      padding: 5px 0;
+      border-top: 1px solid #d4d4d4;
+    }
+
+    .missionary-contact-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .missionary-contact-name {
+      font-weight: 700;
+      font-size: 10.5pt;
+      line-height: 1.18;
+      color: #111111;
+    }
+
+    .missionary-contact-phone,
+    .missionary-contact-phone-plain {
+      display: block;
+      margin-top: 2px;
+      color: #111111;
+      font-size: 10.5pt;
+      line-height: 1.18;
+      font-weight: 400;
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       ANNOUNCEMENTS PANEL (back cover — page 1 left)
+    ============================================================ */
+    .panel-announcements {
+      justify-content: flex-start;
+    }
+
+    .weekly-ann {
+      font-size: 10.8pt;
+      line-height: 1.32;
+      margin: 0 0 8px 0;
+      padding: 8px 10px;
+      border-left: 3px solid #222222;
+      background: #f2f2f2;
+      color: #111111;
+    }
+
+    .print-action-card {
+      display: grid;
+      grid-template-columns: 1fr 84px;
+      gap: 12px;
+      align-items: center;
+      margin: 8px 0;
+      padding: 8px 10px;
+      background: #f2f2f2;
+      border-left: 3px solid #222222;
+      color: #111111;
+      min-height: 88px;
+    }
+
+    .print-action-title {
+      font-weight: 800;
+      font-size: 11pt;
+      line-height: 1.18;
+      margin-bottom: 4px;
+      color: #111111;
+    }
+
+    .print-action-body {
+      font-size: 10.5pt;
+      line-height: 1.28;
+      color: #111111;
+    }
+
+    .print-action-body span {
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    .qr-image {
+      display: block;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border: 1px solid #999999;
+      padding: 3px;
+      background: #ffffff;
+    }
+
+    .announcements-footer {
+      margin-top: auto;
+      padding-top: 8px;
+      font-size: 9.5pt;
+      text-align: center;
+      color: #333333;
+      line-height: 1.28;
+      border-top: 1px solid #dddddd;
+    }
+
+    /* ============================================================
+       SERVICE ORDER (inside right — page 2)
+    ============================================================ */
+    .service-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      margin: 6px 0;
+    }
+
+    .service-table td {
+      padding: 7px 6px;
+      font-size: 11pt;
+      line-height: 1.22;
+      vertical-align: middle;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    .service-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .service-table .label {
+      width: 40%;
+      color: #111111;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .service-table .value {
+      width: 60%;
+      color: #111111;
+      text-align: right;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    .service-table .centered-bold {
+      text-align: center;
+      font-weight: 800;
+      background: #f2f2f2;
+    }
+
+    .service-person-name {
+      display: block;
+      font-size: 11pt;
+      line-height: 1.15;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .service-person-title {
+      display: block;
+      margin-top: 2px;
+      font-size: 9.5pt;
+      line-height: 1.1;
+      color: #444444;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       FAST SUNDAY BLOCK
+    ============================================================ */
+    .fast-sunday-block {
+      font-size: 10.8pt;
+      color: #111111;
+      line-height: 1.32;
+      margin: 8px 0;
+      padding: 9px 10px;
+      background: #f2f2f2;
+      border-left: 3px solid #222222;
+    }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
     .hidden {
       display: none !important;
     }
 
+    /* ============================================================
+       PRINT STYLES
+    ============================================================ */
     @media print {
-      @page {
-        size: Letter portrait;
-        margin: 0.35in;
-      }
-
-      html,
       body {
-        width: auto !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
         background: #ffffff !important;
-        color: #111111 !important;
-        font-size: 9.6pt !important;
-        line-height: 1.2 !important;
+        font-size: 10.5pt !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
 
-      .page {
-        width: auto !important;
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #ffffff !important;
-        box-shadow: none !important;
-      }
-
-      .no-print,
-      .marker {
+      .screen-note {
         display: none !important;
       }
 
-      .doc-title {
-        font-size: 14pt !important;
-        margin-bottom: 1px !important;
+      .program-wrapper {
+        width: 10.5in !important;
+        max-width: 10.5in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
       }
 
-      .doc-date {
-        font-size: 10.6pt !important;
-        margin-bottom: 5px !important;
+      .page {
+        width: 10.5in !important;
+        height: 8in !important;
+        min-height: 8in !important;
+        max-height: 8in !important;
+        grid-template-columns: 5.25in 5.25in !important;
+        overflow: hidden !important;
+        border: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
       }
 
-      .welcome {
-        font-size: 8.8pt !important;
-        margin-bottom: 3px !important;
+      .page:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
 
-      .divider {
-        margin: 4px 0 !important;
-        border-top: 1px solid #2E5FA3 !important;
+      .panel {
+        width: 5.25in !important;
+        height: 8in !important;
+        max-height: 8in !important;
+        overflow: hidden !important;
+        padding: 0.22in 0.23in !important;
+        border-right: 0 !important;
       }
 
-      .section-header {
-        font-size: 9.2pt !important;
-        padding: 3px 7px !important;
-        margin: 6px 0 3px 0 !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
+      .cover-image {
+        height: 4.85in !important;
+        margin: 8px 0 10px !important;
       }
 
-      .field-row {
-        padding: 2px 5px !important;
-        font-size: 8.95pt !important;
-        line-height: 1.16 !important;
+      .service-table td {
+        padding: 6px 5px !important;
+        font-size: 10.5pt !important;
       }
 
-      .field-label {
-        min-width: 152px !important;
+      .fast-sunday-block {
+        font-size: 10.2pt !important;
+        padding: 8px 9px !important;
+        margin: 6px 0 !important;
       }
 
-      .body-text {
-        font-size: 8.9pt !important;
-        padding: 1px 5px !important;
-        line-height: 1.18 !important;
+      .visitor-block p {
+        font-size: 10.5pt !important;
+        line-height: 1.3 !important;
       }
 
-      .sub-header {
-        font-size: 8.95pt !important;
-        padding: 3px 5px 1px 5px !important;
+      .sacrament-print-copy p {
+        font-size: 10.5pt !important;
+        line-height: 1.3 !important;
       }
 
-      .prayer {
-        font-size: 7.65pt !important;
-        line-height: 1.18 !important;
-        padding: 1px 5px 1px 14px !important;
+      .missionary-contact-card {
+        font-size: 10pt !important;
+        padding: 7px 9px !important;
       }
 
-      .gap {
-        height: 2px !important;
+      .missionary-contact-name,
+      .missionary-contact-phone,
+      .missionary-contact-phone-plain,
+      .missionary-help-line {
+        font-size: 10pt !important;
       }
 
-      /* Do not force whole business blocks to stay together.
-         That was the cause of the large blank hole before Santa Cena. */
-      #bloque-relevos,
-      #bloque-sostenimientos,
-      #bloque-ordenacion,
-      #bloque-confirmacion,
-      #bloque-bendicion-bebe,
-      #bloque-asuntos-estaca,
-      .field-row,
-      .body-text,
-      .sub-header,
-      .prayer {
-        break-inside: auto !important;
-        page-break-inside: auto !important;
+      .print-action-body {
+        font-size: 10pt !important;
+      }
+
+      .print-action-title {
+        font-size: 10.5pt !important;
+      }
+
+      .church-footer,
+      .announcements-footer {
+        font-size: 9pt !important;
       }
     }
   </style>
 </head>
+
 <body>
-<div class="page">
 
-  <!-- TITLE -->
-  <div class="doc-title">Rama Garner 2</div>
-  <div class="doc-date">{{tipo_reunion_display}}</div>
-  <div class="doc-date">FECHA: {{fecha}}</div>
-  <hr class="divider">
-  <div class="welcome">Damos la bienvenida a miembros, visitantes y visitantes especiales</div>
-  <hr class="divider">
-
-  <!-- INFORMACIÓN GENERAL -->
-  <div class="section-header">INFORMACIÓN GENERAL</div>
-  <div class="field-row"><span class="field-label">PRESIDE:</span><span class="field-value">{{preside}}</span></div>
-  <div class="field-row shaded"><span class="field-label">DIRIGE:</span><span class="field-value">{{conduce}}</span></div>
-  <div class="field-row"><span class="field-label">PIANISTA:</span><span class="field-value">{{pianista}}</span></div>
-  <div class="field-row shaded"><span class="field-label">DIRIGE LA MÚSICA:</span><span class="field-value">{{conductora_musica}}</span></div>
-
-  <div class="field-row">
-    <span class="field-label">RECONOCEMOS LA PRESENCIA DE:</span>
-    <span class="field-value"><span class="write-in-line">&nbsp;</span></span>
-  </div>
-  <hr class="divider">
-
-  <!-- ANUNCIOS -->
-  <div id="bloque-anuncios" class="hidden">
-    <div class="section-header">ANUNCIOS</div>
-    <div class="body-text">{{anuncios_semanales}}</div>
-    <hr class="divider">
-  </div>
-
-  <!-- APERTURA -->
-  <div class="section-header">APERTURA</div>
-  <div class="field-row"><span class="field-label">HIMNO DE APERTURA:</span><span class="field-value">{{himno_apertura}}</span></div>
-  <div class="field-row shaded"><span class="field-label">PRIMERA ORACIÓN:</span><span class="field-value">{{oracion_apertura}}</span></div>
-  <hr class="divider">
-
-  <!-- ASUNTOS DE RAMA -->
-  <div class="section-header">ASUNTOS DE RAMA</div>
-
-  <div id="bloque-relevos" class="hidden">
-    <div class="sub-header">Relevos</div>
-    <div class="body-text">Los siguientes individuos han sido relevados, y proponemos que se les dé un voto de agradecimiento por su servicio.</div>
-    <div class="gap"></div>
-    <div class="body-text">{{block_relevos}}</div>
-    <div class="gap"></div>
-    <div class="body-text">Aquellos que deseen expresar su agradecimiento, pueden manifestarlo levantando la mano.</div>
-    <div class="gap"></div>
-  </div>
-
-  <div id="bloque-sostenimientos" class="hidden">
-    <div class="sub-header">Llamamientos</div>
-    <div class="body-text">Se propone que los siguientes individuos sean sostenidos en llamamientos de rama.</div>
-    <div class="body-text">Por favor, pónganse de pie al leer sus nombres.</div>
-    <div class="gap"></div>
-    <div class="body-text">{{block_sostenimientos}}</div>
-    <div class="gap"></div>
-    <div class="body-text">Todos los que estén a favor pueden manifestarlo levantando la mano. (Pausar por el voto).</div>
-    <div class="body-text">Aquellos en contra, si los hay, pueden manifestarlo de la misma manera.</div>
-    <div class="gap"></div>
-  </div>
-
-  <hr class="divider">
-
-  <!-- ORDENACIONES -->
-  <div id="bloque-ordenacion" class="hidden">
-    <div class="section-header">ORDENACIONES</div>
-    <div class="body-text">También proponemos que el Hno. {{block_ordenacion}}</div>
-    <div class="gap"></div>
-    <div class="body-text">Los que estén a favor, sírvanse indicarlo levantando la mano. [Breve pausa].</div>
-    <div class="gap"></div>
-    <div class="body-text">Opuestos, si los hay, también pueden manifestarlo. [Breve pausa].</div>
-    <hr class="divider">
-  </div>
-
-  <!-- CONFIRMACIÓN -->
-  <div id="bloque-confirmacion" class="hidden">
-    <div class="section-header">CONFIRMACIÓN</div>
-    <div class="body-text">{{block_confirmacion}} fue bautizado(a) recientemente y ahora será confirmado(a) miembro de La Iglesia de Jesucristo de los Santos de los Últimos Días y recibirá el Espíritu Santo. Invitamos a {{block_confirmacion}} a pasar al frente.</div>
-    <div class="gap"></div>
-    <div class="body-text">Después de la confirmación, invitaremos a la congregación a dar la bienvenida a {{block_confirmacion}} como nuevo(a) miembro de la rama levantando la mano.</div>
-    <hr class="divider">
-  </div>
-
-  <!-- BENDICIÓN DE BEBÉ -->
-  <div id="bloque-bendicion-bebe" class="hidden">
-    <div class="section-header">BENDICIÓN Y PRESENTACIÓN DE UN NIÑO</div>
-    <div class="body-text">Invitar a {{bendicion_bebe_nombre}}, a la familia y a quienes participarán en la bendición a pasar al frente.</div>
-    <div class="gap"></div>
-    <div class="body-text">La bendición será dada por {{bendicion_bebe_dada_por}}.</div>
-    <hr class="divider">
-  </div>
-
-  <!-- ASUNTOS DE ESTACA -->
-  <div id="bloque-asuntos-estaca" class="hidden">
-    <div class="section-header">ASUNTOS DE ESTACA</div>
-    <div class="body-text"><strong>Presenta:</strong> {{asuntos_estaca_persona}}</div>
-    <div class="body-text"><strong>Ahora cedemos el tiempo a {{asuntos_estaca_persona}} para tratar algunos asuntos de la estaca.</strong></div>
-    <div class="body-text">Después de los asuntos de la estaca, nos prepararemos para participar de la Santa Cena cantando el himno sacramental.</div>
-    <hr class="divider">
-  </div>
-
-  <!-- SANTA CENA -->
-  <div class="section-header">SANTA CENA</div>
-  <div class="field-row"><span class="field-label">HIMNO SACRAMENTAL:</span><span class="field-value">{{himno_sacramental}}</span></div>
-  <div class="gap"></div>
-  <div class="sub-header">Bendición del Pan:</div>
-  <div class="prayer">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques este pan para las almas de todos los que participen de él, para que lo coman en memoria del cuerpo de tu Hijo, y testifiquen ante ti, oh Dios, Padre Eterno, que están dispuestos a tomar sobre sí el nombre de tu Hijo, y a recordarle siempre, y a guardar sus mandamientos que él les ha dado, para que siempre puedan tener su Espíritu consigo. Amén.</div>
-  <div class="gap"></div>
-  <div class="sub-header">Bendición del Agua:</div>
-  <div class="prayer">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques esta agua para las almas de todos los que la beban, para que lo hagan en memoria de la sangre de tu Hijo, que por ellos se derramó; para que testifiquen ante ti, oh Dios, Padre Eterno, que siempre se acuerdan de él, para que puedan tener su Espíritu consigo. Amén.</div>
-  <hr class="divider">
-
-
-  <!-- AYUNO Y TESTIMONIO -->
-  <div id="bloque-ayuno-agenda" class="hidden">
-    <div class="section-header">AYUNO Y TESTIMONIO</div>
-    <div class="body-text">Después de la administración de la Santa Cena, los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio.</div>
-    <div class="gap"></div>
-    <div class="body-text">No hay discursos asignados durante la reunión de ayuno y testimonio.</div>
-    <hr class="divider">
-  </div>
-
-  <!-- DISCURSANTES -->
-  <div id="bloque-discursantes" class="hidden">
-    <div class="section-header">DISCURSANTES</div>
-    <div class="field-row"><span class="field-label">PRIMER DISCURSANTE:</span><span class="field-value">{{primer_discursante}}</span></div>
-    <div class="field-row shaded"><span class="field-label">SEGUNDO DISCURSANTE:</span><span class="field-value">{{segundo_discursante}}</span></div>
-    <div id="bloque-numero-musical" class="hidden">
-      <div class="field-row"><span class="field-label">HIMNO INTERMEDIO:</span><span class="field-value">{{numero_musical}}</span></div>
-    </div>
-    <div class="field-row"><span class="field-label">ÚLTIMO DISCURSANTE:</span><span class="field-value">{{ultimo_discursante}}</span></div>
-    <hr class="divider">
-  </div>
-
-  <!-- CIERRE -->
-  <div class="section-header">CIERRE</div>
-  <div class="field-row"><span class="field-label">HIMNO DE CIERRE:</span><span class="field-value">{{himno_cierre}}</span></div>
-  <div class="field-row shaded"><span class="field-label">ÚLTIMA ORACIÓN:</span><span class="field-value">{{oracion_cierre}}</span></div>
-
+<div class="screen-note">
+  Programa Sacramental — Rama Garner 2 | Imprimir en horizontal, sin márgenes o márgenes mínimos
 </div>
+
+<div class="program-wrapper">
+
+  <!-- ============================================================
+       PAGE 1 — OUTSIDE
+       Left panel:  Back cover = ANNOUNCEMENTS (visible when folded)
+       Right panel: Front cover = PORTADA
+  ============================================================ -->
+  <div class="page">
+
+    <!-- BACK COVER: Announcements -->
+    <section class="panel panel-announcements">
+      <div class="section-header">Anuncios</div>
+
+      <div class="weekly-ann {{anuncios_hidden_class}}">{{anuncios_semanales}}</div>
+
+      <div class="print-action-card">
+        <div class="print-action-copy">
+          <div class="print-action-title">Clases gratuitas de inglés</div>
+          <div class="print-action-body">
+            <strong>EnglishConnect</strong><br>
+            Lunes y viernes, 8:00 p.&nbsp;m. a 9:00 p.&nbsp;m.<br>
+            1433 Aversboro Road, Garner, NC<br>
+            <span>Escanee el código QR para inscribirse.</span>
+          </div>
+        </div>
+        <img class="qr-image" src="assets/qr-englishconnect.png" alt="QR EnglishConnect">
+      </div>
+
+      <div class="print-action-card">
+        <div class="print-action-copy">
+          <div class="print-action-title">¿Le gustaría ayudar a alimentar a los misioneros?</div>
+          <div class="print-action-body">
+            Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.<br>
+            <span>Escanee el código QR para escoger una fecha.</span>
+          </div>
+        </div>
+        <img class="qr-image" src="assets/qr-missionary-meals.png" alt="QR para alimentar a los misioneros">
+      </div>
+
+      <div class="announcements-footer">
+        La Iglesia de Jesucristo<br>
+        de los Santos de los Últimos Días<br>
+        1433 Aversboro Rd, Garner, NC
+      </div>
+    </section>
+
+    <!-- FRONT COVER: Portada -->
+    <section class="panel panel-front-cover">
+      <h1>Rama Garner 2</h1>
+      <h2 style="font-weight:normal; font-size:13pt; margin-bottom:6px;">{{fecha_display}}</h2>
+      <img class="cover-image" src="{{cover_image_src}}" alt="Imagen de portada">
+      <h2>{{tipo_reunion_display}}</h2>
+      <div class="{{subtitulo_hidden_class}} subtitle">{{subtitulo}}</div>
+      <div class="church-footer">
+        La Iglesia de Jesucristo<br>
+        de los Santos de los Últimos Días
+      </div>
+    </section>
+
+  </div><!-- end page 1 -->
+
+
+  <!-- ============================================================
+       PAGE 2 — INSIDE
+       Left panel:  ¿Es su primera vez? + Santa Cena + Misioneros
+       Right panel: Orden del servicio
+  ============================================================ -->
+  <div class="page">
+
+    <!-- INSIDE LEFT: Visitor info -->
+    <section class="panel panel-visitor">
+
+      <div class="section-header">¿Es su primera vez?</div>
+      <h3>INFORMACIÓN PARA SU VISITA</h3>
+
+      <div class="visitor-block">
+        <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
+        <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
+        <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
+        <p>Después del servicio de adoración tenemos clases para adultos, jóvenes y niños. Nos encantaría que se quedara y aprendiera con nosotros.</p>
+      </div>
+
+      <hr class="divider">
+      <div class="section-header">La Santa Cena</div>
+
+      <div class="sacrament-print-layout">
+        <div class="sacrament-print-left">
+          <img class="sacrament-print-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
+          <div class="sacrament-scripture-card">
+            <div class="scripture-quote">"Haced esto en memoria de mí."</div>
+            <div class="scripture-ref">1 Corintios 11:24</div>
+          </div>
+        </div>
+        <div class="sacrament-print-copy">
+          <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación.</p>
+          <p>Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="missionary-contact-card">
+        <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
+        <div class="missionary-contact-title">Teléfono de los misioneros</div>
+        <div class="missionary-contact-list">[Missionary phone number]</div>
+      </div>
+
+    </section>
+
+    <!-- INSIDE RIGHT: Order of service -->
+    <section class="panel panel-service">
+      <h2>{{tipo_reunion_display}}</h2>
+      <div class="subtitle">{{fecha_display}}</div>
+
+      <table class="service-table">
+        <tr>
+          <td class="label">Preside</td>
+          <td class="value" data-print-split-person>{{preside}}</td>
+        </tr>
+        <tr>
+          <td class="label">Dirige</td>
+          <td class="value" data-print-split-person>{{conduce}}</td>
+        </tr>
+        <tr>
+          <td class="label">Himno de Apertura</td>
+          <td class="value">{{himno_apertura}}</td>
+        </tr>
+        <tr>
+          <td class="label">Oración de Apertura</td>
+          <td class="value">{{oracion_apertura}}</td>
+        </tr>
+        <tr>
+          <td class="label">Himno Sacramental</td>
+          <td class="value">{{himno_sacramental}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="centered-bold">Administración de la Santa Cena</td>
+        </tr>
+      </table>
+
+      <!-- Fast Sunday block — shown only on Ayuno y Testimonio -->
+      <div class="fast-sunday-block {{ayuno_hidden_class}}">
+        <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br>
+        El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
+        Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio. También cantamos juntos algunos de nuestros himnos favoritos.
+      </div>
+
+      <!-- Speaker table — hidden on Fast Sunday -->
+      <table class="service-table {{discursantes_hidden_class}}">
+        <tr>
+          <td class="label">Discurso</td>
+          <td class="value">{{primer_discursante}}</td>
+        </tr>
+        <tr>
+          <td class="label">Discurso</td>
+          <td class="value">{{segundo_discursante}}</td>
+        </tr>
+        <tr class="{{numero_musical_hidden_class}}">
+          <td class="label">Himno / Número Musical</td>
+          <td class="value">{{numero_musical}}</td>
+        </tr>
+        <tr>
+          <td class="label">Discurso</td>
+          <td class="value">{{ultimo_discursante}}</td>
+        </tr>
+      </table>
+
+      <table class="service-table">
+        <tr>
+          <td class="label">Himno de Cierre</td>
+          <td class="value">{{himno_cierre}}</td>
+        </tr>
+        <tr>
+          <td class="label">Oración de Cierre</td>
+          <td class="value">{{oracion_cierre}}</td>
+        </tr>
+      </table>
+
+    </section>
+
+  </div><!-- end page 2 -->
+
+</div><!-- end program-wrapper -->
+
+
+<script>
+  (function () {
+    function escapeHtml(v) {
+      return String(v)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    function normalizeText(v) {
+      return String(v || "").toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, " ").trim();
+    }
+
+    function splitLeader(raw) {
+      raw = String(raw || "").trim();
+      if (!raw) return null;
+
+      // Comma-separated "Name, Title" format
+      if (raw.indexOf(",") > -1) {
+        var parts = raw.split(",");
+        var name = parts.shift().trim();
+        var title = parts.join(",").trim();
+        if (name && title) return { name: name, title: title };
+      }
+
+      // Known leaders lookup
+      var known = {
+        "presidente luis e campos":   { name: "Luis E Campos",    title: "Presidente de Rama" },
+        "presidente luis campos":     { name: "Luis E Campos",    title: "Presidente de Rama" },
+        "luis e campos":              { name: "Luis E Campos",    title: "Presidente de Rama" },
+        "luis campos":                { name: "Luis E Campos",    title: "Presidente de Rama" },
+        "de rama luis e campos":      { name: "Luis E Campos",    title: "Presidente de Rama" },
+        "mat hafen":                  { name: "Matt Hafen",       title: "Primer Consejero de Estaca" },
+        "matt hafen":                 { name: "Matt Hafen",       title: "Primer Consejero de Estaca" },
+        "primer consejero de estaca matt hafen": { name: "Matt Hafen", title: "Primer Consejero de Estaca" },
+        "robert joaquin foster":      { name: "Robert J. Foster", title: "Presidente de Estaca" },
+        "eric cottle":                { name: "Eric Cottle",      title: "Segundo Consejero de Estaca" }
+      };
+
+      var key = normalizeText(raw);
+      if (known[key]) return known[key];
+
+      // "Presidente X" pattern
+      var m = raw.match(/^presidente\s+(.+)$/i);
+      if (m && m[1]) return { name: m[1].trim(), title: "Presidente de Rama" };
+
+      return null;
+    }
+
+    // Split leader name/title in [data-print-split-person] cells
+    document.querySelectorAll("[data-print-split-person]").forEach(function (el) {
+      var parsed = splitLeader(el.textContent || "");
+      if (!parsed) return;
+      el.innerHTML =
+        '<span class="service-person-name">' + escapeHtml(parsed.name) + '</span>' +
+        '<span class="service-person-title">' + escapeHtml(parsed.title) + '</span>';
+    });
+
+    // Also split comma-formatted names in regular value cells
+    document.querySelectorAll(".service-table .value:not([data-print-split-person])").forEach(function (el) {
+      var raw = (el.textContent || "").trim();
+      if (!raw) return;
+      var parts = raw.split(",");
+      if (parts.length < 2) return;
+      var name = parts.shift().trim();
+      var title = parts.join(",").trim();
+      if (!title) return;
+      el.innerHTML =
+        '<span class="service-person-name">' + escapeHtml(name) + '</span>' +
+        '<span class="service-person-title">' + escapeHtml(title) + '</span>';
+    });
+
+    // Flatten missionary phone anchor tags to plain spans for print
+    document.querySelectorAll(".missionary-contact-phone").forEach(function (el) {
+      if (el.tagName && el.tagName.toLowerCase() === "a") {
+        var span = document.createElement("span");
+        span.className = "missionary-contact-phone-plain";
+        span.textContent = el.textContent;
+        el.parentNode.replaceChild(span, el);
+      }
+    });
+  })();
+</script>
+
+<!-- Hidden placeholder sink — required by 03_main.gs renderProgramTemplate_ but not displayed in print -->
+<div style="display:none" aria-hidden="true">
+  {{fecha}}
+  {{pianista}}
+  {{conductora_musica}}
+  {{block_relevos}}
+  {{block_sostenimientos}}
+  {{block_ordenacion}}
+  {{block_confirmacion}}
+  {{bendicion_bebe_nombre}}
+  {{bendicion_bebe_dada_por}}
+  {{asuntos_estaca_persona}}
+  {{come_follow_me_title}}
+  {{come_follow_me_url}}
+  {{relief_society_lesson}}
+  {{relief_society_url}}
+  {{elders_quorum_lesson}}
+  {{elders_quorum_url}}
+  {{second_hour_notes}}
+  {{second_hour_notes_hidden_class}}
+</div>
+
 </body>
 </html>
