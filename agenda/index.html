@@ -140,6 +140,93 @@
 
     /* HIDDEN BLOCKS */
     .hidden { display: none !important; }
+  
+/* =========================================================
+   FINAL INTERNAL AGENDA PRINT LOCK — 2026-06
+   Purpose:
+   - Let @page control the actual print margin.
+   - Remove screen padding/shadow from print.
+   - Prevent the agenda from printing like a web page with doubled margins.
+   ========================================================= */
+
+@media print {
+  @page {
+    size: Letter portrait;
+    margin: 0.5in;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.32 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .page {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .section-header {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    margin-top: 12px !important;
+  }
+
+  .field-row,
+  .body-text,
+  .sub-header,
+  .prayer {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  #bloque-relevos,
+  #bloque-sostenimientos,
+  #bloque-ordenacion,
+  #bloque-confirmacion,
+  #bloque-bendicion-bebe,
+  #bloque-asuntos-estaca {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .divider {
+    margin: 8px 0 !important;
+  }
+
+  .field-row {
+    padding: 5px 7px !important;
+  }
+
+  .body-text {
+    padding: 3px 7px !important;
+  }
+
+  .prayer {
+    font-size: 9.4pt !important;
+    line-height: 1.45 !important;
+    padding-left: 24px !important;
+  }
+}
+
+@media screen {
+  .page {
+    max-width: 7.5in;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -155,10 +242,10 @@
 
   <!-- INFORMACIÓN GENERAL -->
   <div class="section-header">INFORMACIÓN GENERAL</div>
-  <div class="field-row"><span class="field-label">PRESIDE:</span><span class="field-value">Primer Consejero de Estaca Matt Hafen</span></div>
-  <div class="field-row shaded"><span class="field-label">DIRIGE:</span><span class="field-value">Presidente de Rama Luis E Campos</span></div>
-  <div class="field-row"><span class="field-label">PIANISTA:</span><span class="field-value">Hermanas Boyer</span></div>
-  <div class="field-row shaded"><span class="field-label">DIRIGE LA MÚSICA:</span><span class="field-value">Hermanas Rounds</span></div>
+  <div class="field-row"><span class="field-label">PRESIDE:</span><span class="field-value">Presidente Luis E Campos</span></div>
+  <div class="field-row shaded"><span class="field-label">DIRIGE:</span><span class="field-value">Luis Campos</span></div>
+  <div class="field-row"><span class="field-label">PIANISTA:</span><span class="field-value">Hermana Basilio</span></div>
+  <div class="field-row shaded"><span class="field-label">DIRIGE LA MÚSICA:</span><span class="field-value">Hermana Basilio</span></div>
 
   <div class="field-row">
     <span class="field-label">RECONOCEMOS LA PRESENCIA DE:</span>
@@ -175,7 +262,7 @@
 
   <!-- APERTURA -->
   <div class="section-header">APERTURA</div>
-  <div class="field-row"><span class="field-label">HIMNO DE APERTURA:</span><span class="field-value">#37 Glorias cantad a Dios</span></div>
+  <div class="field-row"><span class="field-label">HIMNO DE APERTURA:</span><span class="field-value">#49 Señor, te necesito</span></div>
   <div class="field-row shaded"><span class="field-label">PRIMERA ORACIÓN:</span><span class="field-value">Por invitación</span></div>
   <hr class="divider">
 
@@ -192,12 +279,12 @@
     <div class="gap"></div>
   </div>
 
-  <div id="bloque-sostenimientos">
+  <div id="bloque-sostenimientos" class="hidden">
     <div class="sub-header">Llamamientos</div>
     <div class="body-text">Se propone que los siguientes individuos sean sostenidos en llamamientos de rama.</div>
     <div class="body-text">Por favor, pónganse de pie al leer sus nombres.</div>
     <div class="gap"></div>
-    <div class="body-text">Enrique Alejandro Martinez</div>
+    <div class="body-text"></div>
     <div class="gap"></div>
     <div class="body-text">Todos los que estén a favor pueden manifestarlo levantando la mano. (Pausar por el voto).</div>
     <div class="body-text">Aquellos en contra, si los hay, pueden manifestarlo de la misma manera.</div>
@@ -207,9 +294,9 @@
   <hr class="divider">
 
   <!-- ORDENACIONES -->
-  <div id="bloque-ordenacion">
+  <div id="bloque-ordenacion" class="hidden">
     <div class="section-header">ORDENACIONES</div>
-    <div class="body-text">También proponemos que el Hno. Juan Manuel Ramos Flores</div>
+    <div class="body-text">También proponemos que el Hno. </div>
     <div class="gap"></div>
     <div class="body-text">Los que estén a favor, sírvanse indicarlo levantando la mano. [Breve pausa].</div>
     <div class="gap"></div>
@@ -238,14 +325,15 @@
   <!-- ASUNTOS DE ESTACA -->
   <div id="bloque-asuntos-estaca" class="hidden">
     <div class="section-header">ASUNTOS DE ESTACA</div>
-    <div class="body-text"> tiene asuntos de Estaca.</div>
-    <div class="body-text">Después de los asuntos prepararemos para la Santa Cena, cantando el himno sacramental.</div>
+    <div class="body-text"><strong>Presenta:</strong> </div>
+    <div class="body-text"><strong>Ahora cedemos el tiempo a  para tratar algunos asuntos de la estaca.</strong></div>
+    <div class="body-text">Después de los asuntos de la estaca, nos prepararemos para participar de la Santa Cena cantando el himno sacramental.</div>
     <hr class="divider">
   </div>
 
   <!-- SANTA CENA -->
   <div class="section-header">SANTA CENA</div>
-  <div class="field-row"><span class="field-label">HIMNO SACRAMENTAL:</span><span class="field-value">#104 Oh Dios, Eterno Padre</span></div>
+  <div class="field-row"><span class="field-label">HIMNO SACRAMENTAL:</span><span class="field-value">#110 En memoria de Tu muerte</span></div>
   <div class="gap"></div>
   <div class="sub-header">Bendición del Pan:</div>
   <div class="prayer">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques este pan para las almas de todos los que participen de él, para que lo coman en memoria del cuerpo de tu Hijo, y testifiquen ante ti, oh Dios, Padre Eterno, que están dispuestos a tomar sobre sí el nombre de tu Hijo, y a recordarle siempre, y a guardar sus mandamientos que él les ha dado, para que siempre puedan tener su Espíritu consigo. Amén.</div>
@@ -278,7 +366,7 @@
 
   <!-- CIERRE -->
   <div class="section-header">CIERRE</div>
-  <div class="field-row"><span class="field-label">HIMNO DE CIERRE:</span><span class="field-value">#18 Oh Sión, santuario de libertad</span></div>
+  <div class="field-row"><span class="field-label">HIMNO DE CIERRE:</span><span class="field-value">#41 ¡Grande eres Tú!</span></div>
   <div class="field-row shaded"><span class="field-label">ÚLTIMA ORACIÓN:</span><span class="field-value">Por invitación</span></div>
 
 </div>
