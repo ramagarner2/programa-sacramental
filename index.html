@@ -1,3 +1,11 @@
+Public Program HTML Preview
+Meeting Date
+Sun Jun 14 2026 00:00:00 GMT-0400 (Eastern Daylight Time)
+Meeting Type
+Reunión Sacramental
+Status
+Published
+Generated Public HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,118 +13,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programa Sacramental — Rama Garner 2</title>
   <style>
-    :root {
-      --navy: #06182d;
-      --gold: #d4a24d;
-      --paper: #ffffff;
-      --bg: #f4f2ee;
-      --text: #111111;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 520px;
-      background: var(--paper);
-      border-radius: 18px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.14);
-      overflow: hidden;
-    }
-
-    .header {
-      background: var(--navy);
-      color: #ffffff;
-      padding: 26px 22px;
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      line-height: 1.15;
-      font-weight: 500;
-    }
-
-    .body {
-      padding: 24px 22px;
-      text-align: center;
-    }
-
-    p {
-      margin: 0 0 18px;
-      font-size: 16px;
-      line-height: 1.45;
-    }
-
-    .button {
-      display: block;
-      width: 100%;
-      padding: 14px 16px;
-      margin: 12px 0;
-      border-radius: 999px;
-      background: var(--navy);
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 16px;
-      line-height: 1.2;
-    }
-
-    .button.secondary {
-      background: #eeeeee;
-      color: #111111;
-    }
-
-    .note {
-      margin-top: 16px;
-      color: #555555;
-      font-size: 13px;
-      line-height: 1.35;
-    }
+    :root { --blue-dark:#1F3864; --blue-mid:#5B6F8C; --blue-light:#F4F7FB; --gold-light:#FFF2CC; --border:#D9E2F3; --text:#111827; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:18px; background:#ffffff; color:var(--text); font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.45; }
+    .program-page { max-width:720px; margin:0 auto; }
+    .program-header { border:1px solid var(--blue-dark); margin-bottom:14px; text-align:center; }
+    .branch-name { background:var(--blue-dark); color:#ffffff; font-size:26px; font-weight:700; padding:14px 12px 8px; }
+    .meeting-title { background:var(--blue-dark); color:#ffffff; font-size:20px; font-weight:600; padding:0 12px 14px; }
+    .meeting-meta { background:var(--gold-light); color:var(--blue-dark); font-size:16px; font-weight:700; padding:9px 12px; }
+    .welcome-card, .missionary-card, .program-section { border:1px solid var(--border); margin-bottom:14px; background:#ffffff; border-radius:8px; overflow:hidden; }
+    .welcome-card { padding:14px 16px; background:var(--blue-light); }
+    .welcome-card p { margin:0 0 8px; }
+    .welcome-card p:last-child { margin-bottom:0; }
+    .section-title { background:var(--blue-mid); color:#ffffff; font-size:18px; font-weight:700; padding:9px 12px; }
+    .program-row { display:grid; grid-template-columns:43% 57%; border-top:1px solid var(--border); min-height:42px; }
+    .program-label { background:var(--blue-light); color:var(--blue-dark); font-weight:700; padding:10px 12px; border-right:1px solid var(--border); }
+    .program-value { padding:10px 12px; white-space:pre-wrap; }
+    .empty-value { color:#6B7280; font-style:italic; }
+    .announcement-list { padding:12px; border-top:1px solid var(--border); }
+    .announcement-card { border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:10px; background:#ffffff; page-break-inside:avoid; break-inside:avoid; }
+    .announcement-card:last-child { margin-bottom:0; }
+    .announcement-title { color:var(--blue-dark); font-weight:700; font-size:17px; margin-bottom:5px; }
+    .announcement-text { white-space:pre-wrap; margin-bottom:8px; }
+    .announcement-button { display:inline-block; background:var(--blue-dark); color:#ffffff; text-decoration:none; font-weight:700; padding:8px 12px; border-radius:6px; margin-top:4px; }
+    .announcement-qr { display:none; margin-top:8px; text-align:center; }
+    .announcement-qr img { width:108px; height:108px; }
+    .announcement-url { display:none; font-size:10px; overflow-wrap:anywhere; color:#374151; margin-top:4px; }
+    .fast-sunday-box { border-top:1px solid var(--border); padding:14px 16px; background:#ffffff; }
+    .fast-sunday-box strong { color:var(--blue-dark); }
+    .missionary-card { padding:14px 16px; text-align:center; background:var(--blue-light); }
+    .missionary-title { color:var(--blue-dark); font-weight:700; font-size:17px; margin-bottom:4px; }
+    .missionary-name { font-size:16px; }
+    .program-footer { text-align:center; color:#6B7280; font-size:13px; margin-top:18px; padding-bottom:18px; }
+    @media print { body { padding:0.35in; font-size:12pt; } .program-page { max-width:none; } .program-section,.program-header,.program-row,.welcome-card,.missionary-card,.fast-sunday-box,.announcement-card { page-break-inside:avoid; break-inside:avoid; } .announcement-button { display:none; } .announcement-qr { display:block; } .announcement-url { display:block; } }
+    @media (max-width:520px) { body { padding:10px; } .branch-name { font-size:23px; } .meeting-title { font-size:18px; } .program-row { grid-template-columns:1fr; } .program-label { border-right:none; border-bottom:1px solid var(--border); padding-bottom:6px; } .program-value { padding-top:8px; } }
   </style>
-
-  <script>
-    (function () {
-      var isSmallScreen = window.matchMedia("(max-width: 900px)").matches;
-      var isPrintRequest = new URLSearchParams(window.location.search).get("print") === "1";
-
-      if (isSmallScreen && !isPrintRequest) {
-        window.location.replace("mobile.html");
-      }
-    })();
-  </script>
 </head>
-
 <body>
-  <main class="card">
-    <div class="header">
-      <h1>Programa Sacramental<br>Rama Garner 2</h1>
-    </div>
-
-    <div class="body">
-      <p>Seleccione cómo desea ver el programa.</p>
-
-      <a class="button" href="mobile.html">Ver programa móvil</a>
-      <a class="button secondary" href="program_print.html">Abrir versión para imprimir</a>
-
-      <p class="note">
-        En teléfono, esta página abre automáticamente la versión móvil.
-      </p>
-    </div>
+  <main class="program-page">
+    <header class="program-header">
+      <div class="branch-name">Rama Garner 2</div>
+      <div class="meeting-title">Reunión Sacramental</div>
+      <div class="meeting-meta">6/14/2026 | 10:30 AM</div>
+    </header>
+    <section class="welcome-card">
+      <p>Bienvenidos a la Reunión Sacramental de la Rama Garner 2.</p>
+      <p>Damos la bienvenida a miembros, visitantes y visitantes especiales.</p>
+    </section>
+    <section class="program-section">
+      <div class="section-title">Información de la reunión</div>
+      <div class="program-row">
+        <div class="program-label">Preside</div>
+        <div class="program-value">Presidente Campos</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Tipo de reunión</div>
+        <div class="program-value">Reunión Sacramental</div>
+      </div>
+    </section>
+    <section class="program-section">
+      <div class="section-title">Anuncios</div>
+      <div class="announcement-list">
+        <article class="announcement-card">
+          <div class="announcement-title">Invitation to feed the missionaries</div>
+          <div class="announcement-text">Thank you to everyone who has been helping feed our missionaries. They do not have any meals scheduled for next week. Please help us keep them fed by signing up.</div>
+          <a class="announcement-button" href="https://comidas-garner2.github.io/" target="_blank" rel="noopener">Apuntarse para una comida</a>
+          <div class="announcement-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="Código QR para comidas para los misioneros">
+            <div class="announcement-url">https://comidas-garner2.github.io/</div>
+          </div>
+        </article>
+        <article class="announcement-card">
+          <div class="announcement-title">EnglishConnect</div>
+          <div class="announcement-text">EnglishConnect is held every Monday and Friday from 8:00 PM to 9:00 PM.</div>
+          <a class="announcement-button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Conocer EnglishConnect</a>
+          <div class="announcement-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="Código QR para EnglishConnect">
+            <div class="announcement-url">https://www.englishconnect.org/get-started#level-1</div>
+          </div>
+        </article>
+        <article class="announcement-card">
+          <div class="announcement-title">WhatsApp Group Invitation</div>
+          <div class="announcement-text">We have a dedicated WhatsApp group for the branch. The link will be in the mobile program, and the QR code will be in the printed program. Please join to receive branch updates and announcements.</div>
+          <a class="announcement-button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a>
+          <div class="announcement-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="Código QR para grupo de WhatsApp">
+            <div class="announcement-url">https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y</div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="program-section">
+      <div class="section-title">Orden de la reunión</div>
+      <div class="program-row">
+        <div class="program-label">Himno de apertura</div>
+        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Primera oración</div>
+        <div class="program-value">Por invitación</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Himno sacramental</div>
+        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Santa Cena</div>
+        <div class="program-value">Administración de la Santa Cena</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Primer discursante</div>
+        <div class="program-value">Rey Martinez</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Segundo discursante</div>
+        <div class="program-value">Kasandra Martinez</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Himno intermedio / número musical</div>
+        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Himno de clausura</div>
+        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Última oración</div>
+        <div class="program-value">Por invitación</div>
+      </div>
+    </section>
+    <section class="missionary-card">
+      <div class="missionary-title">Misioneras</div>
+      <div class="missionary-name">Hermanas Boyer y Rounds</div>
+    </section>
+    <footer class="program-footer">
+      La Iglesia de Jesucristo de los Santos de los Últimos Días<br>
+      Rama Garner 2
+    </footer>
   </main>
 </body>
 </html>
