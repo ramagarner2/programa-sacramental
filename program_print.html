@@ -91,6 +91,17 @@
         margin-right: auto !important;
       }
 
+      /* APPROVED PRINT CENTER-FOLD GUTTER FIX:
+         Add a little more breathing room at the fold on both booklet pages.
+         This changes only the inner panel padding, not content, mobile, agenda, hymns, or publishing. */
+      .page > .panel:first-child {
+        padding-right: 0.31in !important;
+      }
+
+      .page > .panel:last-child {
+        padding-left: 0.31in !important;
+      }
+
       .panel-front-cover .cover-image {
         margin: 7px 0 0 0 !important;
         height: 4.85in !important;
