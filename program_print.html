@@ -81,6 +81,16 @@
     /* PRINT-ONLY FINAL STABILIZATION:
        mobile output is not affected by this block. */
     @media print, screen {
+      /* APPROVED PRINT BOOKLET CENTERING FIX:
+         The base print template sets .program-wrapper and .page to margin: 0 in print mode.
+         That anchors the booklet spread instead of keeping both panels centered.
+         This restores horizontal centering without changing content, mobile, agenda, hymns, or publishing. */
+      .program-wrapper,
+      .page {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
       .panel-front-cover .cover-image {
         margin: 7px 0 0 0 !important;
         height: 4.85in !important;
