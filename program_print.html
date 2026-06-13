@@ -77,6 +77,76 @@
       .print-action-title { font-size: 10.5pt !important; }
       .church-footer, .announcements-footer { font-size: 9pt !important; }
     }
+  
+    /* PRINT-ONLY FINAL STABILIZATION:
+       mobile output is not affected by this block. */
+    @media print, screen {
+      .print-cover-date-below,
+      .cover-date-below {
+        margin-top: 4px !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+      }
+
+      .church-footer {
+        margin-top: 18px !important;
+      }
+
+      a,
+      a:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+
+      .sacrament-image,
+      .sacrament-image img,
+      img[alt*="Santa Cena"],
+      img[alt*="Lord"],
+      img[alt*="Supper"],
+      img[alt*="Pan"],
+      img[alt*="bread"],
+      img[alt*="Bread"] {
+        object-fit: contain !important;
+        object-position: center center !important;
+      }
+
+      .sacrament-image img,
+      img[alt*="Santa Cena"],
+      img[alt*="Lord"],
+      img[alt*="Supper"],
+      img[alt*="Pan"],
+      img[alt*="bread"],
+      img[alt*="Bread"] {
+        max-height: 150px !important;
+        width: 100% !important;
+      }
+
+      
+      .panel-service .service-table {
+        margin-top: 10px !important;
+        margin-bottom: 13px !important;
+      }
+
+      .panel-service .service-table td {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+      }
+
+      @media print {
+        .panel-service .service-table {
+          margin-top: 9px !important;
+          margin-bottom: 12px !important;
+        }
+
+        .panel-service .service-table td {
+          padding-top: 7px !important;
+          padding-bottom: 7px !important;
+        }
+      }
+  
+    }
+  
   </style>
 </head>
 <body>
@@ -139,6 +209,7 @@
       <h2 style="font-weight:normal; font-size:13pt; margin-bottom:6px;">14 de junio de 2026</h2>
       <img class="cover-image" src="images/christ-06.png" alt="Imagen de portada">
       <h2>Reunión Sacramental</h2>
+<div class="print-cover-date-below">14 de junio de 2026</div>
       <div class="hidden subtitle"></div>
       <div class="church-footer">
         La Iglesia de Jesucristo<br>
@@ -234,10 +305,6 @@
         </tr>
         <tr class="hidden">
           <td class="label">Himno / Número Musical</td>
-          <td class="value"></td>
-        </tr>
-        <tr>
-          <td class="label">Discurso</td>
           <td class="value"></td>
         </tr>
       </table>
