@@ -91,15 +91,22 @@
         margin-right: auto !important;
       }
 
-      /* APPROVED PRINT CENTER-FOLD GUTTER FIX:
-         Add a little more breathing room at the fold on both booklet pages.
-         This changes only the inner panel padding, not content, mobile, agenda, hymns, or publishing. */
+      /* APPROVED PRINT BOOKLET CENTER-GUTTER FIX:
+         Implements the booklet logic Ave specified:
+         the fold/center space should visually equal both outside margins combined.
+         This creates a real center gutter between the two panels on both booklet pages,
+         without changing mobile, agenda, hymns, or publishing. */
+      .page {
+        grid-template-columns: calc((100% - 0.50in) / 2) calc((100% - 0.50in) / 2) !important;
+        column-gap: 0.50in !important;
+      }
+
       .page > .panel:first-child {
-        padding-right: 0.31in !important;
+        padding-right: 0.23in !important;
       }
 
       .page > .panel:last-child {
-        padding-left: 0.31in !important;
+        padding-left: 0.23in !important;
       }
 
       .panel-front-cover .cover-image {
