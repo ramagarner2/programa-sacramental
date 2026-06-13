@@ -87,23 +87,24 @@
       }
 
       .panel-front-cover > img.cover-image + h2 {
-        margin-top: auto !important;
-        font-size: 17pt !important;
+        margin-top: 12px !important;
+        margin-bottom: 0 !important;
+        font-size: 17.5pt !important;
         line-height: 1.12 !important;
         font-weight: 800 !important;
       }
 
       .print-cover-date-below,
       .cover-date-below {
-        margin-top: 5px !important;
-        font-size: 12.5pt !important;
+        margin-top: 6px !important;
+        font-size: 13.6pt !important;
         line-height: 1.18 !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         text-align: center !important;
       }
 
       .panel-front-cover .church-footer {
-        margin-top: 16px !important;
+        margin-top: 14px !important;
         padding-top: 0 !important;
         font-size: 10pt !important;
         line-height: 1.28 !important;
@@ -133,7 +134,7 @@
         height: 2.05in !important;
         max-height: none !important;
         object-fit: cover !important;
-        object-position: center center !important;
+        object-position: center bottom !important;
         border: 0 !important;
         outline: 0 !important;
         box-shadow: none !important;
@@ -457,40 +458,5 @@
   })();
 </script>
 
-
-  <script>
-    (function () {
-      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      function cueChevron(details) {
-        if (!details || details.dataset.chevronCued === "true") return;
-        details.dataset.chevronCued = "true";
-        var chevron = details.querySelector(".accordion-chevron");
-        if (!chevron) return;
-        chevron.classList.add("chevron-attention");
-        window.setTimeout(function () {
-          chevron.classList.remove("chevron-attention");
-        }, 2800);
-      }
-
-      var accordions = Array.prototype.slice.call(document.querySelectorAll("details.accordion:not(.hidden)"));
-      if (!accordions.length) return;
-
-      if (!("IntersectionObserver" in window)) {
-        accordions.slice(0, 4).forEach(cueChevron);
-        return;
-      }
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          cueChevron(entry.target);
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.55 });
-
-      accordions.forEach(function (details) { observer.observe(details); });
-    })();
-  </script>
 </body>
 </html>
