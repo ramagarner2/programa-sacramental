@@ -109,6 +109,17 @@
         padding-left: 0.23in !important;
       }
 
+      /* APPROVED PUBLIC PROGRAM SPEAKER GAP FIX:
+         Remove extra visual gap between the final speaker row and closing hymn block.
+         This affects public program output only. */
+      table.service-table + table.service-table {
+        margin-top: 0 !important;
+      }
+
+      .card + .card {
+        margin-top: 12px;
+      }
+
       .panel-front-cover .cover-image {
         margin: 7px 0 0 0 !important;
         height: 4.85in !important;
