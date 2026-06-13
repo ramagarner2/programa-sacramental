@@ -1114,6 +1114,32 @@
       margin: 8px 0 14px 0 !important;
       box-sizing: border-box !important;
     }
+
+    /* APPROVED FIX: make collapsed mobile sections clearly tappable. */
+    .accordion summary {
+      grid-template-columns: 34px minmax(0, 1fr) 30px !important;
+    }
+
+    .accordion-chevron {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 999px !important;
+      background: #fff4dd !important;
+      border: 1px solid #eadcc4 !important;
+      color: var(--navy) !important;
+      font-size: 25px !important;
+      line-height: 1 !important;
+      font-weight: 900 !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+      transform-origin: center center !important;
+    }
+
+    .accordion[open] .accordion-chevron {
+      transform: rotate(90deg) !important;
+    }
   
   </style>
 </head>
@@ -1275,11 +1301,6 @@
 
           <div class="agenda-row hidden">
             <div class="agenda-label">Himno Intermedio / Número Musical</div>
-            <div class="agenda-value"></div>
-          </div>
-
-          <div class="agenda-row">
-            <div class="agenda-label">Discurso</div>
             <div class="agenda-value"></div>
           </div>
         </div>
