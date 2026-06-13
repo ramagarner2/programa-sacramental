@@ -82,23 +82,27 @@
        mobile output is not affected by this block. */
     @media print, screen {
       .panel-front-cover .cover-image {
-        margin: 8px 0 0 0 !important;
-        height: 4.55in !important;
+        margin: 7px 0 0 0 !important;
+        height: 4.85in !important;
       }
 
       .panel-front-cover > img.cover-image + h2 {
-        margin-top: 12px !important;
+        margin-top: 10px !important;
         margin-bottom: 0 !important;
         font-size: 17.5pt !important;
-        line-height: 1.12 !important;
+        line-height: 1.1 !important;
         font-weight: 800 !important;
+      }
+
+      .panel-front-cover > img.cover-image + h2:has(+ .print-cover-date-below) {
+        font-size: 17.5pt !important;
       }
 
       .print-cover-date-below,
       .cover-date-below {
-        margin-top: 6px !important;
-        font-size: 13.6pt !important;
-        line-height: 1.18 !important;
+        margin-top: 5px !important;
+        font-size: 13.4pt !important;
+        line-height: 1.15 !important;
         font-weight: 600 !important;
         text-align: center !important;
       }
@@ -107,14 +111,77 @@
         margin-top: auto !important;
         padding-top: 8px !important;
         font-size: 10pt !important;
-        line-height: 1.28 !important;
+        line-height: 1.0 !important;
       }
 
-      .panel-front-cover > h1 + h2 {
-        font-size: 13pt !important;
-        line-height: 1.15 !important;
+      .panel-front-cover .print-cover-welcome {
+        font-family: Georgia, "Times New Roman", serif !important;
+        font-size: 19pt !important;
+        line-height: 1.03 !important;
+        font-weight: 500 !important;
+        margin: 0 0 1px 0 !important;
+        text-align: center !important;
+        color: #111111 !important;
+      }
+
+      .panel-front-cover .print-cover-welcome + h1 {
+        font-size: 25pt !important;
+        line-height: 1.02 !important;
+        font-weight: 800 !important;
+        margin: 0 0 4px 0 !important;
+      }
+
+      .church-wordmark-print {
+        display: block !important;
+        width: 100% !important;
+        max-width: 2.35in !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+        color: #111111 !important;
+        font-family: Georgia, "Times New Roman", serif !important;
+        letter-spacing: 0.05em !important;
+      }
+
+      .church-wordmark-print .church-wordmark-small {
+        display: block !important;
+        font-size: 7.8pt !important;
+        line-height: 1.02 !important;
         font-weight: 600 !important;
-        margin-bottom: 6px !important;
+        white-space: nowrap !important;
+      }
+
+      .church-wordmark-print .church-wordmark-main {
+        display: block !important;
+        margin: 1px 0 !important;
+        font-size: 17.8pt !important;
+        line-height: 0.92 !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.035em !important;
+        white-space: nowrap !important;
+      }
+
+      @media print {
+        .panel-front-cover .cover-image {
+          height: 4.65in !important;
+          margin-top: 6px !important;
+        }
+
+        .panel-front-cover > img.cover-image + h2 {
+          font-size: 17pt !important;
+        }
+
+        .panel-front-cover > img.cover-image + h2 + .print-cover-date-below {
+          font-size: 13pt !important;
+        }
+
+        .panel-front-cover .print-cover-welcome {
+          font-size: 18pt !important;
+        }
+
+        .panel-front-cover .print-cover-welcome + h1 {
+          font-size: 24pt !important;
+        }
       }
 
       .announcements-footer {
@@ -285,16 +352,13 @@
 
     <!-- FRONT COVER -->
     <section class="panel panel-front-cover">
+      <div class="print-cover-welcome">¡Bienvenidos a la!</div>
       <h1>Rama Garner 2</h1>
-      <h2 style="font-weight:normal; font-size:13pt; margin-bottom:6px;">Bienvenidos</h2>
       <img class="cover-image" src="images/christ-06.png" alt="Imagen de portada">
       <h2>Reunión Sacramental</h2>
 <div class="print-cover-date-below">14 de junio de 2026</div>
       <div class="hidden subtitle"></div>
-      <div class="church-footer">
-        La Iglesia de Jesucristo<br>
-        de los Santos de los Últimos Días
-      </div>
+      <div class="church-footer church-wordmark-print" aria-label="La Iglesia de Jesucristo de los Santos de los Últimos Días"><span class="church-wordmark-small">LA IGLESIA DE</span><span class="church-wordmark-main">JESUCRISTO</span><span class="church-wordmark-small">DE LOS SANTOS</span><span class="church-wordmark-small">DE LOS ÚLTIMOS DÍAS</span></div>
     </section>
 
   </div><!-- end page 1 -->
