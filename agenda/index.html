@@ -7,26 +7,19 @@
   <style>
     :root { --dark:#222222; --mid:#666666; --light:#f2f2f2; --soft:#f8f8f8; --border:#d4d4d4; --text:#111111; }
     * { box-sizing:border-box; }
-    body { margin:0; padding:24px; background:#ffffff; color:var(--text); font-family:Arial, Helvetica, sans-serif; font-size:12pt; line-height:1.38; }
+    body { margin:0; padding:24px; background:#ffffff; color:var(--text); font-family:Arial, Helvetica, sans-serif; font-size:12pt; line-height:1.35; }
     .agenda-page { max-width:8.5in; margin:0 auto; }
     .agenda-header { border:1px solid var(--dark); margin-bottom:14px; page-break-inside:avoid; break-inside:avoid; }
     .agenda-title { background:var(--dark); color:#ffffff; text-align:center; font-size:20pt; font-weight:800; padding:12px 14px; }
     .agenda-subtitle { background:var(--light); color:var(--dark); text-align:center; font-size:12pt; font-weight:700; padding:8px 14px; border-top:1px solid var(--border); }
-    .script-page { padding:0; }
-    .script-lead { font-weight:800; margin:0 0 14px 0; }
-    .script-lines { margin:0 0 14px 0; page-break-inside:avoid; break-inside:avoid; }
-    .script-line { margin:0 0 5px 0; }
-    .script-label { font-weight:800; }
-    .script-section { margin:16px 0; page-break-inside:avoid; break-inside:avoid; }
-    .script-section-title { font-weight:800; font-size:13pt; margin:0 0 7px 0; }
-    .script-section-body { margin:0; }
-    .script-paragraph { margin:14px 0; }
-    .script-item { margin:0 0 9px 0; }
-    .script-prayer { margin:10px 0 14px 0; page-break-inside:avoid; break-inside:avoid; }
-    .script-prayer-title { font-weight:800; margin:0 0 4px 0; }
-    .script-prayer-text { margin:0 0 12px 0; }
+    .agenda-section { border:1px solid var(--border); margin:0 0 12px 0; page-break-inside:avoid; break-inside:avoid; }
+    .section-title { background:var(--mid); color:#ffffff; font-size:13pt; font-weight:800; padding:7px 10px; page-break-after:avoid; break-after:avoid; }
+    .agenda-row { display:grid; grid-template-columns:31% 69%; border-top:1px solid var(--border); min-height:30px; page-break-inside:avoid; break-inside:avoid; }
+    .agenda-label { background:var(--light); color:var(--dark); font-weight:800; padding:7px 9px; border-right:1px solid var(--border); }
+    .agenda-value { background:#ffffff; padding:7px 9px; white-space:pre-wrap; }
+    .agenda-value strong { font-weight:800; }
     .agenda-footer { margin-top:18px; color:#666666; font-size:9pt; text-align:center; }
-    @media print { body { padding:0.45in; font-size:11.5pt; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-page { max-width:none; } .agenda-header,.script-section,.script-lines,.script-prayer { page-break-inside:avoid; break-inside:avoid; } }
+    @media print { body { padding:0.35in; font-size:11.5pt; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-page { max-width:none; } .agenda-section,.agenda-header,.agenda-row { page-break-inside:avoid; break-inside:avoid; } .section-title { page-break-after:avoid; break-after:avoid; } }
   </style>
 </head>
 <body>
@@ -35,57 +28,116 @@
       <div class="agenda-title">Agenda de la Reunión Sacramental</div>
       <div class="agenda-subtitle">Rama Garner 2 | 6/14/2026 | 10:30 AM</div>
     </header>
-    <section class="script-page">
-    <p class="script-lead">Bienvenidos a la Reunión Sacramental de la Rama Garner 2.</p>
-    <div class="script-lines">
-      <div class="script-line"><span class="script-label">Preside:</span> Presidente Luis E Campos</div>
-      <div class="script-line"><span class="script-label">Conduce:</span> Presidente Luis E Campos</div>
-      <div class="script-line"><span class="script-label">Reconocemos la presencia de la Estaca:</span></div>
-      <div class="script-line"><span class="script-label">Pianista:</span> Hermana Boyer</div>
-      <div class="script-line"><span class="script-label">Conductora de Música:</span> Hermana Rounds</div>
-    </div>
-    <section class="script-section">
-      <div class="script-section-title">Anuncios:</div>
-      <div class="script-section-body">
-<div class="script-item"><strong>Invitation to feed the missionaries</strong><br>Thank you to everyone who has been helping feed our missionaries. They do not have any meals scheduled for next week. Please help us keep them fed by signing up.</div>
-<div class="script-item"><strong>EnglishConnect</strong><br>EnglishConnect is held every Monday and Friday from 8:00 PM to 9:00 PM.</div>
-<div class="script-item"><strong>WhatsApp Group Invitation</strong><br>We have a dedicated WhatsApp group for the branch. The link will be in the mobile program, and the QR code will be in the printed program. Please join to receive branch updates and announcements.</div>
+    <section class="agenda-section keep-together">
+      <div class="section-title">BIENVENIDA / LIDERAZGO</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Bienvenida</div>
+        <div class="agenda-value">Bienvenidos a la Reunión Sacramental de la Rama Garner 2.</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Preside</div>
+        <div class="agenda-value">Presidente Luis E Campos</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Conduce</div>
+        <div class="agenda-value">Presidente Luis E Campos</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Pianista</div>
+        <div class="agenda-value">Hermana Boyer</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Conductora de Música</div>
+        <div class="agenda-value">Hermana Rounds</div>
       </div>
     </section>
-    <section class="script-section">
-      <div class="script-section-title">Asuntos de Rama:</div>
-      <div class="script-section-body">
-<div class="script-item">Se propone que Juan Manuel Ramos Flores reciba el Sacerdocio Aarónico y sea ordenado/a al oficio de Presbítero.
+    <section class="agenda-section keep-together">
+      <div class="section-title">ANUNCIOS</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Anuncio 1</div>
+        <div class="agenda-value">Invitation to feed the missionaries
+Thank you to everyone who has been helping feed our missionaries. They do not have any meals scheduled for next week. Please help us keep them fed by signing up.</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Anuncio 2</div>
+        <div class="agenda-value">EnglishConnect
+EnglishConnect is held every Monday and Friday from 8:00 PM to 9:00 PM.</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Anuncio 3</div>
+        <div class="agenda-value">WhatsApp Group Invitation
+We have a dedicated WhatsApp group for the branch. The link will be in the mobile program, and the QR code will be in the printed program. Please join to receive branch updates and announcements.</div>
+      </div>
+    </section>
+    <section class="agenda-section keep-together">
+      <div class="section-title">ASUNTOS DE RAMA</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Asunto 1</div>
+        <div class="agenda-value">Se propone que Juan Manuel Ramos Flores reciba el Sacerdocio Aarónico y sea ordenado/a al oficio de Presbítero.
 
 Los que estén a favor, sírvanse indicarlo levantando la mano. [Breve pausa.]
 Opuestos, si los hay, también pueden manifestarlo. [Breve pausa].</div>
       </div>
     </section>
-    <p class="script-paragraph">Después de los asuntos prepararemos para la Santa Cena, cantando el himno sacramental.</p>
-    <div class="script-lines">
-      <div class="script-line"><span class="script-label">Himno Sacramental:</span> #118 Asombro me da</div>
-    </div>
-    <div class="script-prayer">
-      <div class="script-prayer-title">Bendición del Pan:</div>
-      <p class="script-prayer-text">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques este pan para las almas de todos los que participen de él, para que lo coman en memoria del cuerpo de tu Hijo, y testifiquen ante ti, oh Dios, Padre Eterno, que están dispuestos a tomar sobre sí el nombre de tu Hijo, y a recordarle siempre, y a guardar sus mandamientos que él les ha dado, para que siempre puedan tener su Espíritu consigo. Amén.</p>
-      <div class="script-prayer-title">Bendición del Agua:</div>
-      <p class="script-prayer-text">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques esta agua para las almas de todos los que la beban, para que lo hagan en memoria de la sangre de tu Hijo, que por ellos se derramó; para que testifiquen ante ti, oh Dios, Padre Eterno, que siempre se acuerdan de él, para que puedan tener su Espíritu consigo. Amén.</p>
-    </div>
-    <p class="script-paragraph">Administración de la Santa Cena</p>
-    <section class="script-section">
-      <div class="script-section-title">Discursantes:</div>
-      <div class="script-section-body">
-<div class="script-lines">
-      <div class="script-line"><span class="script-label">Primer Discursante:</span> Rey Martinez</div>
-      <div class="script-line"><span class="script-label">Segundo Discursante:</span> Kasandra Martinez</div>
-      <div class="script-line"><span class="script-label">Número Musical / Himno Intermedio:</span> #56 Jehová mi Pastor es</div>
-    </div>
+    <section class="agenda-section keep-together">
+      <div class="section-title">INICIO DE LA REUNIÓN</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Himno de apertura</div>
+        <div class="agenda-value">#1001 Fuente de mis bendiciones</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Primera oración</div>
+        <div class="agenda-value">Por invitación</div>
       </div>
     </section>
-    <div class="script-lines">
-      <div class="script-line"><span class="script-label">Himno de Cierre:</span> #38 Santos, avanzad</div>
-      <div class="script-line"><span class="script-label">Última Oración:</span> Por invitación</div>
-    </div>
+    <section class="agenda-section keep-together">
+      <div class="section-title">SANTA CENA</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Transición</div>
+        <div class="agenda-value">Después de los asuntos prepararemos para la Santa Cena, cantando el himno sacramental.</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Himno sacramental</div>
+        <div class="agenda-value">#118 Asombro me da</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Bendición del Pan</div>
+        <div class="agenda-value">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques este pan para las almas de todos los que participen de él, para que lo coman en memoria del cuerpo de tu Hijo, y testifiquen ante ti, oh Dios, Padre Eterno, que están dispuestos a tomar sobre sí el nombre de tu Hijo, y a recordarle siempre, y a guardar sus mandamientos que él les ha dado, para que siempre puedan tener su Espíritu consigo. Amén.</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Bendición del Agua</div>
+        <div class="agenda-value">Oh Dios, Padre Eterno, en el nombre de Jesucristo, tu Hijo, te pedimos que bendigas y santifiques esta agua para las almas de todos los que la beban, para que lo hagan en memoria de la sangre de tu Hijo, que por ellos se derramó; para que testifiquen ante ti, oh Dios, Padre Eterno, que siempre se acuerdan de él, para que puedan tener su Espíritu consigo. Amén.</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Santa Cena</div>
+        <div class="agenda-value">Administración de la Santa Cena</div>
+      </div>
+    </section>
+    <section class="agenda-section keep-together">
+      <div class="section-title">DISCURSOS / TESTIMONIOS</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Primer discursante</div>
+        <div class="agenda-value">Rey Martinez</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Segundo discursante</div>
+        <div class="agenda-value">Kasandra Martinez</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Himno intermedio / número musical</div>
+        <div class="agenda-value">#56 Jehová mi Pastor es</div>
+      </div>
+    </section>
+    <section class="agenda-section keep-together">
+      <div class="section-title">CIERRE</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Himno de clausura</div>
+        <div class="agenda-value">#38 Santos, avanzad</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Última oración</div>
+        <div class="agenda-value">Por invitación</div>
+      </div>
     </section>
     <footer class="agenda-footer">Generado por Rama Garner 2 Sacrament Meeting System V2</footer>
   </main>
