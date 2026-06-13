@@ -1072,16 +1072,17 @@
     }
 
   
-    /* FINAL MOBILE ANNOUNCEMENT CLEANUP:
-       Do not change every accordion. Keep the original mobile layout stable.
-       Only style the WhatsApp card and any true weekly announcement content. */
-    .whatsapp-accordion summary {
+    /* APPROVED MOBILE STANDING-CARD VISUAL CLEANUP:
+       Make WhatsApp, EnglishConnect, and missionary meals feel like one family. */
+    .standing-accordion summary {
       border-left: 4px solid var(--gold) !important;
       background: #fffdf8 !important;
     }
 
-    .whatsapp-accordion .button,
-    a.button[href*="chat.whatsapp.com"] {
+    .standing-accordion .button,
+    a.button[href*="chat.whatsapp.com"],
+    a.button[href*="englishconnect.org"],
+    a.button[href*="comidas-garner2.github.io"] {
       display: block !important;
       width: calc(100% - 12px) !important;
       max-width: none !important;
@@ -1115,30 +1116,40 @@
       box-sizing: border-box !important;
     }
 
-    /* APPROVED FIX: make collapsed mobile sections clearly tappable. */
+    /* APPROVED MOBILE CHEVRON CLEANUP:
+       Visible enough for visitors, but centered and less clunky. */
     .accordion summary {
-      grid-template-columns: 34px minmax(0, 1fr) 30px !important;
+      grid-template-columns: 34px minmax(0, 1fr) 28px !important;
+      column-gap: 10px !important;
     }
 
     .accordion-chevron {
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 28px !important;
-      height: 28px !important;
+      width: 25px !important;
+      height: 25px !important;
       border-radius: 999px !important;
-      background: #fff4dd !important;
+      background: #fff7eb !important;
       border: 1px solid #eadcc4 !important;
       color: var(--navy) !important;
-      font-size: 25px !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+      transform-origin: center center !important;
+      font-size: 0 !important;
+      line-height: 1 !important;
+    }
+
+    .accordion-chevron::before {
+      content: "⌄" !important;
+      display: block !important;
+      font-size: 18px !important;
       line-height: 1 !important;
       font-weight: 900 !important;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
-      transform-origin: center center !important;
+      transform: translateY(-1px) !important;
     }
 
     .accordion[open] .accordion-chevron {
-      transform: rotate(90deg) !important;
+      transform: rotate(180deg) !important;
     }
   
   </style>
@@ -1245,7 +1256,7 @@
 
           <div class="agenda-row">
             <div class="agenda-label">Himno de Apertura</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">1001</div>
           </div>
 
           <div class="agenda-row">
@@ -1255,7 +1266,7 @@
 
           <div class="agenda-row">
             <div class="agenda-label">Himno Sacramental</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">#118 Asombro me da</div>
           </div>
 
           <div class="sacrament-admin">
@@ -1299,9 +1310,9 @@
             <div class="agenda-value">Kasandra Martinez</div>
           </div>
 
-          <div class="agenda-row hidden">
+          <div class="agenda-row ">
             <div class="agenda-label">Himno Intermedio / Número Musical</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">#56 Jehová mi Pastor es</div>
           </div>
         </div>
       </section>
@@ -1310,7 +1321,7 @@
         <div class="card-inner">
           <div class="agenda-row">
             <div class="agenda-label">Himno de Cierre</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">38</div>
           </div>
 
           <div class="agenda-row">
@@ -1322,7 +1333,7 @@
 
       
 
-      <details class="accordion whatsapp-accordion">
+      <details class="accordion standing-accordion whatsapp-accordion">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -1346,7 +1357,7 @@
 
       
 
-      <details class="accordion">
+      <details class="accordion standing-accordion englishconnect-accordion">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -1369,7 +1380,7 @@
         </div>
       </details>
 
-      <details class="accordion missionary-meal-accordion">
+      <details class="accordion standing-accordion missionary-meal-accordion">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
