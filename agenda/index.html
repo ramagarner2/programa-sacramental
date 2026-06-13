@@ -17,9 +17,8 @@
     .agenda-row { display:grid; grid-template-columns:31% 69%; border-top:1px solid var(--border); min-height:30px; page-break-inside:avoid; break-inside:avoid; }
     .agenda-label { background:var(--light); color:var(--dark); font-weight:800; padding:7px 9px; border-right:1px solid var(--border); }
     .agenda-value { background:#ffffff; padding:7px 9px; white-space:pre-wrap; }
-    .agenda-value strong { font-weight:800; }
     .agenda-footer { margin-top:18px; color:#666666; font-size:9pt; text-align:center; }
-    @media print { body { padding:0.35in; font-size:11.5pt; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-page { max-width:none; } .agenda-section,.agenda-header,.agenda-row { page-break-inside:avoid; break-inside:avoid; } .section-title { page-break-after:avoid; break-after:avoid; } }
+    @media print { body { padding:0.35in; font-size:11.5pt; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-page { max-width:none; } .agenda-section,.agenda-header,.agenda-row { page-break-inside:avoid; break-inside:avoid; } .agenda-section { margin-top:0.08in; } .agenda-header + .agenda-section { margin-top:0; } .section-title { page-break-after:avoid; break-after:avoid; } }
   </style>
 </head>
 <body>
@@ -52,6 +51,27 @@
       </div>
     </section>
     <section class="agenda-section keep-together">
+      <div class="section-title">INICIO DE LA REUNIÓN</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Himno de apertura</div>
+        <div class="agenda-value">#1001 Fuente de mis bendiciones</div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-label">Primera oración</div>
+        <div class="agenda-value">Por invitación</div>
+      </div>
+    </section>
+    <section class="agenda-section keep-together">
+      <div class="section-title">ASUNTOS DE RAMA</div>
+      <div class="agenda-row">
+        <div class="agenda-label">Asunto 1</div>
+        <div class="agenda-value">Se propone que Juan Manuel Ramos Flores reciba el Sacerdocio Aarónico y sea ordenado/a al oficio de Presbítero.
+
+Los que estén a favor, sírvanse indicarlo levantando la mano. [Breve pausa.]
+Opuestos, si los hay, también pueden manifestarlo. [Breve pausa].</div>
+      </div>
+    </section>
+    <section class="agenda-section keep-together">
       <div class="section-title">ANUNCIOS</div>
       <div class="agenda-row">
         <div class="agenda-label">Anuncio 1</div>
@@ -67,27 +87,6 @@ EnglishConnect is held every Monday and Friday from 8:00 PM to 9:00 PM.</div>
         <div class="agenda-label">Anuncio 3</div>
         <div class="agenda-value">WhatsApp Group Invitation
 We have a dedicated WhatsApp group for the branch. The link will be in the mobile program, and the QR code will be in the printed program. Please join to receive branch updates and announcements.</div>
-      </div>
-    </section>
-    <section class="agenda-section keep-together">
-      <div class="section-title">ASUNTOS DE RAMA</div>
-      <div class="agenda-row">
-        <div class="agenda-label">Asunto 1</div>
-        <div class="agenda-value">Se propone que Juan Manuel Ramos Flores reciba el Sacerdocio Aarónico y sea ordenado/a al oficio de Presbítero.
-
-Los que estén a favor, sírvanse indicarlo levantando la mano. [Breve pausa.]
-Opuestos, si los hay, también pueden manifestarlo. [Breve pausa].</div>
-      </div>
-    </section>
-    <section class="agenda-section keep-together">
-      <div class="section-title">INICIO DE LA REUNIÓN</div>
-      <div class="agenda-row">
-        <div class="agenda-label">Himno de apertura</div>
-        <div class="agenda-value">#1001 Fuente de mis bendiciones</div>
-      </div>
-      <div class="agenda-row">
-        <div class="agenda-label">Primera oración</div>
-        <div class="agenda-value">Por invitación</div>
       </div>
     </section>
     <section class="agenda-section keep-together">
