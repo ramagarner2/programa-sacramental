@@ -1117,9 +1117,10 @@
     }
 
     /* APPROVED MOBILE CHEVRON CLEANUP:
-       Visible enough for visitors, but centered and less clunky. */
+       Simple navy chevron, larger but not clunky. It gently nudges only
+       when the card scrolls into view, then stops. */
     .accordion summary {
-      grid-template-columns: 34px minmax(0, 1fr) 28px !important;
+      grid-template-columns: 34px minmax(0, 1fr) 30px !important;
       column-gap: 10px !important;
     }
 
@@ -1127,29 +1128,48 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 25px !important;
-      height: 25px !important;
-      border-radius: 999px !important;
-      background: #fff7eb !important;
-      border: 1px solid #eadcc4 !important;
+      width: 30px !important;
+      height: 30px !important;
       color: var(--navy) !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
       transform-origin: center center !important;
       font-size: 0 !important;
       line-height: 1 !important;
     }
 
     .accordion-chevron::before {
-      content: "⌄" !important;
+      content: "›" !important;
       display: block !important;
-      font-size: 18px !important;
+      font-size: 32px !important;
       line-height: 1 !important;
-      font-weight: 900 !important;
+      font-weight: 800 !important;
+      color: var(--navy) !important;
       transform: translateY(-1px) !important;
     }
 
     .accordion[open] .accordion-chevron {
-      transform: rotate(180deg) !important;
+      transform: rotate(90deg) !important;
+    }
+
+    .accordion-chevron.chevron-attention {
+      animation: rg2-chevron-nudge 0.62s ease-in-out 4;
+    }
+
+    @keyframes rg2-chevron-nudge {
+      0%, 100% { transform: translateX(0); }
+      45% { transform: translateX(5px); }
+    }
+
+    .accordion[open] .accordion-chevron.chevron-attention {
+      animation: none !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .accordion-chevron.chevron-attention {
+        animation: none !important;
+      }
     }
   
   </style>
@@ -1612,6 +1632,41 @@
     })();
   </script>
 
+
+  <script>
+    (function () {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      function cueChevron(details) {
+        if (!details || details.dataset.chevronCued === "true") return;
+        details.dataset.chevronCued = "true";
+        var chevron = details.querySelector(".accordion-chevron");
+        if (!chevron) return;
+        chevron.classList.add("chevron-attention");
+        window.setTimeout(function () {
+          chevron.classList.remove("chevron-attention");
+        }, 2800);
+      }
+
+      var accordions = Array.prototype.slice.call(document.querySelectorAll("details.accordion:not(.hidden)"));
+      if (!accordions.length) return;
+
+      if (!("IntersectionObserver" in window)) {
+        accordions.slice(0, 4).forEach(cueChevron);
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          cueChevron(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.55 });
+
+      accordions.forEach(function (details) { observer.observe(details); });
+    })();
+  </script>
 </body>
 </html>
 <!-- final mobile polish v2 -->
