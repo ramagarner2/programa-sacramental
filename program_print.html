@@ -99,27 +99,74 @@
         text-decoration: none !important;
       }
 
-      .sacrament-image,
-      .sacrament-image img,
-      img[alt*="Santa Cena"],
-      img[alt*="Lord"],
-      img[alt*="Supper"],
-      img[alt*="Pan"],
-      img[alt*="bread"],
-      img[alt*="Bread"] {
-        object-fit: contain !important;
-        object-position: center center !important;
+      .sacrament-print-left {
+        overflow: hidden !important;
+        margin-bottom: 8px !important;
+        border: 0 !important;
+        background: transparent !important;
       }
 
-      .sacrament-image img,
-      img[alt*="Santa Cena"],
-      img[alt*="Lord"],
-      img[alt*="Supper"],
-      img[alt*="Pan"],
-      img[alt*="bread"],
-      img[alt*="Bread"] {
-        max-height: 150px !important;
+      .sacrament-print-image,
+      img.sacrament-print-image {
+        display: block !important;
         width: 100% !important;
+        height: 2.05in !important;
+        max-height: none !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: none !important;
+        filter: grayscale(100%) contrast(1.08) !important;
+      }
+
+      @media print {
+        .sacrament-print-image,
+        img.sacrament-print-image {
+          height: 1.95in !important;
+        }
+      }
+
+      .print-sacrament-note {
+        margin-top: auto !important;
+        padding: 9px 10px 10px !important;
+        background: #f2f2f2 !important;
+        border-left: 3px solid #222222 !important;
+        color: #111111 !important;
+        font-size: 9.8pt !important;
+        line-height: 1.25 !important;
+      }
+
+      .print-sacrament-note-title {
+        font-weight: 800 !important;
+        font-size: 10.4pt !important;
+        line-height: 1.15 !important;
+        margin-bottom: 5px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.02em !important;
+      }
+
+      .print-sacrament-note p {
+        margin: 0 0 6px 0 !important;
+      }
+
+      .print-sacrament-note-scripture {
+        margin-top: 6px !important;
+        padding-top: 5px !important;
+        border-top: 1px solid #d4d4d4 !important;
+        font-family: Georgia, "Times New Roman", serif !important;
+        font-style: italic !important;
+        line-height: 1.22 !important;
+      }
+
+      .print-sacrament-note-ref {
+        margin-top: 2px !important;
+        font-family: Arial, sans-serif !important;
+        font-style: normal !important;
+        font-weight: 800 !important;
+        font-size: 8.7pt !important;
+        letter-spacing: 0.05em !important;
+        text-transform: uppercase !important;
       }
 
       
@@ -271,7 +318,7 @@
         </tr>
         <tr>
           <td class="label">Himno de Apertura</td>
-          <td class="value"></td>
+          <td class="value">1001</td>
         </tr>
         <tr>
           <td class="label">Oración de Apertura</td>
@@ -279,7 +326,7 @@
         </tr>
         <tr>
           <td class="label">Himno Sacramental</td>
-          <td class="value"></td>
+          <td class="value">#118 Asombro me da</td>
         </tr>
         <tr>
           <td colspan="2" class="centered-bold">Administración de la Santa Cena</td>
@@ -303,22 +350,32 @@
           <td class="label">Discurso</td>
           <td class="value">Kasandra Martinez</td>
         </tr>
-        <tr class="hidden">
+        <tr class="">
           <td class="label">Himno / Número Musical</td>
-          <td class="value"></td>
+          <td class="value">#56 Jehová mi Pastor es</td>
         </tr>
       </table>
 
       <table class="service-table">
         <tr>
           <td class="label">Himno de Cierre</td>
-          <td class="value"></td>
+          <td class="value">38</td>
         </tr>
         <tr>
           <td class="label">Oración de Cierre</td>
           <td class="value">Por invitación</td>
         </tr>
       </table>
+
+      <div class="print-sacrament-note">
+        <div class="print-sacrament-note-title">Sobre la Santa Cena</div>
+        <p>La Santa Cena es una oportunidad sagrada para recordar a Jesucristo, renovar nuestros convenios y volver nuestro corazón a Él.</p>
+        <div class="print-sacrament-note-scripture">
+          “Para que siempre puedan tener su Espíritu consigo.”
+          <div class="print-sacrament-note-ref">Moroni 4:3</div>
+        </div>
+      </div>
+
 
     </section>
 
