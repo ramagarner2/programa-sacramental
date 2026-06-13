@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1072,6 +1071,87 @@
       width: calc(100% - 12px) !important;
     }
 
+  
+    /* FINAL MOBILE UX RESTORE:
+       Keep address link restored, make accordions clearer, and make announcements look intentional. */
+    .announcement-accordion summary {
+      border-left: 4px solid var(--gold) !important;
+      background: #fffdf8 !important;
+    }
+
+    .announcement-accordion .accordion-title::after {
+      content: "  •  tocar para ver";
+      color: #9a7435;
+      font-size: 11px;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .accordion-chevron {
+      font-size: 0 !important;
+      width: 48px !important;
+      height: 26px !important;
+      border: 1px solid #d4a24d !important;
+      border-radius: 999px !important;
+      background: #fffaf1 !important;
+      color: var(--navy) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transform: none !important;
+    }
+
+    .accordion-chevron::before {
+      content: "Abrir";
+      font-size: 11px !important;
+      line-height: 1 !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.01em !important;
+    }
+
+    .accordion[open] .accordion-chevron {
+      transform: none !important;
+    }
+
+    .accordion[open] .accordion-chevron::before {
+      content: "Cerrar";
+    }
+
+    .announcement-list p {
+      margin: 0 0 12px 0 !important;
+      padding: 11px 12px !important;
+      border-left: 3px solid var(--gold) !important;
+      border-radius: 10px !important;
+      background: #fffaf1 !important;
+      color: #222222 !important;
+      line-height: 1.4 !important;
+      text-align: left !important;
+    }
+
+    .announcement-list p strong {
+      color: var(--navy) !important;
+      font-weight: 900 !important;
+    }
+
+    .announcement-list .announcement-button {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 8px 0 14px 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .announcement-accordion .accordion-title::after {
+        display: block;
+        margin-top: 2px;
+      }
+
+      .accordion-chevron {
+        width: 44px !important;
+      }
+    }
+  
   </style>
 </head>
 
@@ -1080,7 +1160,7 @@
 
     <header class="mobile-hero hero-standard" data-season="standard">
       <div class="mobile-hero-content">
-        <h1>Reunión de Ayuno y Testimonio</h1>
+        <h1>Reunión Sacramental</h1>
 
         <div class="mobile-hero-date">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1089,7 +1169,7 @@
             <path d="M8 2v4"></path>
             <path d="M3 10h18"></path>
           </svg>
-          <span>7 de junio de 2026</span>
+          <span>14 de junio de 2026</span>
         </div>
 
         <p class="mobile-hero-church">
@@ -1101,7 +1181,7 @@
 
     <main class="mobile-body">
 
-      <details class="accordion ">
+      <details class="accordion hidden">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -1143,17 +1223,17 @@
 
           <div class="agenda-row">
             <div class="agenda-label">Preside</div>
-            <div class="agenda-value person-value" data-split-person>Primer Consejero de Estaca Matt Hafen</div>
+            <div class="agenda-value person-value" data-split-person>Presidente Luis E Campos</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Dirige</div>
-            <div class="agenda-value person-value" data-split-person>Presidente de Rama Luis E Campos</div>
+            <div class="agenda-value person-value" data-split-person>Presidente Luis E Campos</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Himno de Apertura</div>
-            <div class="agenda-value">#37 Glorias cantad a Dios</div>
+            <div class="agenda-value"></div>
           </div>
 
           <div class="agenda-row">
@@ -1163,7 +1243,7 @@
 
           <div class="agenda-row">
             <div class="agenda-label">Himno Sacramental</div>
-            <div class="agenda-value">#104 Oh Dios, Eterno Padre</div>
+            <div class="agenda-value"></div>
           </div>
 
           <div class="sacrament-admin">
@@ -1195,16 +1275,16 @@
         </div>
       </section>
 
-      <section class="card hidden">
+      <section class="card ">
         <div class="card-inner">
           <div class="agenda-row">
             <div class="agenda-label">Discurso</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">Rey Martinez</div>
           </div>
 
           <div class="agenda-row">
             <div class="agenda-label">Discurso</div>
-            <div class="agenda-value"></div>
+            <div class="agenda-value">Kasandra Martinez</div>
           </div>
 
           <div class="agenda-row hidden">
@@ -1223,7 +1303,7 @@
         <div class="card-inner">
           <div class="agenda-row">
             <div class="agenda-label">Himno de Cierre</div>
-            <div class="agenda-value">#18 Oh Sión, santuario de libertad</div>
+            <div class="agenda-value"></div>
           </div>
 
           <div class="agenda-row">
@@ -1256,7 +1336,7 @@
         </div>
       </details>
 
-      <details class="accordion">
+      <details class="accordion announcement-accordion">
         <summary>
           <span class="round-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
@@ -1295,7 +1375,9 @@
           <span class="accordion-chevron">›</span>
         </summary>
         <div class="accordion-body">
-          <div class="hidden"></div>
+          <div class=""><div class="announcement-list"><p><strong>Invitation to feed the missionaries</strong><br>Thank you to everyone who has been helping feed our missionaries. They do not have any meals scheduled for next week. Please help us keep them fed by signing up.</p><a class="button announcement-button" href="https://comidas-garner2.github.io/" target="_blank" rel="noopener">Escoger una fecha</a>
+<p><strong>EnglishConnect</strong><br>EnglishConnect is held every Monday and Friday from 8:00 PM to 9:00 PM.</p><a class="button announcement-button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Más información de EnglishConnect</a>
+<p><strong>WhatsApp Group Invitation</strong><br>We have a dedicated WhatsApp group for the branch. The link will be in the mobile program, and the QR code will be in the printed program. Please join to receive branch updates and announcements.</p><a class="button announcement-button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a></div></div>
         </div>
       </details>
 
@@ -1318,7 +1400,7 @@
         <div class="accordion-body">
           <p>Clases gratuitas de inglés para adultos.<br>Todos son bienvenidos.</p>
           <p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Road, Garner, NC</p>
-          <a class="button" href="https://quickreg.churchofjesuschrist.org/groups/c91e5dbd-d6ed-f011-8544-6045bda960b1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
+          <a class="button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Inscribirse en EnglishConnect</a>
         </div>
       </details>
 
@@ -1341,7 +1423,7 @@
         </summary>
         <div class="accordion-body">
           <p>Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.</p>
-          <a class="button missionary-meal-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener" data-missionary-meal-button="true" class="button missionary-meal-button" data-missionary-meal-button="true">Escoger una fecha para<br>alimentar a los misioneros</a>
+          <a class="button missionary-meal-button" href="https://comidas-garner2.github.io/" target="_blank" rel="noopener" data-missionary-meal-button="true" class="button missionary-meal-button" data-missionary-meal-button="true">Escoger una fecha para<br>alimentar a los misioneros</a>
         </div>
       </details>
 
