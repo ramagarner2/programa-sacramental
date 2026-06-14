@@ -91,14 +91,12 @@
         margin-right: auto !important;
       }
 
-      /* APPROVED PRINT BOOKLET CENTER-GUTTER FIX:
-         Implements the booklet logic Ave specified:
-         the fold/center space should visually equal both outside margins combined.
-         This creates a real center gutter between the two panels on both booklet pages,
-         without changing mobile, agenda, hymns, or publishing. */
+      /* APPROVED PRINT BOOKLET CENTER-GUTTER BALANCE FIX:
+         Keeps a real center gutter between booklet panels, but reduces the over-shift
+         so the right-side print panel no longer sits too far to the right. */
       .page {
-        grid-template-columns: calc((100% - 0.50in) / 2) calc((100% - 0.50in) / 2) !important;
-        column-gap: 0.50in !important;
+        grid-template-columns: calc((100% - 0.34in) / 2) calc((100% - 0.34in) / 2) !important;
+        column-gap: 0.34in !important;
       }
 
       .page > .panel:first-child {
@@ -339,7 +337,7 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="weekly-ann "><div class="weekly-ann-item"><strong>Invitación al grupo de WhatsApp</strong><br>Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir actualizaciones y anuncios de la rama.<br><span>https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y</span><div style="margin-top:6px;text-align:center;"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"></div></div></div>
+      <div class="weekly-ann "><div class="weekly-ann-item"><strong>Invitación al grupo de WhatsApp</strong><br>Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir actualizaciones y anuncios de la rama.<div style="margin-top:6px;text-align:center;"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"></div></div></div>
 
       <div class="print-action-card">
         <div class="print-action-copy">
