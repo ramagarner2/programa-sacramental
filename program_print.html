@@ -264,6 +264,92 @@
         margin: 0 !important;
       }
 
+
+      /* COMPACT PRINT ANNOUNCEMENT QR GRID:
+         Left column holds short wording. Right column holds all four QR codes.
+         This hides the old template EnglishConnect/meal cards so the panel stays balanced. */
+      .rg2-print-qr-layout {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 1.55in !important;
+        column-gap: 0.14in !important;
+        align-items: start !important;
+        margin: 4px 0 8px 0 !important;
+        padding: 5px 0 8px 0 !important;
+        border-left: 2px solid #111111 !important;
+        box-sizing: border-box !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .rg2-print-qr-layout ~ .weekly-ann-item,
+      .rg2-print-qr-layout ~ .print-resource-item {
+        display: none !important;
+      }
+
+      .rg2-print-qr-textcol {
+        padding-left: 9px !important;
+        min-width: 0 !important;
+        font-size: 8.6pt !important;
+        line-height: 1.12 !important;
+      }
+
+      .rg2-print-qr-textitem {
+        margin: 0 0 5px 0 !important;
+        padding: 0 !important;
+      }
+
+      .rg2-print-qr-textitem strong {
+        display: block !important;
+        margin: 0 0 1px 0 !important;
+        font-size: 8.9pt !important;
+        line-height: 1.06 !important;
+        font-weight: 800 !important;
+      }
+
+      .rg2-print-qr-textitem span {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .rg2-print-weekly-extra {
+        margin-top: 5px !important;
+        padding-top: 4px !important;
+        border-top: 1px solid #d4d4d4 !important;
+      }
+
+      .rg2-print-qr-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        column-gap: 0.10in !important;
+        row-gap: 0.08in !important;
+        align-items: start !important;
+        justify-items: center !important;
+        padding-right: 7px !important;
+      }
+
+      .rg2-print-qr-tile {
+        text-align: center !important;
+        font-size: 7.8pt !important;
+        line-height: 0.98 !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+      }
+
+      .rg2-print-qr-tile .qr-image {
+        display: block !important;
+        width: 0.58in !important;
+        height: 0.58in !important;
+        margin: 0 auto 3px auto !important;
+        padding: 0 !important;
+      }
+
+      .rg2-print-qr-label {
+        display: block !important;
+        max-width: 0.68in !important;
+        margin: 0 auto !important;
+      }
+
       .sacrament-print-left {
         overflow: hidden !important;
         margin-bottom: 8px !important;
@@ -381,7 +467,7 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="weekly-ann "><div class="weekly-ann-item print-resource-item"><div class="print-resource-text"><strong>Programa móvil</strong><br>Abra el programa en su teléfono.</div><div class="print-resource-qr"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"></div></div><div class="weekly-ann-item print-resource-item"><div class="print-resource-text"><strong>Grupo de WhatsApp</strong><br>Únase para anuncios, enlaces, conversaciones y avisos urgentes.</div><div class="print-resource-qr"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"></div></div></div>
+      <div class="weekly-ann "><div class="rg2-print-qr-layout"><div class="rg2-print-qr-textcol"><div class="rg2-print-qr-textitem"><strong>Programa móvil</strong><span>Abra el programa en su teléfono.</span></div><div class="rg2-print-qr-textitem"><strong>Grupo de WhatsApp</strong><span>Anuncios, enlaces y avisos urgentes.</span></div><div class="rg2-print-qr-textitem"><strong>Clases gratuitas de inglés</strong><span>EnglishConnect</span><span>Lunes y viernes, 8:00 p. m. a 9:00 p. m.</span><span>1433 Aversboro Road, Garner, NC</span></div><div class="rg2-print-qr-textitem"><strong>¿Le gustaría ayudar a alimentar a los misioneros?</strong><span>Ayude a alimentar a los misioneros.</span><span>Escanee para escoger una fecha.</span></div></div><div class="rg2-print-qr-grid"><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"><div class="rg2-print-qr-label">Programa<br>móvil</div></div><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"><div class="rg2-print-qr-label">WhatsApp</div></div><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="QR EnglishConnect"><div class="rg2-print-qr-label">EnglishConnect</div></div><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="QR Comidas para los misioneros"><div class="rg2-print-qr-label">Comidas<br>misioneros</div></div></div></div></div>
 
       <div class="print-action-card">
         <div class="print-action-copy">
