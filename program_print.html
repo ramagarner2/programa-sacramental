@@ -220,6 +220,50 @@
         text-decoration: none !important;
       }
 
+      .print-resource-item {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 0.72in !important;
+        column-gap: 8px !important;
+        align-items: center !important;
+        margin: 0 0 7px 0 !important;
+        padding: 8px 9px !important;
+        min-height: 0.72in !important;
+        background: #f2f2f2 !important;
+        border-left: 3px solid #111111 !important;
+        box-sizing: border-box !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .print-resource-item-no-qr {
+        display: block !important;
+        min-height: 0 !important;
+      }
+
+      .print-resource-text {
+        min-width: 0 !important;
+        font-size: 9.4pt !important;
+        line-height: 1.18 !important;
+      }
+
+      .print-resource-text strong {
+        font-size: 9.8pt !important;
+        line-height: 1.05 !important;
+      }
+
+      .print-resource-qr {
+        width: 0.72in !important;
+        text-align: right !important;
+      }
+
+      .print-resource-qr .qr-image,
+      .print-resource-item .qr-image {
+        width: 0.66in !important;
+        height: 0.66in !important;
+        display: inline-block !important;
+        margin: 0 !important;
+      }
+
       .sacrament-print-left {
         overflow: hidden !important;
         margin-bottom: 8px !important;
@@ -337,7 +381,7 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="weekly-ann "><div class="weekly-ann-item"><strong>Programa móvil</strong><br>Escanee el código QR para abrir el programa sacramental en su teléfono.<div style="margin-top:6px;text-align:center;"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"></div></div><br><div class="weekly-ann-item"><strong>Grupo de WhatsApp de la Rama Garner 2</strong><br>Únase para recibir anuncios, actualizaciones, enlaces de clases y lecciones, conversaciones de la comunidad y avisos importantes o urgentes. Escanee el código QR para unirse al grupo.<div style="margin-top:6px;text-align:center;"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"></div></div></div>
+      <div class="weekly-ann "><div class="weekly-ann-item print-resource-item"><div class="print-resource-text"><strong>Programa móvil</strong><br>Abra el programa en su teléfono.</div><div class="print-resource-qr"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"></div></div><div class="weekly-ann-item print-resource-item"><div class="print-resource-text"><strong>Grupo de WhatsApp</strong><br>Únase para anuncios, enlaces, conversaciones y avisos urgentes.</div><div class="print-resource-qr"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"></div></div></div>
 
       <div class="print-action-card">
         <div class="print-action-copy">
@@ -403,24 +447,7 @@
       <div class="visitor-block">
         <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
         <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
-        <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
-        <p>Después del servicio de adoración tenemos clases para adultos, jóvenes y niños. Nos encantaría que se quedara y aprendiera con nosotros.</p>
-      </div>
-
-      <hr class="divider">
-      <div class="section-header">La Santa Cena</div>
-
-      <div class="sacrament-print-layout">
-        <div class="sacrament-print-left">
-          <img class="sacrament-print-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
-          <div class="sacrament-scripture-card">
-            <div class="scripture-quote">"Haced esto en memoria de mí."</div>
-            <div class="scripture-ref">1 Corintios 11:24</div>
-          </div>
-        </div>
-        <div class="sacrament-print-copy">
-          <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación.</p>
-          <p>Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
+        <p>Si nos visita hoy, le damos la bienvenida. Puede participar de la Santa Cena si así lo desea, o puede pasarla con reverencia. De cualquier manera, su presencia y reverencia son una forma de adoración. Ambas formas son respetuosas.</p>
         </div>
       </div>
 
