@@ -220,136 +220,6 @@
         text-decoration: none !important;
       }
 
-      .print-resource-item {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) 0.72in !important;
-        column-gap: 8px !important;
-        align-items: center !important;
-        margin: 0 0 7px 0 !important;
-        padding: 8px 9px !important;
-        min-height: 0.72in !important;
-        background: #f2f2f2 !important;
-        border-left: 3px solid #111111 !important;
-        box-sizing: border-box !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
-      .print-resource-item-no-qr {
-        display: block !important;
-        min-height: 0 !important;
-      }
-
-      .print-resource-text {
-        min-width: 0 !important;
-        font-size: 9.4pt !important;
-        line-height: 1.18 !important;
-      }
-
-      .print-resource-text strong {
-        font-size: 9.8pt !important;
-        line-height: 1.05 !important;
-      }
-
-      .print-resource-qr {
-        width: 0.72in !important;
-        text-align: right !important;
-      }
-
-      .print-resource-qr .qr-image,
-      .print-resource-item .qr-image {
-        width: 0.66in !important;
-        height: 0.66in !important;
-        display: inline-block !important;
-        margin: 0 !important;
-      }
-
-
-      /* COMPACT PRINT ANNOUNCEMENT QR GRID:
-         Left column holds short wording. Right column holds all four QR codes.
-         This hides the old template EnglishConnect/meal cards so the panel stays balanced. */
-      .rg2-print-qr-layout {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) 1.55in !important;
-        column-gap: 0.14in !important;
-        align-items: start !important;
-        margin: 4px 0 8px 0 !important;
-        padding: 5px 0 8px 0 !important;
-        border-left: 2px solid #111111 !important;
-        box-sizing: border-box !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
-      .rg2-print-qr-layout ~ .weekly-ann-item,
-      .rg2-print-qr-layout ~ .print-resource-item {
-        display: none !important;
-      }
-
-      .rg2-print-qr-textcol {
-        padding-left: 9px !important;
-        min-width: 0 !important;
-        font-size: 8.6pt !important;
-        line-height: 1.12 !important;
-      }
-
-      .rg2-print-qr-textitem {
-        margin: 0 0 5px 0 !important;
-        padding: 0 !important;
-      }
-
-      .rg2-print-qr-textitem strong {
-        display: block !important;
-        margin: 0 0 1px 0 !important;
-        font-size: 8.9pt !important;
-        line-height: 1.06 !important;
-        font-weight: 800 !important;
-      }
-
-      .rg2-print-qr-textitem span {
-        display: block !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      .rg2-print-weekly-extra {
-        margin-top: 5px !important;
-        padding-top: 4px !important;
-        border-top: 1px solid #d4d4d4 !important;
-      }
-
-      .rg2-print-qr-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        column-gap: 0.10in !important;
-        row-gap: 0.08in !important;
-        align-items: start !important;
-        justify-items: center !important;
-        padding-right: 7px !important;
-      }
-
-      .rg2-print-qr-tile {
-        text-align: center !important;
-        font-size: 7.8pt !important;
-        line-height: 0.98 !important;
-        font-weight: 800 !important;
-        color: #111111 !important;
-      }
-
-      .rg2-print-qr-tile .qr-image {
-        display: block !important;
-        width: 0.58in !important;
-        height: 0.58in !important;
-        margin: 0 auto 3px auto !important;
-        padding: 0 !important;
-      }
-
-      .rg2-print-qr-label {
-        display: block !important;
-        max-width: 0.68in !important;
-        margin: 0 auto !important;
-      }
-
       .sacrament-print-left {
         overflow: hidden !important;
         margin-bottom: 8px !important;
@@ -425,6 +295,86 @@
         text-transform: uppercase !important;
       }
 
+      /* CLEAN PRINT ANNOUNCEMENTS:
+         One compact resource area only. Left side is short text, right side is a
+         spaced 2x2 QR grid. No vertical lines or hidden duplicate-card patches. */
+      .rg2-print-ann-compact {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 1.92in !important;
+        column-gap: 0.20in !important;
+        align-items: start !important;
+        margin: 4px 0 8px 0 !important;
+        padding: 3px 0 6px 0 !important;
+        border: 0 !important;
+        box-sizing: border-box !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .rg2-print-ann-textcol {
+        min-width: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        font-size: 8.7pt !important;
+        line-height: 1.14 !important;
+      }
+
+      .rg2-print-ann-textitem {
+        margin: 0 0 5px 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+      }
+
+      .rg2-print-ann-textitem strong {
+        display: block !important;
+        margin: 0 0 1px 0 !important;
+        font-size: 9.1pt !important;
+        line-height: 1.06 !important;
+        font-weight: 800 !important;
+      }
+
+      .rg2-print-ann-textitem span {
+        display: block !important;
+        margin: 0 !important;
+      }
+
+      .rg2-print-ann-qrgrid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        column-gap: 0.20in !important;
+        row-gap: 0.08in !important;
+        align-items: start !important;
+        justify-items: center !important;
+        width: 1.92in !important;
+        min-width: 1.92in !important;
+      }
+
+      .rg2-print-ann-qritem {
+        width: 0.78in !important;
+        text-align: center !important;
+        line-height: 1.0 !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .rg2-print-ann-qritem .qr-image {
+        display: block !important;
+        width: 0.62in !important;
+        height: 0.62in !important;
+        margin: 0 auto 2px auto !important;
+      }
+
+      .rg2-print-ann-qrlabel {
+        display: block !important;
+        width: 100% !important;
+        color: #111111 !important;
+        font-size: 7.6pt !important;
+        line-height: 1.02 !important;
+        font-weight: 800 !important;
+        text-align: center !important;
+        white-space: normal !important;
+      }
+
       
       .panel-service .service-table {
         margin-top: 10px !important;
@@ -467,11 +417,11 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="weekly-ann "><div class="rg2-print-qr-layout"><div class="rg2-print-qr-textcol"><div class="rg2-print-qr-textitem"><strong>Programa móvil</strong><span>Abra el programa en su teléfono.</span></div><div class="rg2-print-qr-textitem"><strong>Grupo de WhatsApp</strong><span>Anuncios, enlaces y avisos urgentes.</span></div><div class="rg2-print-qr-textitem"><strong>Clases gratuitas de inglés</strong><span>EnglishConnect</span><span>Lunes y viernes, 8:00 p. m. a 9:00 p. m.</span><span>1433 Aversboro Road, Garner, NC</span></div><div class="rg2-print-qr-textitem"><strong>¿Le gustaría ayudar a alimentar a los misioneros?</strong><span>Ayude a alimentar a los misioneros.</span><span>Escanee para escoger una fecha.</span></div></div><div class="rg2-print-qr-grid"><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"><div class="rg2-print-qr-label">Programa<br>móvil</div></div><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"><div class="rg2-print-qr-label">WhatsApp</div></div><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="QR EnglishConnect"><div class="rg2-print-qr-label">EnglishConnect</div></div><div class="rg2-print-qr-tile"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="QR Comidas para los misioneros"><div class="rg2-print-qr-label">Comidas<br>misioneros</div></div></div></div></div>
+      <div class="weekly-ann "><div class="rg2-print-ann-compact"><div class="rg2-print-ann-textcol"><div class="rg2-print-ann-textitem"><strong>Programa móvil</strong><span>Abra el programa en su teléfono.</span></div><div class="rg2-print-ann-textitem"><strong>Grupo de WhatsApp</strong><span>Anuncios, enlaces y avisos urgentes.</span></div><div class="rg2-print-ann-textitem"><strong>EnglishConnect</strong><span>Lunes y viernes, 8:00–9:00 p. m.</span></div><div class="rg2-print-ann-textitem"><strong>Comidas para los misioneros</strong><span>Escanee para escoger una fecha.</span></div></div><div class="rg2-print-ann-qrgrid"><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"><div class="rg2-print-ann-qrlabel">Programa<br>móvil</div></div><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"><div class="rg2-print-ann-qrlabel">WhatsApp</div></div><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="QR EnglishConnect"><div class="rg2-print-ann-qrlabel">EnglishConnect</div></div><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="QR Comidas para los misioneros"><div class="rg2-print-ann-qrlabel">Comidas<br>misioneros</div></div></div></div></div>
 
       <div class="print-action-card">
         <div class="print-action-copy">
-          <div class="print-action-title">Clases gratuitas de inglés</div>
+          
           <div class="print-action-body">
             <strong>EnglishConnect</strong><br>
             Lunes y viernes, 8:00 p.&nbsp;m. a 9:00 p.&nbsp;m.<br>
@@ -484,7 +434,7 @@
 
       <div class="print-action-card">
         <div class="print-action-copy">
-          <div class="print-action-title">¿Le gustaría ayudar a alimentar a los misioneros?</div>
+          
           <div class="print-action-body">
             Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.<br>
             <span>Escanee el código QR para escoger una fecha.</span>
@@ -533,7 +483,24 @@
       <div class="visitor-block">
         <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
         <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
-        <p>Si nos visita hoy, le damos la bienvenida. Puede participar de la Santa Cena si así lo desea, o puede pasarla con reverencia. De cualquier manera, su presencia y reverencia son una forma de adoración. Ambas formas son respetuosas.</p>
+        <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
+        <p>Después del servicio de adoración tenemos clases para adultos, jóvenes y niños. Nos encantaría que se quedara y aprendiera con nosotros.</p>
+      </div>
+
+      <hr class="divider">
+      <div class="section-header">La Santa Cena</div>
+
+      <div class="sacrament-print-layout">
+        <div class="sacrament-print-left">
+          <img class="sacrament-print-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
+          <div class="sacrament-scripture-card">
+            <div class="scripture-quote">"Haced esto en memoria de mí."</div>
+            <div class="scripture-ref">1 Corintios 11:24</div>
+          </div>
+        </div>
+        <div class="sacrament-print-copy">
+          <p>Durante nuestra reunión participamos de la Santa Cena en memoria de Jesucristo. El pan y el agua se reparten a la congregación.</p>
+          <p>Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.</p>
         </div>
       </div>
 
