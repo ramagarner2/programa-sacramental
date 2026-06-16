@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,10 +42,8 @@
     .missionary-contact-phone { display: block; margin-top: 2px; color: #111111; font-size: 10.5pt; line-height: 1.18; font-weight: 400; text-decoration: underline; }
     .panel-announcements { justify-content: flex-start; }
     .weekly-ann { font-size: 10.8pt; line-height: 1.32; margin: 0 0 8px 0; padding: 8px 10px; border-left: 3px solid #222222; background: #f2f2f2; color: #111111; }
-    .print-action-card { display: grid; grid-template-columns: 1fr 84px; gap: 12px; align-items: center; margin: 8px 0; padding: 8px 10px; background: #f2f2f2; border-left: 3px solid #222222; color: #111111; min-height: 88px; }
-    .print-action-title { font-weight: 800; font-size: 11pt; line-height: 1.18; margin-bottom: 4px; color: #111111; }
-    .print-action-body { font-size: 10.5pt; line-height: 1.28; color: #111111; }
-    .print-action-body span { display: inline-block; margin-top: 3px; }
+    .weekly-ann.hidden { display: none !important; }
+    .weekly-ann-item { margin: 0 0 5px 0; }
     .qr-image { display: block; width: 80px; height: 80px; object-fit: contain; border: 1px solid #999999; padding: 3px; background: #ffffff; }
     .announcements-footer { margin-top: auto; padding-top: 8px; font-size: 9.5pt; text-align: center; color: #333333; line-height: 1.28; border-top: 1px solid #dddddd; }
     .announcements-footer a { color: #333333; text-decoration: underline; }
@@ -73,8 +72,6 @@
       .sacrament-print-copy p { font-size: 11pt; line-height: 1.32; margin: 0 0 7px 0; color: #111111; }
       .missionary-contact-card { font-size: 10pt !important; padding: 7px 9px !important; }
       .missionary-contact-name, .missionary-contact-phone, .missionary-help-line { font-size: 10pt !important; }
-      .print-action-body { font-size: 10pt !important; }
-      .print-action-title { font-size: 10.5pt !important; }
       .church-footer, .announcements-footer { font-size: 9pt !important; }
     }
   </style>
@@ -96,29 +93,7 @@
 
       <div class="weekly-ann {{anuncios_hidden_class}}">{{anuncios_semanales}}</div>
 
-      <div class="print-action-card">
-        <div class="print-action-copy">
-          <div class="print-action-title">Clases gratuitas de inglés</div>
-          <div class="print-action-body">
-            <strong>EnglishConnect</strong><br>
-            Lunes y viernes, 8:00 p.&nbsp;m. a 9:00 p.&nbsp;m.<br>
-            1433 Aversboro Road, Garner, NC<br>
-            <span>Escanee el código QR para inscribirse.</span>
-          </div>
-        </div>
-        <img class="qr-image" src="assets/qr-englishconnect.png" alt="QR EnglishConnect">
-      </div>
-
-      <div class="print-action-card">
-        <div class="print-action-copy">
-          <div class="print-action-title">¿Le gustaría ayudar a alimentar a los misioneros?</div>
-          <div class="print-action-body">
-            Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.<br>
-            <span>Escanee el código QR para escoger una fecha.</span>
-          </div>
-        </div>
-        <img class="qr-image" src="assets/qr-missionary-meals.png" alt="QR para alimentar a los misioneros">
-      </div>
+      {{branch_resources_print}}
 
       <div class="missionary-contact-card">
         <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
@@ -147,7 +122,6 @@
     </section>
 
   </div><!-- end page 1 -->
-
 
   <!-- PAGE 2 — INSIDE: Visitor info left, Order of service right -->
   <div class="page">
@@ -190,29 +164,12 @@
       <div class="subtitle">{{fecha_display}}</div>
 
       <table class="service-table">
-        <tr>
-          <td class="label">Preside</td>
-          <td class="value" data-print-split-person>{{preside}}</td>
-        </tr>
-        <tr>
-          <td class="label">Dirige</td>
-          <td class="value" data-print-split-person>{{conduce}}</td>
-        </tr>
-        <tr>
-          <td class="label">Himno de Apertura</td>
-          <td class="value">{{himno_apertura}}</td>
-        </tr>
-        <tr>
-          <td class="label">Oración de Apertura</td>
-          <td class="value">{{oracion_apertura}}</td>
-        </tr>
-        <tr>
-          <td class="label">Himno Sacramental</td>
-          <td class="value">{{himno_sacramental}}</td>
-        </tr>
-        <tr>
-          <td colspan="2" class="centered-bold">Administración de la Santa Cena</td>
-        </tr>
+        <tr><td class="label">Preside</td><td class="value" data-print-split-person>{{preside}}</td></tr>
+        <tr><td class="label">Dirige</td><td class="value" data-print-split-person>{{conduce}}</td></tr>
+        <tr><td class="label">Himno de Apertura</td><td class="value">{{himno_apertura}}</td></tr>
+        <tr><td class="label">Oración de Apertura</td><td class="value">{{oracion_apertura}}</td></tr>
+        <tr><td class="label">Himno Sacramental</td><td class="value">{{himno_sacramental}}</td></tr>
+        <tr><td colspan="2" class="centered-bold">Administración de la Santa Cena</td></tr>
       </table>
 
       <div class="fast-sunday-block {{ayuno_hidden_class}}">
@@ -224,33 +181,15 @@
       </div>
 
       <table class="service-table {{discursantes_hidden_class}}">
-        <tr>
-          <td class="label">Discurso</td>
-          <td class="value">{{primer_discursante}}</td>
-        </tr>
-        <tr>
-          <td class="label">Discurso</td>
-          <td class="value">{{segundo_discursante}}</td>
-        </tr>
-        <tr class="{{numero_musical_hidden_class}}">
-          <td class="label">Himno / Número Musical</td>
-          <td class="value">{{numero_musical}}</td>
-        </tr>
-        <tr>
-          <td class="label">Discurso</td>
-          <td class="value">{{ultimo_discursante}}</td>
-        </tr>
+        <tr><td class="label">Discurso</td><td class="value">{{primer_discursante}}</td></tr>
+        <tr><td class="label">Discurso</td><td class="value">{{segundo_discursante}}</td></tr>
+        <tr class="{{numero_musical_hidden_class}}"><td class="label">Himno / Número Musical</td><td class="value">{{numero_musical}}</td></tr>
+        <tr><td class="label">Discurso</td><td class="value">{{ultimo_discursante}}</td></tr>
       </table>
 
       <table class="service-table">
-        <tr>
-          <td class="label">Himno de Cierre</td>
-          <td class="value">{{himno_cierre}}</td>
-        </tr>
-        <tr>
-          <td class="label">Oración de Cierre</td>
-          <td class="value">{{oracion_cierre}}</td>
-        </tr>
+        <tr><td class="label">Himno de Cierre</td><td class="value">{{himno_cierre}}</td></tr>
+        <tr><td class="label">Oración de Cierre</td><td class="value">{{oracion_cierre}}</td></tr>
       </table>
 
     </section>
