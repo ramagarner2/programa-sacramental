@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -41,10 +42,8 @@
     .missionary-contact-phone { display: block; margin-top: 2px; color: #111111; font-size: 10.5pt; line-height: 1.18; font-weight: 400; text-decoration: underline; }
     .panel-announcements { justify-content: flex-start; }
     .weekly-ann { font-size: 10.8pt; line-height: 1.32; margin: 0 0 8px 0; padding: 8px 10px; border-left: 3px solid #222222; background: #f2f2f2; color: #111111; }
-    .print-action-card { display: grid; grid-template-columns: 1fr 84px; gap: 12px; align-items: center; margin: 8px 0; padding: 8px 10px; background: #f2f2f2; border-left: 3px solid #222222; color: #111111; min-height: 88px; }
-    .print-action-title { font-weight: 800; font-size: 11pt; line-height: 1.18; margin-bottom: 4px; color: #111111; }
-    .print-action-body { font-size: 10.5pt; line-height: 1.28; color: #111111; }
-    .print-action-body span { display: inline-block; margin-top: 3px; }
+    .weekly-ann.hidden { display: none !important; }
+    .weekly-ann-item { margin: 0 0 5px 0; }
     .qr-image { display: block; width: 80px; height: 80px; object-fit: contain; border: 1px solid #999999; padding: 3px; background: #ffffff; }
     .announcements-footer { margin-top: auto; padding-top: 8px; font-size: 9.5pt; text-align: center; color: #333333; line-height: 1.28; border-top: 1px solid #dddddd; }
     .announcements-footer a { color: #333333; text-decoration: underline; }
@@ -73,8 +72,6 @@
       .sacrament-print-copy p { font-size: 11pt; line-height: 1.32; margin: 0 0 7px 0; color: #111111; }
       .missionary-contact-card { font-size: 10pt !important; padding: 7px 9px !important; }
       .missionary-contact-name, .missionary-contact-phone, .missionary-help-line { font-size: 10pt !important; }
-      .print-action-body { font-size: 10pt !important; }
-      .print-action-title { font-size: 10.5pt !important; }
       .church-footer, .announcements-footer { font-size: 9pt !important; }
     }
   
@@ -295,84 +292,71 @@
         text-transform: uppercase !important;
       }
 
-      /* CLEAN PRINT ANNOUNCEMENTS:
-         One compact resource area only. Left side is short text, right side is a
-         spaced 2x2 QR grid. No vertical lines or hidden duplicate-card patches. */
-      .rg2-print-ann-compact {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) 1.92in !important;
-        column-gap: 0.20in !important;
-        align-items: start !important;
-        margin: 4px 0 8px 0 !important;
-        padding: 3px 0 6px 0 !important;
-        border: 0 !important;
-        box-sizing: border-box !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
 
-      .rg2-print-ann-textcol {
-        min-width: 0 !important;
+      .rg2-print-branch-resources {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 1.78in !important;
+        column-gap: 0.18in !important;
+        align-items: start !important;
+        margin: 0 0 7px 0 !important;
         padding: 0 !important;
         border: 0 !important;
-        font-size: 8.7pt !important;
-        line-height: 1.14 !important;
+        background: transparent !important;
       }
 
-      .rg2-print-ann-textitem {
+      .rg2-print-resource-text {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        font-size: 8.6pt !important;
+        line-height: 1.12 !important;
+      }
+
+      .rg2-print-resource-text-item {
         margin: 0 0 5px 0 !important;
         padding: 0 !important;
         border: 0 !important;
+        background: transparent !important;
       }
 
-      .rg2-print-ann-textitem strong {
-        display: block !important;
-        margin: 0 0 1px 0 !important;
-        font-size: 9.1pt !important;
-        line-height: 1.06 !important;
+      .rg2-print-resource-text-item strong {
         font-weight: 800 !important;
       }
 
-      .rg2-print-ann-textitem span {
-        display: block !important;
-        margin: 0 !important;
-      }
-
-      .rg2-print-ann-qrgrid {
+      .rg2-print-qr-grid {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        column-gap: 0.20in !important;
-        row-gap: 0.08in !important;
-        align-items: start !important;
-        justify-items: center !important;
-        width: 1.92in !important;
-        min-width: 1.92in !important;
+        column-gap: 0.16in !important;
+        row-gap: 0.06in !important;
+        width: 1.78in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
       }
 
-      .rg2-print-ann-qritem {
-        width: 0.78in !important;
+      .rg2-print-qr-cell {
         text-align: center !important;
-        line-height: 1.0 !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
       }
 
-      .rg2-print-ann-qritem .qr-image {
+      .rg2-print-qr {
+        width: 0.58in !important;
+        height: 0.58in !important;
         display: block !important;
-        width: 0.62in !important;
-        height: 0.62in !important;
         margin: 0 auto 2px auto !important;
       }
 
-      .rg2-print-ann-qrlabel {
-        display: block !important;
-        width: 100% !important;
-        color: #111111 !important;
-        font-size: 7.6pt !important;
+      .rg2-print-qr-label {
+        font-size: 6.8pt !important;
         line-height: 1.02 !important;
         font-weight: 800 !important;
+        white-space: nowrap !important;
         text-align: center !important;
-        white-space: normal !important;
       }
 
       
@@ -417,31 +401,9 @@
     <section class="panel panel-announcements">
       <div class="section-header">Anuncios</div>
 
-      <div class="weekly-ann "><div class="rg2-print-ann-compact"><div class="rg2-print-ann-textcol"><div class="rg2-print-ann-textitem"><strong>Programa móvil</strong><span>Abra el programa en su teléfono.</span></div><div class="rg2-print-ann-textitem"><strong>Grupo de WhatsApp</strong><span>Anuncios, enlaces y avisos urgentes.</span></div><div class="rg2-print-ann-textitem"><strong>EnglishConnect</strong><span>Lunes y viernes, 8:00–9:00 p. m.</span></div><div class="rg2-print-ann-textitem"><strong>Comidas para los misioneros</strong><span>Escanee para escoger una fecha.</span></div></div><div class="rg2-print-ann-qrgrid"><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR Programa móvil"><div class="rg2-print-ann-qrlabel">Programa<br>móvil</div></div><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="QR WhatsApp"><div class="rg2-print-ann-qrlabel">WhatsApp</div></div><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="QR EnglishConnect"><div class="rg2-print-ann-qrlabel">EnglishConnect</div></div><div class="rg2-print-ann-qritem"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="QR Comidas para los misioneros"><div class="rg2-print-ann-qrlabel">Comidas<br>misioneros</div></div></div></div></div>
+      <div class="weekly-ann hidden"></div>
 
-      <div class="print-action-card">
-        <div class="print-action-copy">
-          
-          <div class="print-action-body">
-            <strong>EnglishConnect</strong><br>
-            Lunes y viernes, 8:00 p.&nbsp;m. a 9:00 p.&nbsp;m.<br>
-            1433 Aversboro Road, Garner, NC<br>
-            <span>Escanee el código QR para inscribirse.</span>
-          </div>
-        </div>
-        <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="QR EnglishConnect">
-      </div>
-
-      <div class="print-action-card">
-        <div class="print-action-copy">
-          
-          <div class="print-action-body">
-            Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.<br>
-            <span>Escanee el código QR para escoger una fecha.</span>
-          </div>
-        </div>
-        <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="QR para alimentar a los misioneros">
-      </div>
+      
 
       <div class="missionary-contact-card">
         <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
@@ -469,7 +431,6 @@
     </section>
 
   </div><!-- end page 1 -->
-
 
   <!-- PAGE 2 — INSIDE: Visitor info left, Order of service right -->
   <div class="page">
@@ -512,29 +473,12 @@
       <div class="subtitle">14 de junio de 2026</div>
 
       <table class="service-table">
-        <tr>
-          <td class="label">Preside</td>
-          <td class="value" data-print-split-person>Presidente Luis E Campos</td>
-        </tr>
-        <tr>
-          <td class="label">Dirige</td>
-          <td class="value" data-print-split-person>Presidente Luis E Campos</td>
-        </tr>
-        <tr>
-          <td class="label">Himno de Apertura</td>
-          <td class="value">#1001 Fuente de mis bendiciones</td>
-        </tr>
-        <tr>
-          <td class="label">Oración de Apertura</td>
-          <td class="value">Por invitación</td>
-        </tr>
-        <tr>
-          <td class="label">Himno Sacramental</td>
-          <td class="value">#118 Asombro me da</td>
-        </tr>
-        <tr>
-          <td colspan="2" class="centered-bold">Administración de la Santa Cena</td>
-        </tr>
+        <tr><td class="label">Preside</td><td class="value" data-print-split-person>Presidente Luis E Campos</td></tr>
+        <tr><td class="label">Dirige</td><td class="value" data-print-split-person>Presidente Luis E Campos</td></tr>
+        <tr><td class="label">Himno de Apertura</td><td class="value">#1001 Fuente de mis bendiciones</td></tr>
+        <tr><td class="label">Oración de Apertura</td><td class="value">Por invitación</td></tr>
+        <tr><td class="label">Himno Sacramental</td><td class="value">#118 Asombro me da</td></tr>
+        <tr><td colspan="2" class="centered-bold">Administración de la Santa Cena</td></tr>
       </table>
 
       <div class="fast-sunday-block hidden">
