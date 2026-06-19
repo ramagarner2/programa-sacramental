@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rama Garner 2 — Agenda</title>
+  <style>
+    :root { --blue:#174a73; --light:#eef6fb; --line:#cddde8; --text:#1d2a33; --muted:#8a949b; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#fff; color:var(--text); font-size:11pt; }
+    .agenda-sheet { max-width:8.5in; margin:0 auto; padding:.35in; }
+    .agenda-header { border-bottom:3px solid var(--blue); margin-bottom:12px; padding-bottom:8px; }
+    h1 { margin:0 0 4px; color:var(--blue); font-size:21pt; }
+    h2 { margin:0 0 8px; color:var(--blue); font-size:14pt; }
+    h3 { margin:9px 0 5px; color:#123f60; }
+    .agenda-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; background:var(--light); border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; }
+    .agenda-card { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; break-inside:avoid; }
+    .agenda-table { width:100%; border-collapse:collapse; }
+    .agenda-table th { width:34%; text-align:left; background:var(--light); color:#123f60; padding:7px; border:1px solid var(--line); }
+    .agenda-table td { padding:7px; border:1px solid var(--line); }
+    .stake-cue { padding:8px; border-radius:8px; margin-top:8px; border:1px solid var(--line); }
+    .stake-cue.active { color:#000; background:#fff; }
+    .stake-cue.muted { color:var(--muted); background:#f4f4f4; }
+    .business-block { border-top:1px solid var(--line); padding-top:8px; margin-top:8px; }
+    .business-block:first-of-type { border-top:0; padding-top:0; margin-top:0; }
+    .cue { font-style:italic; color:#394b58; }
+    @media print { body { -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-sheet { padding:.25in; } }
+  </style>
+</head>
+<body class="agenda-page">
+
+      <main class="agenda-sheet">
+        <header class="agenda-header">
+          <h1>Agenda — Rama Garner 2</h1>
+          <p>21 de junio de 2026 · Reunión Sacramental · 10:30 AM</p>
+        </header>
+
+        <section class="agenda-grid">
+          <div><strong>Preside:</strong> Presidente Luis E Campos</div>
+          <div><strong>Dirige:</strong> Presidente Luis E Campos</div>
+          <div><strong>Pianista:</strong> Hermanas Boyer</div>
+          <div><strong>Directora musical:</strong> Hermanas Rounds</div>
+        </section>
+
+        <section class="agenda-card">
+          <h2>Bienvenida / liderazgo</h2>
+          <p><strong>Guion de bienvenida:</strong> Bienvenidos a la Reunión Sacramental de la Rama Garner 2.</p>
+          <p><strong>Bienvenida a visitantes:</strong> Damos la bienvenida a miembros, visitantes y visitantes especiales.</p>
+          <p><strong>Reconocer visitantes de estaca:</strong> Matt Hafen, Primer Consejero de Estaca</p>
+          
+    <div class="stake-cue muted">
+      <strong>Asuntos de estaca:</strong>
+      Ahora cedemos el tiempo a Matt Hafen, Primer Consejero de Estaca para tratar algunos asuntos de estaca.
+    </div>
+  
+        </section>
+
+        
+
+        <section class="agenda-card">
+          <h2>Orden de la reunión</h2>
+          <table class="agenda-table"><tbody>
+            <tr><th>Orador(a)</th><td>Seth McGinn</td></tr><tr><th>Orador(a)</th><td>Rey Martinez</td></tr>
+          </tbody></table>
+        </section>
+
+        
+      </main>
+    
+</body>
+</html>
