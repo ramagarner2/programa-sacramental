@@ -3,101 +3,104 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rama Garner 2 — Agenda</title>
+  <title>Agenda de la Reunión Sacramental</title>
   <style>
-    :root { --blue:#174a73; --light:#eef6fb; --line:#cddde8; --text:#1d2a33; --muted:#8a949b; }
+    :root { --dark:#222; --mid:#666; --light:#f2f2f2; --soft:#f8f8f8; --border:#d4d4d4; --text:#111; }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#fff; color:var(--text); font-size:11pt; }
-    .agenda-sheet { max-width:8.5in; margin:0 auto; padding:.35in; }
-    .agenda-header { border-bottom:3px solid var(--blue); margin-bottom:12px; padding-bottom:8px; }
-    h1 { margin:0 0 4px; color:var(--blue); font-size:21pt; }
-    h2 { margin:0 0 8px; color:var(--blue); font-size:14pt; }
-    h3 { margin:9px 0 5px; color:#123f60; }
-    .agenda-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; background:var(--light); border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; }
-    .agenda-card { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; break-inside:avoid; }
-    .agenda-table { width:100%; border-collapse:collapse; }
-    .agenda-table th { width:34%; text-align:left; background:var(--light); color:#123f60; padding:7px; border:1px solid var(--line); }
-    .agenda-table td { padding:7px; border:1px solid var(--line); }
-    .stake-cue { padding:8px; border-radius:8px; margin-top:8px; border:1px solid var(--line); }
-    .stake-cue.active { color:#000; background:#fff; }
-    .stake-cue.muted { color:var(--muted); background:#f4f4f4; }
-    .business-block { border-top:1px solid var(--line); padding-top:8px; margin-top:8px; }
-    .business-block:first-of-type { border-top:0; padding-top:0; margin-top:0; }
-    .cue { font-style:italic; color:#394b58; }
-    @media print { body { -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-sheet { padding:.25in; } }
+    body.agenda-body { margin:0; padding:24px; background:#fff; color:var(--text); font-family:Arial, Helvetica, sans-serif; font-size:12pt; line-height:1.35; }
+    .agenda-page { max-width:8.5in; margin:0 auto; }
+    .agenda-header { border:1px solid var(--dark); margin-bottom:14px; break-inside:avoid; page-break-inside:avoid; }
+    .agenda-title { background:var(--dark); color:#fff; text-align:center; font-size:20pt; font-weight:800; padding:12px 14px; }
+    .agenda-subtitle { background:var(--light); color:var(--dark); text-align:center; font-size:12pt; font-weight:700; padding:8px 14px; border-top:1px solid var(--border); }
+    .agenda-section { border:1px solid var(--border); margin:0 0 12px; break-inside:avoid; page-break-inside:avoid; }
+    .section-title { background:var(--mid); color:#fff; font-size:13pt; font-weight:800; padding:7px 10px; break-after:avoid; page-break-after:avoid; }
+    .agenda-row { display:grid; grid-template-columns:31% 69%; border-top:1px solid var(--border); min-height:30px; break-inside:avoid; page-break-inside:avoid; }
+    .agenda-label { background:var(--light); color:var(--dark); font-weight:800; padding:7px 9px; border-right:1px solid var(--border); }
+    .agenda-value { background:#fff; padding:7px 9px; white-space:pre-wrap; }
+    .stake-cue.muted .agenda-label, .stake-cue.muted .agenda-value { color:#888; background:#f7f7f7; }
+    .stake-cue.active .agenda-value { color:#111; font-weight:700; }
+    .business-block { display:grid; grid-template-columns:31% 69%; border-top:1px solid var(--border); break-inside:avoid; page-break-inside:avoid; }
+    .business-label { background:var(--light); font-weight:800; padding:8px 9px; border-right:1px solid var(--border); }
+    .business-text { padding:8px 10px; }
+    .business-text p { margin:0 0 7px; }
+    .business-text ul { margin:4px 0 8px 20px; padding:0; }
+    .conducting-cue { font-weight:700; white-space:pre-wrap; }
+    @page { size:letter portrait; margin:.55in .35in .4in; }
+    @page :first { margin:.35in; }
+    @media print { body.agenda-body { padding:0; font-size:11.5pt; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .agenda-page { max-width:none; } .agenda-section, .agenda-header, .agenda-row, .business-block { break-inside:avoid; page-break-inside:avoid; } .agenda-section { margin-top:.10in; } .agenda-header + .agenda-section { margin-top:0; } }
   </style>
 </head>
-<body class="agenda-page">
+<body class="agenda-body">
 
-      <main class="agenda-sheet">
-        <header class="agenda-header">
-          <h1>Agenda — Rama Garner 2</h1>
-          <p>21 de junio de 2026 · Reunión Sacramental · 10:30 AM</p>
+      <main class="agenda-page">
+        <header class="agenda-header keep-together">
+          <div class="agenda-title">Agenda de la Reunión Sacramental</div>
+          <div class="agenda-subtitle">Rama Garner 2 | 21 de junio de 2026 | 10:30 AM</div>
         </header>
 
-        <section class="agenda-grid">
-          <div><strong>Preside:</strong> Presidente Luis E Campos</div>
-          <div><strong>Dirige:</strong> Presidente Luis E Campos</div>
-          <div><strong>Pianista:</strong> Hermanas Boyer</div>
-          <div><strong>Directora musical:</strong> Hermanas Rounds</div>
-        </section>
-
-        <section class="agenda-card">
-          <h2>Bienvenida / liderazgo</h2>
-          <p><strong>Guion de bienvenida:</strong> Bienvenidos a la Reunión Sacramental de la Rama Garner 2.</p>
-          <p><strong>Bienvenida a visitantes:</strong> Damos la bienvenida a miembros, visitantes y visitantes especiales.</p>
-          <p><strong>Reconocer visitantes de estaca:</strong> Matt Hafen, Primer Consejero de Estaca</p>
-          
-    <div class="stake-cue active">
-      <strong>Asuntos de estaca:</strong>
-      Ahora cedemos el tiempo a Matt Hafen, Primer Consejero de Estaca para tratar algunos asuntos de estaca.
+        <section class="agenda-section keep-together"><div class="section-title">BIENVENIDA / LIDERAZGO</div><div class="agenda-row"><div class="agenda-label">Bienvenida</div><div class="agenda-value">Bienvenidos a la Reunión Sacramental de la Rama Garner 2.</div></div><div class="agenda-row"><div class="agenda-label">Visitantes</div><div class="agenda-value">Damos la bienvenida a miembros, visitantes y visitantes especiales.</div></div><div class="agenda-row"><div class="agenda-label">Preside</div><div class="agenda-value">Presidente Luis E Campos</div></div><div class="agenda-row"><div class="agenda-label">Conduce</div><div class="agenda-value">Presidente Luis E Campos</div></div><div class="agenda-row"><div class="agenda-label">Reconocer líderes de estaca</div><div class="agenda-value">Matt Hafen, Primer Consejero de Estaca</div></div><div class="agenda-row"><div class="agenda-label">Pianista</div><div class="agenda-value">Hermanas Boyer</div></div><div class="agenda-row"><div class="agenda-label">Directora de música</div><div class="agenda-value">Hermanas Rounds</div></div></section>
+        <section class="agenda-section keep-together"><div class="section-title">ANUNCIOS</div><div class="agenda-row"><div class="agenda-label">Anuncio 1</div><div class="agenda-value">Invitación a alimentar a los misioneros
+Gracias a todos los que han estado ayudando a alimentar a nuestros misioneros. Todavía no tienen comidas programadas para la próxima semana. Por favor ayúdenos a mantenerlos alimentados inscribiéndose para una fecha.</div></div><div class="agenda-row"><div class="agenda-label">Anuncio 2</div><div class="agenda-value">EnglishConnect
+EnglishConnect se lleva a cabo todos los lunes y viernes de 8:00 p. m. a 9:00 p. m.</div></div><div class="agenda-row"><div class="agenda-label">Anuncio 3</div><div class="agenda-value">Invitación al grupo de WhatsApp
+Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir actualizaciones y anuncios de la rama.</div></div><div class="agenda-row"><div class="agenda-label">Anuncio 4</div><div class="agenda-value">Family Home Evening PotLuck
+Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</div></div></section>
+        <section class="agenda-section keep-together"><div class="section-title">INICIO DE LA REUNIÓN</div><div class="agenda-row"><div class="agenda-label">Himno de apertura</div><div class="agenda-value">#2 El Espíritu de Dios</div></div><div class="agenda-row"><div class="agenda-label">Primera oración</div><div class="agenda-value">Por invitación</div></div></section>
+        
+    <section class="agenda-section branch-business keep-together">
+      <div class="section-title">ASUNTOS DE RAMA / BRANCH BUSINESS</div>
+      
+    <div class="business-block keep-together">
+      <div class="business-label">Relevos</div>
+      <div class="business-text">
+        <p>Se propone relevar a las siguientes personas:</p>
+        <ul><li>Kasandra Martinez — tese</li></ul>
+        <p class="conducting-cue">Los que deseen expresar su agradecimiento por su servicio pueden manifestarlo levantando la mano.</p>
+      </div>
     </div>
   
-        </section>
-
+    <div class="business-block keep-together">
+      <div class="business-label">Sostenimientos</div>
+      <div class="business-text">
+        <p>Se propone sostener a las siguientes personas:</p>
+        <ul><li>Sofia Alvear Moncayo — Activity Chairman</li></ul>
+        <p class="conducting-cue">Los que estén a favor pueden manifestarlo levantando la mano.
+Los que estén en contra, si los hay, pueden manifestarlo de la misma manera.</p>
+      </div>
+    </div>
+  
+    <div class="business-block keep-together">
+      <div class="business-label">Ordenación — Presbítero</div>
+      <div class="business-text">
+        <p>Se propone que los siguientes hermanos sean ordenados al oficio de Presbítero:</p>
+        <ul><li>Raul Fernando Alvear Bedon</li></ul>
+        <p class="conducting-cue">Los que estén a favor pueden manifestarlo levantando la mano.
+Los que estén en contra, si los hay, pueden manifestarlo de la misma manera.</p>
+      </div>
+    </div>
+  
+    <div class="business-block keep-together">
+      <div class="business-label">Confirmaciones</div>
+      <div class="business-text">
+        <p>Ahora se confirmará miembro de La Iglesia de Jesucristo de los Santos de los Últimos Días a:</p>
+        <ul><li>Scarlet Alvear</li><li>Ana Alvear Moncayo</li></ul>
         
-    <section class="agenda-card">
-      <h2>Anuncios</h2>
-      <table class="agenda-table"><tbody>
-        <tr><th>Invitación a alimentar a los misioneros</th><td>Gracias a todos los que han estado ayudando a alimentar a nuestros misioneros. Todavía no tienen comidas programadas para la próxima semana. Por favor ayúdenos a mantenerlos alimentados inscribiéndose para una fecha.</td></tr><tr><th>EnglishConnect</th><td>EnglishConnect se lleva a cabo todos los lunes y viernes de 8:00 p. m. a 9:00 p. m.</td></tr><tr><th>Invitación al grupo de WhatsApp</th><td>Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir actualizaciones y anuncios de la rama.</td></tr><tr><th>Family Home Evening PotLuck</th><td>Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</td></tr>
-      </tbody></table>
+      </div>
+    </div>
+  
     </section>
   
-
-        <section class="agenda-card">
-          <h2>Orden de la reunión</h2>
-          <table class="agenda-table"><tbody>
-            <tr><th>Himno de apertura</th><td>#2 El Espíritu de Dios</td></tr><tr><th>Primera oración</th><td>Por invitación</td></tr><tr><th>Himno sacramental</th><td>#11 Dios manda a profetas</td></tr><tr><th>Orador(a)</th><td>Seth McGinn</td></tr><tr><th>Himno intermedio</th><td>#11 Dios manda a profetas</td></tr><tr><th>Orador(a)</th><td>Armando Bake</td></tr><tr><th>Himno de clausura</th><td>#8 ¿Qué es lo que vieron en las alturas?</td></tr><tr><th>Última oración</th><td>Por invitación</td></tr>
-          </tbody></table>
-        </section>
-
-        <section class="agenda-card branch-business"><h2>Asuntos de rama / Branch Business</h2>
-    <div class="business-block">
-      <h3>Relevos</h3>
-      <ul><li>Kasandra Martinez — tese</li></ul>
-      <p class="cue">Los que estén a favor de expresar agradecimiento por su servicio, sírvanse manifestarlo. Contrarios, si los hay, de la misma manera.</p>
-    </div>
+        
+    <section class="agenda-section keep-together">
+      <div class="section-title">ASUNTOS DE ESTACA</div>
+      <div class="agenda-row stake-cue active">
+        <div class="agenda-label">Cue</div>
+        <div class="agenda-value">Ahora cedemos el tiempo a Matt Hafen, Primer Consejero de Estaca para tratar algunos asuntos de estaca.</div>
+      </div>
+    </section>
   
-    <div class="business-block">
-      <h3>Sostenimientos</h3>
-      <ul><li>Sofia Alvear Moncayo — Activity Chairman</li></ul>
-      <p class="cue">Los que estén a favor, sírvanse manifestarlo. Contrarios, si los hay, de la misma manera.</p>
-    </div>
-  
-    <div class="business-block">
-      <h3>Ordenaciones</h3>
-      
-        <p><strong>Presbítero:</strong> Raul Fernando Alvear Bedon</p>
-      
-      <p class="cue">Invitar a los hermanos autorizados a participar según corresponda.</p>
-    </div>
-  
-    <div class="business-block">
-      <h3>Confirmaciones</h3>
-      <ul><li>Scarlet Alvear</li><li>Ana Alvear Moncayo</li></ul>
-      <p class="cue">Confirmar y conferir el don del Espíritu Santo según corresponda.</p>
-    </div>
-  </section>
+        <section class="agenda-section keep-together"><div class="section-title">SANTA CENA</div><div class="agenda-row"><div class="agenda-label">Transición</div><div class="agenda-value">Ahora nos prepararemos para participar de la Santa Cena, cantando el himno sacramental.</div></div><div class="agenda-row"><div class="agenda-label">Himno sacramental</div><div class="agenda-value">#11 Dios manda a profetas</div></div><div class="agenda-row"><div class="agenda-label">Bendición del pan</div><div class="agenda-value">Los poseedores del sacerdocio bendicen y reparten el pan.</div></div><div class="agenda-row"><div class="agenda-label">Bendición del agua</div><div class="agenda-value">Los poseedores del sacerdocio bendicen y reparten el agua.</div></div><div class="agenda-row"><div class="agenda-label">Santa Cena</div><div class="agenda-value">Administración de la Santa Cena.</div></div></section>
+        <section class="agenda-section keep-together"><div class="section-title">DISCURSOS / TESTIMONIOS</div><div class="agenda-row"><div class="agenda-label">Discursante</div><div class="agenda-value">Seth McGinn</div></div><div class="agenda-row"><div class="agenda-label">Himno intermedio</div><div class="agenda-value">#11 Dios manda a profetas</div></div><div class="agenda-row"><div class="agenda-label">Discursante</div><div class="agenda-value">Armando Bake</div></div></section>
+        <section class="agenda-section keep-together"><div class="section-title">CIERRE</div><div class="agenda-row"><div class="agenda-label">Himno de clausura</div><div class="agenda-value">#8 ¿Qué es lo que vieron en las alturas?</div></div><div class="agenda-row"><div class="agenda-label">Última oración</div><div class="agenda-value">Por invitación</div></div></section>
       </main>
     
 </body>
