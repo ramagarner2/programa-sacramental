@@ -5,93 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rama Garner 2 — Programa para imprimir</title>
   <style>
-    :root { --blue:#174a73; --light:#eef6fb; --line:#cddde8; --text:#1d2a33; }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--text); background:#fff; font-size:11.5pt; }
-    .print-sheet { max-width:8.5in; margin:0 auto; padding:.35in; }
-    .print-header { display:flex; justify-content:space-between; gap:20px; border-bottom:3px solid var(--blue); padding-bottom:12px; margin-bottom:14px; }
-    .church-line { margin:0 0 4px; font-size:9.5pt; color:#4a5a65; }
-    h1 { margin:0 0 6px; color:var(--blue); font-size:22pt; }
-    h2 { color:var(--blue); font-size:14pt; margin:0 0 8px; }
-    .qr-box { width:1.55in; text-align:center; font-size:8.5pt; }
-    .qr-box img { width:1.25in; height:1.25in; }
-    .two-col { display:grid; grid-template-columns:1.35fr .8fr; gap:14px; align-items:start; }
-    .print-card { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; break-inside:avoid; }
-    .small-card { font-size:10.2pt; }
-    .leader-line { background:var(--light); border-radius:8px; padding:7px; }
-    .program-table, .agenda-table { width:100%; border-collapse:collapse; }
-    .program-table th { width:38%; text-align:left; background:var(--light); color:#123f60; padding:7px; border:1px solid var(--line); }
-    .program-table td { padding:7px; border:1px solid var(--line); }
-    .announcement-list { padding-left:18px; margin:0; }
-    .announcement-list li { margin-bottom:6px; }
-    .scan-note { font-weight:700; color:#123f60; }
-    @media print { .print-sheet { padding:.25in; } body { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+    body.print-program-page { margin:0; padding:.35in; background:#ddd; color:#111; font-family:Arial, Helvetica, sans-serif; font-size:10pt; line-height:1.25; }
+    .program-wrapper { max-width:10.5in; margin:0 auto; }
+    .page { display:grid; grid-template-columns:calc((100% - .34in)/2) calc((100% - .34in)/2); column-gap:.34in; background:#fff; padding:.22in; margin:0 auto .25in; min-height:7.8in; box-shadow:0 2px 12px rgba(0,0,0,.15); }
+    .panel { min-height:7.35in; padding:.22in; display:flex; flex-direction:column; }
+    .panel-front-cover { text-align:center; }
+    .print-cover-welcome { font-family:Georgia, 'Times New Roman', serif; font-size:19pt; line-height:1.03; font-weight:500; margin:0 0 1px; }
+    .panel-front-cover h1 { font-size:25pt; line-height:1.02; margin:0 0 4px; }
+    .cover-image { width:100%; height:4.35in; object-fit:cover; object-position:center; margin:7px 0 0; filter:grayscale(18%) contrast(1.02); }
+    .panel-front-cover h2 { font-size:17pt; line-height:1.1; margin:10px 0 0; }
+    .print-cover-date-below { margin-top:5px; font-size:13pt; font-weight:600; }
+    .church-footer { margin-top:auto; padding-top:8px; }
+    .church-wordmark-print { max-width:2.35in; margin-left:auto; margin-right:auto; text-align:center; font-family:Georgia, 'Times New Roman', serif; letter-spacing:.05em; }
+    .church-wordmark-small { display:block; font-size:7.8pt; line-height:1.02; font-weight:600; white-space:nowrap; }
+    .church-wordmark-main { display:block; margin:1px 0; font-size:17.8pt; line-height:.92; font-weight:500; letter-spacing:.035em; white-space:nowrap; }
+    .panel h1 { font-size:18pt; margin:0 0 4px; text-align:center; }
+    .panel h2 { font-size:12pt; margin:8px 0 5px; color:#111; }
+    .service-table { width:100%; border-collapse:collapse; margin-top:9px; }
+    .service-table td { padding:7px 6px; border-bottom:1px solid #ddd; vertical-align:top; }
+    .service-table .label { width:42%; font-weight:800; background:#f2f2f2; }
+    .service-table .value { font-weight:700; }
+    .print-sacrament-note { margin-top:auto; padding:10px 11px; background:#f2f2f2; font-size:9.8pt; line-height:1.25; }
+    .print-sacrament-note-title { font-weight:800; font-size:10.4pt; text-transform:uppercase; margin-bottom:5px; }
+    .weekly-ann-item { margin:0 0 8px; padding-bottom:6px; border-bottom:1px solid #e0e0e0; }
+    .single-qr-box { margin-top:auto; display:grid; grid-template-columns:.9in minmax(0,1fr); gap:.14in; align-items:center; padding:.1in; background:#f2f2f2; }
+    .qr-image { width:.82in; height:.82in; }
+    a { color:inherit; text-decoration:none; }
+    @page { size:letter landscape; margin:.35in; }
+    @media print { body.print-program-page { padding:0; background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .program-wrapper { max-width:none; } .page { box-shadow:none; margin:0; min-height:7.75in; page-break-after:always; break-after:page; } .page:last-child { page-break-after:auto; break-after:auto; } .panel { break-inside:avoid; page-break-inside:avoid; } }
   </style>
 </head>
-<body class="print-page">
+<body class="print-program-page">
 
-      <main class="print-sheet">
-        <header class="print-header">
-          <div>
-            <p class="church-line">La Iglesia de Jesucristo de los Santos de los Últimos Días</p>
+      <main class="program-wrapper">
+        <section class="page">
+          <section class="panel panel-front-cover">
+            <div class="print-cover-welcome">¡Bienvenidos a la!</div>
             <h1>Rama Garner 2</h1>
-            <p>21 de junio de 2026 · Reunión Sacramental · 10:30 AM</p>
-          </div>
-          
-            <div class="qr-box">
-              <img src="https://quickchart.io/qr?text=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fv3_mobile.html&size=150" alt="Código QR del programa móvil">
-              <p>Escanee para ver los enlaces y anuncios completos</p>
+            <img class="cover-image" src="images/christ-06.png" alt="Imagen de Jesucristo">
+            <h2>Reunión Sacramental</h2>
+            <div class="print-cover-date-below">21 de junio de 2026</div>
+            <div class="church-footer church-wordmark-print" aria-label="La Iglesia de Jesucristo de los Santos de los Últimos Días">
+              <span class="church-wordmark-small">LA IGLESIA DE</span>
+              <span class="church-wordmark-main">JESUCRISTO</span>
+              <span class="church-wordmark-small">DE LOS SANTOS</span>
+              <span class="church-wordmark-small">DE LOS ÚLTIMOS DÍAS</span>
             </div>
-          
-        </header>
+          </section>
 
-        <section class="two-col">
-          <div class="main-col">
-            <section class="print-card">
-              <h2>Programa</h2>
-              <p class="leader-line"><strong>Preside:</strong> Presidente Luis E Campos &nbsp; | &nbsp; <strong>Dirige:</strong> Presidente Luis E Campos</p>
-              <table class="program-table">
-                <tbody>
-                  <tr><th>Himno de apertura</th><td>#2 El Espíritu de Dios</td></tr><tr><th>Primera oración</th><td>Por invitación</td></tr><tr><th>Himno sacramental</th><td>#11 Dios manda a profetas</td></tr><tr><th>Orador(a)</th><td>Seth McGinn</td></tr><tr><th>Himno intermedio</th><td>#11 Dios manda a profetas</td></tr><tr><th>Orador(a)</th><td>Armando Bake</td></tr><tr><th>Himno de clausura</th><td>#8 ¿Qué es lo que vieron en las alturas?</td></tr><tr><th>Última oración</th><td>Por invitación</td></tr>
-                </tbody>
-              </table>
-            </section>
+          <section class="panel panel-service">
+            <h1>Programa Sacramental</h1>
+            <h2>21 de junio de 2026</h2>
+            <table class="service-table">
+              <tr><td class="label">Himno de Apertura</td><td class="value">#2 El Espíritu de Dios</td></tr><tr><td class="label">Primera Oración</td><td class="value">Por invitación</td></tr><tr><td class="label">Himno Sacramental</td><td class="value">#11 Dios manda a profetas</td></tr><tr><td class="label">Discurso</td><td class="value">Seth McGinn</td></tr><tr><td class="label">Himno Intermedio</td><td class="value">#11 Dios manda a profetas</td></tr><tr><td class="label">Discurso</td><td class="value">Armando Bake</td></tr><tr><td class="label">Himno de Cierre</td><td class="value">#8 ¿Qué es lo que vieron en las alturas?</td></tr><tr><td class="label">Última Oración</td><td class="value">Por invitación</td></tr>
+            </table>
 
-            
-    <section class="print-card">
-      <h2>Anuncios</h2>
-      <ul class="announcement-list">
-        <li><strong>Invitación a alimentar a los misioneros:</strong> Gracias a todos los que han estado ayudando a alimentar a nuestros misioneros. Todavía no tienen comidas programadas para la próxima semana. Por favor ayú…</li><li><strong>EnglishConnect:</strong> EnglishConnect se lleva a cabo todos los lunes y viernes de 8:00 p. m. a 9:00 p. m.</li><li><strong>Invitación al grupo de WhatsApp:</strong> Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir act…</li><li><strong>Family Home Evening PotLuck:</strong> Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</li>
-      </ul>
-      <p class="scan-note">Escanee el código QR para ver los enlaces y anuncios completos.</p>
-    </section>
-  
-          </div>
+            <div class="print-sacrament-note">
+              <div class="print-sacrament-note-title">Sobre la Santa Cena</div>
+              <p>La Santa Cena es una oportunidad sagrada para recordar a Jesucristo, renovar nuestros convenios y volver nuestro corazón a Él.</p>
+            </div>
+          </section>
+        </section>
 
-          <aside class="side-col">
+        <section class="page page-second">
+          <section class="panel panel-info">
+            <h2>¿Es su primera vez?</h2>
+            <p>Nos alegra recibirle. Después de la reunión sacramental tendremos clases para adultos, jóvenes y niños. Si desea quedarse, con gusto le ayudaremos a encontrar la clase correspondiente.</p>
             
-    <section class="print-card small-card">
-      <h2>¿Es su primera vez?</h2>
-      <p>Bienvenido. Nos alegra que esté con nosotros. Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños; está invitado a quedarse.</p>
-    </section>
-    <section class="print-card small-card">
-      <h2>La Santa Cena</h2>
-      <p>La Santa Cena nos ayuda a recordar a Jesucristo, Su sacrificio y Su resurrección. Es un momento de reflexión, oración y renovación espiritual.</p>
-    </section>
-    
-  
-            
-    <section class="print-card small-card">
-      <h2>Misioneros / Dirección</h2>
-      
-        <p><strong>Hermanas Boyer y Rounds</strong><br>(919) 802-1411</p>
-      
-        <p><strong>Elder y Hermana Turley</strong><br>(480) 510-0654</p>
-      
-      <p><strong>Dirección:</strong><br>1433 Aversboro Rd, Garner, NC 27529</p>
-    </section>
-  
-          </aside>
+            <h2>Teléfonos y dirección</h2>
+            <p><strong>Hermanas Boyer y Rounds</strong><br>(919) 802-1411</p><p><strong>Elder y Hermana Turley</strong><br>(480) 510-0654</p>
+            <p>1433 Aversboro Rd, Garner, NC 27529</p>
+          </section>
+
+          <section class="panel panel-announcements">
+            <h2>Anuncios</h2>
+            <div class="weekly-ann-item"><strong>Family Home Evening PotLuck</strong><br>Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</div>
+            <div class="single-qr-box">
+              <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&amp;data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fv3_mobile.html" alt="QR del programa móvil">
+              <div><strong>Escanee para ver los enlaces y anuncios completos.</strong><br>https://ramagarner2.github.io/programa-sacramental/v3_mobile.html</div>
+            </div>
+          </section>
         </section>
       </main>
     
