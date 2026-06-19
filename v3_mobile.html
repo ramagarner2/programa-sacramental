@@ -5,132 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rama Garner 2 — Programa Sacramental</title>
   <style>
-    :root { --blue:#174a73; --light:#eef6fb; --line:#d9e6ef; --text:#1d2a33; --muted:#5f6f7a; }
+    :root { --navy:#0c273f; --gold:#c9a24b; --cream:#fff9ef; --soft:#f5efe4; --text:#1d1d1d; }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#f5f8fb; color:var(--text); line-height:1.45; }
-    .mobile-shell { max-width:760px; margin:0 auto; padding:16px; }
-    .hero-card, .card, .info-card { background:#fff; border:1px solid var(--line); border-radius:18px; box-shadow:0 8px 24px rgba(20,60,90,.08); margin-bottom:14px; }
-    .hero-card { padding:22px 18px; text-align:center; background:linear-gradient(180deg,#ffffff,#edf6fb); }
-    .eyebrow { color:var(--muted); font-size:13px; margin:0 0 8px; }
-    h1 { color:var(--blue); font-size:30px; margin:0 0 8px; }
-    h2 { color:var(--blue); font-size:22px; margin:0 0 12px; }
-    h3 { margin:0 0 6px; color:#123f60; }
-    .date-line { font-weight:700; margin:0; }
-    .meeting-line { margin:6px 0 0; color:var(--muted); }
+    body.mobile-page { margin:0; background:var(--soft); color:var(--text); font-family:Arial, Helvetica, sans-serif; line-height:1.45; }
+    .mobile-shell { max-width:520px; margin:0 auto; padding:0 14px 28px; }
+    .mobile-hero { position:relative; min-height:360px; margin:0 -14px 16px; background-size:cover; background-position:center; overflow:hidden; }
+    .mobile-hero-content { position:absolute; left:0; top:0; bottom:0; width:54%; padding:48px 4px 0 22px; color:#fff; }
+    .mobile-hero-welcome { font-family:Georgia, 'Times New Roman', serif; font-size:clamp(18.5px,5.45vw,27px); line-height:1.04; font-weight:700; margin-bottom:10px; }
+    .mobile-hero-welcome span { display:block; white-space:nowrap; }
+    .mobile-hero-meeting-title { font-family:Georgia, 'Times New Roman', serif; font-size:clamp(14.3px,3.65vw,18px); line-height:1.05; font-weight:800; max-width:215px; }
+    .mobile-hero-meeting-title.long-title { font-size:clamp(11.5px,2.9vw,14.2px); white-space:normal; }
+    .mobile-hero-date { margin-top:8px; font-size:13px; font-weight:700; }
+    .church-wordmark-mobile { position:absolute; left:50%; bottom:104px; transform:translateX(-50%); width:190px; max-width:94%; text-align:center; font-family:Georgia, 'Times New Roman', serif; }
+    .church-wordmark-small { display:block; font-size:10px; line-height:1.02; font-weight:700; letter-spacing:.08em; white-space:nowrap; }
+    .church-wordmark-main { display:block; margin:1px 0; font-size:24px; line-height:.92; font-weight:500; letter-spacing:.035em; white-space:nowrap; }
+    .card, details.accordion { background:#fff; border-radius:17px; margin:13px 0; box-shadow:0 8px 22px rgba(12,39,63,.10); border:1px solid rgba(12,39,63,.08); overflow:hidden; }
     .card { padding:18px; }
-    .info-card { padding:0; overflow:hidden; }
-    .info-card summary { cursor:pointer; list-style:none; padding:16px 18px; display:flex; justify-content:space-between; align-items:center; font-weight:700; color:var(--blue); }
-    .info-card summary::-webkit-details-marker { display:none; }
-    .arrow { font-size:24px; animation:v3-arrow 1.25s infinite; transform-origin:center; }
-    .info-card[open] .arrow { transform:rotate(180deg); animation:none; }
-    @keyframes v3-arrow { 0%,100% { transform:translateY(0); } 50% { transform:translateY(4px); } }
-    .details-body { padding:0 18px 16px; color:#30424f; }
-    .leader-grid { display:grid; grid-template-columns:1fr; gap:6px; background:var(--light); padding:12px; border-radius:12px; margin-bottom:12px; }
-    .service-list { border:1px solid var(--line); border-radius:14px; overflow:hidden; }
-    .service-row { display:grid; grid-template-columns:43% 57%; border-bottom:1px solid var(--line); }
-    .service-row:last-child { border-bottom:0; }
-    .service-row span { background:#e7f1f8; color:#123f60; padding:11px; font-weight:700; }
-    .service-row strong { padding:11px; font-weight:600; }
-    .announcement { border-top:1px solid var(--line); padding:13px 0; }
-    .announcement:first-of-type { border-top:0; padding-top:0; }
-    .link-button { display:block; text-align:center; background:var(--blue); color:#fff; padding:12px 14px; border-radius:999px; text-decoration:none; font-weight:700; margin-top:10px; }
-    .button-stack .link-button { margin-bottom:8px; }
-    .missionary-card { background:var(--light); border-radius:12px; padding:12px; margin-bottom:10px; }
-    .missionary-card a { display:block; color:var(--blue); margin-top:4px; }
-    .address a { color:var(--blue); }
+    .card h2, .accordion-title { color:var(--navy); }
+    .card h2 { margin:0 0 10px; font-size:21px; }
+    .leader-line { color:#4b4b4b; margin:0 0 13px; }
+    .service-list { border-top:1px solid #e8e1d6; }
+    .agenda-row { display:grid; grid-template-columns:40% 60%; border-bottom:1px solid #e8e1d6; }
+    .agenda-label { padding:10px 8px; background:#fffaf1; font-weight:800; color:var(--navy); }
+    .agenda-value { padding:10px 8px; font-weight:700; }
+    details.accordion summary { display:grid; grid-template-columns:34px minmax(0,1fr) 30px; column-gap:10px; align-items:center; padding:15px 16px; list-style:none; cursor:pointer; border-left:4px solid var(--gold); background:#fffdf8; }
+    details.accordion summary::-webkit-details-marker { display:none; }
+    .round-icon { width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:15px; }
+    .accordion-title { display:block; font-size:17px; font-weight:900; }
+    .accordion-subtitle { display:block; font-size:12px; color:#6b6257; margin-top:2px; }
+    .accordion-chevron { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; color:var(--navy); font-size:0; transform-origin:center; }
+    .accordion-chevron::before { content:'›'; display:block; font-size:32px; line-height:1; font-weight:800; transform:translateY(-1px); }
+    .accordion[open] .accordion-chevron { transform:rotate(90deg); }
+    .accordion-body { padding:0 17px 17px; }
+    .accordion-body p { margin:12px 0; }
+    .chevron-attention { animation:rg2-chevron-nudge .62s ease-in-out 4; }
+    @keyframes rg2-chevron-nudge { 0%,100% { transform:translateX(0); } 45% { transform:translateX(5px); } }
+    .accordion[open] .chevron-attention { animation:none !important; }
+    .button { display:block; width:calc(100% - 12px); margin:13px auto; padding:12px 18px; background:var(--navy); color:#fff; border-radius:999px; text-align:center; text-decoration:none; font-weight:800; }
+    .announcement-list p { margin:0 0 12px; padding:11px 12px; border-left:3px solid var(--gold); border-radius:10px; background:#fffaf1; line-height:1.4; }
+    .sacrament-mobile-image { height:135px; border-radius:14px; background-size:cover; background-position:center; margin-top:12px; filter:grayscale(35%) contrast(1.05); }
+    .footer { text-align:center; padding:20px 12px 26px; color:#3f3f3f; }
+    .footer-title { font-weight:900; color:var(--navy); margin-bottom:8px; }
+    .footer-line { margin:8px 0; }
+    .footer a { color:var(--navy); font-weight:800; }
+    @media (prefers-reduced-motion:reduce) { .chevron-attention { animation:none !important; } }
   </style>
 </head>
 <body class="mobile-page">
 
       <main class="mobile-shell">
-        <section class="hero-card">
-          <p class="eyebrow">La Iglesia de Jesucristo de los Santos de los Últimos Días</p>
-          <h1>Rama Garner 2</h1>
-          <p class="date-line">21 de junio de 2026</p>
-          <p class="meeting-line">Reunión Sacramental · 10:30 AM</p>
-        </section>
-
-        
-    <section class="accordion-wrap">
-      
-    <details class="info-card">
-      <summary><span>¿Es su primera vez?</span><span class="arrow">⌄</span></summary>
-      <div class="details-body">
-        <p>Nos alegra que esté con nosotros. No tiene que saber exactamente qué hacer; simplemente acompáñenos y participe de la manera que se sienta cómodo.</p>
-        <p>Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños. Está cordialmente invitado a quedarse y acompañarnos.</p>
-      </div>
-    </details>
-  
-      
-    <details class="info-card">
-      <summary><span>¿Qué es la Santa Cena?</span><span class="arrow">⌄</span></summary>
-      <div class="details-body">
-        <p>La Santa Cena nos ayuda a recordar a Jesucristo, Su sacrificio y Su resurrección. Durante esta ordenanza se bendicen y reparten el pan y el agua.</p>
-        <p>Usamos este tiempo para reflexionar, orar y renovar nuestro deseo de seguir al Salvador.</p>
-      </div>
-    </details>
-  
-      
-    </section>
-  
-
-        <section class="card">
-          <h2>Programa de hoy</h2>
-          <div class="leader-grid"><div><strong>Preside:</strong> Presidente Luis E Campos</div><div><strong>Dirige:</strong> Presidente Luis E Campos</div></div>
-          <div class="service-list">
-            <div class="service-row"><span>Himno de apertura</span><strong>#2 El Espíritu de Dios</strong></div><div class="service-row"><span>Primera oración</span><strong>Por invitación</strong></div><div class="service-row"><span>Himno sacramental</span><strong>#11 Dios manda a profetas</strong></div><div class="service-row"><span>Orador(a)</span><strong>Seth McGinn</strong></div><div class="service-row"><span>Himno intermedio</span><strong>#11 Dios manda a profetas</strong></div><div class="service-row"><span>Orador(a)</span><strong>Armando Bake</strong></div><div class="service-row"><span>Himno de clausura</span><strong>#8 ¿Qué es lo que vieron en las alturas?</strong></div><div class="service-row"><span>Última oración</span><strong>Por invitación</strong></div>
+        <section class="mobile-hero" style="background-image:linear-gradient(90deg, rgba(12,39,63,.97) 0%, rgba(12,39,63,.94) 50%, rgba(12,39,63,.18) 51%, rgba(12,39,63,.05) 100%), url('assets/headers/christ-06.png');">
+          <div class="mobile-hero-content">
+            <div class="mobile-hero-welcome"><span>¡Bienvenidos a la</span><span>Rama Garner 2!</span></div>
+            <div class="mobile-hero-meeting-title ">Reunión Sacramental</div>
+            <div class="mobile-hero-date">21 de junio de 2026</div>
+            <div class="church-wordmark-mobile" aria-label="La Iglesia de Jesucristo de los Santos de los Últimos Días">
+              <span class="church-wordmark-small">LA IGLESIA DE</span>
+              <span class="church-wordmark-main">JESUCRISTO</span>
+              <span class="church-wordmark-small">DE LOS SANTOS</span>
+              <span class="church-wordmark-small">DE LOS ÚLTIMOS DÍAS</span>
+            </div>
           </div>
         </section>
 
         
-    <section class="card">
-      <h2>Anuncios</h2>
-      
-        <article class="announcement">
-          <h3>Invitación a alimentar a los misioneros</h3>
-          <p>Gracias a todos los que han estado ayudando a alimentar a nuestros misioneros. Todavía no tienen comidas programadas para la próxima semana. Por favor ayúdenos a mantenerlos alimentados inscribiéndose para una fecha.</p>
-          <a class="link-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Inscribirse para alimentar a los misioneros</a>
-        </article>
-      
-        <article class="announcement">
-          <h3>EnglishConnect</h3>
-          <p>EnglishConnect se lleva a cabo todos los lunes y viernes de 8:00 p. m. a 9:00 p. m.</p>
-          <a class="link-button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">EnglishConnect</a>
-        </article>
-      
-        <article class="announcement">
-          <h3>Invitación al grupo de WhatsApp</h3>
-          <p>Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir actualizaciones y anuncios de la rama.</p>
-          <a class="link-button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a>
-        </article>
-      
-        <article class="announcement">
-          <h3>Family Home Evening PotLuck</h3>
-          <p>Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</p>
-          
-        </article>
-      
-    </section>
+    <details class="accordion">
+      <summary>
+        <span class="round-icon" aria-hidden="true">👋</span>
+        <span>
+          <span class="accordion-title">¿Es su primera vez?</span>
+          <span class="accordion-subtitle">Nos alegra que esté aquí</span>
+        </span>
+        <span class="accordion-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="accordion-body">
+      <p>Nos alegra mucho recibirle en la Rama Garner 2. Usted es bienvenido tal como está.</p>
+      <p>Después de la reunión sacramental tendremos clases para adultos, jóvenes y niños. Si desea quedarse, con gusto le ayudaremos a encontrar la clase correspondiente.</p>
+      <p>No se espera que participe, ore, hable ni done dinero. Puede simplemente acompañarnos y conocer mejor cómo adoramos a Jesucristo.</p>
+    </div>
+    </details>
   
-        <section class="card"><h2>Enlaces útiles</h2><div class="button-stack"><a class="link-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Alimentar a los misioneros</a><a class="link-button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Grupo de WhatsApp</a><a class="link-button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">EnglishConnect</a></div></section>
         
-    <section class="card">
-      <h2>Misioneros</h2>
-      
-        <div class="missionary-card">
-          <strong>Hermanas Boyer y Rounds</strong>
-          <a href="tel:9198021411">(919) 802-1411</a>
-        </div>
-      
-        <div class="missionary-card">
-          <strong>Elder y Hermana Turley</strong>
-          <a href="tel:4805100654">(480) 510-0654</a>
-        </div>
-      
-      <p class="address"><strong>Dirección:</strong> <a href="https://www.google.com/maps/search/?api=1&query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC 27529</a></p>
-    </section>
+    <details class="accordion">
+      <summary>
+        <span class="round-icon" aria-hidden="true">🍞</span>
+        <span>
+          <span class="accordion-title">Sobre la Santa Cena</span>
+          <span class="accordion-subtitle">Recordamos a Jesucristo</span>
+        </span>
+        <span class="accordion-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="accordion-body">
+      <p>La Santa Cena es la parte más sagrada de esta reunión. Participamos del pan y del agua en memoria del sacrificio de Jesucristo.</p>
+      <p>Durante la Santa Cena, procuramos pensar en Él, renovar nuestro compromiso de seguirle y volver nuestro corazón a Dios.</p>
+      <div class="sacrament-mobile-image" style="background-image:url('images/sacrament.png')"></div>
+    </div>
+    </details>
+  
+        
+
+        <section class="card service-card">
+          <h2>Orden de la reunión</h2>
+          <p class="leader-line">Preside: <strong>Presidente Luis E Campos</strong> &nbsp; | &nbsp; Conduce: <strong>Presidente Luis E Campos</strong></p>
+          <div class="service-list">
+            <div class="agenda-row"><div class="agenda-label">Himno de Apertura</div><div class="agenda-value">#2 El Espíritu de Dios</div></div><div class="agenda-row"><div class="agenda-label">Primera Oración</div><div class="agenda-value">Por invitación</div></div><div class="agenda-row"><div class="agenda-label">Himno Sacramental</div><div class="agenda-value">#11 Dios manda a profetas</div></div><div class="agenda-row"><div class="agenda-label">Discurso</div><div class="agenda-value">Seth McGinn</div></div><div class="agenda-row"><div class="agenda-label">Himno Intermedio</div><div class="agenda-value">#11 Dios manda a profetas</div></div><div class="agenda-row"><div class="agenda-label">Discurso</div><div class="agenda-value">Armando Bake</div></div><div class="agenda-row"><div class="agenda-label">Himno de Cierre</div><div class="agenda-value">#8 ¿Qué es lo que vieron en las alturas?</div></div><div class="agenda-row"><div class="agenda-label">Última Oración</div><div class="agenda-value">Por invitación</div></div>
+          </div>
+        </section>
+
+        
+    <details class="accordion">
+      <summary>
+        <span class="round-icon" aria-hidden="true">📌</span>
+        <span>
+          <span class="accordion-title">Anuncios</span>
+          <span class="accordion-subtitle">Información de esta semana</span>
+        </span>
+        <span class="accordion-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="accordion-body"><div class="announcement-list"><p><strong>Family Home Evening PotLuck</strong><br>Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</p></div></div>
+    </details>
+  
+        
+    <details class="accordion">
+      <summary>
+        <span class="round-icon" aria-hidden="true">🍽️</span>
+        <span>
+          <span class="accordion-title">Alimentar a los misioneros</span>
+          <span class="accordion-subtitle">Escoger una fecha</span>
+        </span>
+        <span class="accordion-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="accordion-body"><p>Gracias por ayudar a alimentar a los misioneros. Use este enlace para inscribirse.</p><a class="button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha</a></div>
+    </details>
+  
+    <details class="accordion">
+      <summary>
+        <span class="round-icon" aria-hidden="true">📘</span>
+        <span>
+          <span class="accordion-title">EnglishConnect</span>
+          <span class="accordion-subtitle">Clases gratuitas de inglés</span>
+        </span>
+        <span class="accordion-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="accordion-body"><p>EnglishConnect se lleva a cabo los lunes y viernes de 8:00 p. m. a 9:00 p. m.</p><a class="button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Más información de EnglishConnect</a></div>
+    </details>
+  
+    <details class="accordion">
+      <summary>
+        <span class="round-icon" aria-hidden="true">💬</span>
+        <span>
+          <span class="accordion-title">Grupo de WhatsApp</span>
+          <span class="accordion-subtitle">Actualizaciones de la rama</span>
+        </span>
+        <span class="accordion-chevron" aria-hidden="true">›</span>
+      </summary>
+      <div class="accordion-body"><p>Únase al grupo de WhatsApp de la rama para recibir anuncios y actualizaciones.</p><a class="button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a></div>
+    </details>
+  
+        
+    <footer class="footer">
+      <div class="footer-title">Teléfonos y dirección</div>
+      <div class="footer-line">Hermanas Boyer y Rounds<br><a href="tel:9198021411">(919) 802-1411</a></div><div class="footer-line">Elder y Hermana Turley<br><a href="tel:4805100654">(480) 510-0654</a></div>
+      <div class="footer-line"><a href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC 27529</a></div>
+    </footer>
   
       </main>
+      
+    <script>
+      (function () {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        function cue(details) {
+          if (!details || details.dataset.chevronCued === 'true') return;
+          details.dataset.chevronCued = 'true';
+          var chevron = details.querySelector('.accordion-chevron');
+          if (!chevron) return;
+          chevron.classList.add('chevron-attention');
+          window.setTimeout(function () { chevron.classList.remove('chevron-attention'); }, 2800);
+        }
+        var accordions = Array.prototype.slice.call(document.querySelectorAll('details.accordion'));
+        if (!accordions.length) return;
+        if (!('IntersectionObserver' in window)) { accordions.slice(0,4).forEach(cue); return; }
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) { if (entry.isIntersecting) cue(entry.target); });
+        }, { threshold: 0.4 });
+        accordions.forEach(function(details) { observer.observe(details); });
+      })();
+    </script>
+  
     
 </body>
 </html>
