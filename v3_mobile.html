@@ -1,197 +1,1555 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rama Garner 2 — Programa Sacramental</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programa Sacramental — Mobile</title>
+
   <style>
-    :root { --navy:#0c273f; --gold:#c9a24b; --cream:#fff9ef; --soft:#f5efe4; --text:#1d1d1d; }
-    * { box-sizing:border-box; }
-    body.mobile-page { margin:0; background:var(--soft); color:var(--text); font-family:Arial, Helvetica, sans-serif; line-height:1.45; }
-    .mobile-shell { max-width:520px; margin:0 auto; padding:0 14px 28px; }
-    .mobile-hero { position:relative; min-height:360px; margin:0 -14px 16px; background-size:cover; background-position:center; overflow:hidden; }
-    .mobile-hero-content { position:absolute; left:0; top:0; bottom:0; width:54%; padding:48px 4px 0 22px; color:#fff; }
-    .mobile-hero-welcome { font-family:Georgia, 'Times New Roman', serif; font-size:clamp(18.5px,5.45vw,27px); line-height:1.04; font-weight:700; margin-bottom:10px; }
-    .mobile-hero-welcome span { display:block; white-space:nowrap; }
-    .mobile-hero-meeting-title { font-family:Georgia, 'Times New Roman', serif; font-size:clamp(14.3px,3.65vw,18px); line-height:1.05; font-weight:800; max-width:215px; }
-    .mobile-hero-meeting-title.long-title { font-size:clamp(11.5px,2.9vw,14.2px); white-space:normal; }
-    .mobile-hero-date { margin-top:8px; font-size:13px; font-weight:700; }
-    .church-wordmark-mobile { position:absolute; left:50%; bottom:104px; transform:translateX(-50%); width:190px; max-width:94%; text-align:center; font-family:Georgia, 'Times New Roman', serif; }
-    .church-wordmark-small { display:block; font-size:10px; line-height:1.02; font-weight:700; letter-spacing:.08em; white-space:nowrap; }
-    .church-wordmark-main { display:block; margin:1px 0; font-size:24px; line-height:.92; font-weight:500; letter-spacing:.035em; white-space:nowrap; }
-    .card, details.accordion { background:#fff; border-radius:17px; margin:13px 0; box-shadow:0 8px 22px rgba(12,39,63,.10); border:1px solid rgba(12,39,63,.08); overflow:hidden; }
-    .card { padding:18px; }
-    .card h2, .accordion-title { color:var(--navy); }
-    .card h2 { margin:0 0 10px; font-size:21px; }
-    .leader-line { color:#4b4b4b; margin:0 0 13px; }
-    .service-list { border-top:1px solid #e8e1d6; }
-    .agenda-row { display:grid; grid-template-columns:40% 60%; border-bottom:1px solid #e8e1d6; }
-    .agenda-label { padding:10px 8px; background:#fffaf1; font-weight:800; color:var(--navy); }
-    .agenda-value { padding:10px 8px; font-weight:700; }
-    details.accordion summary { display:grid; grid-template-columns:34px minmax(0,1fr) 30px; column-gap:10px; align-items:center; padding:15px 16px; list-style:none; cursor:pointer; border-left:4px solid var(--gold); background:#fffdf8; }
-    details.accordion summary::-webkit-details-marker { display:none; }
-    .round-icon { width:30px; height:30px; border-radius:50%; background:var(--navy); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:15px; }
-    .accordion-title { display:block; font-size:17px; font-weight:900; }
-    .accordion-subtitle { display:block; font-size:12px; color:#6b6257; margin-top:2px; }
-    .accordion-chevron { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; color:var(--navy); font-size:0; transform-origin:center; }
-    .accordion-chevron::before { content:'›'; display:block; font-size:32px; line-height:1; font-weight:800; transform:translateY(-1px); }
-    .accordion[open] .accordion-chevron { transform:rotate(90deg); }
-    .accordion-body { padding:0 17px 17px; }
-    .accordion-body p { margin:12px 0; }
-    .chevron-attention { animation:rg2-chevron-nudge .62s ease-in-out 4; }
-    @keyframes rg2-chevron-nudge { 0%,100% { transform:translateX(0); } 45% { transform:translateX(5px); } }
-    .accordion[open] .chevron-attention { animation:none !important; }
-    .button { display:block; width:calc(100% - 12px); margin:13px auto; padding:12px 18px; background:var(--navy); color:#fff; border-radius:999px; text-align:center; text-decoration:none; font-weight:800; }
-    .announcement-list p { margin:0 0 12px; padding:11px 12px; border-left:3px solid var(--gold); border-radius:10px; background:#fffaf1; line-height:1.4; }
-    .sacrament-mobile-image { height:135px; border-radius:14px; background-size:cover; background-position:center; margin-top:12px; filter:grayscale(35%) contrast(1.05); }
-    .footer { text-align:center; padding:20px 12px 26px; color:#3f3f3f; }
-    .footer-title { font-weight:900; color:var(--navy); margin-bottom:8px; }
-    .footer-line { margin:8px 0; }
-    .footer a { color:var(--navy); font-weight:800; }
-    @media (prefers-reduced-motion:reduce) { .chevron-attention { animation:none !important; } }
+    :root {
+      --navy: #06182d;
+      --navy-2: #071f3a;
+      --gold: #d4a24d;
+      --cream: #f4f2ee;
+      --paper: #ffffff;
+      --soft-card: #fffaf1;
+      --line: #e5e7eb;
+      --text: #111111;
+      --muted: #555555;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--navy);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .mobile-program {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--navy);
+    }
+
+    .mobile-hero {
+      position: relative;
+      min-height: 300px;
+      overflow: hidden;
+      background-image:
+        linear-gradient(
+          90deg,
+          #06182d 0%,
+          rgba(6, 24, 45, 0.98) 24%,
+          rgba(6, 24, 45, 0.82) 40%,
+          rgba(6, 24, 45, 0.45) 58%,
+          rgba(6, 24, 45, 0.12) 76%,
+          rgba(6, 24, 45, 0) 100%
+        ),
+        var(--hero-image);
+      background-size: cover;
+      background-position: 70% center;
+      background-repeat: no-repeat;
+      background-color: var(--navy);
+    }
+
+    .mobile-hero.hero-standard {
+      --hero-image: url("assets/headers/christ-standard.png");
+    }
+
+    .mobile-hero.hero-christmas {
+      --hero-image: url("assets/headers/christ-christmas.png");
+      background-size: 182% auto;
+      background-position: 22% center;
+    }
+
+    .mobile-hero.hero-easter {
+      --hero-image: url("assets/headers/christ-easter.png");
+      background-position: 57% center;
+    }
+
+    .mobile-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 55%;
+      padding: 34px 18px 28px;
+    }
+
+    .mobile-hero.hero-christmas .mobile-hero-content {
+      width: 45%;
+      padding-right: 4px;
+    }
+
+    .mobile-hero h1 {
+      margin: 0 0 16px;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(24px, 7.1vw, 32px);
+      line-height: 1.08;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .mobile-hero-date {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(14px, 3.9vw, 17px);
+      line-height: 1.2;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .mobile-hero-date svg {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .mobile-hero-church {
+      display: block;
+      max-width: 165px;
+      margin: 0;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(10.5px, 2.95vw, 12.5px);
+      line-height: 1.24;
+      font-weight: 400;
+    }
+
+    .mobile-hero-church span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .mobile-body {
+      background: var(--navy);
+      padding: 16px 14px 28px;
+    }
+
+    .card,
+    .accordion {
+      background: var(--paper);
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+      margin: 0 0 14px;
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 18px 16px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21.5px;
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .round-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .round-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .agenda-row {
+      display: grid;
+      grid-template-columns: 41% 59%;
+      gap: 8px;
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .agenda-row:last-child {
+      border-bottom: 0;
+    }
+
+    .agenda-label {
+      color: var(--navy);
+      font-size: 14.5px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .agenda-value {
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.25;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .person-name,
+    .person-title {
+      display: block;
+      text-align: right;
+    }
+
+    .person-title {
+      margin-top: 3px;
+      color: #333333;
+      font-size: 12.25px;
+      line-height: 1.2;
+      font-style: italic;
+    }
+
+    .sacrament-admin {
+      margin: 14px 0 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .sacrament-admin-text {
+      display: inline-block;
+      max-width: 100%;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #fffaf1;
+      border: 1px solid #eadcc4;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14.5px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.035);
+    }
+
+    .sacrament-card {
+      background: var(--soft-card);
+      border: 1px solid #eadcc4;
+    }
+
+    .sacrament-image-wrap {
+      margin: 0 0 16px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff7eb;
+      border: 1px solid #eadcc4;
+    }
+
+    .sacrament-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 205px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .sacrament-title {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .sacrament-text {
+      margin: 0 0 12px;
+      color: #333333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .scripture-card {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #e6dfd3;
+      text-align: center;
+    }
+
+    .scripture-quote {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    .scripture-ref {
+      margin-top: 8px;
+      color: #9a7435;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .accordion summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) 18px;
+      gap: 11px;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-chevron {
+      color: #9a7435;
+      font-size: 24px;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+
+    .accordion[open] .accordion-chevron {
+      transform: rotate(90deg);
+    }
+
+    .accordion-title {
+      display: block;
+      color: var(--navy);
+      font-size: 15.75px;
+      line-height: 1.18;
+      font-weight: 850;
+      letter-spacing: 0.01em;
+    }
+
+    .accordion-subtitle {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+
+    .accordion-body {
+      padding: 0 16px 17px 64px;
+      color: #333333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .accordion-body p {
+      margin: 0 0 10px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #ffffff;
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .lesson-note {
+      margin: -4px 0 12px;
+      text-align: center;
+      color: #555555;
+      font-size: 14.5px;
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    .footer {
+      margin-top: 16px;
+      padding: 18px 17px;
+      border-radius: 16px;
+      background: var(--navy-2);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.20);
+      color: #ffffff;
+    }
+
+    .footer-title {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1.22;
+      font-weight: 850;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .footer-line {
+      margin: 8px 0;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 800;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media screen and (min-width: 901px) {
+      .mobile-program {
+        max-width: 480px;
+      }
+    }
+  
+
+    /* FINAL POLISH: clean leadership split, centered class buttons, tidy accordions */
+    .person-value {
+      text-align: right !important;
+    }
+
+    .person-name {
+      display: block !important;
+      font-size: 14.5px !important;
+      line-height: 1.22 !important;
+      font-weight: 500 !important;
+      color: var(--text) !important;
+      text-align: right !important;
+    }
+
+    .person-title {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 12.15px !important;
+      line-height: 1.18 !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+      color: #333333 !important;
+      text-align: right !important;
+    }
+
+    .accordion summary {
+      min-height: 58px;
+      grid-template-columns: 38px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+    }
+
+    .accordion-title,
+    .accordion-subtitle {
+      display: block !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-title {
+      line-height: 1.16 !important;
+    }
+
+    .accordion-subtitle {
+      line-height: 1.18 !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+    }
+
+    .accordion-body {
+      padding-left: 64px !important;
+      padding-right: 16px !important;
+    }
+
+    .accordion-body .button {
+      width: 86% !important;
+      max-width: 320px !important;
+      margin: 12px auto 8px !important;
+      padding: 11px 15px !important;
+      text-align: center !important;
+    }
+
+    .accordion-body .lesson-note.redundant-note,
+    .accordion-body .lesson-note:empty {
+      display: none !important;
+    }
+
+    .accordion-body p {
+      text-align: left;
+    }
+
+    @media screen and (max-width: 420px) {
+      .person-name {
+        font-size: 14.25px !important;
+      }
+
+      .person-title {
+        font-size: 12px !important;
+      }
+
+      .accordion summary {
+        min-height: 58px;
+        padding: 14px 15px !important;
+      }
+
+      .accordion-body .button {
+        width: 88% !important;
+      }
+    }
+
+  
+    /* FINAL V2 MOBILE POLISH:
+       cleaner accordion rows, centered narrower class buttons, no redundant notes */
+    .accordion summary {
+      grid-template-columns: 34px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding: 14px 15px !important;
+    }
+
+    .accordion summary .round-icon {
+      width: 31px !important;
+      height: 31px !important;
+      flex-basis: 31px !important;
+      align-self: center !important;
+    }
+
+    .accordion summary > span:nth-child(2) {
+      min-width: 0 !important;
+      display: block !important;
+    }
+
+    .accordion-title {
+      display: block !important;
+      font-size: 15.6px !important;
+      line-height: 1.16 !important;
+      white-space: normal !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 13.1px !important;
+      line-height: 1.18 !important;
+      white-space: normal !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+      font-size: 20px !important;
+    }
+
+    .accordion-body {
+      padding: 0 20px 18px 54px !important;
+    }
+
+    .accordion-body .button {
+      width: auto !important;
+      max-width: 285px !important;
+      min-width: 215px !important;
+      margin: 12px auto !important;
+      padding: 11px 18px !important;
+      text-align: center !important;
+    }
+
+    .lesson-note {
+      display: none !important;
+    }
+
+    .person-name,
+    .person-title {
+      display: block !important;
+      text-align: right !important;
+    }
+
+    .person-title {
+      font-size: 12.1px !important;
+      line-height: 1.18 !important;
+      margin-top: 3px !important;
+      font-style: italic !important;
+    }
+
+    .agenda-row {
+      grid-template-columns: 40% 60% !important;
+      gap: 8px !important;
+    }
+
+    .agenda-value {
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion-title {
+        font-size: 15px !important;
+      }
+
+      .accordion-subtitle {
+        font-size: 12.7px !important;
+      }
+
+      .accordion-body {
+        padding-left: 50px !important;
+        padding-right: 17px !important;
+      }
+
+      .accordion-body .button {
+        max-width: 260px !important;
+        min-width: 205px !important;
+      }
+    }
+
+  
+    /* FINAL V4 MOBILE BUTTON FIX:
+       Buttons should be centered, narrower, and not dominate the card. */
+    .accordion-body {
+      padding: 0 20px 18px 54px !important;
+    }
+
+    .accordion-body .button {
+      display: block !important;
+      width: clamp(185px, 68%, 245px) !important;
+      max-width: 245px !important;
+      min-width: 0 !important;
+      margin: 12px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+    }
+
+    .accordion-body .button + .lesson-note {
+      display: none !important;
+    }
+
+    .lesson-note {
+      display: none !important;
+    }
+
+    /* Keep accordion rows visually aligned and prevent sloppy collapsed rows. */
+    .accordion summary {
+      display: grid !important;
+      grid-template-columns: 34px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding: 14px 15px !important;
+    }
+
+    .accordion summary .round-icon {
+      width: 31px !important;
+      height: 31px !important;
+      flex: 0 0 31px !important;
+      align-self: center !important;
+    }
+
+    .accordion summary > span:nth-child(2) {
+      min-width: 0 !important;
+      display: block !important;
+    }
+
+    .accordion-title {
+      display: block !important;
+      font-size: 15.6px !important;
+      line-height: 1.16 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 13.1px !important;
+      line-height: 1.18 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+      font-size: 20px !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion-body {
+        padding-left: 50px !important;
+        padding-right: 17px !important;
+      }
+
+      .accordion-body .button {
+        width: clamp(175px, 66%, 225px) !important;
+        max-width: 225px !important;
+        font-size: 14.5px !important;
+      }
+    }
+
+  
+    /* FINAL V5 CLASS ACCORDION FIX:
+       The class section needs different alignment than normal text accordions.
+       Center the whole body and buttons against the card, not against the indented text column. */
+    .class-section-accordion .accordion-body {
+      padding: 0 22px 20px 22px !important;
+      text-align: center !important;
+    }
+
+    .class-section-accordion .accordion-body p {
+      max-width: 330px !important;
+      margin: 0 auto 14px auto !important;
+      text-align: center !important;
+      line-height: 1.42 !important;
+    }
+
+    .class-section-accordion .button {
+      display: block !important;
+      width: 240px !important;
+      max-width: 82% !important;
+      margin: 12px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+    }
+
+    .class-section-accordion .lesson-note {
+      display: none !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .class-section-accordion .accordion-body {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+
+      .class-section-accordion .button {
+        width: 225px !important;
+        max-width: 84% !important;
+        font-size: 14.5px !important;
+      }
+
+      .class-section-accordion .accordion-body p {
+        max-width: 300px !important;
+      }
+    }
+
+  
+    /* FINAL V6 GLOBAL ACCORDION BODY FIX:
+       Remove old left-column indentation from every expanded accordion.
+       Center buttons against the full card, not an indented text column. */
+    .accordion .accordion-body {
+      padding: 0 24px 20px 24px !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body p {
+      max-width: 340px !important;
+      margin: 0 auto 13px auto !important;
+      line-height: 1.42 !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body .button {
+      display: block !important;
+      width: 240px !important;
+      max-width: 82% !important;
+      min-width: 0 !important;
+      margin: 13px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+    }
+
+    .accordion .lesson-note {
+      display: none !important;
+    }
+
+    /* Keep collapsed rows neat and consistent. */
+    .accordion summary {
+      display: grid !important;
+      grid-template-columns: 34px minmax(0, 1fr) 16px !important;
+      gap: 10px !important;
+      align-items: center !important;
+      padding: 14px 15px !important;
+    }
+
+    .accordion summary .round-icon {
+      width: 31px !important;
+      height: 31px !important;
+      flex: 0 0 31px !important;
+      align-self: center !important;
+    }
+
+    .accordion summary > span:nth-child(2) {
+      min-width: 0 !important;
+      display: block !important;
+    }
+
+    .accordion-title {
+      display: block !important;
+      font-size: 15.6px !important;
+      line-height: 1.16 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-subtitle {
+      display: block !important;
+      margin-top: 3px !important;
+      font-size: 13.1px !important;
+      line-height: 1.18 !important;
+      text-wrap: balance !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .accordion-chevron {
+      justify-self: end !important;
+      align-self: center !important;
+      font-size: 20px !important;
+    }
+
+    /* Sections with buttons should visually center their bodies. */
+    .class-section-accordion .accordion-body,
+    .accordion .accordion-body:has(.button) {
+      text-align: center !important;
+    }
+
+    .class-section-accordion .accordion-body p,
+    .accordion .accordion-body:has(.button) p {
+      text-align: center !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion .accordion-body {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      .accordion .accordion-body p {
+        max-width: 305px !important;
+      }
+
+      .accordion .accordion-body .button {
+        width: 225px !important;
+        max-width: 84% !important;
+        font-size: 14.5px !important;
+      }
+    }
+
+  
+    /* FINAL V7 MOBILE ACCORDION TEXT FIX:
+       Text should not be centered globally. Only buttons are centered. */
+    .accordion .accordion-body {
+      padding: 0 24px 20px 24px !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body p {
+      max-width: none !important;
+      margin: 0 0 13px 0 !important;
+      line-height: 1.42 !important;
+      text-align: left !important;
+    }
+
+    .accordion .accordion-body .button {
+      display: block !important;
+      width: 240px !important;
+      max-width: 82% !important;
+      min-width: 0 !important;
+      margin: 13px auto !important;
+      padding: 10px 16px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      font-size: 15px !important;
+      line-height: 1.18 !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+    }
+
+    .accordion .lesson-note {
+      display: none !important;
+    }
+
+    .class-section-accordion .accordion-body {
+      padding: 0 24px 20px 24px !important;
+      text-align: left !important;
+    }
+
+    .class-section-accordion .accordion-body p {
+      text-align: left !important;
+      margin: 0 0 13px 0 !important;
+      max-width: none !important;
+    }
+
+    .class-section-accordion .button {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .accordion .accordion-body,
+      .class-section-accordion .accordion-body {
+        padding-left: 22px !important;
+        padding-right: 22px !important;
+      }
+
+      .accordion .accordion-body .button {
+        width: 225px !important;
+        max-width: 84% !important;
+        font-size: 14.5px !important;
+      }
+    }
+
+  
+    /* FINAL V8 TARGETED MOBILE FIX:
+       Lesson links subtitle + wider missionary meal button only. */
+    .missionary-meal-button {
+      width: 300px !important;
+      max-width: 94% !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .missionary-meal-button {
+        width: 285px !important;
+        max-width: 94% !important;
+      }
+    }
+
+  
+    /* FINAL V9 FORCE MISSIONARY BUTTON:
+       Only the missionary meal button should be wider. */
+    .missionary-meal-button,
+    a.button[data-missionary-meal-button="true"] {
+      width: 335px !important;
+      max-width: 96% !important;
+      min-width: 0 !important;
+      padding-left: 22px !important;
+      padding-right: 22px !important;
+      white-space: normal !important;
+      line-height: 1.18 !important;
+    }
+
+    @media screen and (max-width: 380px) {
+      .missionary-meal-button,
+      a.button[data-missionary-meal-button="true"] {
+        width: 318px !important;
+        max-width: 96% !important;
+      }
+    }
+
+  
+    /* FINAL V10 WIDE MISSIONARY BUTTON:
+       Make this one button wide enough for two clean lines. */
+    a.button.missionary-meal-button,
+    a.button[data-missionary-meal-button="true"],
+    a.button[href*="comidas-garner2.github.io"] {
+      width: 390px !important;
+      max-width: calc(100% - 16px) !important;
+      min-width: 0 !important;
+      padding: 11px 22px !important;
+      line-height: 1.16 !important;
+      white-space: normal !important;
+      text-align: center !important;
+    }
+
+    @media screen and (max-width: 430px) {
+      a.button.missionary-meal-button,
+      a.button[data-missionary-meal-button="true"],
+      a.button[href*="comidas-garner2.github.io"] {
+        width: 370px !important;
+        max-width: calc(100% - 12px) !important;
+      }
+    }
+
+    @media screen and (max-width: 380px) {
+      a.button.missionary-meal-button,
+      a.button[data-missionary-meal-button="true"],
+      a.button[href*="comidas-garner2.github.io"] {
+        width: 340px !important;
+        max-width: calc(100% - 8px) !important;
+      }
+    }
+
+  
+    /* FINAL V11 NUCLEAR MISSIONARY BUTTON FIX:
+       This button should be WIDE, nearly full-card width, and exactly two lines. */
+    .missionary-meal-accordion .accordion-body .button,
+    .missionary-meal-accordion a.button,
+    .missionary-meal-button,
+    a[data-missionary-meal-button="true"],
+    a[href*="comidas-garner2.github.io"] {
+      display: block !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding: 12px 18px !important;
+      border-radius: 999px !important;
+      text-align: center !important;
+      line-height: 1.16 !important;
+      white-space: normal !important;
+    }
+
+    .missionary-meal-accordion .accordion-body {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    /* Keep the button a little inset from the card edges but much wider than other buttons. */
+    .missionary-meal-accordion .accordion-body .button {
+      width: calc(100% - 12px) !important;
+    }
+
   </style>
 </head>
-<body class="mobile-page">
 
-      <main class="mobile-shell">
-        <section class="mobile-hero" style="background-image:linear-gradient(90deg, rgba(12,39,63,.97) 0%, rgba(12,39,63,.94) 50%, rgba(12,39,63,.18) 51%, rgba(12,39,63,.05) 100%), url('assets/headers/christ-06.png');">
-          <div class="mobile-hero-content">
-            <div class="mobile-hero-welcome"><span>¡Bienvenidos a la</span><span>Rama Garner 2!</span></div>
-            <div class="mobile-hero-meeting-title ">Reunión Sacramental</div>
-            <div class="mobile-hero-date">21 de junio de 2026</div>
-            <div class="church-wordmark-mobile" aria-label="La Iglesia de Jesucristo de los Santos de los Últimos Días">
-              <span class="church-wordmark-small">LA IGLESIA DE</span>
-              <span class="church-wordmark-main">JESUCRISTO</span>
-              <span class="church-wordmark-small">DE LOS SANTOS</span>
-              <span class="church-wordmark-small">DE LOS ÚLTIMOS DÍAS</span>
-            </div>
+<body>
+  <div class="mobile-program">
+
+    <header class="mobile-hero hero-standard" data-season="standard">
+      <div class="mobile-hero-content">
+        <h1>Reunión Sacramental</h1>
+
+        <div class="mobile-hero-date">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+            <path d="M16 2v4"></path>
+            <path d="M8 2v4"></path>
+            <path d="M3 10h18"></path>
+          </svg>
+          <span>21 de junio de 2026</span>
+        </div>
+
+        <p class="mobile-hero-church">
+          <span>La Iglesia de Jesucristo</span>
+          <span>de los Santos de los Últimos Días</span>
+        </p>
+      </div>
+    </header>
+
+    <main class="mobile-body">
+
+      <details class="accordion hidden">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2v20"></path>
+              <path d="M5 7h14"></path>
+              <path d="M7 12h10"></path>
+              <path d="M9 17h6"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Ayuno y Testimonio</span>
+            <span class="accordion-subtitle">¿En qué consiste esta reunión?</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.</p>
+          <p>Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio.</p>
+          <p>Si usted nos visita hoy, también es bienvenido a compartir unas palabras si lo desea. Puede presentarse brevemente, compartir lo que le trajo aquí hoy, o expresar lo que ha sentido durante su visita, especialmente si ha sentido el amor del Salvador.</p>
+          <p>Los testimonios son breves, normalmente de dos a tres minutos. Al terminar, solemos cerrar diciendo: “En el nombre de Jesucristo. Amén.”</p>
+        </div>
+      </details>
+
+      <section class="card">
+        <div class="card-inner">
+          <h2 class="section-title">
+            <span class="round-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 6h12"></path>
+                <path d="M8 12h12"></path>
+                <path d="M8 18h12"></path>
+                <path d="M4 6h.01"></path>
+                <path d="M4 12h.01"></path>
+                <path d="M4 18h.01"></path>
+              </svg>
+            </span>
+            <span>Orden de la reunión</span>
+          </h2>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Preside</div>
+            <div class="agenda-value person-value" data-split-person>Presidente Luis E Campos</div>
           </div>
-        </section>
 
-        
-    <details class="accordion">
-      <summary>
-        <span class="round-icon" aria-hidden="true">👋</span>
-        <span>
-          <span class="accordion-title">¿Es su primera vez?</span>
-          <span class="accordion-subtitle">Nos alegra que esté aquí</span>
-        </span>
-        <span class="accordion-chevron" aria-hidden="true">›</span>
-      </summary>
-      <div class="accordion-body">
-      <p>Nos alegra mucho recibirle en la Rama Garner 2. Usted es bienvenido tal como está.</p>
-      <p>Después de la reunión sacramental tendremos clases para adultos, jóvenes y niños. Si desea quedarse, con gusto le ayudaremos a encontrar la clase correspondiente.</p>
-      <p>No se espera que participe, ore, hable ni done dinero. Puede simplemente acompañarnos y conocer mejor cómo adoramos a Jesucristo.</p>
-    </div>
-    </details>
-  
-        
-    <details class="accordion">
-      <summary>
-        <span class="round-icon" aria-hidden="true">🍞</span>
-        <span>
-          <span class="accordion-title">Sobre la Santa Cena</span>
-          <span class="accordion-subtitle">Recordamos a Jesucristo</span>
-        </span>
-        <span class="accordion-chevron" aria-hidden="true">›</span>
-      </summary>
-      <div class="accordion-body">
-      <p>La Santa Cena es la parte más sagrada de esta reunión. Participamos del pan y del agua en memoria del sacrificio de Jesucristo.</p>
-      <p>Durante la Santa Cena, procuramos pensar en Él, renovar nuestro compromiso de seguirle y volver nuestro corazón a Dios.</p>
-      <div class="sacrament-mobile-image" style="background-image:url('images/sacrament.png')"></div>
-    </div>
-    </details>
-  
-        
-
-        <section class="card service-card">
-          <h2>Orden de la reunión</h2>
-          <p class="leader-line">Preside: <strong>Presidente Luis E Campos</strong> &nbsp; | &nbsp; Conduce: <strong>Presidente Luis E Campos</strong></p>
-          <div class="service-list">
-            <div class="agenda-row"><div class="agenda-label">Himno de Apertura</div><div class="agenda-value">#2 El Espíritu de Dios</div></div><div class="agenda-row"><div class="agenda-label">Primera Oración</div><div class="agenda-value">Por invitación</div></div><div class="agenda-row"><div class="agenda-label">Himno Sacramental</div><div class="agenda-value">#11 Dios manda a profetas</div></div><div class="agenda-row"><div class="agenda-label">Discurso</div><div class="agenda-value">Seth McGinn</div></div><div class="agenda-row"><div class="agenda-label">Himno Intermedio</div><div class="agenda-value">#11 Dios manda a profetas</div></div><div class="agenda-row"><div class="agenda-label">Discurso</div><div class="agenda-value">Armando Bake</div></div><div class="agenda-row"><div class="agenda-label">Himno de Cierre</div><div class="agenda-value">#8 ¿Qué es lo que vieron en las alturas?</div></div><div class="agenda-row"><div class="agenda-label">Última Oración</div><div class="agenda-value">Por invitación</div></div>
+          <div class="agenda-row">
+            <div class="agenda-label">Dirige</div>
+            <div class="agenda-value person-value" data-split-person>Presidente Luis E Campos</div>
           </div>
-        </section>
 
-        
-    <details class="accordion">
-      <summary>
-        <span class="round-icon" aria-hidden="true">📌</span>
-        <span>
-          <span class="accordion-title">Anuncios</span>
-          <span class="accordion-subtitle">Información de esta semana</span>
-        </span>
-        <span class="accordion-chevron" aria-hidden="true">›</span>
-      </summary>
-      <div class="accordion-body"><div class="announcement-list"><p><strong>Family Home Evening PotLuck</strong><br>Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</p></div></div>
-    </details>
-  
-        
-    <details class="accordion">
-      <summary>
-        <span class="round-icon" aria-hidden="true">🍽️</span>
-        <span>
-          <span class="accordion-title">Alimentar a los misioneros</span>
-          <span class="accordion-subtitle">Escoger una fecha</span>
-        </span>
-        <span class="accordion-chevron" aria-hidden="true">›</span>
-      </summary>
-      <div class="accordion-body"><p>Gracias por ayudar a alimentar a los misioneros. Use este enlace para inscribirse.</p><a class="button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha</a></div>
-    </details>
-  
-    <details class="accordion">
-      <summary>
-        <span class="round-icon" aria-hidden="true">📘</span>
-        <span>
-          <span class="accordion-title">EnglishConnect</span>
-          <span class="accordion-subtitle">Clases gratuitas de inglés</span>
-        </span>
-        <span class="accordion-chevron" aria-hidden="true">›</span>
-      </summary>
-      <div class="accordion-body"><p>EnglishConnect se lleva a cabo los lunes y viernes de 8:00 p. m. a 9:00 p. m.</p><a class="button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Más información de EnglishConnect</a></div>
-    </details>
-  
-    <details class="accordion">
-      <summary>
-        <span class="round-icon" aria-hidden="true">💬</span>
-        <span>
-          <span class="accordion-title">Grupo de WhatsApp</span>
-          <span class="accordion-subtitle">Actualizaciones de la rama</span>
-        </span>
-        <span class="accordion-chevron" aria-hidden="true">›</span>
-      </summary>
-      <div class="accordion-body"><p>Únase al grupo de WhatsApp de la rama para recibir anuncios y actualizaciones.</p><a class="button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a></div>
-    </details>
-  
-        
-    <footer class="footer">
-      <div class="footer-title">Teléfonos y dirección</div>
-      <div class="footer-line">Hermanas Boyer y Rounds<br><a href="tel:9198021411">(919) 802-1411</a></div><div class="footer-line">Elder y Hermana Turley<br><a href="tel:4805100654">(480) 510-0654</a></div>
-      <div class="footer-line"><a href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC 27529</a></div>
-    </footer>
-  
-      </main>
+          <div class="agenda-row">
+            <div class="agenda-label">Himno de Apertura</div>
+            <div class="agenda-value">#2 El Espíritu de Dios</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Oración de Apertura</div>
+            <div class="agenda-value">Por invitación</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Himno Sacramental</div>
+            <div class="agenda-value">#11 Dios manda a profetas</div>
+          </div>
+
+          <div class="sacrament-admin">
+            <span class="sacrament-admin-text">Administración de la Santa Cena</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card sacrament-card">
+        <div class="card-inner">
+          <div class="sacrament-image-wrap">
+            <img class="sacrament-image" src="assets/santa-cena.png" alt="Pan y agua de la Santa Cena">
+          </div>
+
+          <h2 class="sacrament-title">La Santa Cena</h2>
+
+          <p class="sacrament-text">
+            Participamos de la Santa Cena en memoria de Jesucristo. El pan representa Su cuerpo y el agua representa Su sangre.
+          </p>
+
+          <p class="sacrament-text">
+            Si es su primera vez, puede participar si lo desea, o simplemente observar con reverencia. Ambas formas son respetuosas.
+          </p>
+
+          <p class="sacrament-text">
+            Al participar, renovamos nuestros convenios y recordamos Su sacrificio.
+          </p>
+
+          <div class="scripture-card">
+            <div class="scripture-quote">“Haced esto en memoria de mí.”</div>
+            <div class="scripture-ref">1 Corintios 11:24</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card ">
+        <div class="card-inner">
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">Seth McGinn</div>
+          </div>
+
+          <div class="agenda-row ">
+            <div class="agenda-label">Himno Intermedio / Número Musical</div>
+            <div class="agenda-value">#11 Dios manda a profetas</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Discurso</div>
+            <div class="agenda-value">Armando Bake</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-inner">
+          <div class="agenda-row">
+            <div class="agenda-label">Himno de Cierre</div>
+            <div class="agenda-value">#8 ¿Qué es lo que vieron en las alturas?</div>
+          </div>
+
+          <div class="agenda-row">
+            <div class="agenda-label">Oración de Cierre</div>
+            <div class="agenda-value">Por invitación</div>
+          </div>
+        </div>
+      </section>
+
+      <details class="accordion" class-section-accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">¿Es su primera vez?</span>
+            <span class="accordion-subtitle">Información para visitantes</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
+          <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
+          <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
+        </div>
+      </details>
+
+      <details class="accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Clases después de la reunión</span>
+            <span class="accordion-subtitle">Lesson links</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Después de la reunión sacramental tenemos clases para adultos, jóvenes y niños.</p>
+
+          <a class="button" href="#" target="_blank" rel="noopener">Ven, sígueme</a>
+
+          <a class="button" href="#" target="_blank" rel="noopener">Sociedad de Socorro</a>
+
+          <a class="button" href="#" target="_blank" rel="noopener">Cuórum de Élderes</a>
+        </div>
+      </details>
+
+      <details class="accordion ">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 11v2a4 4 0 0 0 4 4h1l4 4v-4h5a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v4z"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">Anuncios</span>
+            <span class="accordion-subtitle">Avisos de la rama</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <div class=""><div class="announcement-list"><p><strong>Family Home Evening PotLuck</strong><br>Every 2nd Monday of the month, 7pm bring a dish to share, invite your friends</p></div></div>
+        </div>
+      </details>
+
+      <details class="accordion standing-accordion whatsapp-accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+          <span><span class="accordion-title">Grupo de WhatsApp</span><span class="accordion-subtitle">Actualizaciones de la rama</span></span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body"><p>Únase al grupo de WhatsApp de la rama para recibir anuncios y actualizaciones.</p><a class="button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a></div>
+      </details>
+<details class="accordion standing-accordion englishconnect-accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20"></path><path d="M12 2a15 15 0 0 0 0 20"></path></svg></span>
+          <span><span class="accordion-title">EnglishConnect</span><span class="accordion-subtitle">Clases gratuitas de inglés</span></span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body"><p>Clases gratuitas de inglés para adultos. Todos son bienvenidos.</p><p>Lunes y viernes, 8:00 p. m. a 9:00 p. m.<br>1433 Aversboro Rd, Garner, NC 27529</p><a class="button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Más información de EnglishConnect</a></div>
+      </details>
+<details class="accordion standing-accordion missionary-meal-accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 3v8"></path><path d="M8 3v8"></path><path d="M4 7h4"></path><path d="M6 11v10"></path><path d="M16 3c2 2 3 4 3 7s-1 5-3 7v4"></path></svg></span>
+          <span><span class="accordion-title">Alimentar a los misioneros</span><span class="accordion-subtitle">Escoger una fecha</span></span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body"><p>Los misioneros sirven lejos de casa. Una comida y un poco de apoyo significan mucho.</p><a class=" button missionary-meal-button" href="https://comidas-garner2.github.io" target="_blank" rel="noopener">Escoger una fecha para alimentar a los misioneros</a></div>
+      </details>
+
+
       
-    <script>
-      (function () {
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        function cue(details) {
-          if (!details || details.dataset.chevronCued === 'true') return;
-          details.dataset.chevronCued = 'true';
-          var chevron = details.querySelector('.accordion-chevron');
-          if (!chevron) return;
-          chevron.classList.add('chevron-attention');
-          window.setTimeout(function () { chevron.classList.remove('chevron-attention'); }, 2800);
+
+      
+
+      <footer class="footer">
+        <div class="footer-title">Teléfonos y dirección</div>
+        <div class="footer-line">Hermanas Boyer y Rounds<br><a href="tel:19198021411">(919) 802-1411</a></div>
+        <div class="footer-line">Elder y Hermana Turley<br><a href="tel:14805100654">(480) 510-0654</a></div>
+        <div class="footer-line">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">1433 Aversboro Rd, Garner, NC 27529</a>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      document.querySelectorAll("[data-split-person]").forEach(function (el) {
+        var raw = (el.textContent || "").trim();
+        if (!raw) return;
+        var parts = raw.split(",");
+        if (parts.length < 2) return;
+        var name = parts.shift().trim();
+        var title = parts.join(",").trim();
+
+        el.innerHTML =
+          '<span class="person-name">' + escapeHtml(name) + '</span>' +
+          '<span class="person-title">' + escapeHtml(title) + '</span>';
+      });
+
+      function abbreviateHeaderDate() {
+        var dateEl = document.querySelector(".mobile-hero-date span");
+        if (!dateEl) return;
+
+        var raw = (dateEl.textContent || "").trim();
+        if (!raw) return;
+
+        var monthMap = {
+          "enero": "ene", "febrero": "feb", "marzo": "mar", "abril": "abr",
+          "mayo": "may", "junio": "jun", "julio": "jul", "agosto": "ago",
+          "septiembre": "sep", "setiembre": "sep", "octubre": "oct",
+          "noviembre": "nov", "diciembre": "dic",
+          "january": "Jan", "february": "Feb", "march": "Mar", "april": "Apr",
+          "may": "May", "june": "Jun", "july": "Jul", "august": "Aug",
+          "september": "Sep", "october": "Oct", "november": "Nov", "december": "Dec"
+        };
+
+        var lower = raw.toLowerCase();
+        var spanishMatch = lower.match(/^(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+de\s+(\d{4})$/i);
+
+        if (spanishMatch) {
+          var month = monthMap[spanishMatch[2]] || spanishMatch[2].slice(0, 3);
+          dateEl.textContent = spanishMatch[1] + " " + month + " " + spanishMatch[3];
+          return;
         }
-        var accordions = Array.prototype.slice.call(document.querySelectorAll('details.accordion'));
-        if (!accordions.length) return;
-        if (!('IntersectionObserver' in window)) { accordions.slice(0,4).forEach(cue); return; }
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) { if (entry.isIntersecting) cue(entry.target); });
-        }, { threshold: 0.4 });
-        accordions.forEach(function(details) { observer.observe(details); });
-      })();
-    </script>
-  
-    
+
+        Object.keys(monthMap).forEach(function (monthName) {
+          var re = new RegExp("\\b" + monthName + "\\b", "i");
+          if (re.test(dateEl.textContent)) {
+            dateEl.textContent = dateEl.textContent.replace(re, monthMap[monthName]);
+          }
+        });
+      }
+
+      abbreviateHeaderDate();
+      window.setTimeout(abbreviateHeaderDate, 500);
+
+      var params = new URLSearchParams(window.location.search);
+      var season = (params.get("season") || "").toLowerCase();
+      var hero = document.querySelector(".mobile-hero");
+
+      if (hero && ["standard", "christmas", "easter"].includes(season)) {
+        hero.classList.remove("hero-standard", "hero-christmas", "hero-easter");
+        hero.classList.add("hero-" + season);
+        hero.setAttribute("data-season", season);
+      }
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      function escapeHtmlFinal(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function normalizeText(value) {
+        return String(value || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function splitLeader(raw) {
+        raw = String(raw || "").trim();
+        if (!raw) return null;
+
+        if (raw.indexOf(",") > -1) {
+          var parts = raw.split(",");
+          var name = parts.shift().trim();
+          var title = parts.join(",").trim();
+          if (name && title) return { name: name, title: title };
+        }
+
+        var known = {
+          "presidente luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "presidente luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "luis e campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "luis campos": { name: "Luis E Campos", title: "Presidente de Rama" },
+          "mat hafen": { name: "Mat Hafen", title: "Primer Consejero de Estaca" },
+          "matt hafen": { name: "Matt Hafen", title: "Primer Consejero de Estaca" },
+          "robert joaquin foster": { name: "Robert Joaquin Foster", title: "Presidente de Estaca" },
+          "eric cottle": { name: "Eric Cottle", title: "Segundo Consejero de Estaca" }
+        };
+
+        var key = normalizeText(raw);
+        if (known[key]) return known[key];
+
+        var prefixes = [
+          { re: /^presidente\s+(.+)$/i, title: "Presidente de Rama" },
+          { re: /^primer\s+consejero\s+(.+)$/i, title: "Primer Consejero" },
+          { re: /^segundo\s+consejero\s+(.+)$/i, title: "Segundo Consejero" }
+        ];
+
+        for (var i = 0; i < prefixes.length; i++) {
+          var match = raw.match(prefixes[i].re);
+          if (match && match[1]) return { name: match[1].trim(), title: prefixes[i].title };
+        }
+
+        return null;
+      }
+
+      document.querySelectorAll("[data-split-person]").forEach(function (el) {
+        var parsed = splitLeader(el.textContent || "");
+        if (!parsed) return;
+        el.innerHTML =
+          '<span class="person-name">' + escapeHtmlFinal(parsed.name) + '</span>' +
+          '<span class="person-title">' + escapeHtmlFinal(parsed.title) + '</span>';
+      });
+
+      document.querySelectorAll(".accordion-body .button").forEach(function (button) {
+        var note = button.nextElementSibling;
+        if (!note || !note.classList || !note.classList.contains("lesson-note")) return;
+        var buttonText = normalizeText(button.textContent);
+        var noteText = normalizeText(note.textContent);
+        if (!noteText || noteText === buttonText || noteText === "ven sigueme") {
+          note.classList.add("redundant-note");
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      document.querySelectorAll("a.button").forEach(function (button) {
+        var text = (button.textContent || "").toLowerCase().replace(/\s+/g, " ").trim();
+
+        if (
+          text.includes("alimentar a los misioneros") ||
+          text.includes("feed the missionaries")
+        ) {
+          button.classList.add("missionary-meal-button");
+          button.setAttribute("data-missionary-meal-button", "true");
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      function fixMissionaryButton() {
+        document.querySelectorAll("a.button").forEach(function (button) {
+          var text = (button.textContent || "").toLowerCase().replace(/\s+/g, " ").trim();
+          var href = button.getAttribute("href") || "";
+
+          if (text.includes("alimentar a los misioneros") || href.includes("comidas-garner2.github.io")) {
+            button.classList.add("missionary-meal-button");
+            button.setAttribute("data-missionary-meal-button", "true");
+            button.innerHTML = "Escoger una fecha para<br>alimentar a los misioneros";
+            button.style.setProperty("width", "calc(100% - 12px)", "important");
+            button.style.setProperty("max-width", "none", "important");
+            button.style.setProperty("display", "block", "important");
+            button.style.setProperty("box-sizing", "border-box", "important");
+          }
+        });
+      }
+
+      fixMissionaryButton();
+      window.setTimeout(fixMissionaryButton, 300);
+    })();
+  </script>
+
 </body>
 </html>
+<!-- final mobile polish v2 -->
+
+<!-- final mobile button polish v4 -->
+
+<!-- final mobile class accordion polish v5 -->
+
+<!-- final mobile global accordion polish v6 -->
+
+<!-- final mobile accordion text polish v7 -->
+
+<!-- final mobile lesson-links and missionary-button polish v8 -->
+
+<!-- final mobile missionary button force v9 -->
+
+<!-- final wide missionary meal button v10 -->
+
+<!-- final WIDE missionary meal button v11 -->
