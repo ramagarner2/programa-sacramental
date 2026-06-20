@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1073,15 +1072,49 @@
       width: calc(100% - 12px) !important;
     }
 
+
+    /* RG2 V3 TEMPLATE FOUNDATION: wordmark + synced moving arrows */
+    .mobile-hero-subtitle {
+      margin: -8px 0 14px;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(17px, 4.9vw, 22px);
+      line-height: 1.12;
+      font-weight: 700;
+    }
+
+    .mobile-hero-wordmark {
+      display: block;
+      width: min(175px, 100%);
+      height: auto;
+      margin: 28px 0 0;
+    }
+
+    @keyframes rg2ChevronPulse {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(4px); }
+    }
+
+    .accordion:not([open]) .accordion-chevron {
+      animation: rg2ChevronPulse 1.25s ease-in-out infinite;
+      animation-delay: 0s;
+    }
+
+    .accordion[open] .accordion-chevron {
+      animation: none !important;
+      transform: rotate(90deg);
+    }
+
   </style>
 </head>
 
 <body>
   <div class="mobile-program">
 
-    <header class="mobile-hero hero-standard" data-season="standard">
+    <header class="mobile-hero {{mobile_hero_class}}" data-season="{{mobile_hero_season}}">
       <div class="mobile-hero-content">
-        <h1>{{tipo_reunion_display}}</h1>
+        <h1>¡Bienvenidos a la<br>{{branch_name}}</h1>
+        <div class="mobile-hero-subtitle">{{tipo_reunion_display}}</div>
 
         <div class="mobile-hero-date">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1093,14 +1126,36 @@
           <span>{{fecha_display}}</span>
         </div>
 
-        <p class="mobile-hero-church">
-          <span>La Iglesia de Jesucristo</span>
-          <span>de los Santos de los Últimos Días</span>
-        </p>
+        <img class="mobile-hero-wordmark" src="images/church_wordmark_white.png" alt="La Iglesia de Jesucristo de los Santos de los Últimos Días">
       </div>
     </header>
 
     <main class="mobile-body">
+
+      <details class="accordion" class-section-accordion">
+        <summary>
+          <span class="round-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="accordion-title">¿Es su primera vez?</span>
+            <span class="accordion-subtitle">Información para visitantes</span>
+          </span>
+          <span class="accordion-chevron">›</span>
+        </summary>
+        <div class="accordion-body">
+          <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
+          <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
+          <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
+        </div>
+      </details>
+
+
 
       <details class="accordion {{ayuno_hidden_class}}">
         <summary>
@@ -1238,28 +1293,6 @@
         </div>
       </section>
 
-      <details class="accordion" class-section-accordion">
-        <summary>
-          <span class="round-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </span>
-          <span>
-            <span class="accordion-title">¿Es su primera vez?</span>
-            <span class="accordion-subtitle">Información para visitantes</span>
-          </span>
-          <span class="accordion-chevron">›</span>
-        </summary>
-        <div class="accordion-body">
-          <p>Nuestra reunión es un servicio de adoración familiar, reverente y centrado en Jesucristo.</p>
-          <p>Durante la reunión cantamos himnos, oramos, participamos de la Santa Cena y escuchamos mensajes sobre Jesucristo.</p>
-          <p>Si es su primera vez, no se espera que participe. Puede sentarse, escuchar y sentirse bienvenido.</p>
-        </div>
-      </details>
 
       <details class="accordion">
         <summary>
