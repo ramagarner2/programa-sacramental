@@ -26,7 +26,7 @@
     hr.divider { border: none; border-top: 1px solid #cccccc; margin: 9px 0; }
     .sacrament-print-layout { display: block; margin: 7px 0 9px; }
     .sacrament-print-left { overflow: hidden; margin-bottom: 7px; }
-    .sacrament-print-image { display: block; width: 100%; height: 1.45in; object-fit: contain; object-position: center center; border: 1px solid #cccccc; filter: grayscale(100%) contrast(1.08); background: #f2f2f2; }
+    .sacrament-print-image { display: block; width: 100%; height: 1.45in; object-fit: cover; object-position: center center; border: 1px solid #cccccc; filter: grayscale(100%) contrast(1.08); background: #f2f2f2; }
     .sacrament-scripture-card { margin: 6px 0 8px 0; padding: 5px 6px; background: #f2f2f2; text-align: center; }
     .scripture-quote { font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 10.8pt; line-height: 1.2; color: #111111; }
     .scripture-ref { margin-top: 3px; font-size: 9.2pt; line-height: 1.1; font-weight: 800; color: #111111; letter-spacing: 0.05em; text-transform: uppercase; }
@@ -60,7 +60,7 @@
     .print-cover-title { font-size: 22pt; line-height: 1.04; font-weight: 800; text-align: center; margin: 0 0 6px; color: #111111; }
     .print-cover-title .welcome-line { display: block; font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-size: 20pt; }
     .print-cover-wordmark { display: block; width: 2.25in; max-width: 75%; height: auto; margin: auto auto 0; }
-    .sacrament-note-block { margin-top: auto; padding: 10px 12px; background: #f2f2f2; border-left: 3px solid #222222; text-align: left; font-size: 11pt; line-height: 1.34; color: #111111; }
+    .sacrament-note-block { margin-top: 0.32in; padding: 10px 12px; background: #f2f2f2; border-left: 3px solid #222222; text-align: left; font-size: 11pt; line-height: 1.34; color: #111111; }
     .sacrament-note-block-title { font-weight: 800; text-transform: uppercase; font-size: 10pt; margin-bottom: 5px; }
     .sacrament-note-quote { margin-top: 7px; font-family: Georgia, "Times New Roman", serif; font-style: italic; }
     .sacrament-note-ref { margin-top: 3px; font-weight: 800; font-size: 9pt; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -78,7 +78,7 @@
       .page:last-child { page-break-after: auto !important; break-after: auto !important; }
       .panel { width: 5.25in !important; height: 8in !important; max-height: 8in !important; overflow: hidden !important; padding: 0.22in 0.23in !important; border-right: 0 !important; }
       .cover-image { height: 4.85in !important; margin: 8px 0 10px !important; }
-      .sacrament-print-image { height: 1.35in !important; object-fit: contain !important; object-position: center center !important; }
+      .sacrament-print-image { height: 1.35in !important; object-fit: cover !important; object-position: center center !important; }
       .service-table td { padding: 6px 5px !important; font-size: 10.5pt !important; }
       .fast-sunday-block { font-size: 11pt; color: #111111; line-height: 1.27; margin: 8px 0; padding: 9px 10px; background: #f2f2f2; border-left: 3px solid #222222; }
       .visitor-block p { font-size: 10.5pt !important; line-height: 1.3 !important; }
@@ -180,9 +180,9 @@
       <table class="service-table">
         <tr><td class="label">Preside</td><td class="value" data-print-split-person>Presidente Luis E Campos</td></tr>
         <tr><td class="label">Dirige</td><td class="value" data-print-split-person>Presidente Luis E Campos</td></tr>
-        <tr><td class="label">Himno de Apertura</td><td class="value"></td></tr>
+        <tr><td class="label">Himno de Apertura</td><td class="value">#19 Por Tus dones loor cantamos</td></tr>
         <tr><td class="label">Oración de Apertura</td><td class="value">Por invitación</td></tr>
-        <tr><td class="label">Himno Sacramental</td><td class="value"></td></tr>
+        <tr><td class="label">Himno Sacramental</td><td class="value">#39 Jehová, sé nuestro guía</td></tr>
         <tr><td colspan="2" class="centered-bold">Administración de la Santa Cena</td></tr>
       </table>
 
@@ -196,12 +196,13 @@
 
       <table class="service-table ">
         <tr><td class="label">Discurso</td><td class="value">Armando Bake</td></tr>
-        <tr class="hidden"><td class="label">Himno / Número Musical</td><td class="value"></td></tr>
+        <tr class=""><td class="label">Himno Intermedio</td><td class="value">#17 ¡Oh, está todo bien!</td></tr>
+        <tr class="hidden"><td class="label">Número Musical</td><td class="value"></td></tr>
         <tr><td class="label">Discurso</td><td class="value">Fernando Madrid</td></tr>
       </table>
 
       <table class="service-table">
-        <tr><td class="label">Himno de Cierre</td><td class="value"></td></tr>
+        <tr><td class="label">Himno de Cierre</td><td class="value">#133 Campanas de Navidad</td></tr>
         <tr><td class="label">Oración de Cierre</td><td class="value">Por invitación</td></tr>
       </table>
 
