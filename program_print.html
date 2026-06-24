@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -103,16 +102,20 @@
 
     <!-- BACK COVER: Announcements + Missionary info + Address -->
     <section class="panel panel-announcements">
-      <div class="section-header">Anuncios</div>
+      <div class="section-header hidden">Anuncios</div>
 
-      <div class="weekly-ann {{anuncios_hidden_class}}">{{anuncios_semanales}}</div>
+      <div class="weekly-ann hidden"></div>
 
-      {{branch_resources_print}}
+      <div class="print-evergreen-list"><div class="weekly-ann print-evergreen-item"><div class="print-evergreen-copy"><div class="print-evergreen-title">Missionary Meals</div><div>Alimentar a los misioneros | Los misioneros necesitan comidas para la próxima semana. Escanee el código para escoger una fecha.</div></div></div>
+<div class="weekly-ann print-evergreen-item"><div class="print-evergreen-copy"><div class="print-evergreen-title">EnglishConnect</div><div>Clases gratuitas de inglés los lunes y viernes de 8:00 p. m. a 9:00 p. m. Escanee el código para más información.</div></div></div>
+<div class="weekly-ann print-evergreen-item"><div class="print-evergreen-copy"><div class="print-evergreen-title">Grupo de WhatsApp</div><div>Únase al grupo de WhatsApp de la rama para recibir anuncios y actualizaciones. Escanee el código para el enlace.</div></div></div>
+<div class="weekly-ann print-evergreen-item print-evergreen-qr-item"><div class="print-evergreen-copy"><div class="print-evergreen-title">Más información en el programa móvil</div><div>Escanee el código QR para ver información más detallada en la versión móvil de este programa.</div></div><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Framagarner2.github.io%2Fprograma-sacramental%2Fmobile.html" alt="QR del programa móvil"></div></div>
 
       <div class="missionary-contact-card">
         <p class="missionary-help-line">¿Tiene preguntas? Estamos aquí para ayudarle.</p>
         <div class="missionary-contact-title">Teléfono de los misioneros</div>
-        <div class="missionary-contact-list">[Missionary phone number]</div>
+        <div class="missionary-contact-list"><div class="missionary-contact-item"><div class="missionary-contact-name">Hermanas Boyer y Rounds</div><span class="missionary-contact-phone">(919) 802-1411</span></div>
+          <div class="missionary-contact-item"><div class="missionary-contact-name">Elder y Hermana Turley</div><span class="missionary-contact-phone">(480) 510-0654</span></div></div>
       </div>
 
       <div class="announcements-footer">
@@ -124,11 +127,11 @@
 
     <!-- FRONT COVER -->
     <section class="panel panel-front-cover">
-      <h1 class="print-cover-title"><span class="welcome-line">¡Bienvenidos a la!</span>{{branch_name}}</h1>
-      <img class="cover-image" src="{{cover_image_src}}" alt="Imagen de portada">
-      <h2>{{tipo_reunion_display}}</h2>
-      <h2 style="font-weight:700; font-size:12.5pt; margin-bottom:6px;">{{fecha_display}}</h2>
-      <div class="{{subtitulo_hidden_class}} subtitle">{{subtitulo}}</div>
+      <h1 class="print-cover-title"><span class="welcome-line">¡Bienvenidos a la!</span>Rama Garner 2</h1>
+      <img class="cover-image" src="images/christ-06.png" alt="Imagen de portada">
+      <h2>Reunión Sacramental</h2>
+      <h2 style="font-weight:700; font-size:12.5pt; margin-bottom:6px;">28 de junio de 2026</h2>
+      <div class="hidden subtitle"></div>
       <img class="print-cover-wordmark" src="images/church_wordmark_black.png" alt="La Iglesia de Jesucristo de los Santos de los Últimos Días">
     </section>
 
@@ -171,19 +174,19 @@
 
     <!-- INSIDE RIGHT: Order of service -->
     <section class="panel panel-service">
-      <h2>{{tipo_reunion_display}}</h2>
-      <div class="subtitle">{{fecha_display}}</div>
+      <h2>Reunión Sacramental</h2>
+      <div class="subtitle">28 de junio de 2026</div>
 
       <table class="service-table">
-        <tr><td class="label">Preside</td><td class="value" data-print-split-person>{{preside}}</td></tr>
-        <tr><td class="label">Dirige</td><td class="value" data-print-split-person>{{conduce}}</td></tr>
-        <tr><td class="label">Himno de Apertura</td><td class="value">{{himno_apertura}}</td></tr>
-        <tr><td class="label">Oración de Apertura</td><td class="value">{{oracion_apertura}}</td></tr>
-        <tr><td class="label">Himno Sacramental</td><td class="value">{{himno_sacramental}}</td></tr>
+        <tr><td class="label">Preside</td><td class="value" data-print-split-person>Presidente Luis E Campos</td></tr>
+        <tr><td class="label">Dirige</td><td class="value" data-print-split-person>Presidente Luis E Campos</td></tr>
+        <tr><td class="label">Himno de Apertura</td><td class="value">#19 Por Tus dones loor cantamos</td></tr>
+        <tr><td class="label">Oración de Apertura</td><td class="value">Por invitación</td></tr>
+        <tr><td class="label">Himno Sacramental</td><td class="value">#39 Jehová, sé nuestro guía</td></tr>
         <tr><td colspan="2" class="centered-bold">Administración de la Santa Cena</td></tr>
       </table>
 
-      <div class="fast-sunday-block {{ayuno_hidden_class}}">
+      <div class="fast-sunday-block hidden">
         <strong>¿Qué es la Reunión de Ayuno y Testimonio?</strong><br>
         El primer domingo de cada mes, los miembros de la Iglesia tienen la oportunidad de ayunar, orar y acercarse a Dios.<br><br>
         Después de la Santa Cena, no hay discursos asignados. Los miembros que lo deseen pueden pasar al frente y compartir un breve testimonio de Jesucristo y Su evangelio.<br><br>
@@ -191,17 +194,16 @@
         Los testimonios son breves, normalmente de dos a tres minutos. Al terminar, solemos cerrar diciendo: “En el nombre de Jesucristo. Amén.”
       </div>
 
-      <table class="service-table {{discursantes_hidden_class}}">
-        <tr><td class="label">Discurso</td><td class="value">{{primer_discursante}}</td></tr>
-        <tr><td class="label">Discurso</td><td class="value">{{segundo_discursante}}</td></tr>
-        <tr class="{{himno_intermedio_hidden_class}}"><td class="label">Himno Intermedio</td><td class="value">{{himno_intermedio}}</td></tr>
-        <tr class="{{numero_musical_hidden_class}}"><td class="label">Número Musical</td><td class="value">{{numero_musical}}</td></tr>
-        <tr><td class="label">Discurso</td><td class="value">{{ultimo_discursante}}</td></tr>
+      <table class="service-table ">
+        <tr><td class="label">Discurso</td><td class="value">Armando Bake</td></tr>
+        <tr class=""><td class="label">Himno Intermedio</td><td class="value">#17 ¡Oh, está todo bien!</td></tr>
+        <tr class="hidden"><td class="label">Número Musical</td><td class="value"></td></tr>
+        <tr><td class="label">Discurso</td><td class="value">Fernando Madrid</td></tr>
       </table>
 
       <table class="service-table">
-        <tr><td class="label">Himno de Cierre</td><td class="value">{{himno_cierre}}</td></tr>
-        <tr><td class="label">Oración de Cierre</td><td class="value">{{oracion_cierre}}</td></tr>
+        <tr><td class="label">Himno de Cierre</td><td class="value">#133 Campanas de Navidad</td></tr>
+        <tr><td class="label">Oración de Cierre</td><td class="value">Por invitación</td></tr>
       </table>
 
       <div class="sacrament-note-block">
