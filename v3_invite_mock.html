@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venga a adorar al Salvador con nosotros este domingo.</title>
+  <meta name="description" content="Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.">
+  <style>
+    :root {
+      --bg: #f6f7f8;
+      --card: #ffffff;
+      --ink: #17212b;
+      --muted: #5f6b76;
+      --line: #d9e1e8;
+      --brand: #173f5f;
+      --brand-soft: #e8f1f7;
+      --accent: #7a4f22;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(23,63,95,.13), transparent 35%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 45%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .hero {
+      margin: 18px 0 22px;
+      padding: 34px 24px;
+      background: linear-gradient(135deg, var(--brand), #245f85);
+      color: #ffffff;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 720px;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,.92);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.45);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,.13);
+      color: #ffffff;
+    }
+
+    .section {
+      margin: 18px 0;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(0,0,0,.045);
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      color: var(--brand);
+      font-size: clamp(1.35rem, 5vw, 2rem);
+      line-height: 1.15;
+    }
+
+    .section h3 {
+      margin: 18px 0 8px;
+      color: var(--ink);
+      font-size: 1.08rem;
+    }
+
+    .section p {
+      margin: 0 0 14px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .video-box {
+      display: grid;
+      place-items: center;
+      min-height: 190px;
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--brand-soft);
+      border: 1px dashed #a7bccd;
+      color: var(--brand);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 18px;
+      background: #000000;
+    }
+
+    .activity-list,
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .activity-card,
+    .contact-card {
+      padding: 16px;
+      border-radius: 16px;
+      background: #fbfcfd;
+      border: 1px solid var(--line);
+    }
+
+    .activity-card strong,
+    .contact-card strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .activity-meta,
+    .contact-meta {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .phone-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .phone-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .location-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .address {
+      font-size: 1.05rem;
+    }
+
+    .footer {
+      padding: 30px 12px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 12px;
+      }
+
+      .hero {
+        padding: 28px 18px;
+        border-radius: 22px;
+      }
+
+      .section {
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      .button,
+      .phone-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mock review file only. This is not the live Sunday mobile program. -->
+  <main class="page">
+    <section class="hero">
+      <h1>Venga a adorar al Salvador con nosotros este domingo.</h1>
+      <p>Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.</p>
+      <div class="hero-actions">
+        <a class="button" href="#location">Obtener indicaciones</a>
+        <a class="button secondary" href="#activities">Acompáñenos el domingo o en una próxima actividad</a>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <h2>Vea un breve video de bienvenida.</h2>
+      <p>Escuche unas palabras de algunas personas que podría conocer cuando nos visite.</p>
+      <div class="video-box">[El video irá aquí]</div>
+    </section>
+
+    <section class="section" id="expect">
+      <h2>Qué esperar el domingo</h2>
+      <p>Nuestra reunión de adoración dominical es sencilla y centrada en Jesucristo. Oramos, cantamos himnos, escuchamos mensajes breves de miembros de la congregación y dedicamos tiempo a recordar al Salvador.</p>
+      <p>La parte más importante de nuestra reunión de adoración es la Santa Cena, que es similar a la comunión en otras iglesias cristianas. Durante la Santa Cena, recordamos a Jesucristo al participar del pan y del agua, que simbolizan Su cuerpo y la sangre que derramó por nosotros. Durante este momento reverente, tratamos de pensar en cómo podemos seguirlo más fielmente durante la semana.</p>
+      <p>Puede participar de la manera que le resulte cómoda. Puede cantar, orar, escuchar o simplemente sentarse con nosotros y seguir la reunión.</p>
+      <p>Después de la reunión de adoración, a menudo nos reunimos en clases o grupos pequeños. Allí estudiamos el evangelio de Jesucristo y aprendemos cómo llegar a ser más como Él. Conversamos, hacemos preguntas y nos fortalecemos unos a otros.</p>
+      <p>Somos una congregación nueva, pequeña y en crecimiento que forma parte de una Iglesia presente en todo el mundo, por lo que el ambiente puede sentirse sencillo y personal.</p>
+    </section>
+
+    <section class="section" id="children">
+      <h2>¿Puedo traer a mis hijos?</h2>
+      <p>Sí. Los niños son bienvenidos en nuestra reunión de adoración. Somos una Iglesia centrada en Cristo que enseña la importancia de la familia y de adorar juntos.</p>
+      <p>Los niños se sientan con sus familias durante la reunión principal de adoración. Después, los niños y jóvenes pueden participar en clases o actividades apropiadas para su edad, dirigidas por dos o más adultos.</p>
+      <p>Si necesita un lugar tranquilo para alimentar a un bebé o atender a un niño, alguien puede ayudarle a encontrar el cuarto para madres.</p>
+    </section>
+
+    <section class="section" id="questions">
+      <h2>Preguntas comunes</h2>
+      <h3>¿Cómo debo vestirme?</h3>
+      <p>No necesita ropa especial para visitarnos. Si se pregunta cómo se viste la mayoría de las personas, muchos miembros se visten un poco más formalmente que durante la semana como una manera de mostrar reverencia hacia Dios. Puede ver a hombres con camisa de vestir y corbata, y a mujeres con vestidos o faldas. Otras personas pueden vestirse de manera más casual.</p>
+<p>Será completamente bienvenido tal como está.</p>
+      <h3>¿Me pedirán dinero?</h3>
+      <p>No. A los visitantes no se les pide donar dinero ni pagar para asistir a la reunión de adoración dominical o a las clases.</p>
+    </section>
+
+    <section class="section" id="activities">
+      <h2>Acompáñenos el domingo o en una próxima actividad</h2>
+      <p>Será bienvenido a adorar con nosotros el domingo, y también puede acompañarnos en actividades cuando estén programadas. Las actividades pueden ser una manera sencilla de conocer personas, hacer preguntas, hacer amistades y sentirse más cómodo.</p>
+      <p>Las actividades pueden incluir reuniones sociales, actividades para niños y jóvenes, clases de EnglishConnect, proyectos de servicio comunitario, clases de autosuficiencia o habilidades para la vida, noches de talento, bailes, presentaciones de coro, devocionales, conciertos y otros eventos especiales.</p>
+      <p class="muted">[Las próximas actividades aparecerán aquí cuando estén programadas]</p>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>¿Está pensando en venir a la Iglesia, pero no quiere venir solo?</h2>
+      <p>Entrar a una iglesia por primera vez puede sentirse intimidante. Usted no tiene que venir solo.</p>
+      <p>Nuestros misioneros locales son voluntarios de nuestra Iglesia que no reciben pago por su servicio. Ayudan a las personas a aprender acerca de Jesucristo y a sentirse cómodas al visitarnos. Si lo desea, pueden contestar sus preguntas, ayudarle a saber qué esperar y coordinar para que alguien le reciba cuando llegue.</p>
+      <div class="contact-list"><article class="contact-card"><strong>Hermanas Boyer y Rounds</strong><div class="phone-buttons"><a class="phone-button" href="tel:+19198021411">Hermanas Boyer — (919) 802-1411</a><a class="phone-button" href="tel:+19198021411">Hermanas Rounds — (919) 802-1411</a></div></article></div>
+      <p>Podemos guardarle un asiento.</p>
+    </section>
+
+    <section class="section" id="location">
+      <h2>Hora y ubicación</h2>
+      <div class="location-card">
+        <p>La reunión de adoración dominical comienza a las 10:30 a. m.</p>
+        <div class="address">
+          <strong>La Iglesia de Jesucristo de los Santos de los Últimos Días</strong><br>
+          1433 Aversboro Rd<br>Garner, NC 27529
+        </div>
+        <p>
+          <a class="phone-button" href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">
+            Obtener indicaciones
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Rama Garner 2
+    </footer>
+  </main>
+</body>
+</html>
