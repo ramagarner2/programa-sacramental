@@ -45,6 +45,10 @@
       text-decoration: none;
     }
 
+    button {
+      font: inherit;
+    }
+
     .page {
       width: 100%;
       max-width: var(--max-width);
@@ -208,6 +212,46 @@
       font-size: .92rem;
     }
 
+    .video-thumb-button {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      cursor: pointer;
+      display: block;
+      background: #000;
+      position: relative;
+      text-align: left;
+    }
+
+    .video-thumb-button img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.18));
+    }
+
+    .play-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .92);
+      color: #b00000;
+      box-shadow: 0 8px 22px rgba(0,0,0,.35);
+      font-size: 2rem;
+      line-height: 1;
+      padding-left: 4px;
+    }
+
     .media-carousel {
       position: relative;
       margin: 12px 0;
@@ -218,11 +262,13 @@
       border-radius: var(--radius-small);
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .55);
+      touch-action: pan-y;
     }
 
     .carousel-track {
       display: flex;
       transition: transform .28s ease;
+      will-change: transform;
     }
 
     .carousel-slide {
@@ -401,6 +447,54 @@
       padding: 10px 4px 0;
     }
 
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, .78);
+    }
+
+    .video-modal.open {
+      display: flex;
+    }
+
+    .video-modal-box {
+      width: min(920px, 100%);
+      background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      position: relative;
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      color: #111;
+      font-size: 1.4rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .video-modal-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      background: #000;
+    }
+
     @media (max-width: 390px) {
       .hero {
         min-height: 284px;
@@ -424,6 +518,12 @@
       .carousel-arrow.next {
         right: -8px;
       }
+
+      .play-circle {
+        width: 56px;
+        height: 56px;
+        font-size: 1.75rem;
+      }
     }
   </style>
 </head>
@@ -443,8 +543,7 @@
         <div class="section-kicker">Bienvenida</div>
         <h2 class="section-title">Vea un breve video de bienvenida.</h2>
         <p class="intro-text">Escuche unas palabras de algunas personas que podría conocer cuando nos visite.</p>
-        <div class="media-card"><iframe class="media-frame" src="https://www.youtube.com/embed/_-qqa-apug4" title="Vea un breve video de bienvenida." allowfullscreen></iframe></div>
-        
+        <div class="media-card"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/_-qqa-apug4?rel=0"><img src="https://ramagarner2.github.io/programa-sacramental/images/Bienvenido.png" alt="Video de bienvenida para visitantes"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Bienvenido</div></div>
       </section>
 
       <!-- 3. WHAT TO EXPECT -->
@@ -465,7 +564,6 @@
         <div class="section-kicker">Familias</div>
         <h2 class="section-title">¿Puedo traer a mis hijos?</h2>
         <p class="intro-text">Sí. Los niños son bienvenidos en nuestra reunión de adoración. Somos una Iglesia centrada en Cristo que enseña la importancia de la familia y de adorar juntos.</p>
-        
         
 
         <details><summary>Niños y jóvenes</summary><div class="details-body"><p>Los niños se sientan con sus familias durante la reunión principal de adoración. Después, los niños y jóvenes pueden participar en clases o actividades apropiadas para su edad, dirigidas por dos o más adultos.</p></div></details>
@@ -489,18 +587,16 @@
         <h2 class="section-title">Acompáñenos el domingo o en una próxima actividad</h2>
         <p class="intro-text">Será bienvenido a adorar con nosotros el domingo, y también puede acompañarnos en actividades cuando estén programadas. Las actividades pueden ser una manera sencilla de conocer personas, hacer preguntas, hacer amistades y sentirse más cómodo.</p>
         
-        
 
         <p class="meta" style="margin-top:10px;">[Las próximas actividades aparecerán aquí cuando estén programadas]</p>
         <details><summary>¿Qué tipo de actividades tenemos?</summary><div class="details-body"><p>Las actividades pueden incluir reuniones sociales, actividades para niños y jóvenes, clases de EnglishConnect, proyectos de servicio comunitario, clases de autosuficiencia o habilidades para la vida, noches de talento, bailes, presentaciones de coro, devocionales, conciertos y otros eventos especiales.</p></div></details>
       </section>
 
-      <!-- 7. COMING ALONE / MISSIONARIES -->
+      <!-- 7. COMING ALONE / MISSIONARIES / TOUR -->
       <section class="card section" id="contact">
         <div class="section-kicker">No tiene que venir solo</div>
         <h2 class="section-title">¿Está pensando en venir a la Iglesia, pero no quiere venir solo?</h2>
         <p class="intro-text">Entrar a una iglesia por primera vez puede sentirse intimidante. Usted no tiene que venir solo.</p>
-        
         
 
         <details><summary>¿Cómo podemos ayudarle?</summary><div class="details-body"><p>Nuestros misioneros locales son voluntarios de nuestra Iglesia que no reciben pago por su servicio. Ayudan a las personas a aprender acerca de Jesucristo y a sentirse cómodas al visitarnos. Si lo desea, pueden contestar sus preguntas, ayudarle a saber qué esperar y coordinar para que alguien le reciba cuando llegue.</p></div></details>
@@ -534,15 +630,31 @@
     </div>
   </main>
 
+  <div class="video-modal" id="videoModal" aria-hidden="true">
+    <div class="video-modal-box">
+      <button type="button" class="video-modal-close" id="videoModalClose" aria-label="Cerrar">×</button>
+      <iframe class="video-modal-frame" id="videoModalFrame" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      setupCarousels();
+      setupVideoModal();
+    });
+
+    function setupCarousels() {
       document.querySelectorAll('.media-carousel').forEach(function (carousel) {
         var track = carousel.querySelector('.carousel-track');
         var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
         var dots = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-dot'));
         var prev = carousel.querySelector('.carousel-arrow.prev');
         var next = carousel.querySelector('.carousel-arrow.next');
+        var viewport = carousel.querySelector('.carousel-viewport');
         var index = 0;
+        var startX = 0;
+        var currentX = 0;
+        var dragging = false;
 
         function render() {
           track.style.transform = 'translateX(' + (-100 * index) + '%)';
@@ -551,18 +663,22 @@
           });
         }
 
+        function goPrev() {
+          index = (index - 1 + slides.length) % slides.length;
+          render();
+        }
+
+        function goNext() {
+          index = (index + 1) % slides.length;
+          render();
+        }
+
         if (prev) {
-          prev.addEventListener('click', function () {
-            index = (index - 1 + slides.length) % slides.length;
-            render();
-          });
+          prev.addEventListener('click', goPrev);
         }
 
         if (next) {
-          next.addEventListener('click', function () {
-            index = (index + 1) % slides.length;
-            render();
-          });
+          next.addEventListener('click', goNext);
         }
 
         dots.forEach(function (dot, i) {
@@ -572,9 +688,87 @@
           });
         });
 
+        if (viewport && slides.length > 1) {
+          viewport.addEventListener('touchstart', function (event) {
+            startX = event.touches[0].clientX;
+            currentX = startX;
+            dragging = true;
+          }, { passive: true });
+
+          viewport.addEventListener('touchmove', function (event) {
+            if (!dragging) return;
+            currentX = event.touches[0].clientX;
+          }, { passive: true });
+
+          viewport.addEventListener('touchend', function () {
+            if (!dragging) return;
+
+            var delta = currentX - startX;
+
+            if (Math.abs(delta) > 45) {
+              if (delta < 0) {
+                goNext();
+              } else {
+                goPrev();
+              }
+            }
+
+            dragging = false;
+          });
+        }
+
         render();
       });
-    });
+    }
+
+    function setupVideoModal() {
+      var modal = document.getElementById('videoModal');
+      var frame = document.getElementById('videoModalFrame');
+      var close = document.getElementById('videoModalClose');
+
+      if (!modal || !frame || !close) {
+        return;
+      }
+
+      document.querySelectorAll('[data-video-modal-url]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var url = button.getAttribute('data-video-modal-url');
+
+          if (!url) {
+            return;
+          }
+
+          frame.setAttribute('src', addAutoplay(url));
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        frame.setAttribute('src', '');
+      }
+
+      close.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+
+      function addAutoplay(url) {
+        var separator = url.indexOf('?') >= 0 ? '&' : '?';
+        return url + separator + 'autoplay=1&rel=0';
+      }
+    }
   </script>
 </body>
 </html>
