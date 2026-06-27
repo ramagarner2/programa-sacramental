@@ -37,8 +37,8 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background-color: var(--deep);
-      background-image: linear-gradient(180deg, rgba(7,22,26,.10), rgba(7,22,26,.22)), url("https://ramagarner2.github.io/programa-sacramental/images/invite_background.png");
-      background-size: cover;
+      background-image: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.14)), url("InviteBackgroundImageURL | https://ramagarner2.github.io/programa-sacramental/images/invite_background_christ_full.png");
+      background-size: 100% auto;
       background-position: center top;
       background-repeat: no-repeat;
       line-height: 1.52;
@@ -57,46 +57,28 @@
     }
 
     .hero {
-      min-height: 330px;
-      margin: 0 -12px -18px;
-      padding: 74px 22px 108px;
-      background-color: var(--deep);
-      background-image: linear-gradient(90deg, rgba(5,14,17,.88) 0%, rgba(5,14,17,.70) 34%, rgba(5,14,17,.18) 62%, rgba(5,14,17,0) 100%), url("https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png");
-      background-size: cover;
-      background-position: center top;
+      min-height: 300px;
+      margin: 0 -12px 0;
+      padding: 78px 24px 34px;
+      display: flex;
+      align-items: flex-start;
+      background: transparent;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 130px;
-      background:
-        linear-gradient(180deg, rgba(7,22,26,0) 0%, rgba(7,22,26,.72) 58%, rgba(7,22,26,1) 100%);
-      pointer-events: none;
     }
 
     .hero-title {
-      position: relative;
-      z-index: 2;
-      max-width: 54%;
+      max-width: 58%;
       margin: 0;
       color: #fff8ef;
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(1.55rem, 7vw, 2.25rem);
+      font-size: clamp(1.45rem, 6.8vw, 2.2rem);
       line-height: 1.02;
       letter-spacing: -.035em;
       font-weight: 800;
-      text-shadow: 0 3px 18px rgba(0,0,0,.72);
+      text-shadow: 0 3px 18px rgba(0,0,0,.82);
     }
 
     .body-stack {
-      position: relative;
-      z-index: 3;
       display: grid;
       gap: 13px;
       padding-top: 0;
@@ -349,13 +331,13 @@
 
     @media (max-width: 390px) {
       .hero {
-        min-height: 310px;
-        padding: 66px 18px 100px;
+        min-height: 285px;
+        padding: 70px 18px 30px;
       }
 
       .hero-title {
-        max-width: 56%;
-        font-size: clamp(1.35rem, 6.8vw, 2rem);
+        max-width: 58%;
+        font-size: clamp(1.32rem, 6.5vw, 1.95rem);
       }
     }
   </style>
