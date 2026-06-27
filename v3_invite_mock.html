@@ -8,7 +8,6 @@
   <style>
     :root {
       --deep: #07161a;
-      --deep-2: #102529;
       --cream: #fff8ef;
       --cream-soft: #f7ecdf;
       --ink: #2b241d;
@@ -38,22 +37,12 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background-color: var(--deep);
-      background-image: linear-gradient(180deg, rgba(8,18,20,.18), rgba(8,18,20,.58)), url("https://ramagarner2.github.io/programa-sacramental/images/invite_background.png");
+      background-image: linear-gradient(180deg, rgba(7,22,26,.10), rgba(7,22,26,.22)), url("https://ramagarner2.github.io/programa-sacramental/images/invite_background.png");
       background-size: cover;
       background-position: center top;
-      background-attachment: scroll;
+      background-repeat: no-repeat;
       line-height: 1.52;
       min-height: 100vh;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(180deg, rgba(7,22,26,.05) 0%, rgba(7,22,26,.55) 45%, rgba(7,22,26,.82) 100%);
-      pointer-events: none;
     }
 
     a {
@@ -68,38 +57,54 @@
     }
 
     .hero {
-      min-height: 390px;
-      margin: 0 -12px 14px;
-      padding: 26px 24px 28px;
-      display: flex;
-      align-items: flex-end;
-      background-color: var(--deep-2);
-      background-image: linear-gradient(90deg, rgba(5,14,17,.84) 0%, rgba(5,14,17,.60) 34%, rgba(5,14,17,.10) 62%, rgba(5,14,17,.0) 100%), url("https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png");
+      min-height: 330px;
+      margin: 0 -12px -18px;
+      padding: 74px 22px 108px;
+      background-color: var(--deep);
+      background-image: linear-gradient(90deg, rgba(5,14,17,.88) 0%, rgba(5,14,17,.70) 34%, rgba(5,14,17,.18) 62%, rgba(5,14,17,0) 100%), url("https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png");
       background-size: cover;
       background-position: center top;
       position: relative;
       overflow: hidden;
     }
 
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 130px;
+      background:
+        linear-gradient(180deg, rgba(7,22,26,0) 0%, rgba(7,22,26,.72) 58%, rgba(7,22,26,1) 100%);
+      pointer-events: none;
+    }
+
     .hero-title {
-      max-width: 58%;
+      position: relative;
+      z-index: 2;
+      max-width: 54%;
       margin: 0;
       color: #fff8ef;
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(2rem, 9vw, 3.1rem);
-      line-height: .98;
+      font-size: clamp(1.55rem, 7vw, 2.25rem);
+      line-height: 1.02;
       letter-spacing: -.035em;
-      text-shadow: 0 3px 18px rgba(0,0,0,.65);
+      font-weight: 800;
+      text-shadow: 0 3px 18px rgba(0,0,0,.72);
     }
 
     .body-stack {
+      position: relative;
+      z-index: 3;
       display: grid;
       gap: 13px;
+      padding-top: 0;
     }
 
     .card {
       background: rgba(255, 248, 239, .96);
-      border: 1px solid rgba(255,255,255,.32);
+      border: 1px solid rgba(255,255,255,.30);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
@@ -125,7 +130,7 @@
       margin: 0 0 9px;
       color: var(--accent-dark);
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.46rem;
+      font-size: 1.42rem;
       line-height: 1.12;
       letter-spacing: -.02em;
     }
@@ -225,18 +230,14 @@
       margin-top: 10px;
     }
 
-    .activity-card,
-    .contact-card,
-    .location-box {
+    .activity-card {
       padding: 13px;
       border-radius: var(--radius-small);
       background: rgba(255, 255, 255, .55);
       border: 1px solid var(--line);
     }
 
-    .activity-card strong,
-    .contact-card strong,
-    .location-box strong {
+    .activity-card strong {
       display: block;
       margin-bottom: 4px;
       color: var(--ink);
@@ -247,30 +248,96 @@
       font-size: .93rem;
     }
 
-    .contact-buttons {
-      display: grid;
-      gap: 8px;
-      margin-top: 10px;
+    .contact-panel {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: var(--radius-small);
+      background: rgba(7, 22, 26, .94);
+      border: 1px solid rgba(255, 248, 239, .14);
+      color: #fff8ef;
     }
 
-    .contact-button,
+    .contact-panel-title {
+      color: var(--gold);
+      font-size: .9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin: 0 0 12px;
+    }
+
+    .contact-item {
+      margin: 0 0 13px;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-name {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+      color: #fff8ef;
+    }
+
+    .contact-phone {
+      display: inline-block;
+      color: #fff8ef;
+      font-weight: 900;
+      font-size: 1.05rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .location-panel {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: var(--radius-small);
+      background: rgba(7, 22, 26, .94);
+      border: 1px solid rgba(255, 248, 239, .14);
+      color: #fff8ef;
+    }
+
+    .location-panel-title {
+      color: var(--gold);
+      font-size: .9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin: 0 0 12px;
+    }
+
+    .location-time {
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .location-name {
+      margin-bottom: 8px;
+      color: #fff8ef;
+    }
+
+    .location-address {
+      color: #fff8ef;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .directions-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 42px;
       width: 100%;
+      margin-top: 13px;
       padding: 10px 12px;
       border-radius: 999px;
       background: var(--accent);
       color: #fffaf4;
       font-weight: 800;
       text-align: center;
-    }
-
-    .address-lines {
-      color: var(--muted);
-      font-size: .98rem;
     }
 
     .footer {
@@ -282,14 +349,13 @@
 
     @media (max-width: 390px) {
       .hero {
-        min-height: 360px;
-        padding-left: 18px;
-        padding-right: 18px;
+        min-height: 310px;
+        padding: 66px 18px 100px;
       }
 
       .hero-title {
-        max-width: 62%;
-        font-size: clamp(1.75rem, 8.5vw, 2.6rem);
+        max-width: 56%;
+        font-size: clamp(1.35rem, 6.8vw, 2rem);
       }
     }
   </style>
@@ -371,7 +437,7 @@
         
 
         <details><summary>¿Cómo podemos ayudarle?</summary><div class="details-body"><p>Nuestros misioneros locales son voluntarios de nuestra Iglesia que no reciben pago por su servicio. Ayudan a las personas a aprender acerca de Jesucristo y a sentirse cómodas al visitarnos. Si lo desea, pueden contestar sus preguntas, ayudarle a saber qué esperar y coordinar para que alguien le reciba cuando llegue.</p></div></details>
-        <div class="contact-list"><article class="contact-card"><strong>Hermanas Boyer y Rounds</strong><div class="contact-buttons"><a class="contact-button" href="tel:+19198021411">Llamar o enviar mensaje: (919) 802-1411</a></div></article></div>
+        <div class="contact-panel"><p class="contact-panel-title">Misioneros locales</p><div class="contact-item"><span class="contact-name">Hermanas Boyer y Rounds</span><a class="contact-phone" href="tel:+19198021411">(919) 802-1411</a></div></div>
         <p style="margin-top:12px;"><strong>Podemos guardarle un asiento.</strong></p>
       </section>
 
@@ -381,15 +447,13 @@
         <h2 class="section-title">Hora y ubicación</h2>
         
 
-        <div class="location-box">
-          <strong>La reunión de adoración dominical comienza a las 10:30 a. m.</strong>
-          <div class="address-lines" style="margin-top:8px;">
-            <strong>La Iglesia de Jesucristo de los Santos de los Últimos Días</strong>
+        <div class="location-panel">
+          <p class="location-panel-title">Hora y ubicación</p>
+          <div class="location-time">La reunión de adoración dominical comienza a las 10:30 a. m.</div>
+          <div class="location-name">La Iglesia de Jesucristo de los Santos de los Últimos Días</div>
+          <a class="location-address" href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">
             1433 Aversboro Rd<br>Garner, NC 27529
-          </div>
-        </div>
-
-        <div style="margin-top:12px;">
+          </a>
           <a class="directions-button" href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">
             Obtener indicaciones
           </a>
