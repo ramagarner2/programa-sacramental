@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Venga a adorar al Salvador con nosotros este domingo.</title>
   <meta name="description" content="Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.">
+
   <style>
     :root {
-      --bg: #f8f5f1;
-      --surface: #ffffff;
-      --surface-soft: #fcfaf7;
-      --ink: #2d261f;
-      --muted: #6e6258;
-      --line: #eadfd3;
-      --brand: #8a5a44;
-      --brand-dark: #6f4635;
-      --brand-soft: #f3e8de;
-      --accent: #b38955;
-      --chip: #f7efe7;
-      --shadow: 0 8px 24px rgba(50, 34, 22, 0.07);
-      --radius-xl: 26px;
+      --page-bg: #f7f1e8;
+      --card-bg: #ffffff;
+      --soft-bg: #fff9f2;
+      --ink: #2d251f;
+      --muted: #6c5f55;
+      --line: #e8d8c6;
+
+      --accent: #8b5e3c;
+      --accent-dark: #68432d;
+      --accent-soft: #f0dfcb;
+      --gold: #b88a4a;
+
       --radius-lg: 22px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
-      --max: 640px;
+      --radius-md: 16px;
+      --shadow: 0 8px 24px rgba(65, 42, 24, 0.09);
+
+      --max-width: 620px;
     }
 
     * {
@@ -39,8 +40,8 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top, rgba(179,137,85,.10), transparent 28%),
-        linear-gradient(180deg, #fffdfa 0%, var(--bg) 55%, #fffdfa 100%);
+        radial-gradient(circle at top left, rgba(184, 138, 74, 0.16), transparent 34%),
+        linear-gradient(180deg, #fffdf9 0%, var(--page-bg) 52%, #fffdf9 100%);
       line-height: 1.55;
     }
 
@@ -50,9 +51,9 @@
     }
 
     .page {
-      max-width: var(--max);
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 12px 12px 26px;
+      padding: 12px 12px 28px;
     }
 
     .stack {
@@ -61,163 +62,157 @@
     }
 
     .card {
-      background: var(--surface);
+      background: var(--card-bg);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .hero-image {
+    .hero {
+      position: relative;
+      min-height: 390px;
+      background:
+        linear-gradient(90deg, rgba(255,249,242,0.98) 0%, rgba(255,249,242,0.94) 42%, rgba(255,249,242,0.62) 62%, rgba(255,249,242,0.16) 100%),
+        linear-gradient(180deg, #fffaf4 0%, #f1dfcb 100%);
+    }
+
+    .hero-image-wrap {
+      position: absolute;
+      top: 14px;
+      right: -6px;
+      bottom: 0;
+      width: 58%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      pointer-events: none;
+    }
+
+    .hero-image-wrap img {
       display: block;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      background: #ece7e0;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: 96%;
+      object-fit: contain;
+      object-position: right bottom;
     }
 
-    .hero-placeholder {
-      display: grid;
-      place-items: center;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      background: linear-gradient(180deg, #f2ece6, #e9dfd4);
-      color: var(--muted);
-      text-align: center;
-      padding: 20px;
-      font-weight: 700;
-    }
-
-    .hero-body {
-      padding: 18px 18px 20px;
-      background: linear-gradient(180deg, #ffffff, #fcfaf8);
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 65%;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 12px 20px 16px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      width: fit-content;
       margin-bottom: 10px;
       padding: 7px 10px;
       border-radius: 999px;
-      background: var(--brand-soft);
-      color: var(--brand-dark);
-      font-size: .82rem;
+      background: rgba(139, 94, 60, 0.13);
+      color: var(--accent-dark);
+      font-size: 0.82rem;
       font-weight: 700;
+      line-height: 1;
     }
 
-    .hero-title {
+    .hero h1 {
       margin: 0 0 10px;
-      font-size: clamp(1.85rem, 8vw, 2.7rem);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      color: var(--brand-dark);
+      color: var(--accent-dark);
+      font-size: clamp(1.62rem, 8vw, 2.32rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    .hero-subtitle {
+    .hero p {
       margin: 0;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.42;
     }
 
     .hero-actions {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      text-align: center;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--brand);
-      color: #ffffff;
-      border-color: var(--brand);
-    }
-
-    .btn-secondary {
-      background: var(--chip);
-      color: var(--brand-dark);
-      border-color: #eadbcf;
+      gap: 9px;
+      margin-top: 15px;
     }
 
     .section {
-      padding: 18px;
+      padding: 16px;
     }
 
     .section-title {
       margin: 0 0 10px;
-      color: var(--brand-dark);
-      font-size: 1.35rem;
-      line-height: 1.15;
+      color: var(--accent-dark);
+      font-size: 1.3rem;
+      line-height: 1.16;
       letter-spacing: -0.02em;
     }
 
     .section h3 {
-      margin: 16px 0 8px;
+      margin: 16px 0 7px;
       font-size: 1rem;
       color: var(--ink);
     }
 
     .section p {
       margin: 0 0 12px;
-      color: var(--ink);
     }
 
     .section p:last-child {
       margin-bottom: 0;
     }
 
-    .muted {
-      color: var(--muted);
-    }
-
-    .info-strip {
-      display: grid;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .info-chip {
-      display: flex;
+    .btn {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      color: var(--ink);
+      justify-content: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
       font-weight: 700;
+      text-align: center;
     }
 
-    .info-chip span {
-      color: var(--muted);
-      font-weight: 400;
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
     }
 
-    .address-block {
-      margin-top: 10px;
-      padding: 14px;
-      border-radius: var(--radius-sm);
-      background: var(--surface-soft);
+    .btn-secondary {
+      background: #fff7ef;
+      color: var(--accent-dark);
+      border-color: #e3cbb5;
+    }
+
+    .soft-box {
+      padding: 13px;
+      border-radius: var(--radius-md);
+      background: var(--soft-bg);
       border: 1px solid var(--line);
     }
 
-    .address-block strong {
+    .soft-box + .soft-box {
+      margin-top: 10px;
+    }
+
+    .address strong {
       display: block;
-      margin-bottom: 6px;
-      color: var(--ink);
+      margin-bottom: 5px;
+    }
+
+    .location-button {
+      margin-top: 11px;
     }
 
     .contact-list,
@@ -229,9 +224,9 @@
 
     .contact-card,
     .activity-card {
-      padding: 14px;
-      border-radius: var(--radius-sm);
-      background: var(--surface-soft);
+      padding: 13px;
+      border-radius: var(--radius-md);
+      background: var(--soft-bg);
       border: 1px solid var(--line);
     }
 
@@ -239,52 +234,55 @@
     .activity-card strong {
       display: block;
       margin-bottom: 5px;
-      font-size: 1rem;
+      color: var(--ink);
     }
 
     .contact-meta,
-    .activity-meta {
+    .activity-meta,
+    .muted {
       color: var(--muted);
-      font-size: .94rem;
+      font-size: 0.94rem;
     }
 
     .phone-buttons {
       display: grid;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 11px;
     }
 
     .phone-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
       width: 100%;
-      padding: 10px 14px;
+      min-height: 42px;
+      padding: 10px 12px;
       border-radius: 999px;
-      background: var(--brand);
+      background: var(--accent);
       color: #ffffff;
       font-weight: 700;
+      text-align: center;
     }
 
-    .video-shell {
+    .video-wrap {
       margin-top: 10px;
     }
 
     .video-box {
       display: grid;
       place-items: center;
-      min-height: 180px;
+      min-height: 160px;
       padding: 18px;
       border-radius: var(--radius-md);
-      background: var(--surface-soft);
-      border: 1px dashed #cfb79f;
-      color: var(--brand-dark);
+      background: var(--soft-bg);
+      border: 1px dashed #cdb393;
+      color: var(--accent-dark);
       text-align: center;
       font-weight: 700;
     }
 
     .video-frame {
+      display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
       border: 0;
@@ -292,41 +290,60 @@
       background: #000000;
     }
 
-    .divider-space {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #efe3d7, transparent);
-      margin: 2px 0;
+    .footer {
+      padding: 10px 4px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
     }
 
-    .footer {
-      padding: 10px 6px 2px;
-      text-align: center;
-      color: var(--muted);
-      font-size: .92rem;
+    @media (max-width: 430px) {
+      .hero {
+        min-height: 380px;
+      }
+
+      .hero-content {
+        width: 67%;
+        min-height: 380px;
+        padding-left: 15px;
+        padding-right: 10px;
+      }
+
+      .hero-image-wrap {
+        width: 60%;
+        right: -18px;
+      }
+
+      .hero-image-wrap img {
+        height: 94%;
+      }
     }
 
     @media (min-width: 560px) {
-      .hero-actions {
-        grid-template-columns: 1fr 1fr;
-      }
-
+      .hero-actions,
       .phone-buttons {
         grid-template-columns: 1fr 1fr;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- Mock review file only. This is not the live Sunday mobile program. -->
+  <!-- Invite template only. This is not the live Sunday mobile program template. -->
+
   <main class="page">
     <div class="stack">
 
-      <section class="card">
-        <img class="hero-image" src="https://assets.churchofjesuschrist.org/12/a7/12a745dd43e19499692bba76cd057084baaa3356/portrait_jesus_christ_heinrich_hofmann.png" alt="Venga a adorar al Salvador con nosotros este domingo.">
-        <div class="hero-body">
+      <section class="card hero">
+        <div class="hero-image-wrap" aria-hidden="true">
+          <img src="https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png" alt="">
+        </div>
+
+        <div class="hero-content">
           <div class="eyebrow">Bienvenido</div>
-          <h1 class="hero-title">Venga a adorar al Salvador con nosotros este domingo.</h1>
-          <p class="hero-subtitle">Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.</p>
+          <h1>Venga a adorar al Salvador con nosotros este domingo.</h1>
+          <p>Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.</p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">Obtener indicaciones</a>
             <a class="btn btn-secondary" href="#contact">Quiero que alguien me reciba</a>
@@ -336,17 +353,17 @@
 
       <section class="card section" id="location">
         <h2 class="section-title">Hora y ubicación</h2>
-        <div class="info-strip">
-          <div class="info-chip">
-            <div>🕥</div>
-            <div>La reunión de adoración dominical comienza a las 10:30 a. m.</div>
-          </div>
+
+        <div class="soft-box">
+          La reunión de adoración dominical comienza a las 10:30 a. m.
         </div>
-        <div class="address-block">
+
+        <div class="soft-box address">
           <strong>La Iglesia de Jesucristo de los Santos de los Últimos Días</strong>
           1433 Aversboro Rd<br>Garner, NC 27529
         </div>
-        <div style="margin-top:12px;">
+
+        <div class="location-button">
           <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">Obtener indicaciones</a>
         </div>
       </section>
@@ -356,14 +373,14 @@
         <p>Entrar a una iglesia por primera vez puede sentirse intimidante. Usted no tiene que venir solo.</p>
         <p>Nuestros misioneros locales son voluntarios de nuestra Iglesia que no reciben pago por su servicio. Ayudan a las personas a aprender acerca de Jesucristo y a sentirse cómodas al visitarnos. Si lo desea, pueden contestar sus preguntas, ayudarle a saber qué esperar y coordinar para que alguien le reciba cuando llegue.</p>
         <div class="contact-list"><article class="contact-card"><strong>Hermanas Boyer y Rounds</strong><div class="phone-buttons"><a class="phone-button" href="tel:+19198021411">Hermanas Boyer — (919) 802-1411</a><a class="phone-button" href="tel:+19198021411">Hermanas Rounds — (919) 802-1411</a></div></article></div>
-        <div class="divider-space"></div>
         <p>Podemos guardarle un asiento.</p>
       </section>
 
       <section class="card section" id="video">
         <h2 class="section-title">Vea un breve video de bienvenida.</h2>
         <p>Escuche unas palabras de algunas personas que podría conocer cuando nos visite.</p>
-        <div class="video-shell">
+
+        <div class="video-wrap">
           <div class="video-box">[El video irá aquí]</div>
         </div>
       </section>
@@ -386,9 +403,11 @@
 
       <section class="card section" id="questions">
         <h2 class="section-title">Preguntas comunes</h2>
+
         <h3>¿Cómo debo vestirme?</h3>
         <p>No necesita ropa especial para visitarnos. Si se pregunta cómo se viste la mayoría de las personas, muchos miembros se visten un poco más formalmente que durante la semana como una manera de mostrar reverencia hacia Dios. Puede ver a hombres con camisa de vestir y corbata, y a mujeres con vestidos o faldas. Otras personas pueden vestirse de manera más casual.</p>
 <p>Será completamente bienvenido tal como está.</p>
+
         <h3>¿Me pedirán dinero?</h3>
         <p>No. A los visitantes no se les pide donar dinero ni pagar para asistir a la reunión de adoración dominical o a las clases.</p>
       </section>
