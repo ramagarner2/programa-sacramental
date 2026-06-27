@@ -36,11 +36,7 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
-      background-color: var(--deep);
-      background-image: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.14)), url("https://ramagarner2.github.io/programa-sacramental/images/invite_background_christ_full.png");
-      background-size: 100% auto;
-      background-position: center top;
-      background-repeat: no-repeat;
+      background: var(--deep);
       line-height: 1.52;
       min-height: 100vh;
     }
@@ -51,15 +47,23 @@
     }
 
     .page {
+      width: 100%;
       max-width: var(--max-width);
+      min-height: 100vh;
       margin: 0 auto;
       padding: 0 12px 30px;
+      background-image: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.10)), url("https://ramagarner2.github.io/programa-sacramental/images/invite_background_christ_full.png");
+      background-color: var(--deep);
+      background-size: 100% 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
+      overflow: hidden;
     }
 
     .hero {
       min-height: 300px;
       margin: 0 -12px 0;
-      padding: 78px 24px 34px;
+      padding: 76px 24px 34px;
       display: flex;
       align-items: flex-start;
       background: transparent;
@@ -358,7 +362,7 @@
         <div class="section-kicker">Bienvenida</div>
         <h2 class="section-title">Vea un breve video de bienvenida.</h2>
         <p class="intro-text">Escuche unas palabras de algunas personas que podría conocer cuando nos visite.</p>
-        
+        <div class="media-card"><iframe class="media-frame" src="https://www.youtube.com/embed/_-qqa-apug4" title="Vea un breve video de bienvenida." allowfullscreen></iframe></div>
         
       </section>
 
