@@ -7,25 +7,21 @@
   <meta name="description" content="Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.">
   <style>
     :root {
-      --bg-deep: #142325;
-      --bg-blue: #1f3436;
-      --bg-brown: #4e3b2b;
+      --deep: #07161a;
+      --deep-2: #102529;
       --cream: #fff8ef;
-      --cream-2: #f6eadb;
-      --card: rgba(255, 248, 239, .96);
-      --card-solid: #fff8ef;
-      --ink: #2c241c;
-      --muted: #66594f;
-      --line: rgba(104, 78, 53, .22);
-      --accent: #7d5a36;
-      --accent-dark: #52381f;
-      --accent-soft: #ead8c2;
-      --gold: #c59b5a;
-      --shadow: 0 12px 30px rgba(0, 0, 0, .22);
-      --soft-shadow: 0 8px 22px rgba(24, 32, 32, .14);
-      --radius: 22px;
+      --cream-soft: #f7ecdf;
+      --ink: #2b241d;
+      --muted: #665a50;
+      --line: rgba(93, 69, 45, .24);
+      --accent: #835f3b;
+      --accent-dark: #563a22;
+      --accent-soft: #ead8c1;
+      --gold: #c9a05f;
+      --radius: 24px;
       --radius-small: 16px;
       --max-width: 520px;
+      --shadow: 0 10px 26px rgba(0, 0, 0, .22);
     }
 
     * {
@@ -33,32 +29,21 @@
     }
 
     html {
+      background: var(--deep);
       scroll-behavior: smooth;
-      background: var(--bg-deep);
     }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(245, 227, 188, .22), transparent 28%),
-        linear-gradient(180deg, #1c3336 0%, #2d3a32 34%, #4b3829 72%, #1c2424 100%);
-      line-height: 1.52;
-      min-height: 100vh;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background-image: linear-gradient(180deg, rgba(19, 30, 33, .12), rgba(19, 30, 33, .92)), url("https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png");
+      background-color: var(--deep);
+      background-image: linear-gradient(180deg, rgba(8,18,20,.18), rgba(8,18,20,.58)), url("https://ramagarner2.github.io/programa-sacramental/images/invite_background.png");
       background-size: cover;
       background-position: center top;
-      opacity: .34;
-      filter: blur(18px) saturate(.95);
-      transform: scale(1.08);
+      background-attachment: scroll;
+      line-height: 1.52;
+      min-height: 100vh;
     }
 
     body::after {
@@ -67,9 +52,7 @@
       inset: 0;
       z-index: -1;
       background:
-        linear-gradient(180deg, rgba(20,35,37,.2) 0%, rgba(20,35,37,.76) 40%, rgba(52,38,27,.86) 100%),
-        radial-gradient(circle at 20% 18%, rgba(221,188,122,.18), transparent 30%),
-        radial-gradient(circle at 80% 60%, rgba(93,125,118,.16), transparent 36%);
+        linear-gradient(180deg, rgba(7,22,26,.05) 0%, rgba(7,22,26,.55) 45%, rgba(7,22,26,.82) 100%);
       pointer-events: none;
     }
 
@@ -85,139 +68,70 @@
     }
 
     .hero {
-      min-height: 510px;
+      min-height: 390px;
       margin: 0 -12px 14px;
-      padding: 18px 12px 20px;
+      padding: 26px 24px 28px;
       display: flex;
       align-items: flex-end;
-      background:
-        linear-gradient(180deg, rgba(20, 35, 37, .02) 0%, rgba(20, 35, 37, .18) 35%, rgba(20, 35, 37, .9) 100%),
-        var(--hero-image, transparent);
+      background-color: var(--deep-2);
+      background-image: linear-gradient(90deg, rgba(5,14,17,.84) 0%, rgba(5,14,17,.60) 34%, rgba(5,14,17,.10) 62%, rgba(5,14,17,.0) 100%), url("https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png");
       background-size: cover;
       background-position: center top;
       position: relative;
       overflow: hidden;
     }
 
-    .hero.has-image {
-      --hero-image: url("https://ramagarner2.github.io/programa-sacramental/images/portrait_jesus_christ_heinrich_hofmann.png");
-    }
-
-    .hero-inner {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 12px;
-    }
-
-    .hero-panel {
-      color: #fffaf4;
-      text-shadow: 0 2px 18px rgba(0, 0, 0, .45);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      margin-bottom: 10px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(255, 248, 239, .16);
-      border: 1px solid rgba(255, 248, 239, .28);
-      color: #fff8ef;
-      font-size: .8rem;
-      font-weight: 700;
-      backdrop-filter: blur(8px);
-    }
-
     .hero-title {
-      margin: 0 0 9px;
-      font-size: clamp(2.02rem, 8.3vw, 2.75rem);
-      line-height: 1.03;
-      letter-spacing: -.045em;
-      font-weight: 800;
-    }
-
-    .hero-subtitle {
+      max-width: 58%;
       margin: 0;
-      color: rgba(255, 250, 244, .93);
-      font-size: 1.02rem;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, .5);
-    }
-
-    .quick-actions {
-      display: grid;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 800;
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    .btn-primary {
-      background: var(--cream);
-      color: var(--accent-dark);
-      border-color: rgba(255, 248, 239, .8);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 248, 239, .14);
-      color: #fffaf4;
-      border-color: rgba(255, 248, 239, .28);
-      backdrop-filter: blur(8px);
+      color: #fff8ef;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 9vw, 3.1rem);
+      line-height: .98;
+      letter-spacing: -.035em;
+      text-shadow: 0 3px 18px rgba(0,0,0,.65);
     }
 
     .body-stack {
       display: grid;
-      gap: 12px;
+      gap: 13px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid rgba(255, 248, 239, .28);
+      background: rgba(255, 248, 239, .96);
+      border: 1px solid rgba(255,255,255,.32);
       border-radius: var(--radius);
-      box-shadow: var(--soft-shadow);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
     .section {
-      padding: 16px;
+      padding: 17px;
     }
 
     .section-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       margin-bottom: 8px;
-      padding: 6px 9px;
+      padding: 6px 10px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent-dark);
-      font-size: .78rem;
+      font-size: .77rem;
       font-weight: 800;
     }
 
     .section-title {
       margin: 0 0 9px;
       color: var(--accent-dark);
-      font-size: 1.34rem;
-      line-height: 1.16;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.46rem;
+      line-height: 1.12;
       letter-spacing: -.02em;
     }
 
     .intro-text {
-      margin: 0 0 11px;
+      margin: 0 0 12px;
       color: var(--muted);
       font-size: .98rem;
     }
@@ -234,7 +148,7 @@
       margin-top: 9px;
       border: 1px solid var(--line);
       border-radius: var(--radius-small);
-      background: rgba(255, 255, 255, .48);
+      background: rgba(255, 255, 255, .55);
       overflow: hidden;
     }
 
@@ -277,11 +191,11 @@
     }
 
     .media-card {
-      margin-top: 12px;
+      margin: 12px 0;
       border-radius: var(--radius-small);
       overflow: hidden;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, .55);
     }
 
     .media-card img {
@@ -316,7 +230,7 @@
     .location-box {
       padding: 13px;
       border-radius: var(--radius-small);
-      background: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, .55);
       border: 1px solid var(--line);
     }
 
@@ -366,13 +280,16 @@
       padding: 10px 4px 0;
     }
 
-    @media (min-width: 430px) {
-      .quick-actions {
-        grid-template-columns: 1fr 1fr;
+    @media (max-width: 390px) {
+      .hero {
+        min-height: 360px;
+        padding-left: 18px;
+        padding-right: 18px;
       }
 
-      .quick-actions .full {
-        grid-column: 1 / -1;
+      .hero-title {
+        max-width: 62%;
+        font-size: clamp(1.75rem, 8.5vw, 2.6rem);
       }
     }
   </style>
@@ -382,21 +299,8 @@
   <main class="page">
 
     <!-- 1. HERO INVITATION -->
-    <section class="hero has-image" id="top">
-      <div class="hero-inner">
-        <div class="hero-panel">
-          <div class="hero-badge">Todos son bienvenidos</div>
-          <h1 class="hero-title">Venga a adorar al Salvador con nosotros este domingo.</h1>
-          <p class="hero-subtitle">Ya sea que nos visite por primera vez, que esté regresando después de mucho tiempo, o que simplemente tenga curiosidad, será bienvenido.</p>
-          <div class="quick-actions">
-            <a class="btn btn-primary" href="#video">Ver video</a>
-            <a class="btn btn-secondary" href="#expect">Qué esperar</a>
-            <a class="btn btn-secondary full" href="https://www.google.com/maps/search/?api=1&amp;query=1433%20Aversboro%20Rd%2C%20Garner%2C%20NC%2027529" target="_blank" rel="noopener">
-              Obtener indicaciones
-            </a>
-          </div>
-        </div>
-      </div>
+    <section class="hero" id="top">
+      <h1 class="hero-title">Venga a adorar al Salvador con nosotros este domingo.</h1>
     </section>
 
     <div class="body-stack">
@@ -407,6 +311,7 @@
         <h2 class="section-title">Vea un breve video de bienvenida.</h2>
         <p class="intro-text">Escuche unas palabras de algunas personas que podría conocer cuando nos visite.</p>
         
+        
       </section>
 
       <!-- 3. WHAT TO EXPECT -->
@@ -414,7 +319,7 @@
         <div class="section-kicker">Domingo</div>
         <h2 class="section-title">Qué esperar el domingo</h2>
         
-        
+
         <details><summary>Nuestra reunión de adoración</summary><div class="details-body"><p>Nuestra reunión de adoración dominical es sencilla y centrada en Jesucristo. Oramos, cantamos himnos, escuchamos mensajes breves de miembros de la congregación y dedicamos tiempo a recordar al Salvador.</p></div></details>
         <details><summary>La Santa Cena</summary><div class="details-body"><p>La parte más importante de nuestra reunión de adoración es la Santa Cena, que es similar a la comunión en otras iglesias cristianas. Durante la Santa Cena, recordamos a Jesucristo al participar del pan y del agua, que simbolizan Su cuerpo y la sangre que derramó por nosotros. Durante este momento reverente, tratamos de pensar en cómo podemos seguirlo más fielmente durante la semana.</p></div></details>
         <details><summary>Cómo puede participar</summary><div class="details-body"><p>Puede participar de la manera que le resulte cómoda. Puede cantar, orar, escuchar o simplemente sentarse con nosotros y seguir la reunión.</p></div></details>
@@ -427,6 +332,9 @@
         <div class="section-kicker">Familias</div>
         <h2 class="section-title">¿Puedo traer a mis hijos?</h2>
         <p class="intro-text">Sí. Los niños son bienvenidos en nuestra reunión de adoración. Somos una Iglesia centrada en Cristo que enseña la importancia de la familia y de adorar juntos.</p>
+        
+        
+
         <details><summary>Niños y jóvenes</summary><div class="details-body"><p>Los niños se sientan con sus familias durante la reunión principal de adoración. Después, los niños y jóvenes pueden participar en clases o actividades apropiadas para su edad, dirigidas por dos o más adultos.</p></div></details>
         <details><summary>Cuarto para madres</summary><div class="details-body"><p>Si necesita un lugar tranquilo para alimentar a un bebé o atender a un niño, alguien puede ayudarle a encontrar el cuarto para madres.</p></div></details>
       </section>
@@ -435,6 +343,8 @@
       <section class="card section" id="questions">
         <div class="section-kicker">Preguntas</div>
         <h2 class="section-title">Preguntas comunes</h2>
+        
+
         <details><summary>¿Cómo debo vestirme?</summary><div class="details-body"><p>No necesita ropa especial para visitarnos. Si se pregunta cómo se viste la mayoría de las personas, muchos miembros se visten un poco más formalmente que durante la semana como una manera de mostrar reverencia hacia Dios. Puede ver a hombres con camisa de vestir y corbata, y a mujeres con vestidos o faldas. Otras personas pueden vestirse de manera más casual.</p>
 <p>Será completamente bienvenido tal como está.</p></div></details>
         <details><summary>¿Me pedirán dinero?</summary><div class="details-body"><p>No. A los visitantes no se les pide donar dinero ni pagar para asistir a la reunión de adoración dominical o a las clases.</p></div></details>
@@ -446,6 +356,8 @@
         <h2 class="section-title">Acompáñenos el domingo o en una próxima actividad</h2>
         <p class="intro-text">Será bienvenido a adorar con nosotros el domingo, y también puede acompañarnos en actividades cuando estén programadas. Las actividades pueden ser una manera sencilla de conocer personas, hacer preguntas, hacer amistades y sentirse más cómodo.</p>
         
+        
+
         <p class="meta" style="margin-top:10px;">[Las próximas actividades aparecerán aquí cuando estén programadas]</p>
         <details><summary>¿Qué tipo de actividades tenemos?</summary><div class="details-body"><p>Las actividades pueden incluir reuniones sociales, actividades para niños y jóvenes, clases de EnglishConnect, proyectos de servicio comunitario, clases de autosuficiencia o habilidades para la vida, noches de talento, bailes, presentaciones de coro, devocionales, conciertos y otros eventos especiales.</p></div></details>
       </section>
@@ -455,6 +367,9 @@
         <div class="section-kicker">No tiene que venir solo</div>
         <h2 class="section-title">¿Está pensando en venir a la Iglesia, pero no quiere venir solo?</h2>
         <p class="intro-text">Entrar a una iglesia por primera vez puede sentirse intimidante. Usted no tiene que venir solo.</p>
+        
+        
+
         <details><summary>¿Cómo podemos ayudarle?</summary><div class="details-body"><p>Nuestros misioneros locales son voluntarios de nuestra Iglesia que no reciben pago por su servicio. Ayudan a las personas a aprender acerca de Jesucristo y a sentirse cómodas al visitarnos. Si lo desea, pueden contestar sus preguntas, ayudarle a saber qué esperar y coordinar para que alguien le reciba cuando llegue.</p></div></details>
         <div class="contact-list"><article class="contact-card"><strong>Hermanas Boyer y Rounds</strong><div class="contact-buttons"><a class="contact-button" href="tel:+19198021411">Llamar o enviar mensaje: (919) 802-1411</a></div></article></div>
         <p style="margin-top:12px;"><strong>Podemos guardarle un asiento.</strong></p>
