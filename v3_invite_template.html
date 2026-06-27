@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page_title}}</title>
+  <meta name="description" content="{{meta_description}}">
+
+  <style>
+    :root {
+      --page-bg: #f7f2ea;
+      --card-bg: #ffffff;
+      --card-soft: #fffaf4;
+      --ink: #2f261f;
+      --muted: #6d6258;
+      --line: #e7d8c8;
+
+      --invite: #8b5e3c;
+      --invite-dark: #68432d;
+      --invite-soft: #f1e3d2;
+      --gold: #b58a4a;
+
+      --shadow: 0 10px 28px rgba(70, 45, 25, 0.09);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+
+      --max-width: 620px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(181, 138, 74, 0.16), transparent 32%),
+        linear-gradient(180deg, #fffdf9 0%, var(--page-bg) 48%, #fffdf9 100%);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 12px 28px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 18px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      color: var(--invite-dark);
+      font-size: 1.34rem;
+      line-height: 1.16;
+      letter-spacing: -0.02em;
+    }
+
+    .section h3 {
+      margin: 16px 0 7px;
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+
+    .section p {
+      margin: 0 0 12px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 430px;
+      background:
+        linear-gradient(90deg, rgba(255, 250, 244, 0.98) 0%, rgba(255, 250, 244, 0.92) 42%, rgba(255, 250, 244, 0.40) 64%, rgba(255, 250, 244, 0.08) 100%),
+        linear-gradient(180deg, #fffaf4 0%, #f2e4d3 100%);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .hero-art {
+      position: absolute;
+      top: 10px;
+      right: -8px;
+      bottom: 0;
+      width: 58%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      pointer-events: none;
+    }
+
+    .hero-art img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      object-position: right bottom;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 64%;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 22px 16px 22px 18px;
+    }
+
+    .eyebrow {
+      align-self: flex-start;
+      margin-bottom: 10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(139, 94, 60, 0.12);
+      color: var(--invite-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .hero-title {
+      margin: 0 0 10px;
+      color: var(--invite-dark);
+      font-size: clamp(1.72rem, 8vw, 2.55rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.42;
+    }
+
+    .hero-actions {
+      display: grid;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--invite);
+      color: #ffffff;
+      border-color: var(--invite);
+    }
+
+    .btn-secondary {
+      background: #fff7ef;
+      color: var(--invite-dark);
+      border-color: #e5cfba;
+    }
+
+    .info-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .soft-box {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: var(--card-soft);
+      border: 1px solid var(--line);
+    }
+
+    .address strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .contact-list,
+    .activity-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .contact-card,
+    .activity-card {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: var(--card-soft);
+      border: 1px solid var(--line);
+    }
+
+    .contact-card strong,
+    .activity-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+    }
+
+    .contact-meta,
+    .activity-meta {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .phone-buttons {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .phone-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--invite);
+      color: #ffffff;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .video-wrap {
+      margin-top: 10px;
+    }
+
+    .video-box {
+      display: grid;
+      place-items: center;
+      min-height: 165px;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: var(--card-soft);
+      border: 1px dashed #cdb395;
+      color: var(--invite-dark);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .video-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: var(--radius-md);
+      background: #000000;
+    }
+
+    .footer {
+      padding: 10px 4px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 430px) {
+      .hero-card {
+        min-height: 410px;
+      }
+
+      .hero-content {
+        width: 66%;
+        min-height: 410px;
+        padding: 20px 12px 20px 16px;
+      }
+
+      .hero-art {
+        right: -18px;
+        width: 60%;
+      }
+
+      .hero-title {
+        font-size: clamp(1.62rem, 8.4vw, 2.22rem);
+      }
+
+      .hero-subtitle {
+        font-size: 0.94rem;
+      }
+
+      .section {
+        padding: 16px;
+      }
+    }
+
+    @media (min-width: 560px) {
+      .hero-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .phone-buttons {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Invite template only. This is not the live Sunday mobile program template. -->
+
+  <main class="page">
+    <div class="stack">
+
+      <section class="card hero-card">
+        <div class="hero-art" aria-hidden="true">
+          <img src="{{invite_hero_image_url}}" alt="">
+        </div>
+
+        <div class="hero-content">
+          <div class="eyebrow">{{hero_eyebrow}}</div>
+          <h1 class="hero-title">{{hero_title}}</h1>
+          <p class="hero-subtitle">{{hero_subtitle}}</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="{{directions_url}}" target="_blank" rel="noopener">{{directions_label}}</a>
+            <a class="btn btn-secondary" href="#contact">{{meet_someone_button}}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card section" id="location">
+        <h2 class="section-title">{{location_title}}</h2>
+
+        <div class="info-card">
+          <div class="soft-box">
+            {{meeting_time}}
+          </div>
+
+          <div class="soft-box address">
+            <strong>{{church_name}}</strong>
+            {{church_address_html}}
+          </div>
+
+          <a class="btn btn-primary" href="{{directions_url}}" target="_blank" rel="noopener">{{directions_label}}</a>
+        </div>
+      </section>
+
+      <section class="card section" id="contact">
+        <h2 class="section-title">{{alone_title}}</h2>
+        {{alone_intro}}
+        {{missionary_intro}}
+        {{missionary_contact_cards}}
+        {{save_seat}}
+      </section>
+
+      <section class="card section" id="video">
+        <h2 class="section-title">{{video_title}}</h2>
+        {{video_intro}}
+
+        <div class="video-wrap">
+          {{video_block}}
+        </div>
+      </section>
+
+      <section class="card section" id="expect">
+        <h2 class="section-title">{{expect_title}}</h2>
+        {{expect_intro}}
+        {{sacrament_paragraph}}
+        {{participation_paragraph}}
+        {{classes_paragraph}}
+        {{small_congregation_paragraph}}
+      </section>
+
+      <section class="card section" id="children">
+        <h2 class="section-title">{{children_title}}</h2>
+        {{children_intro}}
+        {{children_classes}}
+        {{mothers_room}}
+      </section>
+
+      <section class="card section" id="questions">
+        <h2 class="section-title">{{questions_title}}</h2>
+
+        <h3>{{dress_question}}</h3>
+        {{dress_answer}}
+
+        <h3>{{money_question}}</h3>
+        {{money_answer}}
+      </section>
+
+      <section class="card section" id="activities">
+        <h2 class="section-title">{{activities_title}}</h2>
+        {{activities_intro}}
+        {{activities_examples}}
+        {{activities_block}}
+      </section>
+
+      <footer class="footer">
+        {{branch_name}}
+      </footer>
+
+    </div>
+  </main>
+</body>
+</html>
