@@ -152,10 +152,10 @@
       padding: 13px 14px;
       color: var(--ink);
       font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 38px;
       gap: 12px;
+      align-items: center;
     }
 
     details summary::-webkit-details-marker {
@@ -164,7 +164,9 @@
 
     .details-summary-text {
       min-width: 0;
-      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      min-height: 38px;
     }
 
     .invite-chevron {
@@ -184,17 +186,18 @@
     }
 
     .invite-chevron::before {
-      content: "›";
+      content: "";
       display: block;
-      color: currentColor;
-      font-size: 42px;
-      font-weight: 900;
-      line-height: 0.8;
-      transform: translateY(-1px);
+      width: 13px;
+      height: 13px;
+      border-top: 5px solid currentColor;
+      border-right: 5px solid currentColor;
+      transform: rotate(45deg);
+      transform-origin: center center;
     }
 
-    details[open] .invite-chevron {
-      transform: rotate(90deg);
+    details[open] .invite-chevron::before {
+      transform: rotate(135deg);
     }
 
     @keyframes rg2ChevronPulseSync {
