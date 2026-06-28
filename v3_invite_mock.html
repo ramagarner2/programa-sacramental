@@ -162,21 +162,55 @@
       display: none;
     }
 
-    details summary::after {
-      content: "+";
-      flex: 0 0 auto;
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-weight: 900;
+    .details-summary-text {
+      min-width: 0;
+      flex: 1 1 auto;
     }
 
-    details[open] summary::after {
-      content: "–";
+    .invite-chevron {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0;
+      line-height: 1;
+      transform-origin: center center;
+    }
+
+    .invite-chevron::before {
+      content: "›";
+      display: block;
+      color: currentColor;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 0.8;
+      transform: translateY(-1px);
+    }
+
+    details[open] .invite-chevron {
+      transform: rotate(90deg);
+    }
+
+    @keyframes rg2ChevronPulseSync {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+
+    details:not([open]) .invite-chevron,
+    .media-carousel .carousel-arrow-symbol {
+      animation: rg2ChevronPulseSync 1.15s ease-in-out infinite;
+      animation-delay: 0s;
+    }
+
+    body.rg2-chevron-motion-ended details:not([open]) .invite-chevron,
+    body.rg2-chevron-motion-ended .media-carousel .carousel-arrow-symbol {
+      animation: none !important;
+      transform: translateX(0) !important;
     }
 
     .details-body {
@@ -280,26 +314,35 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 5;
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       border: 0;
       border-radius: 999px;
       background: rgba(255, 248, 239, .95);
       color: var(--accent-dark);
-      font-size: 1.65rem;
-      font-weight: 900;
       box-shadow: 0 7px 18px rgba(0,0,0,.24);
       display: grid;
       place-items: center;
       cursor: pointer;
+      padding: 0;
+    }
+
+    .carousel-arrow-symbol {
+      display: block;
+      color: currentColor;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 0.8;
+      transform-origin: center center;
+      transform: translateY(-1px);
     }
 
     .carousel-arrow.prev {
-      left: -11px;
+      left: -8px;
     }
 
     .carousel-arrow.next {
-      right: -11px;
+      right: -8px;
     }
 
     .carousel-dots {
@@ -495,6 +538,13 @@
       background: #000;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      details:not([open]) .invite-chevron,
+      .media-carousel .carousel-arrow-symbol {
+        animation: none !important;
+      }
+    }
+
     @media (max-width: 390px) {
       .hero {
         min-height: 284px;
@@ -504,19 +554,6 @@
       .hero-title {
         max-width: 58%;
         font-size: clamp(1.3rem, 6.4vw, 1.9rem);
-      }
-
-      .carousel-arrow {
-        width: 38px;
-        height: 38px;
-      }
-
-      .carousel-arrow.prev {
-        left: -8px;
-      }
-
-      .carousel-arrow.next {
-        right: -8px;
       }
 
       .play-circle {
@@ -552,11 +589,11 @@
         <h2 class="section-title">Qué esperar el domingo</h2>
         <div class="media-card"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/G6PIopCKL2g?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/d639a234ccaa11eb9cddeeeeac1edd6fba445d4b/full/1280%2C/0/default" alt="Una mujer sonríe en una congregación de la Iglesia mientras aprende sobre el Salvador."><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">¿Cómo es la primera vez que asistes a la Iglesia?</div></div>
 
-        <details><summary>Nuestra reunión de adoración</summary><div class="details-body"><p>Nuestra reunión de adoración dominical es sencilla y centrada en Jesucristo. Oramos, cantamos himnos, escuchamos mensajes breves de miembros de la congregación y dedicamos tiempo a recordar al Salvador.</p></div></details>
-        <details><summary>La Santa Cena</summary><div class="details-body"><p>La parte más importante de nuestra reunión de adoración es la Santa Cena, que es similar a la comunión en otras iglesias cristianas. Durante la Santa Cena, recordamos a Jesucristo al participar del pan y del agua, que simbolizan Su cuerpo y la sangre que derramó por nosotros. Durante este momento reverente, tratamos de pensar en cómo podemos seguirlo más fielmente durante la semana.</p></div></details>
-        <details><summary>Cómo puede participar</summary><div class="details-body"><p>Puede participar de la manera que le resulte cómoda. Puede cantar, orar, escuchar o simplemente sentarse con nosotros y seguir la reunión.</p></div></details>
-        <details><summary>Después de la reunión</summary><div class="details-body"><p>Después de la reunión de adoración, a menudo nos reunimos en clases o grupos pequeños. Allí estudiamos el evangelio de Jesucristo y aprendemos cómo llegar a ser más como Él. Conversamos, hacemos preguntas y nos fortalecemos unos a otros.</p></div></details>
-        <details><summary>Nuestra congregación</summary><div class="details-body"><p>Somos una congregación nueva, pequeña y en crecimiento que forma parte de una Iglesia presente en todo el mundo, por lo que el ambiente puede sentirse sencillo y personal.</p></div></details>
+        <details><summary><span class="details-summary-text">Nuestra reunión de adoración</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Nuestra reunión de adoración dominical es sencilla y centrada en Jesucristo. Oramos, cantamos himnos, escuchamos mensajes breves de miembros de la congregación y dedicamos tiempo a recordar al Salvador.</p></div></details>
+        <details><summary><span class="details-summary-text">La Santa Cena</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>La parte más importante de nuestra reunión de adoración es la Santa Cena, que es similar a la comunión en otras iglesias cristianas. Durante la Santa Cena, recordamos a Jesucristo al participar del pan y del agua, que simbolizan Su cuerpo y la sangre que derramó por nosotros. Durante este momento reverente, tratamos de pensar en cómo podemos seguirlo más fielmente durante la semana.</p></div></details>
+        <details><summary><span class="details-summary-text">Cómo puede participar</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Puede participar de la manera que le resulte cómoda. Puede cantar, orar, escuchar o simplemente sentarse con nosotros y seguir la reunión.</p></div></details>
+        <details><summary><span class="details-summary-text">Después de la reunión</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Después de la reunión de adoración, a menudo nos reunimos en clases o grupos pequeños. Allí estudiamos el evangelio de Jesucristo y aprendemos cómo llegar a ser más como Él. Conversamos, hacemos preguntas y nos fortalecemos unos a otros.</p></div></details>
+        <details><summary><span class="details-summary-text">Nuestra congregación</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Somos una congregación nueva, pequeña y en crecimiento que forma parte de una Iglesia presente en todo el mundo, por lo que el ambiente puede sentirse sencillo y personal.</p></div></details>
       </section>
 
       <!-- 4. CHILDREN -->
@@ -566,8 +603,8 @@
         <p class="intro-text">Sí. Los niños son bienvenidos en nuestra reunión de adoración. Somos una Iglesia centrada en Cristo que enseña la importancia de la familia y de adorar juntos.</p>
         <div class="media-card"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/C9Cv22OK5VA?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/ca2ae2ffff161cb8dc289be5859a86865bb51f7b/full/500%2C/0/default" alt="Animación de varios grupos familiares"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">¿Cuál es el propósito de la familia?</div></div>
 
-        <details><summary>Niños y jóvenes</summary><div class="details-body"><p>Los niños se sientan con sus familias durante la reunión principal de adoración. Después, los niños y jóvenes pueden participar en clases o actividades apropiadas para su edad, dirigidas por dos o más adultos.</p></div></details>
-        <details><summary>Cuarto para madres</summary><div class="details-body"><p>Si necesita un lugar tranquilo para alimentar a un bebé o atender a un niño, alguien puede ayudarle a encontrar el cuarto para madres.</p></div></details>
+        <details><summary><span class="details-summary-text">Niños y jóvenes</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Los niños se sientan con sus familias durante la reunión principal de adoración. Después, los niños y jóvenes pueden participar en clases o actividades apropiadas para su edad, dirigidas por dos o más adultos.</p></div></details>
+        <details><summary><span class="details-summary-text">Cuarto para madres</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Si necesita un lugar tranquilo para alimentar a un bebé o atender a un niño, alguien puede ayudarle a encontrar el cuarto para madres.</p></div></details>
       </section>
 
       <!-- 5. COMMON QUESTIONS -->
@@ -576,9 +613,9 @@
         <h2 class="section-title">Preguntas comunes</h2>
         
 
-        <details><summary>¿Cómo debo vestirme?</summary><div class="details-body"><p>No necesita ropa especial para visitarnos. Si se pregunta cómo se viste la mayoría de las personas, muchos miembros se visten un poco más formalmente que durante la semana como una manera de mostrar reverencia hacia Dios. Puede ver a hombres con camisa de vestir y corbata, y a mujeres con vestidos o faldas. Otras personas pueden vestirse de manera más casual.</p>
+        <details><summary><span class="details-summary-text">¿Cómo debo vestirme?</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>No necesita ropa especial para visitarnos. Si se pregunta cómo se viste la mayoría de las personas, muchos miembros se visten un poco más formalmente que durante la semana como una manera de mostrar reverencia hacia Dios. Puede ver a hombres con camisa de vestir y corbata, y a mujeres con vestidos o faldas. Otras personas pueden vestirse de manera más casual.</p>
 <p>Será completamente bienvenido tal como está.</p></div></details>
-        <details><summary>¿Me pedirán dinero?</summary><div class="details-body"><p>No. A los visitantes no se les pide donar dinero ni pagar para asistir a la reunión de adoración dominical o a las clases.</p></div></details>
+        <details><summary><span class="details-summary-text">¿Me pedirán dinero?</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>No. A los visitantes no se les pide donar dinero ni pagar para asistir a la reunión de adoración dominical o a las clases.</p></div></details>
       </section>
 
       <!-- 6. ACTIVITIES -->
@@ -589,7 +626,7 @@
         <div class="media-card"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/hzbLM8gdHtM?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/6b9c9a62642a50bad7b1d8ef49cbcbbecba51286/full/500%2C/0/default" alt="Video sobre la comunidad y actividades de la Iglesia"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Esto es la Iglesia</div></div>
 
         <p class="meta" style="margin-top:10px;">[Las próximas actividades aparecerán aquí cuando estén programadas]</p>
-        <details><summary>¿Qué tipo de actividades tenemos?</summary><div class="details-body"><p>Las actividades pueden incluir reuniones sociales, actividades para niños y jóvenes, clases de EnglishConnect, proyectos de servicio comunitario, clases de autosuficiencia o habilidades para la vida, noches de talento, bailes, presentaciones de coro, devocionales, conciertos y otros eventos especiales.</p></div></details>
+        <details><summary><span class="details-summary-text">¿Qué tipo de actividades tenemos?</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Las actividades pueden incluir reuniones sociales, actividades para niños y jóvenes, clases de inglés gratis, proyectos de servicio comunitario, clases de autosuficiencia o habilidades para la vida, noches de talento, bailes, presentaciones de coro, devocionales, conciertos y otros eventos especiales.</p></div></details>
       </section>
 
       <!-- 7. COMING ALONE / MISSIONARIES / TOUR -->
@@ -597,9 +634,9 @@
         <div class="section-kicker">No tiene que venir solo</div>
         <h2 class="section-title">¿Está pensando en venir a la Iglesia, pero no quiere venir solo?</h2>
         <p class="intro-text">Entrar a una iglesia por primera vez puede sentirse intimidante. Usted no tiene que venir solo. Nuestras misioneras pueden acompañarle, responder preguntas, mostrarle el edificio o encontrarse con usted el domingo.</p>
-        <div class="media-carousel"><button type="button" class="carousel-arrow prev" aria-label="Anterior">‹</button><div class="carousel-viewport"><div class="carousel-track"><div class="carousel-slide"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/aybFgdgA8Qs?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/71d906ce766ef311a2b36a8ed212d8f64405860d/full/1280%2C/0/default" alt="Video de recorrido del edificio de la Iglesia"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Toma un recorrido dentro de un edificio de la Iglesia</div></div><div class="carousel-slide"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/S_wy019yelo?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/1832a53ea5feaea0160d9ec9658e442579324dd0/full/1280%2C/0/default" alt="Video sobre sentirse bienvenido y acompañado"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Un lugar para cada persona</div></div></div></div><button type="button" class="carousel-arrow next" aria-label="Siguiente">›</button><div class="carousel-dots"><button type="button" class="carousel-dot active" aria-label="Ir al medio 1"></button><button type="button" class="carousel-dot" aria-label="Ir al medio 2"></button></div></div>
+        <div class="media-carousel"><button type="button" class="carousel-arrow prev" aria-label="Anterior"><span class="carousel-arrow-symbol">‹</span></button><div class="carousel-viewport"><div class="carousel-track"><div class="carousel-slide"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/aybFgdgA8Qs?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/71d906ce766ef311a2b36a8ed212d8f64405860d/full/1280%2C/0/default" alt="Video de recorrido del edificio de la Iglesia"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Toma un recorrido dentro de un edificio de la Iglesia</div></div><div class="carousel-slide"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/S_wy019yelo?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/1832a53ea5feaea0160d9ec9658e442579324dd0/full/1280%2C/0/default" alt="Video sobre sentirse bienvenido y acompañado"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Un lugar para cada persona</div></div></div></div><button type="button" class="carousel-arrow next" aria-label="Siguiente"><span class="carousel-arrow-symbol">›</span></button><div class="carousel-dots"><button type="button" class="carousel-dot active" aria-label="Ir al medio 1"></button><button type="button" class="carousel-dot" aria-label="Ir al medio 2"></button></div></div>
 
-        <details><summary>¿Cómo podemos ayudarle?</summary><div class="details-body"><p>Puede llamar o enviar un mensaje a las misioneras para programar un recorrido del edificio, hacer preguntas o coordinar para encontrarse con ellas en la Iglesia. Toque el número de teléfono para llamarlas directamente.</p></div></details>
+        <details><summary><span class="details-summary-text">¿Cómo podemos ayudarle?</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Puede llamar o enviar un mensaje a las misioneras para programar un recorrido del edificio, hacer preguntas o coordinar para encontrarse con ellas en la Iglesia. Toque el número de teléfono para llamarlas directamente.</p></div></details>
         <div class="contact-panel"><p class="contact-panel-title">Misioneros locales</p><div class="contact-item"><span class="contact-name">Hermanas Boyer y Rounds</span><a class="contact-phone" href="tel:+19198021411">(919) 802-1411</a></div></div>
         <p style="margin-top:12px;"><strong>Toque el número de las misioneras para coordinar un recorrido o para que alguien le reciba al llegar.</strong></p>
       </section>
@@ -639,9 +676,16 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      setupInviteArrowMotion();
       setupCarousels();
       setupVideoModal();
     });
+
+    function setupInviteArrowMotion() {
+      window.setTimeout(function () {
+        document.body.classList.add('rg2-chevron-motion-ended');
+      }, 15000);
+    }
 
     function setupCarousels() {
       document.querySelectorAll('.media-carousel').forEach(function (carousel) {
