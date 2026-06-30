@@ -9,8 +9,75 @@
   <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="images/favicons/favicon-48x48.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/favicons/android-chrome-512x512.png">
+  <meta name="msapplication-TileImage" content="images/favicons/mstile-150x150.png">
   <meta name="theme-color" content="#f7f1e3">
+
+  <script>
+    (function () {
+      var programUrl = 'sunday.html';
+      var inviteUrl = 'invite.html';
+
+      function getQueryMode() {
+        var params = new URLSearchParams(window.location.search || '');
+        var mode = (params.get('mode') || '').toLowerCase().trim();
+
+        if (mode === 'program' || mode === 'sunday') return 'program';
+        if (mode === 'invite' || mode === 'visitor') return 'invite';
+        return 'auto';
+      }
+
+      function isDebugMode() {
+        var params = new URLSearchParams(window.location.search || '');
+        return params.get('debug') === '1';
+      }
+
+      function getEasternWeekday() {
+        try {
+          return new Intl.DateTimeFormat('en-US', {
+            weekday: 'long',
+            timeZone: 'America/New_York'
+          }).format(new Date());
+        } catch (err) {
+          return new Date().toLocaleDateString('en-US', { weekday: 'long' });
+        }
+      }
+
+      function selectDestination(mode, weekday) {
+        if (mode === 'program') {
+          return { label: 'Programa sacramental', url: programUrl, displayMode: 'Force Program' };
+        }
+
+        if (mode === 'invite') {
+          return { label: 'Información para visitantes', url: inviteUrl, displayMode: 'Force Invite' };
+        }
+
+        if (weekday === 'Sunday') {
+          return { label: 'Programa sacramental', url: programUrl, displayMode: 'Auto' };
+        }
+
+        return { label: 'Información para visitantes', url: inviteUrl, displayMode: 'Auto' };
+      }
+
+      var mode = getQueryMode();
+      var weekday = getEasternWeekday();
+      var destination = selectDestination(mode, weekday);
+
+      window.RG2_ROUTER_DEBUG = {
+        mode: destination.displayMode,
+        detectedWeekday: weekday,
+        destinationLabel: destination.label,
+        destinationUrl: destination.url
+      };
+
+      if (!isDebugMode()) {
+        window.location.replace(destination.url);
+      }
+    })();
+  </script>
 
   <style>
     :root {
@@ -22,7 +89,6 @@
       --accent: #835f3b;
       --accent-dark: #563a22;
       --accent-soft: #ead8c1;
-      --gold: #c9a05f;
     }
 
     * { box-sizing: border-box; }
@@ -120,12 +186,12 @@
 <body>
   <main class="card">
     <div class="kicker">Rama Garner 2</div>
-    <h1>Bienvenido</h1>
+    <h1>Un momento por favor</h1>
 
-    <p>Un momento por favor. Le estamos llevando a la página correcta.</p>
+    <p>Le estamos llevando a la página correcta.</p>
 
     <div class="status">
-      <p><strong>Modo:</strong> <span id="modeText">Auto</span></p>
+      <p><strong>Modo:</strong> <span id="modeText">Revisando…</span></p>
       <p><strong>Día detectado:</strong> <span id="dayText">Revisando…</span></p>
       <p><strong>Destino:</strong> <span id="destinationText">Revisando…</span></p>
     </div>
@@ -137,64 +203,24 @@
     </div>
 
     <p class="small" style="margin-top:16px;">
-      En modo automático, los domingos abre el programa sacramental. De lunes a sábado abre la página para visitantes.
+      Esta pantalla solo debe aparecer si la red está lenta o si abrió la página en modo de prueba.
     </p>
   </main>
 
   <script>
     (function () {
-      var programUrl = 'sunday.html';
-      var inviteUrl = 'invite.html';
+      var debug = window.RG2_ROUTER_DEBUG || {
+        mode: 'Auto',
+        detectedWeekday: 'Unknown',
+        destinationLabel: 'Información para visitantes',
+        destinationUrl: 'invite.html'
+      };
 
-      function getQueryMode() {
-        var params = new URLSearchParams(window.location.search || '');
-        var mode = (params.get('mode') || '').toLowerCase().trim();
-
-        if (mode === 'program' || mode === 'sunday') return 'program';
-        if (mode === 'invite' || mode === 'visitor') return 'invite';
-        return 'auto';
-      }
-
-      function getEasternWeekday() {
-        try {
-          return new Intl.DateTimeFormat('en-US', {
-            weekday: 'long',
-            timeZone: 'America/New_York'
-          }).format(new Date());
-        } catch (err) {
-          return new Date().toLocaleDateString('en-US', { weekday: 'long' });
-        }
-      }
-
-      function selectDestination(mode, weekday) {
-        if (mode === 'program') {
-          return { label: 'Programa sacramental', url: programUrl, displayMode: 'Force Program' };
-        }
-
-        if (mode === 'invite') {
-          return { label: 'Información para visitantes', url: inviteUrl, displayMode: 'Force Invite' };
-        }
-
-        if (weekday === 'Sunday') {
-          return { label: 'Programa sacramental', url: programUrl, displayMode: 'Auto' };
-        }
-
-        return { label: 'Información para visitantes', url: inviteUrl, displayMode: 'Auto' };
-      }
-
-      var mode = getQueryMode();
-      var weekday = getEasternWeekday();
-      var destination = selectDestination(mode, weekday);
-
-      document.getElementById('modeText').textContent = destination.displayMode;
-      document.getElementById('dayText').textContent = weekday;
-      document.getElementById('destinationText').textContent = destination.label;
-      document.getElementById('destinationButton').setAttribute('href', destination.url);
-      document.getElementById('destinationButton').textContent = 'Abrir: ' + destination.label;
-
-      window.setTimeout(function () {
-        window.location.href = destination.url;
-      }, 1200);
+      document.getElementById('modeText').textContent = debug.mode;
+      document.getElementById('dayText').textContent = debug.detectedWeekday;
+      document.getElementById('destinationText').textContent = debug.destinationLabel;
+      document.getElementById('destinationButton').setAttribute('href', debug.destinationUrl);
+      document.getElementById('destinationButton').textContent = 'Abrir: ' + debug.destinationLabel;
     })();
   </script>
 </body>
