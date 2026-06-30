@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOCK Invite Page</title>
+  <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+  <meta name="theme-color" content="#f7f1e3">
+  <style>
+    :root {
+      --deep: #07161a;
+      --cream: #fff8ef;
+      --ink: #2b241d;
+      --muted: #665a50;
+      --line: rgba(93, 69, 45, .24);
+      --accent-dark: #563a22;
+      --accent-soft: #ead8c1;
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      min-height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--deep);
+      color: var(--ink);
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .card {
+      width: min(560px, 100%);
+      padding: 26px;
+      border-radius: 24px;
+      background: var(--cream);
+      border: 1px solid rgba(255,255,255,.24);
+      box-shadow: 0 16px 38px rgba(0,0,0,.28);
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: .78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--accent-dark);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(1.8rem, 7vw, 2.6rem);
+      line-height: 1.08;
+    }
+
+    p {
+      margin: 0 0 12px;
+      line-height: 1.45;
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    a {
+      color: var(--accent-dark);
+      font-weight: 900;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card">
+    <div class="kicker">Invite target</div>
+    <h1>MOCK Invite Page</h1>
+    <p>If the router sends you here Monday through Saturday, the weekday invite logic is working.</p>
+    <div class="note">
+      This is a mock file only. It does not replace or modify any live public page.
+    </div>
+    <p style="margin-top:16px;"><a href="v3_mock_router.html">Back to mock router</a></p>
+  </main>
+</body>
+</html>
