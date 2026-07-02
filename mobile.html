@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rama Garner 2</title>
-  <meta name="description" content="Página pública de Rama Garner 2.">
+  <title>Rama Garner 2 — Programa e Invitación</title>
 
   <link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
@@ -16,182 +15,108 @@
   <meta name="msapplication-TileImage" content="images/favicons/mstile-150x150.png">
   <meta name="theme-color" content="#f7f1e3">
 
-  <script>
-    (function () {
-      var programUrl = 'sunday.html';
-      var inviteUrl = 'invite.html';
-
-      function getQueryMode() {
-        var params = new URLSearchParams(window.location.search || '');
-        var mode = (params.get('mode') || '').toLowerCase().trim();
-
-        if (mode === 'program' || mode === 'sunday') return 'program';
-        if (mode === 'invite' || mode === 'visitor') return 'invite';
-        return 'auto';
-      }
-
-      function isDebugMode() {
-        var params = new URLSearchParams(window.location.search || '');
-        return params.get('debug') === '1';
-      }
-
-      function getEasternWeekday() {
-        try {
-          return new Intl.DateTimeFormat('en-US', {
-            weekday: 'long',
-            timeZone: 'America/New_York'
-          }).format(new Date());
-        } catch (err) {
-          return new Date().toLocaleDateString('en-US', { weekday: 'long' });
-        }
-      }
-
-      function selectDestination(mode, weekday) {
-        if (mode === 'program') {
-          return { label: 'Programa sacramental', url: programUrl, displayMode: 'Force Program' };
-        }
-
-        if (mode === 'invite') {
-          return { label: 'Información para visitantes', url: inviteUrl, displayMode: 'Force Invite' };
-        }
-
-        if (weekday === 'Sunday') {
-          return { label: 'Programa sacramental', url: programUrl, displayMode: 'Auto' };
-        }
-
-        return { label: 'Información para visitantes', url: inviteUrl, displayMode: 'Auto' };
-      }
-
-      var mode = getQueryMode();
-      var weekday = getEasternWeekday();
-      var destination = selectDestination(mode, weekday);
-
-      window.RG2_ROUTER_DEBUG = {
-        mode: destination.displayMode,
-        detectedWeekday: weekday,
-        destinationLabel: destination.label,
-        destinationUrl: destination.url
-      };
-
-      if (!isDebugMode()) {
-        window.location.replace(destination.url);
-      }
-    })();
-  </script>
-
   <style>
     :root {
-      --deep: #07161a;
-      --cream: #fff8ef;
-      --ink: #2b241d;
-      --muted: #665a50;
-      --line: rgba(93, 69, 45, .24);
-      --accent: #835f3b;
-      --accent-dark: #563a22;
-      --accent-soft: #ead8c1;
+      --bg: #f7f1e3;
+      --card: #fffaf0;
+      --ink: #2d2418;
+      --muted: #6b5f4e;
+      --accent: #8a5a2b;
+      --accent-dark: #5c3515;
+      --border: rgba(92, 53, 21, .18);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html,
     body {
-      min-height: 100%;
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--deep);
+      min-height: 100%;
+      background: radial-gradient(circle at top, #fff8e8 0%, var(--bg) 42%, #eadfc6 100%);
       color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       display: grid;
       place-items: center;
-      padding: 18px;
+      padding: 24px;
     }
 
     .card {
-      width: min(560px, 100%);
-      padding: 24px;
+      width: min(92vw, 520px);
+      background: rgba(255, 250, 240, .94);
+      border: 1px solid var(--border);
       border-radius: 24px;
-      background: var(--cream);
-      border: 1px solid rgba(255,255,255,.24);
-      box-shadow: 0 16px 38px rgba(0,0,0,.28);
+      box-shadow: 0 18px 50px rgba(61, 41, 18, .18);
+      padding: 26px 22px;
+      text-align: center;
     }
 
     .kicker {
-      display: inline-flex;
-      margin-bottom: 10px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
       color: var(--accent-dark);
-      font-size: .78rem;
-      font-weight: 900;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      letter-spacing: .04em;
+      margin-bottom: 8px;
     }
 
     h1 {
       margin: 0 0 10px;
       color: var(--accent-dark);
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(1.65rem, 6vw, 2.25rem);
-      line-height: 1.08;
+      font-size: clamp(1.7rem, 7vw, 2.4rem);
+      line-height: 1.05;
     }
 
     p {
-      margin: 0 0 12px;
+      margin: 8px auto;
+      color: var(--muted);
       line-height: 1.45;
+      max-width: 34rem;
     }
 
     .status {
-      margin: 14px 0;
+      margin-top: 16px;
+      text-align: left;
+      background: rgba(255,255,255,.64);
+      border: 1px solid var(--border);
+      border-radius: 18px;
       padding: 14px;
-      border-radius: 16px;
-      background: #ffffff;
-      border: 1px solid var(--line);
+      font-size: .95rem;
     }
-
-    .status strong { color: var(--accent-dark); }
 
     .buttons {
       display: grid;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
-    a.button {
+    .button {
       display: block;
-      padding: 12px 14px;
+      width: 100%;
+      border: 0;
       border-radius: 999px;
+      padding: 13px 16px;
       background: var(--accent);
-      color: #ffffff;
-      text-align: center;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    a.button.secondary {
-      background: #ffffff;
-      color: var(--accent-dark);
-      border: 1px solid var(--line);
-    }
-
-
-    .debug-details {
-      display: none;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .debug-details summary {
-      cursor: pointer;
+      color: #fff;
+      font-size: 1rem;
       font-weight: 800;
-      color: var(--accent-dark);
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    .debug-buttons {
-      margin-top: 10px;
+    .button.secondary {
+      background: rgba(138, 90, 43, .12);
+      color: var(--accent-dark);
+      border: 1px solid var(--border);
+    }
+
+    .error {
+      color: #8a1f11;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -200,47 +125,102 @@
   <main class="card">
     <div class="kicker">Rama Garner 2</div>
     <h1>Un momento por favor</h1>
+    <p id="message">Estamos preparando la página correcta.</p>
 
-    <p>Le estamos llevando a la página correcta.</p>
-
-    <div class="buttons">
-      <a class="button" id="destinationButton" href="#">Continuar</a>
+    <div class="status" id="debugBox" hidden>
+      <p><strong>Modo:</strong> <span id="modeText"></span></p>
+      <p><strong>Día detectado:</strong> <span id="dayText"></span></p>
+      <p><strong>Archivo que se cargará:</strong> <span id="targetText"></span></p>
+      <p><strong>URL guardable:</strong> esta página permanece en la barra del navegador.</p>
     </div>
 
-    <details class="debug-details" id="debugDetails">
-      <summary>Detalles de prueba</summary>
-      <div class="status">
-        <p><strong>Modo:</strong> <span id="modeText">Revisando…</span></p>
-        <p><strong>Día detectado:</strong> <span id="dayText">Revisando…</span></p>
-        <p><strong>Destino:</strong> <span id="destinationText">Revisando…</span></p>
-      </div>
-      <div class="buttons debug-buttons">
-        <a class="button secondary" href="sunday.html">Programa sacramental</a>
-        <a class="button secondary" href="invite.html">Información para visitantes</a>
-      </div>
-    </details>
+    <div class="buttons" id="buttons" hidden>
+      <button class="button" id="loadButton" type="button">Cargar página recomendada</button>
+      <a class="button secondary" href="mobile.html?mode=invite&debug=1">Probar invitación</a>
+      <a class="button secondary" href="mobile.html?mode=program&debug=1">Probar programa</a>
+    </div>
   </main>
 
   <script>
     (function () {
-      var debug = window.RG2_ROUTER_DEBUG || {
-        mode: 'Auto',
-        detectedWeekday: 'Unknown',
-        destinationLabel: 'Información para visitantes',
-        destinationUrl: 'invite.html'
-      };
-
       var params = new URLSearchParams(window.location.search || '');
-      var isDebug = params.get('debug') === '1';
+      var mode = String(params.get('mode') || '').toLowerCase();
+      var debug = params.get('debug') === '1';
 
-      document.getElementById('destinationButton').setAttribute('href', debug.destinationUrl);
+      var easternDate = new Date(new Date().toLocaleString('en-US', {
+        timeZone: 'America/New_York'
+      }));
 
-      if (isDebug) {
-        document.getElementById('debugDetails').style.display = 'block';
-        document.getElementById('modeText').textContent = debug.mode;
-        document.getElementById('dayText').textContent = debug.detectedWeekday;
-        document.getElementById('destinationText').textContent = debug.destinationLabel;
-        document.getElementById('destinationButton').textContent = 'Continuar a: ' + debug.destinationLabel;
+      var weekday = easternDate.getDay();
+      var weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+      var target;
+      var resolvedMode;
+
+      if (mode === 'program' || mode === 'sunday') {
+        target = 'sunday.html';
+        resolvedMode = 'Forced Program';
+      } else if (mode === 'invite' || mode === 'invitation') {
+        target = 'invite.html';
+        resolvedMode = 'Forced Invite';
+      } else if (weekday === 0) {
+        target = 'sunday.html';
+        resolvedMode = 'Auto Sunday';
+      } else {
+        target = 'invite.html';
+        resolvedMode = 'Auto Weekday';
+      }
+
+      function targetWithCacheBuster() {
+        var glue = target.indexOf('?') === -1 ? '?' : '&';
+        return target + glue + 'shell=' + encodeURIComponent(Date.now());
+      }
+
+      function loadTarget() {
+        document.getElementById('message').textContent = 'Cargando…';
+
+        fetch(targetWithCacheBuster(), {
+          cache: 'no-store'
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('No se pudo cargar ' + target + '. Error ' + response.status + '.');
+            }
+            return response.text();
+          })
+          .then(function (html) {
+            // This keeps mobile.html in the address bar while replacing the document
+            // with the selected public page.
+            document.open();
+            document.write(html);
+            document.close();
+          })
+          .catch(function (err) {
+            document.getElementById('message').innerHTML =
+              '<span class="error">No se pudo cargar la página automáticamente.</span>';
+            document.getElementById('buttons').hidden = false;
+            document.getElementById('loadButton').textContent = 'Intentar otra vez';
+            document.getElementById('loadButton').onclick = loadTarget;
+
+            var fallback = document.createElement('a');
+            fallback.className = 'button secondary';
+            fallback.href = target;
+            fallback.textContent = 'Abrir directamente: ' + target;
+            document.getElementById('buttons').appendChild(fallback);
+
+            console.error(err);
+          });
+      }
+
+      if (debug) {
+        document.getElementById('debugBox').hidden = false;
+        document.getElementById('buttons').hidden = false;
+        document.getElementById('modeText').textContent = resolvedMode;
+        document.getElementById('dayText').textContent = weekdayNames[weekday];
+        document.getElementById('targetText').textContent = target;
+        document.getElementById('loadButton').onclick = loadTarget;
+      } else {
+        loadTarget();
       }
     })();
   </script>
