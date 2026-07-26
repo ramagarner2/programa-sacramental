@@ -21,24 +21,24 @@
     .program-row { display:grid; grid-template-columns:43% 57%; border-top:1px solid var(--border); min-height:42px; }
     .program-label { background:var(--blue-light); color:var(--blue-dark); font-weight:700; padding:10px 12px; border-right:1px solid var(--border); }
     .program-value { padding:10px 12px; white-space:pre-wrap; }
-    .empty-value { color:#6B7280; font-style:italic; }
     .announcement-list { padding:12px; border-top:1px solid var(--border); }
-    .announcement-card { border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:10px; background:#ffffff; page-break-inside:avoid; break-inside:avoid; }
+    .announcement-card { border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:10px; background:#ffffff; }
     .announcement-card:last-child { margin-bottom:0; }
     .announcement-title { color:var(--blue-dark); font-weight:700; font-size:17px; margin-bottom:5px; }
     .announcement-text { white-space:pre-wrap; margin-bottom:8px; }
     .announcement-button { display:inline-block; background:var(--blue-dark); color:#ffffff; text-decoration:none; font-weight:700; padding:8px 12px; border-radius:6px; margin-top:4px; }
-    .announcement-qr { display:none; margin-top:8px; text-align:center; }
-    .announcement-qr img { width:108px; height:108px; }
-    .announcement-url { display:none; font-size:10px; overflow-wrap:anywhere; color:#374151; margin-top:4px; }
-    .fast-sunday-box { border-top:1px solid var(--border); padding:14px 16px; background:#ffffff; }
-    .fast-sunday-box strong { color:var(--blue-dark); }
     .missionary-card { padding:14px 16px; text-align:center; background:var(--blue-light); }
     .missionary-title { color:var(--blue-dark); font-weight:700; font-size:17px; margin-bottom:4px; }
     .missionary-name { font-size:16px; }
     .program-footer { text-align:center; color:#6B7280; font-size:13px; margin-top:18px; padding-bottom:18px; }
-    @media print { body { padding:0.35in; font-size:12pt; } .program-page { max-width:none; } .program-section,.program-header,.program-row,.welcome-card,.missionary-card,.fast-sunday-box,.announcement-card { page-break-inside:avoid; break-inside:avoid; } .announcement-button { display:none; } .announcement-qr { display:block; } .announcement-url { display:block; } }
-    @media (max-width:520px) { body { padding:10px; } .branch-name { font-size:23px; } .meeting-title { font-size:18px; } .program-row { grid-template-columns:1fr; } .program-label { border-right:none; border-bottom:1px solid var(--border); padding-bottom:6px; } .program-value { padding-top:8px; } }
+    @media (max-width:520px) {
+      body { padding:10px; }
+      .branch-name { font-size:23px; }
+      .meeting-title { font-size:18px; }
+      .program-row { grid-template-columns:1fr; }
+      .program-label { border-right:none; border-bottom:1px solid var(--border); padding-bottom:6px; }
+      .program-value { padding-top:8px; }
+    }
   </style>
 </head>
 <body>
@@ -58,11 +58,23 @@
       <div class="section-title">Información de la reunión</div>
       <div class="program-row">
         <div class="program-label">Preside</div>
-        <div class="program-value">Presidente Campos</div>
+        <div class="program-value">Presidente Luis E Campos</div>
       </div>
       <div class="program-row">
-        <div class="program-label">Tipo de reunión</div>
-        <div class="program-value">Reunión Sacramental</div>
+        <div class="program-label">Dirige</div>
+        <div class="program-value">Presidente Luis E Campos</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Visitantes de la estaca</div>
+        <div class="program-value">Damon Malasky, del Sumo Consejo</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Pianista</div>
+        <div class="program-value">Hermana Boyer</div>
+      </div>
+      <div class="program-row">
+        <div class="program-label">Directora de música</div>
+        <div class="program-value">Por invitación</div>
       </div>
     </section>
 
@@ -70,71 +82,73 @@
       <div class="section-title">Anuncios</div>
       <div class="announcement-list">
         <article class="announcement-card">
-          <div class="announcement-title">Invitation to feed the missionaries</div>
-          <div class="announcement-text">Thank you to everyone who has been helping feed our missionaries. They do not have any meals scheduled for next week. Please help us keep them fed by signing up.</div>
+          <div class="announcement-title">Invitación a alimentar a los misioneros</div>
+          <div class="announcement-text">Gracias a todos los que han estado ayudando a alimentar a nuestros misioneros. Todavía no tienen comidas programadas para la próxima semana. Por favor ayúdenos a mantenerlos alimentados inscribiéndose para una fecha.</div>
           <a class="announcement-button" href="https://comidas-garner2.github.io/" target="_blank" rel="noopener">Apuntarse para una comida</a>
-          <div class="announcement-qr">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fcomidas-garner2.github.io%2F" alt="Código QR para comidas para los misioneros">
-            <div class="announcement-url">https://comidas-garner2.github.io/</div>
-          </div>
         </article>
 
         <article class="announcement-card">
           <div class="announcement-title">EnglishConnect</div>
-          <div class="announcement-text">EnglishConnect is held every Monday and Friday from 8:00 PM to 9:00 PM.</div>
+          <div class="announcement-text">EnglishConnect se lleva a cabo todos los lunes y viernes de 8:00 p. m. a 9:00 p. m.</div>
           <a class="announcement-button" href="https://www.englishconnect.org/get-started#level-1" target="_blank" rel="noopener">Conocer EnglishConnect</a>
-          <div class="announcement-qr">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fwww.englishconnect.org%2Fget-started%23level-1" alt="Código QR para EnglishConnect">
-            <div class="announcement-url">https://www.englishconnect.org/get-started#level-1</div>
-          </div>
         </article>
 
         <article class="announcement-card">
-          <div class="announcement-title">WhatsApp Group Invitation</div>
-          <div class="announcement-text">We have a dedicated WhatsApp group for the branch. The link will be in the mobile program, and the QR code will be in the printed program. Please join to receive branch updates and announcements.</div>
+          <div class="announcement-title">Invitación al grupo de WhatsApp</div>
+          <div class="announcement-text">Tenemos un grupo de WhatsApp dedicado para la rama. El enlace está en el programa móvil y el código QR está en el programa impreso. Únase para recibir actualizaciones y anuncios de la rama.</div>
           <a class="announcement-button" href="https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y" target="_blank" rel="noopener">Unirse al grupo de WhatsApp</a>
-          <div class="announcement-qr">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https%3A%2F%2Fchat.whatsapp.com%2FHSr6pF68khG3kKG2mIK14y" alt="Código QR para grupo de WhatsApp">
-            <div class="announcement-url">https://chat.whatsapp.com/HSr6pF68khG3kKG2mIK14y</div>
-          </div>
+        </article>
+
+        <article class="announcement-card">
+          <div class="announcement-title">Bautismo de Kaylee Herrera Dominguez</div>
+          <div class="announcement-text">El bautismo será este sábado 1 de agosto a las 6:00 p. m. en nuestra capilla de Garner.</div>
         </article>
       </div>
     </section>
 
     <section class="program-section">
       <div class="section-title">Orden de la reunión</div>
+
       <div class="program-row">
         <div class="program-label">Himno de apertura</div>
-        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+        <div class="program-value">#4 Bandera de Sión</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Primera oración</div>
         <div class="program-value">Por invitación</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Himno sacramental</div>
-        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+        <div class="program-value">#101 Dios, escúchanos orar</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Santa Cena</div>
         <div class="program-value">Administración de la Santa Cena</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Primer discursante</div>
-        <div class="program-value">Rey Martinez</div>
+        <div class="program-value">Theresa Handy</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Segundo discursante</div>
-        <div class="program-value">Kasandra Martinez</div>
+        <div class="program-value">Enrique Alejandro Martinez</div>
       </div>
+
       <div class="program-row">
-        <div class="program-label">Himno intermedio / número musical</div>
-        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+        <div class="program-label">Himno intermedio</div>
+        <div class="program-value">#159 Con valor marchemos</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Himno de clausura</div>
-        <div class="program-value"><span class="empty-value">Pendiente</span></div>
+        <div class="program-value">#38 Santos, avanzad</div>
       </div>
+
       <div class="program-row">
         <div class="program-label">Última oración</div>
         <div class="program-value">Por invitación</div>
