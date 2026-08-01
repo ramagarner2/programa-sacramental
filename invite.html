@@ -58,6 +58,25 @@
       font: inherit;
     }
 
+    .sunday-route-fallback {
+      width: min(calc(100% - 24px), var(--max-width));
+      margin: 12px auto 0;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 16px;
+      background: rgba(255,248,239,.96);
+      color: var(--accent-dark);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .sunday-route-fallback a {
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 900;
+      text-decoration: underline;
+    }
+
     .page {
       width: 100%;
       max-width: var(--max-width);
@@ -579,7 +598,56 @@
   </style>
 </head>
 <body>
-  <!-- Mock review file only. This is not the live Sunday mobile program. -->
+  <aside class="sunday-route-fallback" id="sundayRouteFallback" hidden>
+    Hoy es domingo. Estamos abriendo el programa sacramental.
+    <br><a href="sunday.html">Abrir el programa directamente</a>
+  </aside>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search || '');
+      if (params.get('stay') === '1') return;
+
+      var routingStarted = false;
+
+      function easternWeekday() {
+        try {
+          return new Intl.DateTimeFormat('en-US', {
+            weekday: 'long',
+            timeZone: 'America/New_York'
+          }).format(new Date());
+        } catch (error) {
+          return new Date().toLocaleDateString('en-US', { weekday: 'long' });
+        }
+      }
+
+      function routeIfSunday() {
+        if (routingStarted || easternWeekday() !== 'Sunday') return;
+        routingStarted = true;
+
+        document.getElementById('sundayRouteFallback').hidden = false;
+        window.setTimeout(function () {
+          window.location.replace('sunday.html');
+        }, 150);
+      }
+
+      routeIfSunday();
+
+      // Reevaluate without reloading so a page left open Saturday night
+      // moves to the Sunday program shortly after midnight Eastern time.
+      window.setInterval(routeIfSunday, 60000);
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) routeIfSunday();
+      });
+    })();
+  </script>
+
+  <noscript>
+    <aside class="sunday-route-fallback">
+      Si hoy es domingo, <a href="sunday.html">abra el programa sacramental</a>.
+    </aside>
+  </noscript>
+
   <main class="page">
 
     <!-- 1. HERO INVITATION -->
@@ -639,7 +707,6 @@
         <p class="intro-text">Será bienvenido a adorar con nosotros el domingo, y también puede acompañarnos en actividades cuando estén programadas. Las actividades pueden ser una manera sencilla de conocer personas, hacer preguntas, hacer amistades y sentirse más cómodo.</p>
         <div class="media-card"><button type="button" class="video-thumb-button" data-video-modal-url="https://www.youtube.com/embed/hzbLM8gdHtM?rel=0"><img src="https://www.churchofjesuschrist.org/imgs/6b9c9a62642a50bad7b1d8ef49cbcbbecba51286/full/500%2C/0/default" alt="Video sobre la comunidad y actividades de la Iglesia"><span class="play-overlay"><span class="play-circle">▶</span></span></button><div class="media-caption">Esto es la Iglesia</div></div>
 
-        <div class="activity-list"><article class="activity-card"><strong>Noche de Hogar</strong><div class="meta">lunes, 13 de julio • 6:30 PM</div><div class="meta">Todos • 1433 Aversboro Rd, Garner, NC 27529</div><p>Inviten a alguien a venir con ustedes. Todos son bienvenidos.</p></article></div>
         <details><summary><span class="details-summary-text">¿Qué tipo de actividades tenemos?</span><span class="invite-chevron" aria-hidden="true">›</span></summary><div class="details-body"><p>Las actividades pueden incluir reuniones sociales, actividades para niños y jóvenes, clases de inglés gratis, proyectos de servicio comunitario, clases de autosuficiencia o habilidades para la vida, noches de talento, bailes, presentaciones de coro, devocionales, conciertos y otros eventos especiales.</p></div></details>
       </section>
 
